@@ -7,6 +7,11 @@ namespace HPS.ASP.Models
 {
     public class Event
     {
+        public Event()
+        {
+            this.Files = new HashSet<File>();
+        }
+
         public int ID { get; set; }
 
         public string Title { get; set; }
@@ -21,10 +26,6 @@ namespace HPS.ASP.Models
 
         public string Link { get; set; }
 
-        public int FileID { get; set; }
-
-        //Collection of FileID
-
-        public virtual ICollection<File> File { get; set; }
+        public virtual ICollection<File> Files { get; set; }
     }
 }

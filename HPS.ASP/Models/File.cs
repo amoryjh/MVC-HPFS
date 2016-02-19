@@ -18,5 +18,9 @@ namespace HPS.ASP.Models
         public string Type { get; set; }
 
         public byte[] Data { get; set; }
+
+        public int EventID { get; set; }
+
+        public virtual Event Event { get; set; }
     }
 }

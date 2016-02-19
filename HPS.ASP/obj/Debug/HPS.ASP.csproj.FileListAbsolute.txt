@@ -108,7 +108,6 @@ C:\Users\Amory\Desktop\MVC-HPFS\HPS.ASP\bin\Microsoft.Owin.Security.MicrosoftAcc
 C:\Users\Amory\Desktop\MVC-HPFS\HPS.ASP\obj\Debug\HPS.ASP.csprojResolveAssemblyReference.cache
 C:\Users\Amory\Desktop\MVC-HPFS\HPS.ASP\obj\Debug\HPS.ASP.dll
 C:\Users\Amory\Desktop\MVC-HPFS\HPS.ASP\obj\Debug\HPS.ASP.pdb
-C:\Users\Brandon\Desktop\MVC-HPFS\HPS.ASP\obj\Debug\HPS.ASP.csprojResolveAssemblyReference.cache
 C:\Users\Brandon\Desktop\MVC-HPFS\HPS.ASP\obj\Debug\HPS.ASP.dll
 C:\Users\Brandon\Desktop\MVC-HPFS\HPS.ASP\obj\Debug\HPS.ASP.pdb
 C:\Users\Brandon\Desktop\MVC-HPFS\HPS.ASP\bin\HPS.ASP.dll.config
@@ -163,3 +162,5 @@ C:\Users\Brandon\Desktop\MVC-HPFS\HPS.ASP\bin\Microsoft.Owin.Security.OAuth.xml
 C:\Users\Brandon\Desktop\MVC-HPFS\HPS.ASP\bin\Microsoft.Owin.Security.Google.xml
 C:\Users\Brandon\Desktop\MVC-HPFS\HPS.ASP\bin\Microsoft.Owin.Security.Twitter.xml
 C:\Users\Brandon\Desktop\MVC-HPFS\HPS.ASP\bin\Microsoft.Owin.Security.MicrosoftAccount.xml
+C:\Users\Brandon\Desktop\MVC-HPFS\HPS.ASP\obj\Debug\HPS.ASP.Migrations.InitialCreate.resources
+C:\Users\Brandon\Desktop\MVC-HPFS\HPS.ASP\obj\Debug\HPS.ASP.csproj.GenerateResource.Cache
