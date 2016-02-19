@@ -29,5 +29,13 @@ namespace HPS.ASP.Models
         {
             return new ApplicationDbContext();
         }
+
+        public System.Data.Entity.DbSet<HPS.ASP.Models.Program> Programs { get; set; }
+
+        public System.Data.Entity.DbSet<HPS.ASP.Models.Index> Indices { get; set; }
+
+        public System.Data.Entity.DbSet<HPS.ASP.Models.File> Files { get; set; }
+
+        public System.Data.Entity.DbSet<HPS.ASP.Models.Event> Events { get; set; }
     }
 }

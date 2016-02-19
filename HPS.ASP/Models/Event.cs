@@ -25,6 +25,6 @@ namespace HPS.ASP.Models
 
         //Collection of FileID
 
-        public virtual ICollection<File> FileID { get; set; }
+        public virtual ICollection<File> File { get; set; }
     }
 }
