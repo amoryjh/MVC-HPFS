@@ -3,10 +3,11 @@
 <head>
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>@ViewBag.Title - My ASP.NET Application</title>
-    @Styles.Render("~/Content/bootstrap.min.css", "~/Content/Site.css", "~/Content/main.min.css")
-    @Scripts.Render("~/bundles/modernizr")
-
+    <title>@ViewBag.Title - Hamilton Program for Schizophrenia</title>
+    @Styles.Render("https://npmcdn.com/flickity@1.1/dist/flickity.min.css", "~/assets/css/main.min.css") 
+    @Scripts.Render("https://npmcdn.com/flickity@1.1/dist/flickity.pkgd.min.js", "~/assets/js/jquery.min.js", "~/assets/js/bootstrap.min.js", "~/assets/js/modernizr.min.js", "~/assets/js/angular.min.js", "~/assets/js/main.js" )
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.5.0/css/font-awesome.min.css">
+    <link href='https://fonts.googleapis.com/css?family=Lato:400,300,700' rel='stylesheet' type='text/css'>
 </head>
 <body>
     <div class="navbar navbar-inverse navbar-fixed-top">

@@ -1,0 +1,30 @@
+/*///////////////////////////////////////////////////////
+--------------------------FOOTER------------------------
+///////////////////////////////////////////////////////*/
+footer{
+  padding: 3em;
+  padding-bottom: 1em;
+  font-size: 0.95em;
+  background: @matte-black; color: @white;
+  .footer-address{
+    p{margin: 0;}
+  }
+  .footer-links{
+    .footer-logo { margin-bottom: 0.45em; a{color: @white;} }
+    li{
+      padding: 0 0.45em;
+      border-right: 1px solid #fff;
+      font-size: 1.1em;
+      &:last-child{border:none;} 
+      a{
+        color: @white;
+        &:hover{ color: @brand-sec;} 
+      }
+    }
+  }
+  .footer-address,.footer-links,.footer-partners{
+    margin-bottom: 2.5em;
+  }
+  ul{font-weight: 300;}
+  h3{margin-bottom: 0.3em;}
+}
