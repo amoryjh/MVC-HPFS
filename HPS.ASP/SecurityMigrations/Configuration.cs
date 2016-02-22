@@ -34,9 +34,20 @@ namespace HPS.ASP.SecurityMigrations
                 var roleresult = roleManager.Create(new IdentityRole("BoardDirector"));
             }
 
+
             if (!context.Roles.Any(r => r.Name == "Family"))
             {
                 var roleresult = roleManager.Create(new IdentityRole("Family"));
+            }
+
+            if (!context.Roles.Any(r => r.Name == "Client"))
+            {
+                var roleresult = roleManager.Create(new IdentityRole("Client"));
+            }
+
+            if (!context.Roles.Any(r => r.Name == "Default"))
+            {
+                var roleresult = roleManager.Create(new IdentityRole("Default"));
             }
 
             //Create a User Manager
@@ -50,7 +61,7 @@ namespace HPS.ASP.SecurityMigrations
                 Email = "admin@hps.com"
             };
 
-            //Create the manager a manager user
+            //Create the 
             var BoardDirector = new ApplicationUser
             {
                 UserName = "BoardDirector",
