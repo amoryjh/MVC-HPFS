@@ -164,3 +164,5 @@ C:\Users\Brandon\Desktop\MVC-HPFS\HPS.ASP\bin\Microsoft.Owin.Security.Twitter.xm
 C:\Users\Brandon\Desktop\MVC-HPFS\HPS.ASP\bin\Microsoft.Owin.Security.MicrosoftAccount.xml
 C:\Users\Brandon\Desktop\MVC-HPFS\HPS.ASP\obj\Debug\HPS.ASP.Migrations.InitialCreate.resources
 C:\Users\Brandon\Desktop\MVC-HPFS\HPS.ASP\obj\Debug\HPS.ASP.csproj.GenerateResource.Cache
+C:\Users\Amory\Desktop\MVC-HPFS\HPS.ASP\obj\Debug\HPS.ASP.Migrations.InitialCreate.resources
+C:\Users\Amory\Desktop\MVC-HPFS\HPS.ASP\obj\Debug\HPS.ASP.csproj.GenerateResource.Cache
