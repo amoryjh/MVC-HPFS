@@ -184,6 +184,15 @@
     <Compile Include="Models\ManageViewModels.cs" />
     <Compile Include="Models\Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="SecurityMigrations\201602220002455_InitialCreate.cs" />
+    <Compile Include="SecurityMigrations\201602220002455_InitialCreate.Designer.cs">
+      <DependentUpon>201602220002455_InitialCreate.cs</DependentUpon>
+    </Compile>
+    <Compile Include="SecurityMigrations\201602220214096_SecurityInitial.cs" />
+    <Compile Include="SecurityMigrations\201602220214096_SecurityInitial.Designer.cs">
+      <DependentUpon>201602220214096_SecurityInitial.cs</DependentUpon>
+    </Compile>
+    <Compile Include="SecurityMigrations\Configuration.cs" />
     <Compile Include="Startup.cs" />
   </ItemGroup>
   <ItemGroup>
@@ -286,6 +295,12 @@
   <ItemGroup>
     <EmbeddedResource Include="Migrations\201602191911289_InitialCreate.resx">
       <DependentUpon>201602191911289_InitialCreate.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="SecurityMigrations\201602220002455_InitialCreate.resx">
+      <DependentUpon>201602220002455_InitialCreate.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="SecurityMigrations\201602220214096_SecurityInitial.resx">
+      <DependentUpon>201602220214096_SecurityInitial.cs</DependentUpon>
     </EmbeddedResource>
   </ItemGroup>
   <PropertyGroup>
