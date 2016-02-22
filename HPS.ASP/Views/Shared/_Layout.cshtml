@@ -46,17 +46,22 @@
         <li class="" id=""><a href="contact.php">Contact</a></li>
       </ul>
     </div>
+    @if (User.IsInRole("admin"))
+    {   
     <div class="admin-aside-panel">
       <h4>My Dashboard</h4>
       <ul>
         <li><a href="admin-panel.php">File Exchange</a></li>
         <li><a href="admin-panel.php">Board Calendar</a></li>
+    @if (User.IsInRole("admin"))
+    {
         <li><a href="admin-panel.php">Content Management</a></li>
         <li><a href="admin-panel.php">User Management</a></li>
+    }
       </ul>
       <i class="icon fa fa-chevron-right closed"> </i>
     </div>
-
+    }
 
     @RenderBody()
 
