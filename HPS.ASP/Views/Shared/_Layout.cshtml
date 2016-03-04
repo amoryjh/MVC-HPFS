@@ -4,16 +4,16 @@
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>@ViewBag.Title - Hamilton Program for Schizophrenia</title>
-    @Styles.Render("https://npmcdn.com/flickity@1.1/dist/flickity.min.css", "~/assets/less/main.min.css") 
-    @Scripts.Render("https://npmcdn.com/flickity@1.1/dist/flickity.pkgd.min.js", "~/assets/js/jquery.min.js", "~/assets/js/bootstrap.min.js", "~/assets/js/modernizr.min.js", "~/assets/js/angular.min.js", "~/assets/js/main.js" )
-    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.5.0/css/font-awesome.min.css">
+    @Styles.Render("https://maxcdn.bootstrapcdn.com/font-awesome/4.5.0/css/font-awesome.min.css", "~/assets/less/main.min.css") 
+    @Scripts.Render("~/assets/js/jquery.min.js", "~/assets/js/bootstrap.min.js", "~/assets/js/modernizr.min.js", "~/assets/js/angular.min.js", "~/assets/js/main.js" )
+    <!--<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.5.0/css/font-awesome.min.css">-->
     <link href='https://fonts.googleapis.com/css?family=Lato:400,300,700' rel='stylesheet' type='text/css'>
 </head>
 <body class="@ViewBag.BodyClass">
   <nav class="clearfix">
     <h1><a href="">HPS</a></h1>
     <ul class="parent-nav">
-      <li class="parent-li-nav" id="home-nav"><a class="nav-current" href="/Home">Home</a></li>
+      <li class="parent-li-nav" id="home-nav"><a class="nav-current" href="/">Home</a></li>
       <li class="parent-li-nav" id="events-nav"><a class="nav-current" href="/Event">Events</a></li>
       <li class="parent-li-nav" id="care-nav"><a href="/Care" class="nav-current">Care</a></li>
       <li class="parent-li-nav" id="about-nav"><a href="/About" class="nav-current">About HPS</a></li>

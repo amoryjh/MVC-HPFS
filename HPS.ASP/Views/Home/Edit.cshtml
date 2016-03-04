@@ -1,4 +1,4 @@
-﻿@model HPS.ASP.Models.Program
+﻿@model HPS.ASP.Models.Index
 
 @{
     ViewBag.Title = "Edit";
@@ -12,7 +12,7 @@
     @Html.AntiForgeryToken()
     
     <div class="form-horizontal">
-        <h4>Program</h4>
+        <h4>Index</h4>
         <hr />
         @Html.ValidationSummary(true)
         @Html.HiddenFor(model => model.ID)
@@ -30,6 +30,22 @@
             <div class="col-md-10">
                 @Html.EditorFor(model => model.Content)
                 @Html.ValidationMessageFor(model => model.Content)
+            </div>
+        </div>
+
+        <div class="form-group">
+            @Html.LabelFor(model => model.ButtonText, new { @class = "control-label col-md-2" })
+            <div class="col-md-10">
+                @Html.EditorFor(model => model.ButtonText)
+                @Html.ValidationMessageFor(model => model.ButtonText)
+            </div>
+        </div>
+
+        <div class="form-group">
+            @Html.LabelFor(model => model.ButtonLink, new { @class = "control-label col-md-2" })
+            <div class="col-md-10">
+                @Html.EditorFor(model => model.ButtonLink)
+                @Html.ValidationMessageFor(model => model.ButtonLink)
             </div>
         </div>
 

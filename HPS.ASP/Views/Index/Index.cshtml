@@ -2,8 +2,125 @@
 
 @{
     ViewBag.Title = "Index";
+    ViewBag.BodyClass = "home";
 }
+<div id="home-carousel" class="carousel slide" data-ride="carousel">
+  <ol class="carousel-indicators">
+    <li data-target="#home-carousel" data-slide-to="0" class="active"></li>
+    <li data-target="#home-carousel" data-slide-to="1"></li>
+    <li data-target="#home-carousel" data-slide-to="2"></li>
+  </ol>
+  <!-- Wrapper for slides -->
+  <div class="carousel-inner" role="listbox">
+    <div id="home-banner-one" class="item active">
+      <div class="carousel-caption">
+        <h1 class="text-left">Helping  People <span class="highlight"> Succeed</span></h1>
+        <h4 class="text-left">Providing long-term commitments to our clients and their families is what we do best. See how our <span class="highlight">care</span> makes a difference.</h4>
+        <div class="carousel-btns text-left">
+          <button class="btn btn-solid text-left">Learn More</button>
+        </div>
+      </div>
+      <div class="hero-middle-filter"></div>
+    </div>
+    <div id="home-banner-two" class="item">
+      <div class="carousel-caption">
+        <h1 class="text-left">Community Based Programs</h1>
+        <h4 class="text-left">All of our programs and treatment keep one thing in mind - <span class="highlight"> care</span> and <span class="highlight"> fun! </span> </h4>
+        <div class="carousel-btns text-left">
+          <button class="btn btn-solid text-left">Learn More</button>
+        </div>
+      </div>
+      <div class="hero-middle-filter"></div>
+    </div>
+    <div id="home-banner-three" class="item">
+      <div class="carousel-caption">
+        <h1 class="text-left">See life through a <span class="highlight">different </span> lens</h1>
+        <h4 class="text-left">With events and programs like our photography course, we allow for all of our clients to gain new skills and outlooks.</h4>
+        <div class="carousel-btns text-left">
+          <button class="btn btn-solid text-left">Learn More</button>
+        </div>
+      </div>
+      <div class="hero-middle-filter"></div>
+    </div>
+  </div>
+  <!-- Controls -->
+  <a class="left carousel-control" href="#home-carousel" role="button" data-slide="prev">
+    <span class="glyphicon glyphicon-chevron-left" aria-hidden="true"></span>
+    <span class="sr-only">Previous</span>
+  </a>
+  <a class="right carousel-control" href="#home-carousel" role="button" data-slide="next">
+    <span class="glyphicon glyphicon-chevron-right" aria-hidden="true"></span>
+    <span class="sr-only">Next</span>
+  </a>
+</div><!-- / Carousel-->
+<!-- Call to action-->
 
+<section class="home-call clearfix key-message">
+  <div class="col-sm-10 col-sm-offset-1 col-md-10 col-md-offset-1 text-center">
+    <p>
+      Our goal is to see each client actively pursuing a <span class="highlight"> healthy </span> and <span class="highlight"> fulfilling </span> life in the community. To this end, we provide <span class="highlight"> support </span> to individuals at home or work and in leisure activities.
+    </p>
+  </div>
+</section>
+
+<section class="clearfix text-photo-half treatment-care">
+  <div class="text-half clearfix">
+    <div class="text-half-inner">
+      <div class="col-xs-12 clearfix">
+        <h2>Treatment &amp; Care</h2>
+        <p>We offer rehabilitation to clients through programs, as well as through living, learning, working, social and recreational activities.</p>
+      </div>
+      <div class="col-sm-6 col-lg-6 col-md-12">
+        <h3>Programs</h3>
+        <ul>
+          <li>Collective Kitchen</li>
+          <li>Computer Tutoring</li>
+          <li>Cottage Studio</li>
+          <li>Friday Social</li>
+        </ul>
+      </div>
+      <div class="col-sm-6 col-lg-6 col-md-12">
+        <h3>Treatment</h3>
+        <ul>
+          <li>Social and Recreational Opportunities</li>
+          <li>Case Managers</li>
+        </ul>
+      </div>
+    </div>
+  </div>
+  <div class="photo-half">
+    <div class="photo-bg"></div>
+  </div>
+</section>
+
+<section class="clearfix text-photo-half case-management">
+  <div class="text-half clearfix">
+    <div class="text-half-inner">
+      <div class="col-xs-12 clearfix">
+        <h2>Case Management</h2>
+        <p>Each client is assigned to their own case manager. This allows for our clients to receive the <span class="highlight"> specialized treatment </span> that they deserve.</p>
+        <h3>Client Benefits</h3>
+        <ul>
+          <li>Consistent Treatment</li>
+          <li>Goal Setting</li>
+          <li>Personal Growth</li>
+          <li>Peer Encouragement</li>
+        </ul>
+      </div>
+    </div>
+  </div>
+  <div class="photo-half">
+    <div class="photo-bg"></div>
+  </div>
+</section>
+
+
+<section class="clearfix key-message key-message-purple">
+  <div class="col-sm-12 col-sm-offset-0 col-md-12 col-md-offset-0">
+    <p class="col-md-8">Check out this months events for more information about HPS has to offer and some more information about client <span class="highlight"> care </span>.</p>
+    <a href="" class="col-xs-12 col-md-4 btn btn-solid">Visit This Page</a>
+  </div>
+</section>
 <h2>Index</h2>
 
 <p>
@@ -55,3 +172,4 @@
 }
 
 </table>
+

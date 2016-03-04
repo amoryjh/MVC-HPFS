@@ -1,4 +1,4 @@
-﻿@model HPS.ASP.Models.Program
+﻿@model HPS.ASP.Models.Index
 
 @{
     ViewBag.Title = "Details";
@@ -7,7 +7,7 @@
 <h2>Details</h2>
 
 <div>
-    <h4>Program</h4>
+    <h4>Index</h4>
 	<hr />
     <dl class="dl-horizontal">
         <dt>
@@ -24,6 +24,22 @@
 
         <dd>
             @Html.DisplayFor(model => model.Content)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.ButtonText)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.ButtonText)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.ButtonLink)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.ButtonLink)
         </dd>
 
         <dt>

@@ -21,6 +21,11 @@
         <h4>@Html.DisplayFor(modelItem => item.Date)</h4>
         <p>@Html.DisplayFor(modelItem => item.Content)</p>
         <a href="@Html.DisplayFor(modelItem => item.Link)" class="btn">Check it out!</a>
+        <div class="admin-opts" style="color:#fff !important;margin-top:2em;">
+          @Html.ActionLink("Edit", "Edit", new { id = item.ID })
+          @Html.ActionLink("Details", "Details", new { id = item.ID })
+          @Html.ActionLink("Delete", "Delete", new { id = item.ID })
+        </div>
       </div>
     </div>
   }
