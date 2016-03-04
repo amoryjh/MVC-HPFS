@@ -4,9 +4,8 @@
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>@ViewBag.Title - Hamilton Program for Schizophrenia</title>
-    @Styles.Render("https://maxcdn.bootstrapcdn.com/font-awesome/4.5.0/css/font-awesome.min.css", "~/assets/less/main.min.css") 
+    @Styles.Render("~/assets/less/main.min.css","https://maxcdn.bootstrapcdn.com/font-awesome/4.5.0/css/font-awesome.min.css") 
     @Scripts.Render("~/assets/js/jquery.min.js", "~/assets/js/bootstrap.min.js", "~/assets/js/modernizr.min.js", "~/assets/js/angular.min.js", "~/assets/js/main.js" )
-    <!--<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.5.0/css/font-awesome.min.css">-->
     <link href='https://fonts.googleapis.com/css?family=Lato:400,300,700' rel='stylesheet' type='text/css'>
 </head>
 <body class="@ViewBag.BodyClass">
@@ -150,14 +149,7 @@
           }
         }
       });
-      $('.main-gallery').flickity({
-        // options
-        cellAlign: 'left',
-        contain: true
-      });
-
-
-    </script>
+</script>
 
   </footer>
   @RenderSection("scripts", required: false)

@@ -1,7 +1,28 @@
-@brand-pri: #BF55EC;
-@brand-sec: lighten(@brand-pri, 10%);
-@brand-tri: lighten(@brand-blue, 10%);
-@brand-blue: #1d2935;
-@black:     #222223;
+//Base
+@black:     #3E3D3D;
 @matte-black:#414240;
 @white:     #ffffff;
+
+//Brand
+//@brand-pri: #BF55EC;
+@brand-pri: #AB75B3;
+@brand-sec: lighten(@brand-pri, 10%);
+@brand-tri: lighten(@brand-blue, 10%);
+@brand-blue: @blue;
+
+@blue:#1562b0;
+@orange:#EF7D3E;
+@purple:#AB75B3;
+@yellow:#DBB806;
+@red:#C93438;
+
+.txt-blue{color: @blue;}     .bg-blue{background: @blue;}
+.txt-orange{color: @orange;} .bg-orange{background: @orange;}
+.txt-purple{color: @purple;} .bg-purple{background: @purple;}
+.txt-yellow{color: @yellow;} .bg-yellow{background: @yellow;}
+.txt-red{color: @red;}       .bg-red{background: @red;}
+.txt-white{color: @white;}   .bg-white{background: @white;} .bg-white{h2,h1,h3,h4,p,li,a,p>a{color: @black}}
+
+
+
+.bg-blue,.bg-orange,.bg-purple,.bg-yellow,.bg-red{h2,h1,h3,h4,p,li,a,p>a{color: @white}}
