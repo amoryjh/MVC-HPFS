@@ -1,0 +1,77 @@
+﻿@model IEnumerable<HPSMVC.Models.Event>
+
+@{
+    ViewBag.Title = "Index";
+}
+
+<h2>Events</h2>
+<p>Need to fix change relationships in the model to include many-to-many between events and files</p>
+
+<p>
+    @Html.ActionLink("Create New", "Create")
+</p>
+<table class="table">
+    <tr>
+        <th>
+            @Html.DisplayNameFor(model => model.ID)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.Title)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.Content)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.Date)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.By)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.Viewer)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.LinkText)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.Link)
+        </th>
+        <th></th>
+    </tr>
+
+@foreach (var item in Model)
+{
+  <tr>
+    <td>
+      @Html.DisplayFor(modelItem => item.ID)
+    </td>
+    <td>
+      @Html.DisplayFor(modelItem => item.Title)
+    </td>
+    <td>
+      @Html.DisplayFor(modelItem => item.Content)
+    </td>
+    <td>
+      @Html.DisplayFor(modelItem => item.Date)
+    </td>
+    <td>
+      @Html.DisplayFor(modelItem => item.By)
+    </td>
+    <td>
+      @Html.DisplayFor(modelItem => item.Viewer)
+    </td>
+    <td>
+      @Html.DisplayFor(modelItem => item.LinkText)
+    </td>
+    <td>
+      @Html.DisplayFor(modelItem => item.Link)
+    </td>
+    <td>
+      @Html.ActionLink("Edit", "Edit", new { id = item.ID }) |
+      @Html.ActionLink("Details", "Details", new { id = item.ID }) |
+      @Html.ActionLink("Delete", "Delete", new { id = item.ID })
+    </td>
+  </tr>
+}
+
+</table>
