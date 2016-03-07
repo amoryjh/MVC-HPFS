@@ -4,8 +4,7 @@
     ViewBag.Title = "Index";
 }
 
-<h2>Files</h2>
-<p>Need to fix change relationships in the model to include many-to-many between events and files</p>
+<h2>Index</h2>
 
 <p>
     @Html.ActionLink("Create New", "Create")
@@ -13,49 +12,39 @@
 <table class="table">
     <tr>
         <th>
-            Associated Event Name
-        </th>
-        <th>
             @Html.DisplayNameFor(model => model.Date)
         </th>
         <th>
             @Html.DisplayNameFor(model => model.Category)
         </th>
         <th>
-            Purty Picture
-        </th>
-        <th>
-            Options
+          File
         </th>
     </tr>
 
-@foreach (var item in Model)
-{
-  <tr>
-    <td>
-      @Html.DisplayFor(modelItem => item.Event.Title)
-    </td>
-    <td>
-      @Html.DisplayFor(modelItem => item.Date)
-    </td>
-    <td>
-      @Html.DisplayFor(modelItem => item.Category)
-    </td>
-    <td>
-      @{
-        if (item.fileContent != null && item.fileType.Contains("image"))
-        {
-          string imageBase64 = Convert.ToBase64String(item.fileContent);
-          string imageSrc = string.Format("data:" + item.fileType + ";base64,{0}", imageBase64);
-          <img src="@imageSrc" style="max-height:100px;max-width:120px;" class="img-responsive"/>
+@foreach (var item in Model) {
+    <tr>
+        <td>
+            @Html.DisplayFor(modelItem => item.Date)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.Category)
+        </td>
+        <td>
+         @{
+  if (item.fileContent != null && item.fileType.Contains("image"))
+  {
+    string imageBase64 = Convert.ToBase64String(item.fileContent);
+    string imageSrc = string.Format("data:" + item.fileType + ";base64,{0}", imageBase64);
+    <img src="@imageSrc" style="max-height:100px;max-width:120px;" class="img-responsive" />
+  }
         }
-      }
-    </td>
-  <td>
-      @Html.ActionLink("Edit", "Edit", new { id = item.ID }) |
-      @Html.ActionLink("Delete", "Delete", new { id = item.ID })
-    </td>
-  </tr>
+        </td>
+        <td>
+            @Html.ActionLink("Edit", "Edit", new { id=item.ID }) |
+            @Html.ActionLink("Delete", "Delete", new { id=item.ID })
+        </td>
+    </tr>
 }
 
 </table>

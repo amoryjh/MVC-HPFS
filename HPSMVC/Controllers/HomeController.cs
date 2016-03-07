@@ -18,7 +18,8 @@ namespace HPSMVC.Controllers
         // GET: Home
         public ActionResult Index()
         {
-            return View(db.Indices.ToList());
+            var indices = db.Indices.Include(i => i.File);
+            return View(indices.ToList());
         }
 
         // GET: Home/Details/5
@@ -39,6 +40,7 @@ namespace HPSMVC.Controllers
         // GET: Home/Create
         public ActionResult Create()
         {
+            ViewBag.FileID = new SelectList(db.Files, "ID", "fileName");
             return View();
         }
 
@@ -47,7 +49,7 @@ namespace HPSMVC.Controllers
         // more details see http://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public ActionResult Create([Bind(Include = "ID,Title,Content,ButtonText,ButtonLink,Image")] Index index)
+        public ActionResult Create([Bind(Include = "ID,Title,Content,ButtonText,ButtonLink,FileID")] Index index)
         {
             if (ModelState.IsValid)
             {
@@ -56,6 +58,7 @@ namespace HPSMVC.Controllers
                 return RedirectToAction("Index");
             }
 
+            ViewBag.FileID = new SelectList(db.Files, "ID", "fileName", index.FileID);
             return View(index);
         }
 
@@ -71,6 +74,7 @@ namespace HPSMVC.Controllers
             {
                 return HttpNotFound();
             }
+            ViewBag.FileID = new SelectList(db.Files, "ID", "fileName", index.FileID);
             return View(index);
         }
 
@@ -79,7 +83,7 @@ namespace HPSMVC.Controllers
         // more details see http://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public ActionResult Edit([Bind(Include = "ID,Title,Content,ButtonText,ButtonLink,Image")] Index index)
+        public ActionResult Edit([Bind(Include = "ID,Title,Content,ButtonText,ButtonLink,FileID")] Index index)
         {
             if (ModelState.IsValid)
             {
@@ -87,6 +91,7 @@ namespace HPSMVC.Controllers
                 db.SaveChanges();
                 return RedirectToAction("Index");
             }
+            ViewBag.FileID = new SelectList(db.Files, "ID", "fileName", index.FileID);
             return View(index);
         }
 

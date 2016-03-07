@@ -12,16 +12,25 @@ namespace HPSMVC.Models
 
     [Display(Name = "Title")]
     [Required(ErrorMessage = "You cannot leave the title blank.")]
-    [StringLength(40, ErrorMessage = "The Title cannot be more than 20 characters")]
+    [StringLength(30, ErrorMessage = "The title cannot be more than 30 characters")]
     public string Title { get; set; }
 
     [Display(Name = "Content")]
-    [Required(ErrorMessage = "You cannot leave the Content blank.")]
-    [StringLength(500, ErrorMessage = "The Content cannot be more than 500 characters")]
+    [Required(ErrorMessage = "You cannot leave the content blank.")]
+    [StringLength(800, ErrorMessage = "The content cannot be more than 800 characters")]
     public string Content { get; set; }
 
-    [Display(Name = "Image")]
-    [Required(ErrorMessage = "You cannot leave the Data blank.")]
-    public byte[] Image { get; set; }
+    [Display(Name = "File Name")]
+    [StringLength(250)]
+    [ScaffoldColumn(false)]
+    public string fileName { get; set; }
+
+    [Display(Name = "File Type")]
+    [ScaffoldColumn(false)]
+    public string fileType { get; set; }
+
+    [Display(Name = "File Content")]
+    [ScaffoldColumn(false)]
+    public byte[] fileContent { get; set; }
   }
 }

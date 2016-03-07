@@ -37,16 +37,7 @@
     <ol>
       <li>Don't touch the connection strings or the database - if you break it you <strong>will die a slow and painful death</strong></li>
       <li>When you make changes to a model remember to go to the PM console and type:<strong>Add-Migration sampletextname</strong>. After thats done type <strong>Update-Database</strong> to finalize your changes.</li>
-      <li>plz write neat code</li>
     </ol>
-    <h2>To-Do still</h2>
-    <ul>
-      <li>File Uploading for <strong>home page</strong>. Either create a field in the Index.cs model to handle images (for example see Files.Cs and FilesController.cs). Or add a relationship with the Files Model.</li>
-      <li>Many-to-Many file uploading on Events page. Only links to .pdfs, .docs, etc. No image previews</li>
-      <li>Change colour of old event cards to grey</li>
-      <li>File uploading for the Care page(Model = Program.cs)</li>
-      <li>Add all this functionality, then move on to authorization/authentication</li>
-    </ul>
     @RenderBody()
     <hr />
     <footer>

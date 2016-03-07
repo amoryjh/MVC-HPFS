@@ -8,6 +8,7 @@ using System.Web;
 using System.Web.Mvc;
 using HPSMVC.DAL;
 using HPSMVC.Models;
+using System.IO;
 
 namespace HPSMVC.Controllers
 {
@@ -47,10 +48,29 @@ namespace HPSMVC.Controllers
         // more details see http://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public ActionResult Create([Bind(Include = "ID,Title,Content,Image")] Program program)
+        public ActionResult Create([Bind(Include = "ID,Title,Content,fileName,fileType,fileContent")] Program program)
         {
             if (ModelState.IsValid)
             {
+                foreach (string fName in Request.Files)
+                {
+                    HttpPostedFileBase f = Request.Files[fName];
+                    string mimeType = f.ContentType;
+                    int fileLength = f.ContentLength;
+                    if (!(mimeType == "" || fileLength == 0))
+                    {
+                        string fileName = Path.GetFileName(f.FileName);
+                        Stream fileStream = Request.Files[fName].InputStream;
+                        byte[] fileData = new Byte[fileLength];
+                        fileStream.Read(fileData, 0, fileLength);
+                        if (mimeType.Contains("image") && fName == "FileUpImage")
+                        {
+                            program.fileContent = fileData;
+                            program.fileType = mimeType;
+                            program.fileName = fileName;
+                        }
+                    }
+                }
                 db.Programs.Add(program);
                 db.SaveChanges();
                 return RedirectToAction("Index");
@@ -79,10 +99,29 @@ namespace HPSMVC.Controllers
         // more details see http://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public ActionResult Edit([Bind(Include = "ID,Title,Content,Image")] Program program)
+        public ActionResult Edit([Bind(Include = "ID,Title,Content,fileName,fileType,fileContent")] Program program)
         {
             if (ModelState.IsValid)
             {
+                foreach (string fName in Request.Files)
+                {
+                    HttpPostedFileBase f = Request.Files[fName];
+                    string mimeType = f.ContentType;
+                    int fileLength = f.ContentLength;
+                    if (!(mimeType == "" || fileLength == 0))
+                    {
+                        string fileName = Path.GetFileName(f.FileName);
+                        Stream fileStream = Request.Files[fName].InputStream;
+                        byte[] fileData = new Byte[fileLength];
+                        fileStream.Read(fileData, 0, fileLength);
+                        if (mimeType.Contains("image") && fName == "FileUpImage")
+                        {
+                            program.fileContent = fileData;
+                            program.fileType = mimeType;
+                            program.fileName = fileName;
+                        }
+                    }
+                }
                 db.Entry(program).State = EntityState.Modified;
                 db.SaveChanges();
                 return RedirectToAction("Index");

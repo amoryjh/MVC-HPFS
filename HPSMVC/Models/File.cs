@@ -10,17 +10,17 @@ namespace HPSMVC.Models
     {
         public int ID { get; set; }
         
-        //[Display(Name = "File Name")]
+        [Display(Name = "File Name")]
         [StringLength(250)]
         [ScaffoldColumn(false)]
         public string fileName { get; set; }
 
-        //[Display(Name = "Type")]
+        [Display(Name = "File Type")]
         [ScaffoldColumn(false)]
         public string fileType{ get; set; }
 
+        [Display(Name = "File Content")]
         [ScaffoldColumn(false)]
-        //[Required(ErrorMessage = "You cannot leave the a blank file.")]
         public byte[] fileContent { get; set; }
 
         [Display(Name = "Date")]
@@ -32,8 +32,7 @@ namespace HPSMVC.Models
         [StringLength(50, ErrorMessage = "The file name cannot be more than 50 characters")]
         public string Category { get; set; }
 
-        public int? EventID { get; set; }
-
-        public virtual Event Event { get; set; }
+        public virtual ICollection<Event> Event { get; set; }
+        public virtual ICollection<Index> Indexs { get; set; }
     }
 }

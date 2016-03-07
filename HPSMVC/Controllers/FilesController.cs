@@ -19,9 +19,9 @@ namespace HPSMVC.Controllers
         // GET: Files
         public ActionResult Index()
         {
-            var files = db.Files.Include(f => f.Event);
-            return View(files.ToList());
+            return View(db.Files.ToList());
         }
+        
 
         // GET: Files/Details/5
         public ActionResult Details(int? id)
@@ -41,7 +41,6 @@ namespace HPSMVC.Controllers
         // GET: Files/Create
         public ActionResult Create()
         {
-            ViewBag.EventID = new SelectList(db.Events, "ID", "Title");
             return View();
         }
 
@@ -50,60 +49,7 @@ namespace HPSMVC.Controllers
         // more details see http://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public ActionResult Create([Bind(Include = "ID,fileName,Date,Category,fileType,fileContent,EventID")] HPSMVC.Models.File file)
-        {
-            if (ModelState.IsValid)
-            {
-              foreach (string fName in Request.Files)
-              {
-                  HttpPostedFileBase f = Request.Files[fName];
-                  string mimeType = f.ContentType;
-                  int fileLength = f.ContentLength;
-                  if (!(mimeType == "" || fileLength == 0))
-                  {
-                    string fileName = Path.GetFileName(f.FileName);
-                    Stream fileStream = Request.Files[fName].InputStream;
-                    byte[] fileData = new Byte[fileLength];
-                    fileStream.Read(fileData, 0, fileLength);
-                    if (mimeType.Contains("image") && fName == "FileUpImage")
-                    {
-                      file.fileContent = fileData;
-                      file.fileType = mimeType;
-                      file.fileName = fileName;
-                    }
-                  }
-                }
-                db.Files.Add(file);
-                db.SaveChanges();
-                return RedirectToAction("Index");
-              }
-
-            ViewBag.EventID = new SelectList(db.Events, "ID", "Title", file.EventID);
-            return View(file);
-        }
-
-        // GET: Files/Edit/5
-        public ActionResult Edit(int? id)
-        {
-            if (id == null)
-            {
-                return new HttpStatusCodeResult(HttpStatusCode.BadRequest);
-            }
-            HPSMVC.Models.File file = db.Files.Find(id);
-            if (file == null)
-            {
-                return HttpNotFound();
-            }
-            ViewBag.EventID = new SelectList(db.Events, "ID", "Title", file.EventID);
-            return View(file);
-        }
-
-        // POST: Files/Edit/5
-        // To protect from overposting attacks, please enable the specific properties you want to bind to, for 
-        // more details see http://go.microsoft.com/fwlink/?LinkId=317598.
-        [HttpPost]
-        [ValidateAntiForgeryToken]
-        public ActionResult Edit([Bind(Include = "ID,fileName,Date,Category,fileType,fileContent,EventID")] HPSMVC.Models.File file)
+        public ActionResult Create([Bind(Include = "ID,fileName,fileType,fileContent,Date,Category")] HPSMVC.Models.File file)
         {
             if (ModelState.IsValid)
             {
@@ -126,11 +72,61 @@ namespace HPSMVC.Controllers
                   }
                 }
               }
+                db.Files.Add(file);
+                db.SaveChanges();
+                return RedirectToAction("Index");
+            }
+
+            return View(file);
+        }
+
+        // GET: Files/Edit/5
+        public ActionResult Edit(int? id)
+        {
+            if (id == null)
+            {
+                return new HttpStatusCodeResult(HttpStatusCode.BadRequest);
+            }
+            HPSMVC.Models.File file = db.Files.Find(id);
+            if (file == null)
+            {
+                return HttpNotFound();
+            }
+            return View(file);
+        }
+
+        // POST: Files/Edit/5
+        // To protect from overposting attacks, please enable the specific properties you want to bind to, for 
+        // more details see http://go.microsoft.com/fwlink/?LinkId=317598.
+        [HttpPost]
+        [ValidateAntiForgeryToken]
+        public ActionResult Edit([Bind(Include = "ID,fileName,fileType,fileContent,Date,Category")] HPSMVC.Models.File file)
+        {
+            if (ModelState.IsValid)
+            {
+                foreach (string fName in Request.Files)
+                {
+                    HttpPostedFileBase f = Request.Files[fName];
+                    string mimeType = f.ContentType;
+                    int fileLength = f.ContentLength;
+                    if (!(mimeType == "" || fileLength == 0))
+                    {
+                        string fileName = Path.GetFileName(f.FileName);
+                        Stream fileStream = Request.Files[fName].InputStream;
+                        byte[] fileData = new Byte[fileLength];
+                        fileStream.Read(fileData, 0, fileLength);
+                        if (mimeType.Contains("image") && fName == "FileUpImage")
+                        {
+                            file.fileContent = fileData;
+                            file.fileType = mimeType;
+                            file.fileName = fileName;
+                        }
+                    }
+                }
                 db.Entry(file).State = EntityState.Modified;
                 db.SaveChanges();
                 return RedirectToAction("Index");
             }
-            ViewBag.EventID = new SelectList(db.Events, "ID", "Title", file.EventID);
             return View(file);
         }
 
@@ -154,7 +150,7 @@ namespace HPSMVC.Controllers
         [ValidateAntiForgeryToken]
         public ActionResult DeleteConfirmed(int id)
         {
-            HPSMVC.Models.File file = db.Files.Find(id);
+          HPSMVC.Models.File file = db.Files.Find(id);
             db.Files.Remove(file);
             db.SaveChanges();
             return RedirectToAction("Index");

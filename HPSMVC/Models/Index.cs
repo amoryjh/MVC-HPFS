@@ -28,8 +28,10 @@ namespace HPSMVC.Models
     [StringLength(100)]
     public string ButtonLink { get; set; }
 
-    [Display(Name = "Image")]
-    [Required(ErrorMessage = "You cannot leave the Image blank.")]
-    public byte[] Image { get; set; }
+    [Required(ErrorMessage = "You must select a file")]
+    [Display(Name = "File")]
+    public int FileID { get; set; }
+
+    public virtual File File { get; set; }
   }
 }
