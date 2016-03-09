@@ -59,6 +59,9 @@
             @Html.DisplayFor(modelItem => item.Link)
         </td>
         <td>
+            @Html.DisplayFor(modelItem => item.Files)
+        </td>
+        <td>
             @Html.ActionLink("Edit", "Edit", new { id=item.ID }) |
             @Html.ActionLink("Delete", "Delete", new { id=item.ID })
         </td>

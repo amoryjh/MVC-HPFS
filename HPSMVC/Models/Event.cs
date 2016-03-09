@@ -46,5 +46,6 @@ namespace HPSMVC.Models
     public string Link { get; set; }
 
     public virtual ICollection<File> Files { get; set; }
+
   }
 }
