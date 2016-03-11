@@ -17,9 +17,31 @@ namespace HPSMVC.Controllers
         private HPSMVCEntities db = new HPSMVCEntities();
 
         // GET: Files
-        public ActionResult Index()
+        public ActionResult Index(string sortOrder, string searchString)
         {
-            return View(db.Files.ToList());
+            ViewBag.NameSortParm = String.IsNullOrEmpty(sortOrder) ? "name_desc" : "";
+            ViewBag.DateSortParm = sortOrder == "Date" ? "date_desc" : "Date";
+            var Files = from s in db.Files
+                           select s;
+
+            if (!String.IsNullOrEmpty(searchString))
+            {
+                Files = Files.Where(s => s.Category.Contains(searchString));
+            }
+
+            switch (sortOrder)
+            {
+                case "name_desc":
+                    Files = Files.OrderByDescending(s => s.Category);
+                    break;
+                case "Date":
+                    Files = Files.OrderBy(s => s.Date);
+                    break;
+                default:
+                    Files = Files.OrderBy(s => s.Category);
+                    break;
+            }
+            return View(Files.ToList());
         }
         
 

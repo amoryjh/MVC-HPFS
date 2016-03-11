@@ -9,13 +9,20 @@
 <p>
     @Html.ActionLink("Create New", "Create")
 </p>
+                      @using (Html.BeginForm())
+                      {
+                          <p>
+                              @Html.TextBox("SearchString")
+                              <input placeholder="Title" type="submit" value="Search" />
+                          </p>
+                      }
 <table class="table">
     <tr>
         <th>
-            @Html.DisplayNameFor(model => model.Date)
+            @Html.ActionLink("Date", "Index", new { sortOrder = ViewBag.DateSortParm })
         </th>
         <th>
-            @Html.DisplayNameFor(model => model.Category)
+            @Html.ActionLink("Category", "Index", new { sortOrder = ViewBag.NameSortParm })
         </th>
         <th>
           File
