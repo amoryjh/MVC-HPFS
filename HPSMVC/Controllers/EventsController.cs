@@ -15,10 +15,33 @@ namespace HPSMVC.Controllers
     {
         private HPSMVCEntities db = new HPSMVCEntities();
 
-        // GET: Events
-        public ActionResult Index()
+        public ActionResult Index(string sortOrder)
         {
-            return View(db.Events.ToList());
+            ViewBag.DateSortParm = String.IsNullOrEmpty(sortOrder) ? "date" : "";
+            ViewBag.TitleSortParm = sortOrder == "Title" ? "title" : "Title";
+            ViewBag.BySortParm = sortOrder == "By" ? "by" : "By";
+            ViewBag.ViewerSortParm = sortOrder == "Viewer" ? "viewer" : "Viewer";
+            var events = from s in db.Events
+                           select s;
+            switch (sortOrder)
+            {
+                case "title":
+                    events = events.OrderBy(s => s.Title);
+                    break;
+                case "date":
+                    events = events.OrderByDescending(s => s.Date);
+                    break;
+                case "by":
+                    events = events.OrderBy(s => s.By);
+                    break;
+                case "viewer":
+                    events = events.OrderBy(s => s.Viewer);
+                    break;
+                default:
+                    events = events.OrderBy(s => s.Date);
+                    break;
+            }
+            return View(events.ToList());
         }
 
         // GET: Events/Details/5
