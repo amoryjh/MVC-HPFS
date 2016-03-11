@@ -15,7 +15,7 @@ namespace HPSMVC.Controllers
     {
         private HPSMVCEntities db = new HPSMVCEntities();
 
-        public ActionResult Index(string sortOrder)
+        public ActionResult Index(string sortOrder, string searchString)
         {
             ViewBag.DateSortParm = String.IsNullOrEmpty(sortOrder) ? "date" : "";
             ViewBag.TitleSortParm = sortOrder == "Title" ? "title" : "Title";
@@ -23,6 +23,15 @@ namespace HPSMVC.Controllers
             ViewBag.ViewerSortParm = sortOrder == "Viewer" ? "viewer" : "Viewer";
             var events = from s in db.Events
                            select s;
+
+            if (!String.IsNullOrEmpty(searchString))
+            {
+                events = events.Where(s => s.Title.Contains(searchString)
+                                       || s.Viewer.Contains(searchString)
+                                       || s.By.Contains(searchString));
+            }
+
+
             switch (sortOrder)
             {
                 case "title":
@@ -43,6 +52,12 @@ namespace HPSMVC.Controllers
             }
             return View(events.ToList());
         }
+
+        public ActionResult Home()
+        {
+            return View();
+        }
+
 
         // GET: Events/Details/5
         public ActionResult Details(int? id)
