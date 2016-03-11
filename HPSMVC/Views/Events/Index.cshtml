@@ -1,33 +1,72 @@
 ﻿@model IEnumerable<HPSMVC.Models.Event>
 
-@{
-    ViewBag.Title = "Index";
-    ViewBag.BodyClass = "events";
-}
-
-<div class="page-hero clearfix">
-  <div class="hero-middle text-center">
-    <h1>Event Days</h1>
-    <h4>Our events facilitate fun and connection amongst the HPS community. Join us at one of our next events!</h4>    
-  </div>
-  <div class="hero-middle-filter"></div>
-</div>
-
-
-<section class="event-card-section clearfix">
-    @foreach (var item in Model) {
-        <div class="event-card">
-            <div class="event-card-content">
-                <h2>
-                    @Html.DisplayFor(modelItem => item.Title)
-                </h2>
-                <h4>@Html.DisplayFor(modelItem => item.Date)</h4>
-                <p>@Html.DisplayFor(modelItem => item.Content)</p>
-                <a href="@Html.DisplayFor(modelItem => item.Link)" class="btn">@Html.DisplayFor(modelItem => item.LinkText)</a>
-                <ul>
-                    <li>@Html.DisplayFor(modelItem => item.Files)</li>
-                </ul>
-            </div>
-        </div>
+    @{
+        ViewBag.Title = "Index";
     }
-</section>
+
+    <h2>Events</h2>
+    <p>Include Files for each event</p>
+    <p>
+        @Html.ActionLink("Create New", "Create")
+    </p>
+    <table class="table">
+        <tr>
+            <th>
+                @Html.ActionLink("Title", "Index", new { sortOrder = ViewBag.TitleSortParm })
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Content)
+            </th>
+            <th>
+                @Html.ActionLink("Date", "Index", new { sortOrder = ViewBag.DateSortParm })
+            </th>
+            <th>
+                @Html.ActionLink("By", "Index", new { sortOrder = ViewBag.BySortParm })
+            </th>
+            <th>
+                @Html.ActionLink("Viewer", "Index", new { sortOrder = ViewBag.ViewerSortParm })
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.LinkText)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Link)
+            </th>
+            <th></th>
+        </tr>
+
+        @foreach (var item in Model)
+        {
+            <tr>
+                <td>
+                    @Html.DisplayFor(modelItem => item.Title)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.Content)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.Date)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.By)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.Viewer)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.LinkText)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.Link)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.Files)
+                </td>
+                <td>
+                    @Html.ActionLink("Edit", "Edit", new { id = item.ID }) |
+                    @Html.ActionLink("Delete", "Delete", new { id = item.ID })
+                </td>
+            </tr>
+        }
+
+    </table>
