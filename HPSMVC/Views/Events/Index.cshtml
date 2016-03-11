@@ -2,70 +2,32 @@
 
 @{
     ViewBag.Title = "Index";
+    ViewBag.BodyClass = "events";
 }
 
-<h2>Events</h2>
-<p>Include Files for each event</p>
-<p>
-    @Html.ActionLink("Create New", "Create")
-</p>
-<table class="table">
-    <tr>
-        <th>
-            @Html.DisplayNameFor(model => model.Title)
-        </th>
-        <th>
-            @Html.DisplayNameFor(model => model.Content)
-        </th>
-        <th>
-            @Html.DisplayNameFor(model => model.Date)
-        </th>
-        <th>
-            @Html.DisplayNameFor(model => model.By)
-        </th>
-        <th>
-            @Html.DisplayNameFor(model => model.Viewer)
-        </th>
-        <th>
-            @Html.DisplayNameFor(model => model.LinkText)
-        </th>
-        <th>
-            @Html.DisplayNameFor(model => model.Link)
-        </th>
-        <th></th>
-    </tr>
+<div class="page-hero clearfix">
+  <div class="hero-middle text-center">
+    <h1>Event Days</h1>
+    <h4>Our events facilitate fun and connection amongst the HPS community. Join us at one of our next events!</h4>    
+  </div>
+  <div class="hero-middle-filter"></div>
+</div>
 
-@foreach (var item in Model) {
-    <tr>
-        <td>
-            @Html.DisplayFor(modelItem => item.Title)
-        </td>
-        <td>
-            @Html.DisplayFor(modelItem => item.Content)
-        </td>
-        <td>
-            @Html.DisplayFor(modelItem => item.Date)
-        </td>
-        <td>
-            @Html.DisplayFor(modelItem => item.By)
-        </td>
-        <td>
-            @Html.DisplayFor(modelItem => item.Viewer)
-        </td>
-        <td>
-            @Html.DisplayFor(modelItem => item.LinkText)
-        </td>
-        <td>
-            @Html.DisplayFor(modelItem => item.Link)
-        </td>
-        <td>
-            @Html.DisplayFor(modelItem => item.Files)
-        </td>
-        <td>
-            @Html.ActionLink("Edit", "Edit", new { id=item.ID }) |
-            @Html.ActionLink("Delete", "Delete", new { id=item.ID })
-        </td>
-    </tr>
-}
 
-</table>
+<section class="event-card-section clearfix">
+    @foreach (var item in Model) {
+        <div class="event-card">
+            <div class="event-card-content">
+                <h2>
+                    @Html.DisplayFor(modelItem => item.Title)
+                </h2>
+                <h4>@Html.DisplayFor(modelItem => item.Date)</h4>
+                <p>@Html.DisplayFor(modelItem => item.Content)</p>
+                <a href="@Html.DisplayFor(modelItem => item.Link)" class="btn">@Html.DisplayFor(modelItem => item.LinkText)</a>
+                <ul>
+                    <li>@Html.DisplayFor(modelItem => item.Files)</li>
+                </ul>
+            </div>
+        </div>
+    }
+</section>
