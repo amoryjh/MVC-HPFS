@@ -17,7 +17,7 @@ namespace HPSMVC.Controllers
 
         public ActionResult Calendar()
         {
-            return View();
+            return View(db.Events.ToList());
         }
 
         public ActionResult Index(string sortOrder, string searchString)

@@ -544,7 +544,6 @@
     <Content Include="Views\Care\Delete.cshtml" />
     <Content Include="Views\Care\Edit.cshtml" />
     <Content Include="Views\Care\Index.cshtml" />
-    <Content Include="Views\Events\Home.cshtml" />
     <Content Include="Views\Events\Calendar.cshtml" />
   </ItemGroup>
   <ItemGroup>
