@@ -3,20 +3,21 @@
 <head>
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>@ViewBag.Title - My ASP.NET Application</title>
-    @Styles.Render("~/Content/assets/css/main.min.css")
-    @Scripts.Render("~/Content/js")
+    <title>@ViewBag.Title - Hamilton Program for Schizophrenia</title>
+    @Styles.Render("~/Content/assets/css/main.min.css", "https://maxcdn.bootstrapcdn.com/font-awesome/4.5.0/css/font-awesome.min.css", "https://fonts.googleapis.com/css?family=Lato:400,300,700")
+    @Scripts.Render("~/Content/assets/js/main.js")
 </head>
+
 <body class="@ViewBag.BodyClass">
     <nav class="clearfix">
         <h1><a href="">HPS</a></h1>
         <ul class="parent-nav">
-            <li class="parent-li-nav" id="home-nav"><a class="nav-current" href="/Home/HomePage">Home</a></li>
-            <li class="parent-li-nav" id="events-nav"><a class="nav-current" href="/Events/Calendar">Events</a></li>
-            <li class="parent-li-nav" id="care-nav"><a href="/Care/Main" class="nav-current">Care</a></li>
-            <li class="parent-li-nav" id="about-nav"><a href="/About" class="nav-current">About HPS</a></li>
-            <li class="parent-li-nav" id="contact-nav"><a href="/Contact" class="nav-current">Contact</a></li>
-            <li class="parent-li-nav login" id="login-nav"><a href="/Account/Login" class="nav-current">Login</a></li>
+            <li class="parent-li-nav" id="home-nav"><a class="nav-current" href="index.php">Home</a></li>
+            <li class="parent-li-nav" id="events-nav"><a class="nav-current" href="events.php">Events</a></li>
+            <li class="parent-li-nav" id="care-nav"><a href="care.php" class="nav-current">Care</a></li>
+            <li class="parent-li-nav" id="about-nav"><a href="about.php" class="nav-current">About HPS</a></li>
+            <li class="parent-li-nav" id="contact-nav"><a href="contact.php" class="nav-current">Contact</a></li>
+            <li class="parent-li-nav login" id="login-nav"><a href="login.php" class="nav-current">Login</a></li>
             <li class="parent-li-nav resize-txt">A<span class="resize-txt-large-A">A</span></li>
         </ul>
         <div id="hamburger" class="hamburglar">
@@ -44,97 +45,101 @@
                 <li class="" id=""><a href="contact.php">Contact</a></li>
             </ul>
         </div>
-    </div>
-    </div>
-    <div class="admin-aside-panel">
-        <h4>My Dashboard</h4>
-        <ul>
-            <li><a href="admin-panel.php">File Exchange</a></li>
-            <li><a href="admin-panel.php">Care Page Admin</a></li>
-            <li><a href="admin-panel.php">Edit Events</a></li>
-            <li><a href="admin-panel.php">Content Management</a></li>
-            <li><a href="admin-panel.php">User Management</a></li>
-        </ul>
-        <i class="icon fa fa-chevron-right closed"> </i>
-    </div>
-    @RenderBody()
-    }
-    <div class="container body-content">
-        <br />
-        <br />
-        <hr />
-       
-        <hr />
-        <footer class="clearfix">
-            <div class="col-md-10 col-md-offset-1">
-                <div class="footer-links col-sm-5 col-sm-offset-1">
-                    <h1 class="footer-logo"><a href="">HPS</a></h1>
-                    <ul class="inline-list">
-                        <li><a href="">Home</a></li>
-                        <li><a href="events.php">Events</a></li>
-                        <li><a href="">Care</a></li>
-                        <li><a href="">About HPS</a></li>
-                        <li><a href="">Contact</a></li>
-                    </ul>
-                </div>
-                <div class="footer-address col-sm-5 col-sm-offset-1">
-                    <p>21 King Street West, Suite 100</p>
-                    <p>Hamilton, Ontario L8P 4W7</p>
-                    <p>Telephone: <a href="tel:"> 905.525.2832 </a></p>
-                    <p>Fax: <a href="tel:">905.546.0055</a></p>
-                </div>
-            </div>
-            <!-- SCRIPTS -->
-            <script>
-                $('.carousel').carousel();
-                $('.parent-li-nav').hover(function () {
-                    $(this).children('ul').toggle('fast');
-                })
-                $('.resize-txt').click(function (event) {
-                    $('body').toggleClass('enlargen-text');
-                });
-                $('.mobile-nav-parent a').click(function (event) {
-                    $('.mobile-nav-expand').hide('fast');
-                    $(this).siblings('ul').show('slow');
-                });
-                $('document').ready(function () {
-                    var trigger = $('#hamburger'),
-                        menu = $('.mobile-nav'),
-                        isClosed = true;
-                    trigger.click(function () {
-                        burgerTime();
-                    });
-                    function burgerTime() {
-                        if (isClosed == true) {
-                            isClosed = false;
-                            trigger.removeClass('is-closed');
-                            trigger.addClass('is-open');
-                            $('body').css('overflow', 'hidden');
-                            menu.show();
-                        } else {
-                            isClosed = true;
-                            trigger.removeClass('is-open');
-                            trigger.addClass('is-closed');
-                            $('body').css('overflow', 'scroll');
-                            menu.hide();
+        <div class="admin-aside-panel">
+            <h4>My Dashboard</h4>
+            <ul>
+                <li><a href="admin-panel.php">File Exchange</a></li>
+                <li><a href="admin-panel.php">Board Calendar</a></li>
+                <li><a href="admin-panel.php">Content Management</a></li>
+                <li><a href="admin-panel.php">User Management</a></li>
+            </ul>
+            <i class="icon fa fa-chevron-right closed"> </i>
+        </div>
 
-                        }
+        @RenderBody()
+    </div><!-- MAIN WRAPPER -->
+    <footer class="clearfix">
+        <div class="col-md-10 col-md-offset-1">
+            <div class="footer-links col-sm-5 col-sm-offset-1">
+                <h1 class="footer-logo"><a href="">HPS</a></h1>
+                <ul class="inline-list">
+                    <li><a href="">Home</a></li>
+                    <li><a href="events.php">Events</a></li>
+                    <li><a href="">Care</a></li>
+                    <li><a href="">About HPS</a></li>
+                    <li><a href="">Contact</a></li>
+                </ul>
+            </div>
+            <div class="footer-address col-sm-5 col-sm-offset-1">
+                <p>21 King Street West, Suite 100</p>
+                <p>Hamilton, Ontario L8P 4W7</p>
+                <p>Telephone: <a href="tel:"> 905.525.2832 </a></p>
+                <p>Fax: <a href="tel:">905.546.0055</a></p>
+            </div>
+        </div>
+        <!-- SCRIPTS -->
+        <script>
+            $('.carousel').carousel();
+            
+            $('.resize-txt').click(function (event) {
+                $('body').toggleClass('enlargen-text');
+            });
+
+            $('.mobile-nav-parent a').click(function (event) {
+                $('.mobile-nav-expand').hide('fast');
+                $(this).siblings('ul').show('slow');
+            });
+
+            $('document').ready(function () {
+                var trigger = $('#hamburger'),
+                    menu = $('.mobile-nav'),
+                    isClosed = true;
+                trigger.click(function () {
+                    burgerTime();
+                });
+                function burgerTime() {
+                    if (isClosed == true) {
+                        isClosed = false;
+                        trigger.removeClass('is-closed');
+                        trigger.addClass('is-open');
+                        $('body').css('overflow', 'hidden');
+                        menu.show();
+                    } else {
+                        isClosed = true;
+                        trigger.removeClass('is-open');
+                        trigger.addClass('is-closed');
+                        $('body').css('overflow', 'scroll');
+                        menu.hide();
+
+                    }
+                }
+            });
+            $('document').ready(function () {
+                $('.icon').click(function () {
+                    var icon = $('i.icon');
+                    if ($(this).hasClass('closed')) {
+                        $('.admin-aside-panel').animate({
+                            marginLeft: '0px'
+                        }, 500);
+                        $(this).removeClass('closed');
+                        $(this).addClass('open');
+                        icon.addClass('fa-chevron-left');
+                        icon.removeClass('fa-chevron-right');
+                    }
+                    else {
+                        $('.admin-aside-panel').animate({
+                            marginLeft: '-275px'
+                        }, 500);
+
+                        $(this).removeClass('open');
+                        $(this).addClass('closed');
+                        icon.addClass('fa-chevron-right');
+                        icon.removeClass('fa-chevron-left');
                     }
                 });
-                $('.main-gallery').flickity({
-                    // options
-                    cellAlign: 'left',
-                    contain: true
-                });
-
-
-            </script>
-
-        </footer>
-    </div>
-
-    @Scripts.Render("~/bundles/jquery")
-    @Scripts.Render("~/bundles/bootstrap")
-    @RenderSection("scripts", required: false)
+            });
+        </script>
+        @Scripts.Render("~/Content/assets/js/main.js")
+    </footer>
 </body>
 </html>
