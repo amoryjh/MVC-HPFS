@@ -19,6 +19,9 @@
 <table class="table">
     <tr>
         <th>
+            @Html.DisplayNameFor(model => model.FileName)
+        </th>
+        <th>
             @Html.ActionLink("Date", "Index", new { sortOrder = ViewBag.DateSortParm })
         </th>
         <th>
@@ -48,6 +51,7 @@
         }
         </td>
         <td>
+            @Html.ActionLink("Download", "Download", new { id = item.ID }) |
             @Html.ActionLink("Edit", "Edit", new { id=item.ID }) |
             @Html.ActionLink("Delete", "Delete", new { id=item.ID })
         </td>

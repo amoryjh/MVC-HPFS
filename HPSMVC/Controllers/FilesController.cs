@@ -101,6 +101,11 @@ namespace HPSMVC.Controllers
 
             return View(file);
         }
+        public FileContentResult Download(int id)
+        {
+            var theFile = db.Files.Where(f => f.ID == id).SingleOrDefault();
+            return File(theFile.fileContent, theFile.fileType, theFile.fileName);
+        }
 
         // GET: Files/Edit/5
         public ActionResult Edit(int? id)
