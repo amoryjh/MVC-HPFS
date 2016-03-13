@@ -22,6 +22,11 @@ namespace HPSMVC.Controllers
             return View(indices.ToList());
         }
 
+        public ActionResult HomePage()
+        {
+            return View();
+        }
+
         // GET: Home/Details/5
         public ActionResult Details(int? id)
         {

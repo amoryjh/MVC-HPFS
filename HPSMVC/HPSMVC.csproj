@@ -545,6 +545,7 @@
     <Content Include="Views\Care\Edit.cshtml" />
     <Content Include="Views\Care\Index.cshtml" />
     <Content Include="Views\Events\Calendar.cshtml" />
+    <Content Include="Views\Home\HomePage.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />
