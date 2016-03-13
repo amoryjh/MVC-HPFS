@@ -2,6 +2,63 @@
     ViewBag.Title = "Index";
 }
 
-<h2>Contact Page</h2>
-<p>No models</p>
+<section class="clearfix key-message bg-red">
+    <div class="col-sm-12 col-sm-offset-0 col-md-12 col-md-offset-0">
+        <h2 class="text-center">Contact Us</h2>
+        <div class="col-md-10 col-md-offset-1">
+            <p>
+                Have some questions? Want information for an upcoming event, or want to contribute to the HPS?<br>
+                Send us a message and we'll get back to you as soon as possible!
+            </p>
+        </div>
+    </div>
+</section>
+<section class="clearfix">
+    <div class="col-md-10 col-md-offset-1">
+        <div class="col-md-6">
+            <iframe width="100%" height="450" frameborder="0" style="border:0" src="https://www.google.com/maps/embed/v1/place?key=AIzaSyAaMCFQON9VTr4Bd59hIGu99Jhie8cHqFY
+        &q=20+Hughson+St.+South+Suite+405,Hamilton+ON" allowfullscreen></iframe>
+            <br><br>
+            <ul class="block-list no-style-list">
+                <li>123 Street, Hamilton</li>
+                <li>L1A 2S3, ON</li>
+                <li><a href="">905.123.4567</a></li>
+            </ul>
+        </div>
+        <form action="" class="col-sm-6">
+            <div class="form-group">
+                <label for="">Your Full Name:</label>
+                <input type="text" class="form-control" id="firstname">
+            </div>
+            <div class="form-group">
+                <label for="email">Your Email:</label>
+                <input type="email" class="form-control" id="email">
+            </div>
+            <div class="form-group">
+                <label for="email">Your Phone:</label>
+                <input type="email" class="form-control" id="email">
+            </div>
+            <div class="form-group">
+                <label for="">Message:</label>
+                <textarea class="form-control" id=""></textarea>
+            </div>
+            <div class="form-group">
+                <div class="checkbox">
+                    <p><span class="highlight">Is this an urgent request?</span></p>
+                    <label><input type="checkbox"> Yes</label>
+                </div>
+            </div>
+            <div class="form-group">
+                <div class="radio">
+                    <p><span class="highlight">Preferred method of contact</span></p>
+                    <label><input type="radio" name="method-contact"> Phone</label>
+                    <label><input type="radio" name="method-contact"> Email</label>
+                </div>
+            </div>
+            <div class="form-group">
+                <button type="submit" class="btn btn-solid btn-inset-hover">Submit</button>
+            </div>
+        </form>
+    </div>
+</section>
 
