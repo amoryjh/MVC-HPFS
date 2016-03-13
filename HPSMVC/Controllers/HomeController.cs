@@ -16,13 +16,13 @@ namespace HPSMVC.Controllers
         private HPSMVCEntities db = new HPSMVCEntities();
 
         // GET: Home
-        public ActionResult Index()
+        public ActionResult Admin()
         {
             var indices = db.Indices.Include(i => i.File);
             return View(indices.ToList());
         }
 
-        public ActionResult HomePage()
+        public ActionResult Index()
         {
             return View();
         }
