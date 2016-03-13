@@ -8,38 +8,128 @@
     @Scripts.Render("~/Content/js")
 </head>
 <body class="@ViewBag.BodyClass">
-    <div class="navbar navbar-inverse navbar-fixed-top">
-        <div class="container">
-            <div class="navbar-header">
-                <button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-collapse">
-                    <span class="icon-bar"></span>
-                    <span class="icon-bar"></span>
-                    <span class="icon-bar"></span>
-                </button>
-                @Html.ActionLink("Home", "HomePage", "Home", new { area = "" }, new { @class = "navbar-brand" })
-            </div>
-            <div class="navbar-collapse collapse">
-                <ul class="nav navbar-nav">  
-                    <li>@Html.ActionLink("Care", "Index", "Care")</li>
-                    <li>@Html.ActionLink("About", "Index", "About")</li>
-                    <li>@Html.ActionLink("Events", "Calendar", "Events")</li>
-                    <li>@Html.ActionLink("Contact", "Index", "Contact")</li>
-                    <li>@Html.ActionLink("Home - Admin", "Index", "Home")</li>
-                    <li>@Html.ActionLink("Events - Admin", "Index", "Events")</li>
-                    <li>@Html.ActionLink("Files - Admin", "Index", "Files")</li>
-                </ul>
-                @Html.Partial("_LoginPartial")
+    <nav class="clearfix">
+        <h1><a href="">HPS</a></h1>
+        <ul class="parent-nav">
+            <li class="parent-li-nav" id="home-nav"><a class="nav-current" href="/Home/HomePage">Home</a></li>
+            <li class="parent-li-nav" id="events-nav"><a class="nav-current" href="/Events/Calendar">Events</a></li>
+            <li class="parent-li-nav" id="care-nav"><a href="/Care/Main" class="nav-current">Care</a></li>
+            <li class="parent-li-nav" id="about-nav"><a href="/About" class="nav-current">About HPS</a></li>
+            <li class="parent-li-nav" id="contact-nav"><a href="/Contact" class="nav-current">Contact</a></li>
+            <li class="parent-li-nav login" id="login-nav"><a href="/Account/Login" class="nav-current">Login</a></li>
+            <li class="parent-li-nav resize-txt">A<span class="resize-txt-large-A">A</span></li>
+        </ul>
+        <div id="hamburger" class="hamburglar">
+            <div class="burger-icon">
+                <div class="burger-container">
+                    <span class="burger-bun-top"></span>
+                    <span class="burger-filling"></span>
+                    <span class="burger-bun-bot"></span>
+                    <span class="line-up"></span>
+                </div>
             </div>
         </div>
+    </nav>
+    <div class="main-wrapper">
+        <div class="mobile-nav">
+            <ul class="mobile-nav-elements">
+                <li class="" id=""><a href="index.php">Home</a></li>
+                <li class="" id=""><a href="events.php">Events</a></li>
+                <li class="mobile-nav-parent" id="">
+                    <a href="care.php">Care</a>
+                </li>
+                <li class="mobile-nav-parent" id="">
+                    <a href="about.php">About HPS</a>
+                </li>
+                <li class="" id=""><a href="contact.php">Contact</a></li>
+            </ul>
+        </div>
     </div>
+    </div>
+    <div class="admin-aside-panel">
+        <h4>My Dashboard</h4>
+        <ul>
+            <li><a href="admin-panel.php">File Exchange</a></li>
+            <li><a href="admin-panel.php">Care Page Admin</a></li>
+            <li><a href="admin-panel.php">Edit Events</a></li>
+            <li><a href="admin-panel.php">Content Management</a></li>
+            <li><a href="admin-panel.php">User Management</a></li>
+        </ul>
+        <i class="icon fa fa-chevron-right closed"> </i>
+    </div>
+    @RenderBody()
+    }
     <div class="container body-content">
         <br />
         <br />
         <hr />
-        @RenderBody()
+       
         <hr />
-        <footer>
-            <p>&copy; @DateTime.Now.Year - My ASP.NET Application</p>
+        <footer class="clearfix">
+            <div class="col-md-10 col-md-offset-1">
+                <div class="footer-links col-sm-5 col-sm-offset-1">
+                    <h1 class="footer-logo"><a href="">HPS</a></h1>
+                    <ul class="inline-list">
+                        <li><a href="">Home</a></li>
+                        <li><a href="events.php">Events</a></li>
+                        <li><a href="">Care</a></li>
+                        <li><a href="">About HPS</a></li>
+                        <li><a href="">Contact</a></li>
+                    </ul>
+                </div>
+                <div class="footer-address col-sm-5 col-sm-offset-1">
+                    <p>21 King Street West, Suite 100</p>
+                    <p>Hamilton, Ontario L8P 4W7</p>
+                    <p>Telephone: <a href="tel:"> 905.525.2832 </a></p>
+                    <p>Fax: <a href="tel:">905.546.0055</a></p>
+                </div>
+            </div>
+            <!-- SCRIPTS -->
+            <script>
+                $('.carousel').carousel();
+                $('.parent-li-nav').hover(function () {
+                    $(this).children('ul').toggle('fast');
+                })
+                $('.resize-txt').click(function (event) {
+                    $('body').toggleClass('enlargen-text');
+                });
+                $('.mobile-nav-parent a').click(function (event) {
+                    $('.mobile-nav-expand').hide('fast');
+                    $(this).siblings('ul').show('slow');
+                });
+                $('document').ready(function () {
+                    var trigger = $('#hamburger'),
+                        menu = $('.mobile-nav'),
+                        isClosed = true;
+                    trigger.click(function () {
+                        burgerTime();
+                    });
+                    function burgerTime() {
+                        if (isClosed == true) {
+                            isClosed = false;
+                            trigger.removeClass('is-closed');
+                            trigger.addClass('is-open');
+                            $('body').css('overflow', 'hidden');
+                            menu.show();
+                        } else {
+                            isClosed = true;
+                            trigger.removeClass('is-open');
+                            trigger.addClass('is-closed');
+                            $('body').css('overflow', 'scroll');
+                            menu.hide();
+
+                        }
+                    }
+                });
+                $('.main-gallery').flickity({
+                    // options
+                    cellAlign: 'left',
+                    contain: true
+                });
+
+
+            </script>
+
         </footer>
     </div>
 
