@@ -4,7 +4,7 @@
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>@ViewBag.Title - My ASP.NET Application</title>
-    @Styles.Render("~/Content/css")
+    @Styles.Render("~/Content/assets/css/main.min.css")
     @Scripts.Render("~/Content/js")
 </head>
 <body class="@ViewBag.BodyClass">
@@ -26,6 +26,7 @@
                     <li>@Html.ActionLink("Events", "Index", "Events")</li>
                     <li>@Html.ActionLink("Files", "Index", "Files")</li>
                     <li>@Html.ActionLink("Contact", "Index", "Contact")</li>
+                    <li>@Html.ActionLink("Calendar", "Calendar", "Events")</li>
                 </ul>
                 @Html.Partial("_LoginPartial")
             </div>

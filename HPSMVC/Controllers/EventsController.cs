@@ -15,6 +15,11 @@ namespace HPSMVC.Controllers
     {
         private HPSMVCEntities db = new HPSMVCEntities();
 
+        public ActionResult Calendar()
+        {
+            return View();
+        }
+
         public ActionResult Index(string sortOrder, string searchString)
         {
             ViewBag.DateSortParm = String.IsNullOrEmpty(sortOrder) ? "date" : "";
