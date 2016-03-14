@@ -41,6 +41,8 @@
                 <li class="" id=""><a href="/Contact">Contact</a></li>
             </ul>
         </div>
+        @if (HttpContext.Current.User.Identity.IsAuthenticated)
+        { 
         <div class="admin-aside-panel">
             <h4>My Dashboard</h4>
             <ul>
@@ -53,6 +55,7 @@
             </ul>
             <i class="icon fa fa-chevron-right closed"> </i>
         </div>
+        }
         @RenderBody()
     </div><!-- MAIN WRAPPER -->
     <footer class="clearfix">
