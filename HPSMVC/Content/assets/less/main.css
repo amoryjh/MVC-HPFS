@@ -7336,7 +7336,7 @@ section.text-photo-half.treatment-care .photo-half > .photo-bg {
 -----------------------Events Page-----------------------
 ///////////////////////////////////////////////////////*/
 .events .page-hero {
-  background-image: url('/Content/assets/img/hpfs_photos/Cottage_Studio_Open_House_11Apr2014 (43).jpg');
+  background-image: url('/Content/assets/img/hpfs_photos/IMG_0083.jpg');
 }
 .events .event-card-section {
   background-color: #414240;
@@ -7406,7 +7406,8 @@ section.text-photo-half.treatment-care .photo-half > .photo-bg {
 -------------------------Care Page-----------------------
 ///////////////////////////////////////////////////////*/
 .care .page-hero {
-  background-image: url('/Content/assets/img/hpfs_photos/Cottage_Studio_Open_House_11Apr2014 (43).jpg');
+  background-image: url('/Content/assets/img/hpfs_photos/volleyball 2012 037.jpg');
+  background-position: top center;
 }
 .care .key-message {
   padding: 7% 1%;
@@ -7456,7 +7457,7 @@ section.text-photo-half.treatment-care .photo-half > .photo-bg {
 -----------------------About Page------------------------
 ///////////////////////////////////////////////////////*/
 .about .page-hero {
-  background-image: url('/Content/assets/img/hpfs_photos/Cottage_Studio_Open_House_11Apr2014 (43).jpg');
+  background-image: url('/Content/assets/img/hero-photography.jpg');
 }
 .about .comm-partnership ul {
   list-style-type: none;
