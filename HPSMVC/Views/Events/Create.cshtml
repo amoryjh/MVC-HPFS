@@ -50,12 +50,12 @@
                     @Html.LabelFor(model => model.Viewer, htmlAttributes: new { @class = "control-label col-md-2" })
                     <div class="col-md-10">
                         @Html.DropDownListFor(model => model.Viewer, new SelectList(
-                  new List<Object>{
+                      new List<Object>{
                        new { value = "All" , text = "All"  },
                        new { value = "Clients" , text = "Clients" },
-                       new { value = "BoardDirection" , text = "BoardDirection" },
-                       new { value = "Family" , text = "Family"},
-                       new { value = "Administator" , text = "Administator"}
+                       new { value = "BoardDirectors" , text = "BoardDirectors" },
+                       new { value = "FamilyAssoc" , text = "FamilyAssoc"},
+                       new { value = "Administrator" , text = "Administrator"}
                     },
                   "value",
                   "text",
@@ -89,7 +89,7 @@
         }
 
         <div>
-            @Html.ActionLink("Back to List", "Index")
+            @Html.ActionLink("Back to List", "Admin")
         </div>
         </div>
         </section>
