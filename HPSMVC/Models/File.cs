@@ -32,6 +32,10 @@ namespace HPSMVC.Models
         [StringLength(50, ErrorMessage = "The file name cannot be more than 50 characters")]
         public string Category { get; set; }
 
+        [Display(Name = "Viewer")]
+        [StringLength(50, ErrorMessage = "The file name cannot be more than 50 characters")]
+        public string Viewer { get; set; }
+
         public virtual ICollection<Event> Event { get; set; }
         public virtual ICollection<Index> Indexs { get; set; }
     }

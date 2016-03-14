@@ -28,7 +28,7 @@
             @Html.ActionLink("Category", "Index", new { sortOrder = ViewBag.NameSortParm })
         </th>
         <th>
-          File
+            @Html.DisplayNameFor(model => model.Viewer)
         </th>
     </tr>
 
@@ -42,6 +42,9 @@
         </td>
         <td>
             @Html.DisplayFor(modelItem => item.Category)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.Viewer)
         </td>
         <td>
          @{
