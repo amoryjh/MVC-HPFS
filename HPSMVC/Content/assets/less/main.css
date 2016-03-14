@@ -6144,13 +6144,6 @@ ul.no-style-list {
 ul.no-style-list li {
   list-style-type: none;
 }
-h1.title-under {
-  background-size: inherit;
-  text-align: center;
-  background: url('/assets/img/title-under.png') center bottom no-repeat;
-  padding-bottom: 4.5rem;
-  margin-bottom: 0.5em;
-}
 .resize-txt-large-A {
   font-size: 21px;
   text-decoration: none;
@@ -6563,7 +6556,7 @@ nav ul li > ul li a:hover {
   border-bottom: 1px solid #bf96c5;
   padding: .8em;
   font-size: 1.2em !important;
-  overflow: scroll;
+  overflow: auto ;
 }
 .mobile-nav-elements li a {
   padding-left: 0.5em;

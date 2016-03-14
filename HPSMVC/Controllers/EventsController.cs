@@ -15,12 +15,12 @@ namespace HPSMVC.Controllers
     {
         private HPSMVCEntities db = new HPSMVCEntities();
 
-        public ActionResult Calendar()
+        public ActionResult Index()
         {
             return View(db.Events.ToList());
         }
 
-        public ActionResult Index(string sortOrder, string searchString)
+        public ActionResult Admin(string sortOrder, string searchString)
         {
             ViewBag.DateSortParm = String.IsNullOrEmpty(sortOrder) ? "date" : "";
             ViewBag.TitleSortParm = sortOrder == "Title" ? "title" : "Title";
@@ -35,8 +35,6 @@ namespace HPSMVC.Controllers
                                        || s.Viewer.Contains(searchString)
                                        || s.By.Contains(searchString));
             }
-
-
             switch (sortOrder)
             {
                 case "title":
@@ -55,12 +53,8 @@ namespace HPSMVC.Controllers
                     events = events.OrderBy(s => s.Date);
                     break;
             }
-            return View(events.ToList());
-        }
 
-        public ActionResult Home()
-        {
-            return View();
+            return View(events.ToList());
         }
 
 
