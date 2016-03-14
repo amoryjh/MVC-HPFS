@@ -35,10 +35,12 @@
                     <div class="col-md-10">
                         @Html.DropDownListFor(model => model.Category, new SelectList(
                   new List<Object>{
-                       new { value = "Pdf" , text = "Pdf"  },
+                       new { value = "Excel" , text = "Excel"  },
+                       new { value = "PDF" , text = "PDF" },
                        new { value = "Photo" , text = "Photo" },
-                       new { value = "Exe" , text = "Exe" },
-                       new { value = "Text" , text = "Text"}
+                       new { value = "PowerPoint" , text = "PowerPoint" },
+                       new { value = "Publisher" , text = "Publisher" },
+                       new { value = "Word" , text = "Word"}
                     },
                   "value",
                   "text",
@@ -52,9 +54,9 @@
                   new List<Object>{
                        new { value = "All" , text = "All"  },
                        new { value = "Clients" , text = "Clients" },
-                       new { value = "BoardDirection" , text = "BoardDirection" },
-                       new { value = "Family" , text = "Family"},
-                       new { value = "Administator" , text = "Administator"}
+                       new { value = "BoardDirectors" , text = "BoardDirectors" },
+                       new { value = "FamilyAssoc" , text = "FamilyAssoc"},
+                       new { value = "Administrator" , text = "Administrator"}
                     },
                   "value",
                   "text",
