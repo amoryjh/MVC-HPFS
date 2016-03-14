@@ -1,80 +1,82 @@
 ﻿@model IEnumerable<HPSMVC.Models.Event>
-
-    @{
-        ViewBag.Title = "Index";
-    }
-
-    <h2>Events</h2>
-    <p>Include Files for each event</p>
-    <p>
-        @Html.ActionLink("Create New", "Create")
-    </p>
-      @using (Html.BeginForm())
-      {
-          <p>
-              @Html.TextBox("SearchString")
-              <input placeholder="Title, Viewer, & By"  type="submit" value="Search" />
-          </p>
-      }
-
-    <table class="table">
-        <tr>
-            <th>
-                @Html.ActionLink("Title", "Admin", new { sortOrder = ViewBag.TitleSortParm })
-            </th>
-            <th>
-                @Html.DisplayNameFor(model => model.Content)
-            </th>
-            <th>
-                @Html.ActionLink("Date", "Admin", new { sortOrder = ViewBag.DateSortParm })
-            </th>
-            <th>
-                @Html.ActionLink("By", "Admin", new { sortOrder = ViewBag.BySortParm })
-            </th>
-            <th>
-                @Html.ActionLink("Viewer", "Admin", new { sortOrder = ViewBag.ViewerSortParm })
-            </th>
-            <th>
-                @Html.DisplayNameFor(model => model.LinkText)
-            </th>
-            <th>
-                @Html.DisplayNameFor(model => model.Link)
-            </th>
-            <th></th>
-        </tr>
-
-        @foreach (var item in Model)
+@{
+    ViewBag.Title = "Index";
+}
+<section>
+    <div class="container">
+        <h2>Events</h2>
+        <p>Include Files for each event</p>
+        <p>
+            @Html.ActionLink("Create New", "Create")
+        </p>
+        @using (Html.BeginForm())
         {
-            <tr>
-                <td>
-                    @Html.DisplayFor(modelItem => item.Title)
-                </td>
-                <td>
-                    @Html.DisplayFor(modelItem => item.Content)
-                </td>
-                <td>
-                    @Html.DisplayFor(modelItem => item.Date)
-                </td>
-                <td>
-                    @Html.DisplayFor(modelItem => item.By)
-                </td>
-                <td>
-                    @Html.DisplayFor(modelItem => item.Viewer)
-                </td>
-                <td>
-                    @Html.DisplayFor(modelItem => item.LinkText)
-                </td>
-                <td>
-                    @Html.DisplayFor(modelItem => item.Link)
-                </td>
-                <td>
-                    @Html.DisplayFor(modelItem => item.Files)
-                </td>
-                <td>
-                    @Html.ActionLink("Edit", "Edit", new { id = item.ID }) |
-                    @Html.ActionLink("Delete", "Delete", new { id = item.ID })
-                </td>
-            </tr>
+            <p>
+                @Html.TextBox("SearchString")
+                <input placeholder="Title, Viewer, & By" type="submit" value="Search" />
+            </p>
         }
 
-    </table>
+        <table class="table">
+            <tr>
+                <th>
+                    @Html.ActionLink("Title", "Admin", new { sortOrder = ViewBag.TitleSortParm })
+                </th>
+                <th>
+                    @Html.DisplayNameFor(model => model.Content)
+                </th>
+                <th>
+                    @Html.ActionLink("Date", "Admin", new { sortOrder = ViewBag.DateSortParm })
+                </th>
+                <th>
+                    @Html.ActionLink("By", "Admin", new { sortOrder = ViewBag.BySortParm })
+                </th>
+                <th>
+                    @Html.ActionLink("Viewer", "Admin", new { sortOrder = ViewBag.ViewerSortParm })
+                </th>
+                <th>
+                    @Html.DisplayNameFor(model => model.LinkText)
+                </th>
+                <th>
+                    @Html.DisplayNameFor(model => model.Link)
+                </th>
+                <th></th>
+            </tr>
+
+            @foreach (var item in Model)
+            {
+                <tr>
+                    <td>
+                        @Html.DisplayFor(modelItem => item.Title)
+                    </td>
+                    <td>
+                        @Html.DisplayFor(modelItem => item.Content)
+                    </td>
+                    <td>
+                        @Html.DisplayFor(modelItem => item.Date)
+                    </td>
+                    <td>
+                        @Html.DisplayFor(modelItem => item.By)
+                    </td>
+                    <td>
+                        @Html.DisplayFor(modelItem => item.Viewer)
+                    </td>
+                    <td>
+                        @Html.DisplayFor(modelItem => item.LinkText)
+                    </td>
+                    <td>
+                        @Html.DisplayFor(modelItem => item.Link)
+                    </td>
+                    <td>
+                        @Html.DisplayFor(modelItem => item.Files)
+                    </td>
+                    <td>
+                        @Html.ActionLink("Edit", "Edit", new { id = item.ID }) |
+                        @Html.ActionLink("Delete", "Delete", new { id = item.ID })
+                    </td>
+                </tr>
+            }
+
+        </table>
+    </div>
+</section>
