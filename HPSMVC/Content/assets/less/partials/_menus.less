@@ -27,14 +27,14 @@ nav{
     list-style-type: none;
     color:@black;text-align: right;
     li{
-      display: inline-block; margin: 1px -2px; text-transform: uppercase; 
+      display: inline-block; margin: -1px -2px; text-transform: uppercase; 
       a{
         color: @black;
         &:active,&:visited{color: @black;}
         i{margin: 0 0.2em;}
         text-align: left;
-        font-size: 1.29em !important;padding: 0 0.75em;height: 101px;display: block;
-        &:hover{background: @matte-black; color:@white;text-decoration: none;}
+        font-size: 1.29em !important;padding: 0 0.75em;height: 102px;display: block;
+        &:hover{background: @matte-black; color:@white; text-decoration: none;}
       }
     }
     li>ul{
@@ -73,14 +73,14 @@ nav{
   ul{
     list-style-type:none;
     padding: 30px 65px;
-    //padding-top: 20px;
-    font-size: 18px !important;
+    padding-top: 0;
+    font-size: 0.9em;
     li{
       padding:16px 0;
       a{
-        color:darken(@brand-tri,15%);
+        color:darken(@brand-tri,25%);
         text-decoration:none;
-        &:hover{color: darken(@brand-tri,10%); text-decoration: underline !important;}
+        &:hover{color: darken(@brand-tri,15%); text-decoration: underline !important;}
       }
     }
   }

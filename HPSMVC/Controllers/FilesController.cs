@@ -86,12 +86,11 @@ namespace HPSMVC.Controllers
                   Stream fileStream = Request.Files[fName].InputStream;
                   byte[] fileData = new Byte[fileLength];
                   fileStream.Read(fileData, 0, fileLength);
-                  if (mimeType.Contains("image") && fName == "FileUpImage")
-                  {
+                  
                     file.fileContent = fileData;
                     file.fileType = mimeType;
                     file.fileName = fileName;
-                  }
+                  
                 }
               }
                 db.Files.Add(file);
@@ -142,12 +141,11 @@ namespace HPSMVC.Controllers
                         Stream fileStream = Request.Files[fName].InputStream;
                         byte[] fileData = new Byte[fileLength];
                         fileStream.Read(fileData, 0, fileLength);
-                        if (mimeType.Contains("image") && fName == "FileUpImage")
-                        {
-                            file.fileContent = fileData;
-                            file.fileType = mimeType;
-                            file.fileName = fileName;
-                        }
+                        
+                        file.fileContent = fileData;
+                        file.fileType = mimeType;
+                        file.fileName = fileName;
+                        
                     }
                 }
                 db.Entry(file).State = EntityState.Modified;
