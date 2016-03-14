@@ -5,7 +5,7 @@
 }
 <section>
     <div class="container">
-        <h2>Edit</h2>
+        <h2>Edit Event</h2>
 
 
         @using (Html.BeginForm())
@@ -13,7 +13,6 @@
             @Html.AntiForgeryToken()
 
             <div class="form-horizontal">
-                <h4>Event</h4>
                 <hr />
                 @Html.ValidationSummary(true, "", new { @class = "text-danger" })
                 @Html.HiddenFor(model => model.ID)
@@ -54,12 +53,12 @@
                     @Html.LabelFor(model => model.Viewer, htmlAttributes: new { @class = "control-label col-md-2" })
                     <div class="col-md-10">
                         @Html.DropDownListFor(model => model.Viewer, new SelectList(
-                  new List<Object>{
+                     new List<Object>{
                        new { value = "All" , text = "All"  },
                        new { value = "Clients" , text = "Clients" },
-                       new { value = "BoardDirection" , text = "BoardDirection" },
-                       new { value = "Family" , text = "Family"},
-                       new { value = "Administator" , text = "Administator"}
+                       new { value = "BoardDirectors" , text = "BoardDirectors" },
+                       new { value = "FamilyAssoc" , text = "FamilyAssoc"},
+                       new { value = "Administrator" , text = "Administrator"}
                     },
                   "value",
                   "text",
@@ -93,7 +92,7 @@
         }
 
         <div>
-            @Html.ActionLink("Back to List", "Index")
+            @Html.ActionLink("Back to List", "Admin")
         </div>
 </div>
 </section>
