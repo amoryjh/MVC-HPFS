@@ -1,38 +1,39 @@
 ﻿@model HPSMVC.Models.File
 
 @{
-  ViewBag.Title = "Create";
+    ViewBag.Title = "Create";
 }
+<section>
+    <div class="container">
+        <h2>File Upload</h2>
 
-<h2>File Upload</h2>
 
+        @using (Html.BeginForm("Create", "Files", FormMethod.Post, new { enctype = "multipart/form-data" }))
+        {
+            @Html.AntiForgeryToken()
 
-@using (Html.BeginForm("Create", "Files", FormMethod.Post, new { enctype = "multipart/form-data"}))
-{
-  @Html.AntiForgeryToken()
+            <div class="form-horizontal">
+                <hr />
+                @Html.ValidationSummary(true, "", new { @class = "text-danger" })
 
-  <div class="form-horizontal">
-    <hr />
-    @Html.ValidationSummary(true, "", new { @class = "text-danger" })
+                <div class="form-group">
+                    <div class="col-md-offset-2 col-md-10">
+                        <input type="file" name="FileUpImage" id="careImage" /><br />
+                    </div>
+                </div>
 
-      <div class="form-group">
-          <div class="col-md-offset-2 col-md-10">
-              <input type="file" name="FileUpImage" id="careImage" /><br />
-          </div>
-      </div>
+                <div class="form-group">
+                    @Html.LabelFor(model => model.Date, htmlAttributes: new { @class = "control-label col-md-2" })
+                    <div class="col-md-10">
+                        @Html.EditorFor(model => model.Date, new { htmlAttributes = new { @class = "form-control" } })
+                        @Html.ValidationMessageFor(model => model.Date, "", new { @class = "text-danger" })
+                    </div>
+                </div>
 
-  <div class="form-group">
-    @Html.LabelFor(model => model.Date, htmlAttributes: new { @class = "control-label col-md-2" })
-    <div class="col-md-10">
-      @Html.EditorFor(model => model.Date, new { htmlAttributes = new { @class = "form-control" } })
-      @Html.ValidationMessageFor(model => model.Date, "", new { @class = "text-danger" })
-    </div>
-  </div>
-
-      <div class="form-group">
-          @Html.LabelFor(model => model.Category, htmlAttributes: new { @class = "control-label col-md-2" })
-          <div class="col-md-10">
-              @Html.DropDownListFor(model => model.Category, new SelectList(
+                <div class="form-group">
+                    @Html.LabelFor(model => model.Category, htmlAttributes: new { @class = "control-label col-md-2" })
+                    <div class="col-md-10">
+                        @Html.DropDownListFor(model => model.Category, new SelectList(
                   new List<Object>{
                        new { value = "Pdf" , text = "Pdf"  },
                        new { value = "Photo" , text = "Photo" },
@@ -42,12 +43,12 @@
                   "value",
                   "text",
                    2))@Html.ValidationMessageFor(model => model.Category, "", new { @class = "text-danger" })
-              </div>
-          </div>
-          <div class="form-group">
-              @Html.LabelFor(model => model.Viewer, htmlAttributes: new { @class = "control-label col-md-2" })
-              <div class="col-md-10">
-                  @Html.DropDownListFor(model => model.Viewer, new SelectList(
+            </div>
+        </div>
+        <div class="form-group">
+            @Html.LabelFor(model => model.Viewer, htmlAttributes: new { @class = "control-label col-md-2" })
+            <div class="col-md-10">
+                @Html.DropDownListFor(model => model.Viewer, new SelectList(
                   new List<Object>{
                        new { value = "All" , text = "All"  },
                        new { value = "Clients" , text = "Clients" },
@@ -58,27 +59,29 @@
                   "value",
                   "text",
                    2))
-                  @Html.ValidationMessageFor(model => model.Viewer, "", new { @class = "text-danger" })
-              </div>
-          </div>
+                @Html.ValidationMessageFor(model => model.Viewer, "", new { @class = "text-danger" })
+            </div>
+        </div>
 
-  <div class="form-group">
-    <div class="col-md-offset-2 col-md-10">
-        <input type="submit" value="Create" class="btn btn-default" disabled="" />
+        <div class="form-group">
+            <div class="col-md-offset-2 col-md-10">
+                <input type="submit" value="Create" class="btn btn-default" disabled="" />
+            </div>
+        </div>
     </div>
-  </div>
-  </div>
-}
+        }
 
-<div>
-  @Html.ActionLink("Back to List", "Index")
-</div>
+        <div>
+            @Html.ActionLink("Back to List", "Index")
+        </div>
 
-@section Scripts {
-    <script>
-        $('#careImage').change(function () {
-            $('.btn-default').prop('disabled', !($('#careImage').val()));
-        });
-    </script>
-    @Scripts.Render("~/bundles/jqueryval")
-}
+        @section Scripts {
+            <script>
+                $('#careImage').change(function () {
+                    $('.btn-default').prop('disabled', !($('#careImage').val()));
+                });
+            </script>
+            @Scripts.Render("~/bundles/jqueryval")
+        }
+    </div>
+</section>

@@ -16,8 +16,13 @@ namespace HPSMVC.Controllers
     {
         private HPSMVCEntities db = new HPSMVCEntities();
 
-        // GET: Care
         public ActionResult Index()
+        {
+            return View(db.Programs.ToList());
+        }
+
+        // GET: Care
+        public ActionResult Admin()
         {
             return View(db.Programs.ToList());
         }

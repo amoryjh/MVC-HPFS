@@ -3,65 +3,69 @@
 @{
     ViewBag.Title = "Index";
 }
+<section>
+    <div class="container">
+        <h2>Index</h2>
 
-<h2>Index</h2>
-
-<p>
-    @Html.ActionLink("Create New", "Create")
-</p>
-                      @using (Html.BeginForm())
-                      {
-                          <p>
-                              @Html.TextBox("SearchString")
-                              <input placeholder="Title" type="submit" value="Search" />
-                          </p>
-                      }
-<table class="table">
-    <tr>
-        <th>
-            @Html.DisplayNameFor(model => model.fileName)
-        </th>
-        <th>
-            @Html.ActionLink("Date", "Index", new { sortOrder = ViewBag.DateSortParm })
-        </th>
-        <th>
-            @Html.ActionLink("Category", "Index", new { sortOrder = ViewBag.NameSortParm })
-        </th>
-        <th>
-            @Html.DisplayNameFor(model => model.Viewer)
-        </th>
-    </tr>
-
-@foreach (var item in Model) {
-    <tr>
-        <td>
-            @Html.DisplayFor(modelItem => item.fileName)
-        </td>
-        <td>
-            @Html.DisplayFor(modelItem => item.Date)
-        </td>
-        <td>
-            @Html.DisplayFor(modelItem => item.Category)
-        </td>
-        <td>
-            @Html.DisplayFor(modelItem => item.Viewer)
-        </td>
-        <td>
-         @{
-  if (item.fileContent != null && item.fileType.Contains("image"))
-  {
-    string imageBase64 = Convert.ToBase64String(item.fileContent);
-    string imageSrc = string.Format("data:" + item.fileType + ";base64,{0}", imageBase64);
-    <img src="@imageSrc" style="max-height:100px;max-width:120px;" class="img-responsive" />
-  }
+        <p>
+            @Html.ActionLink("Create New", "Create")
+        </p>
+        @using (Html.BeginForm())
+        {
+            <p>
+                @Html.TextBox("SearchString")
+                <input placeholder="Title" type="submit" value="Search" />
+            </p>
         }
-        </td>
-        <td>
-            @Html.ActionLink("Download", "Download", new { id = item.ID }) |
-            @Html.ActionLink("Edit", "Edit", new { id=item.ID }) |
-            @Html.ActionLink("Delete", "Delete", new { id=item.ID })
-        </td>
-    </tr>
-}
+        <table class="table">
+            <tr>
+                <th>
+                    @Html.DisplayNameFor(model => model.fileName)
+                </th>
+                <th>
+                    @Html.ActionLink("Date", "Index", new { sortOrder = ViewBag.DateSortParm })
+                </th>
+                <th>
+                    @Html.ActionLink("Category", "Index", new { sortOrder = ViewBag.NameSortParm })
+                </th>
+                <th>
+                    @Html.DisplayNameFor(model => model.Viewer)
+                </th>
+            </tr>
 
-</table>
+            @foreach (var item in Model)
+            {
+                <tr>
+                    <td>
+                        @Html.DisplayFor(modelItem => item.fileName)
+                    </td>
+                    <td>
+                        @Html.DisplayFor(modelItem => item.Date)
+                    </td>
+                    <td>
+                        @Html.DisplayFor(modelItem => item.Category)
+                    </td>
+                    <td>
+                        @Html.DisplayFor(modelItem => item.Viewer)
+                    </td>
+                    <td>
+                        @{
+                if (item.fileContent != null && item.fileType.Contains("image"))
+                {
+                    string imageBase64 = Convert.ToBase64String(item.fileContent);
+                    string imageSrc = string.Format("data:" + item.fileType + ";base64,{0}", imageBase64);
+                    <img src="@imageSrc" style="max-height:100px;max-width:120px;" class="img-responsive" />
+                }
+                        }
+                    </td>
+                    <td>
+                        @Html.ActionLink("Download", "Download", new { id = item.ID }) |
+                        @Html.ActionLink("Edit", "Edit", new { id = item.ID }) |
+                        @Html.ActionLink("Delete", "Delete", new { id = item.ID })
+                    </td>
+                </tr>
+            }
+
+        </table>
+    </div>
+</section>

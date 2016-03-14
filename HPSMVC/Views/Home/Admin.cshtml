@@ -3,36 +3,38 @@
 @{
     ViewBag.Title = "Index";
 }
+<section>
+    <div class="container">
+        <h2>Index</h2>
 
-<h2>Index</h2>
+        <p>
+            @Html.ActionLink("Create New", "Create")
+        </p>
+        <table class="table">
+            <tr>
+                <th>
+                    File
+                </th>
+                <th>
+                    @Html.DisplayNameFor(model => model.Title)
+                </th>
+                <th>
+                    @Html.DisplayNameFor(model => model.Content)
+                </th>
+                <th>
+                    @Html.DisplayNameFor(model => model.ButtonText)
+                </th>
+                <th>
+                    @Html.DisplayNameFor(model => model.ButtonLink)
+                </th>
+                <th></th>
+            </tr>
 
-<p>
-    @Html.ActionLink("Create New", "Create")
-</p>
-<table class="table">
-    <tr>
-        <th>
-            File
-        </th>
-        <th>
-            @Html.DisplayNameFor(model => model.Title)
-        </th>
-        <th>
-            @Html.DisplayNameFor(model => model.Content)
-        </th>
-        <th>
-            @Html.DisplayNameFor(model => model.ButtonText)
-        </th>
-        <th>
-            @Html.DisplayNameFor(model => model.ButtonLink)
-        </th>
-        <th></th>
-    </tr>
-
-@foreach (var item in Model) {
-    <tr>
-        <td>
-            @{
+            @foreach (var item in Model)
+            {
+                <tr>
+                    <td>
+                        @{
                 if (item.File.fileContent != null && item.File.fileType.Contains("image"))
                 {
                     string imageBase64 = Convert.ToBase64String(item.File.fileContent);
@@ -43,25 +45,27 @@
                 {
                     <p>No Image</p>
                 }
+                        }
+                    </td>
+                    <td>
+                        @Html.DisplayFor(modelItem => item.Title)
+                    </td>
+                    <td>
+                        @Html.DisplayFor(modelItem => item.Content)
+                    </td>
+                    <td>
+                        @Html.DisplayFor(modelItem => item.ButtonText)
+                    </td>
+                    <td>
+                        @Html.DisplayFor(modelItem => item.ButtonLink)
+                    </td>
+                    <td>
+                        @Html.ActionLink("Edit", "Edit", new { id = item.ID }) |
+                        @Html.ActionLink("Delete", "Delete", new { id = item.ID })
+                    </td>
+                </tr>
             }
-        </td>
-        <td>
-            @Html.DisplayFor(modelItem => item.Title)
-        </td>
-        <td>
-            @Html.DisplayFor(modelItem => item.Content)
-        </td>
-        <td>
-            @Html.DisplayFor(modelItem => item.ButtonText)
-        </td>
-        <td>
-            @Html.DisplayFor(modelItem => item.ButtonLink)
-        </td>
-        <td>
-            @Html.ActionLink("Edit", "Edit", new { id=item.ID }) |
-            @Html.ActionLink("Delete", "Delete", new { id=item.ID })
-        </td>
-    </tr>
-}
 
-</table>
+        </table>
+    </div>
+</section>

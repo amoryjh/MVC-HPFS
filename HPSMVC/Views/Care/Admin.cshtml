@@ -1,0 +1,68 @@
+﻿@model IEnumerable<HPSMVC.Models.Program>
+
+@{
+    ViewBag.Title = "Index";
+}
+<section>
+    <div class="container">
+        <h2>Index</h2>
+
+        <p>
+            @Html.ActionLink("Create New", "Create")
+        </p>
+        <table class="table">
+            <tr>
+                <th>
+                    @Html.DisplayNameFor(model => model.Title)
+                </th>
+                <th>
+                    @Html.DisplayNameFor(model => model.Content)
+                </th>
+                <th>
+                    Image
+                </th>
+            </tr>
+
+            @foreach (var item in Model)
+            {
+                <tr>
+                    <td>
+                        @Html.DisplayFor(modelItem => item.Title)
+                    </td>
+                    <td>
+                        @Html.DisplayFor(modelItem => item.Content)
+                    </td>
+                    <td>
+                        @{
+                try
+                {
+                    if (item.fileContent != null && item.fileType.Contains("image"))
+                    {
+                        string imageBase64 = Convert.ToBase64String(item.fileContent);
+                        string imageSrc = string.Format("data:" + item.fileType + ";base64,{0}", imageBase64);
+                        <img src="@imageSrc" style="max-height:100px;max-width:120px;" class="img-responsive" />
+                    }
+                    else
+                    {
+                        <p>No Image</p>
+                    }
+                }
+                catch
+                {
+                    <p>Oops, something happened</p>
+                }
+                        }
+                    </td>
+
+
+
+                    <td>
+                        @Html.ActionLink("Edit", "Edit", new { id = item.ID }) |
+                        @Html.ActionLink("Delete", "Delete", new { id = item.ID })
+                    </td>
+                </tr>
+            }
+
+        </table>
+    </div>
+</section>

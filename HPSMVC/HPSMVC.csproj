@@ -556,9 +556,10 @@
     <Content Include="Views\Care\Create.cshtml" />
     <Content Include="Views\Care\Delete.cshtml" />
     <Content Include="Views\Care\Edit.cshtml" />
-    <Content Include="Views\Care\Index.cshtml" />
+    <Content Include="Views\Care\Admin.cshtml" />
     <Content Include="Views\Events\Index.cshtml" />
     <Content Include="Views\Home\Index.cshtml" />
+    <Content Include="Views\Care\Index.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />
