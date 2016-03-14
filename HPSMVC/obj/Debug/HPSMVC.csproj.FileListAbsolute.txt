@@ -275,3 +275,4 @@ C:\Users\Brandon\Desktop\MVC-HPFS\HPSMVC\obj\Debug\HPSMVC.pdb
 C:\Users\Josh\Documents\GitHub\MVC-HPFS\HPSMVC\obj\Debug\HPSMVC.Migrations.VIEWER.resources
 C:\Users\Amory\Desktop\MVC-HPFS\HPSMVC\obj\Debug\HPSMVC.Migrations.VIEWER.resources
 C:\Users\Brandon\Desktop\MVC-HPFS\HPSMVC\obj\Debug\HPSMVC.Migrations.VIEWER.resources
+C:\Users\Brandon\Desktop\MVC-HPFS\HPSMVC\obj\Debug\HPSMVC.SecurityMigrations.SecurityInitial.resources
