@@ -31,14 +31,14 @@
             </div>
         </div>
         <div class="photo-half">
-            <div class="photo-bg">
-                @if (item.fileContent != null && item.fileType.Contains("image"))
-                {
-                    string imageBase64 = Convert.ToBase64String(item.fileContent);
-                    string imageSrc = string.Format("data:" + item.fileType + ";base64,{0}", imageBase64);
-                    <img src="@imageSrc" style="background-size:cover"/>
-                }
-            </div>
+            
+            @if (item.fileContent != null && item.fileType.Contains("image"))
+            {
+                string imageBase64 = Convert.ToBase64String(item.fileContent);
+                string imageSrc = string.Format("data:" + item.fileType + ";base64,{0}", imageBase64);
+                <div class="photo-bg" style="background-image:url('@imageSrc')"></div>
+            }
+                    
         </div>
     </section>
 }
