@@ -44,7 +44,7 @@
         @if (HttpContext.Current.User.Identity.IsAuthenticated)
         { 
         <div class="admin-aside-panel">
-            <h4>My Dashboard</h4>
+            <h4>Hey, @(User.Identity.Name)</h4>
             <ul>
                 <li><a href="/Files">File Exchange</a></li>
                 <li><a href="#">Board Calendar</a></li>
