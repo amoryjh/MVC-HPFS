@@ -1,9 +1,8 @@
-﻿@{
+﻿@model IEnumerable<HPSMVC.Models.Index>
+@{
     ViewBag.Title = "HomePage";
     ViewBag.BodyClass = "home";
 }
-
-<body class="home">
 
     <div id="home-carousel" class="carousel slide" data-ride="carousel">
         <ol class="carousel-indicators">
@@ -13,46 +12,34 @@
         </ol>
         <!-- Wrapper for slides -->
         <div class="carousel-inner" role="listbox">
-            <div id="home-banner-one" class="item active">
-                <div class="carousel-caption">
-                    <h1 class="">Helping  People <span class="highlight"> Succeed</span></h1>
-                    <h4 class="">Providing long-term commitments to our clients and their families is what we do best. See how our <span class="highlight">care</span> makes a difference.</h4>
-                    <div class="carousel-btns ">
-                        <button class="btn btn-solid ">Learn More</button>
+        @foreach (var item in Model)
+        {
+            @if (item.fileContent != null && item.fileType.Contains("image"))
+            {
+                string imageBase64 = Convert.ToBase64String(item.fileContent);
+                string imageSrc = string.Format("data:" + item.fileType + ";base64,{0}", imageBase64);
+                <div id="" class="item active" style="background-image:url('@imageSrc')">      
+            }
+                    <div class="carousel-caption">
+                        <h1 class="">@Html.DisplayFor(modelItem => item.Title)</h1>
+                        <h4 class="">@Html.DisplayFor(modelItem => item.Content)</h4>
+                        <div class="carousel-btns ">
+                            <a class="btn btn-solid" href="@Html.DisplayFor(modelItem => item.ButtonLink)">@Html.DisplayFor(modelItem => item.ButtonText)</a>
+                        </div>
                     </div>
+                    <div class="hero-middle-filter"></div>
                 </div>
-                <div class="hero-middle-filter"></div>
-            </div>
-            <div id="home-banner-two" class="item">
-                <div class="carousel-caption">
-                    <h1 class="">Community Based Programs</h1>
-                    <h4 class="">All of our programs and treatment keep one thing in mind - <span class="highlight"> care</span> and <span class="highlight"> fun! </span> </h4>
-                    <div class="carousel-btns">
-                        <button class="btn btn-solid">Learn More</button>
-                    </div>
-                </div>
-                <div class="hero-middle-filter"></div>
-            </div>
-            <div id="home-banner-three" class="item">
-                <div class="carousel-caption">
-                    <h1>See life through a <span class="highlight">different </span> lens</h1>
-                    <h4>With events and programs like our photography course, we allow for all of our clients to gain new skills and outlooks.</h4>
-                    <div class="carousel-btns">
-                        <button class="btn btn-solid">Learn More</button>
-                    </div>
-                </div>
-                <div class="hero-middle-filter"></div>
-            </div>
+        }
         </div>
-        <!-- Controls -->
-        <!--<a class="left carousel-control" href="#home-carousel" role="button" data-slide="prev">
-          <span class="glyphicon glyphicon-chevron-left" aria-hidden="true"></span>
-          <span class="sr-only">Previous</span>
-        </a>
-        <a class="right carousel-control" href="#home-carousel" role="button" data-slide="next">
-          <span class="glyphicon glyphicon-chevron-right" aria-hidden="true"></span>
-          <span class="sr-only">Next</span>
-        </a>-->
+    <!-- Controls -->
+    <!--<a class="left carousel-control" href="#home-carousel" role="button" data-slide="prev">
+      <span class="glyphicon glyphicon-chevron-left" aria-hidden="true"></span>
+      <span class="sr-only">Previous</span>
+    </a>
+    <a class="right carousel-control" href="#home-carousel" role="button" data-slide="next">
+      <span class="glyphicon glyphicon-chevron-right" aria-hidden="true"></span>
+      <span class="sr-only">Next</span>
+    </a>-->
     </div><!-- / Carousel-->
     <!-- Call to action-->
     <section class="home-call clearfix key-message bg-yellow">

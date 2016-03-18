@@ -24,7 +24,7 @@ namespace HPSMVC.Controllers
 
         public ActionResult Index()
         {
-            return View();
+            return View(db.Indices.ToList());
         }
 
         // GET: Home/Details/5
