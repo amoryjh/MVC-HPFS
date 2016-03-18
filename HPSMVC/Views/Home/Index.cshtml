@@ -14,21 +14,22 @@
         <div class="carousel-inner" role="listbox">
         @foreach (var item in Model)
         {
+            <div id="" class="item active">
             @if (item.fileContent != null && item.fileType.Contains("image"))
             {
                 string imageBase64 = Convert.ToBase64String(item.fileContent);
                 string imageSrc = string.Format("data:" + item.fileType + ";base64,{0}", imageBase64);
-                <div id="" class="item active" style="background-image:url('@imageSrc')">      
+              <div id="" class="" style="background-image:url('@imageSrc')"></div>
             }
-                    <div class="carousel-caption">
-                        <h1 class="">@Html.DisplayFor(modelItem => item.Title)</h1>
-                        <h4 class="">@Html.DisplayFor(modelItem => item.Content)</h4>
-                        <div class="carousel-btns ">
-                            <a class="btn btn-solid" href="@Html.DisplayFor(modelItem => item.ButtonLink)">@Html.DisplayFor(modelItem => item.ButtonText)</a>
-                        </div>
-                    </div>
-                    <div class="hero-middle-filter"></div>
+            <div class="carousel-caption">
+                <h1 class="">@Html.DisplayFor(modelItem => item.Title)</h1>
+                <h4 class="">@Html.DisplayFor(modelItem => item.Content)</h4>
+                <div class="carousel-btns ">
+                    <a class="btn btn-solid" href="@Html.DisplayFor(modelItem => item.ButtonLink)">@Html.DisplayFor(modelItem => item.ButtonText)</a>
                 </div>
+            </div>
+            <div class="hero-middle-filter"></div>
+        </div>
         }
         </div>
     <!-- Controls -->

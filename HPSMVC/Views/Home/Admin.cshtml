@@ -28,13 +28,7 @@
                     @Html.DisplayNameFor(model => model.ButtonLink)
                 </th>
                 <th>
-                    @Html.DisplayNameFor(model => model.fileName)
-                </th>
-                <th>
-                    @Html.DisplayNameFor(model => model.fileType)
-                </th>
-                <th>
-                    @Html.DisplayNameFor(model => model.fileContent)
+                    Image
                 </th>
                 <th></th>
             </tr>
@@ -42,20 +36,6 @@
             @foreach (var item in Model)
             {
                 <tr>
-                    <td>
-                        @{
-                if (item.fileContent != null && item.fileType.Contains("image"))
-                {
-                    string imageBase64 = Convert.ToBase64String(item.fileContent);
-                    string imageSrc = string.Format("data:" + item.fileType + ";base64,{0}", imageBase64);
-                    <img src="@imageSrc" style="max-height:100px;max-width:120px;" class="img-responsive" />
-                }
-                else
-                {
-                    <p>No Image</p>
-                }
-                        }
-                    </td>
                     <td>
                         @Html.DisplayFor(modelItem => item.Title)
                     </td>
@@ -69,14 +49,28 @@
                         @Html.DisplayFor(modelItem => item.ButtonLink)
                     </td>
                     <td>
-                        @Html.DisplayFor(modelItem => item.fileName)
+                        @{
+                try
+                {
+                    if (item.fileContent != null && item.fileType.Contains("image"))
+                    {
+                        string imageBase64 = Convert.ToBase64String(item.fileContent);
+                        string imageSrc = string.Format("data:" + item.fileType + ";base64,{0}", imageBase64);
+                        <img src="@imageSrc" style="max-height:100px;max-width:120px;" class="img-responsive" />
+                    }
+                    else
+                    {
+                        <p>No Image</p>
+                    }
+                }
+                catch
+                {
+                    <p>Oops, something happened</p>
+                }
+                        }
                     </td>
-                    <td>
-                        @Html.DisplayFor(modelItem => item.fileType)
-                    </td>
-                    <td>
-                        @Html.DisplayFor(modelItem => item.fileContent)
-                    </td>
+                    
+                    
                     <td>
                         @Html.ActionLink("Edit", "Edit", new { id = item.ID }) |
                         @Html.ActionLink("Delete", "Delete", new { id = item.ID })

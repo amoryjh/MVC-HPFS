@@ -8,6 +8,7 @@ using System.Web;
 using System.Web.Mvc;
 using HPSMVC.DAL;
 using HPSMVC.Models;
+using System.IO;
 
 namespace HPSMVC.Controllers
 {
@@ -57,6 +58,25 @@ namespace HPSMVC.Controllers
         {
             if (ModelState.IsValid)
             {
+                foreach (string fName in Request.Files)
+                {
+                    HttpPostedFileBase f = Request.Files[fName];
+                    string mimeType = f.ContentType;
+                    int fileLength = f.ContentLength;
+                    if (!(mimeType == "" || fileLength == 0))
+                    {
+                        string fileName = Path.GetFileName(f.FileName);
+                        Stream fileStream = Request.Files[fName].InputStream;
+                        byte[] fileData = new Byte[fileLength];
+                        fileStream.Read(fileData, 0, fileLength);
+                        if (mimeType.Contains("image") && fName == "FileUpImage")
+                        {
+                            index.fileContent = fileData;
+                            index.fileType = mimeType;
+                            index.fileName = fileName;
+                        }
+                    }
+                }
                 db.Indices.Add(index);
                 db.SaveChanges();
                 return RedirectToAction("Index");
@@ -89,6 +109,25 @@ namespace HPSMVC.Controllers
         {
             if (ModelState.IsValid)
             {
+                foreach (string fName in Request.Files)
+                {
+                    HttpPostedFileBase f = Request.Files[fName];
+                    string mimeType = f.ContentType;
+                    int fileLength = f.ContentLength;
+                    if (!(mimeType == "" || fileLength == 0))
+                    {
+                        string fileName = Path.GetFileName(f.FileName);
+                        Stream fileStream = Request.Files[fName].InputStream;
+                        byte[] fileData = new Byte[fileLength];
+                        fileStream.Read(fileData, 0, fileLength);
+                        if (mimeType.Contains("image") && fName == "FileUpImage")
+                        {
+                            index.fileContent = fileData;
+                            index.fileType = mimeType;
+                            index.fileName = fileName;
+                        }
+                    }
+                }
                 db.Entry(index).State = EntityState.Modified;
                 db.SaveChanges();
                 return RedirectToAction("Index");
