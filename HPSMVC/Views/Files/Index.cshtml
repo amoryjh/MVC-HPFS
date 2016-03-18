@@ -14,22 +14,25 @@
         {
             <p>
                 @Html.TextBox("SearchString")
-                <input placeholder="Title" type="submit" value="Search" />
+                <input type="submit" value="Search" />
             </p>
         }
         <table class="table">
             <tr>
                 <th>
-                    @Html.DisplayNameFor(model => model.fileName)
+                    @Html.ActionLink("FileName", "Index", new { sortOrder = ViewBag.NameSortParm })
                 </th>
                 <th>
                     @Html.ActionLink("Date", "Index", new { sortOrder = ViewBag.DateSortParm })
                 </th>
                 <th>
-                    @Html.ActionLink("Category", "Index", new { sortOrder = ViewBag.NameSortParm })
+                    @Html.ActionLink("Category", "Index", new { sortOrder = ViewBag.CategorySortParm })
                 </th>
                 <th>
                     @Html.DisplayNameFor(model => model.Viewer)
+                </th>
+                <th>
+                    @Html.DisplayNameFor(model => model.fileContent)
                 </th>
             </tr>
 

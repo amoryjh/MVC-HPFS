@@ -19,26 +19,31 @@ namespace HPSMVC.Controllers
         // GET: Files
         public ActionResult Index(string sortOrder, string searchString)
         {
-            ViewBag.NameSortParm = String.IsNullOrEmpty(sortOrder) ? "name_desc" : "";
-            ViewBag.DateSortParm = sortOrder == "Date" ? "date_desc" : "Date";
+            ViewBag.NameSortParm = String.IsNullOrEmpty(sortOrder) ? "name" : "";
+            ViewBag.DateSortParm = sortOrder == "Date" ? "date" : "Date";
+            ViewBag.CategorySortParm = sortOrder == "Category" ? "category" : "Category";
             var Files = from s in db.Files
                            select s;
 
             if (!String.IsNullOrEmpty(searchString))
             {
-                Files = Files.Where(s => s.Category.Contains(searchString));
+                Files = Files.Where(s => s.fileName.Contains(searchString)
+                                      || s.Category.Contains(searchString));
             }
 
             switch (sortOrder)
             {
-                case "name_desc":
-                    Files = Files.OrderByDescending(s => s.Category);
+                case "name":
+                    Files = Files.OrderByDescending(s => s.fileName);
                     break;
-                case "Date":
+                case "date":
+                    Files = Files.OrderBy(s => s.Date);
+                    break;
+                case "category":
                     Files = Files.OrderBy(s => s.Date);
                     break;
                 default:
-                    Files = Files.OrderBy(s => s.Category);
+                    Files = Files.OrderBy(s => s.fileName);
                     break;
             }
             return View(Files.ToList());
