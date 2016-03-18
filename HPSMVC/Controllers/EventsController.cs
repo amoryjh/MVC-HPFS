@@ -20,6 +20,11 @@ namespace HPSMVC.Controllers
             return View(db.Events.ToList());
         }
 
+        public ActionResult BoardCal()
+        {
+            return View(db.Events.ToList());
+        }
+
         public ActionResult Admin(string sortOrder, string searchString)
         {
             ViewBag.DateSortParm = String.IsNullOrEmpty(sortOrder) ? "date" : "";

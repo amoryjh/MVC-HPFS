@@ -569,6 +569,7 @@
     <Content Include="Views\Events\Index.cshtml" />
     <Content Include="Views\Home\Index.cshtml" />
     <Content Include="Views\Care\Index.cshtml" />
+    <Content Include="Views\Events\BoardCal.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />
