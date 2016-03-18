@@ -18,8 +18,7 @@ namespace HPSMVC.Controllers
         // GET: Home
         public ActionResult Admin()
         {
-            var indices = db.Indices.Include(i => i.File);
-            return View(indices.ToList());
+            return View(db.Indices.ToList());
         }
 
         public ActionResult Index()
@@ -63,7 +62,6 @@ namespace HPSMVC.Controllers
                 return RedirectToAction("Index");
             }
 
-            ViewBag.FileID = new SelectList(db.Files, "ID", "fileName", index.FileID);
             return View(index);
         }
 
@@ -79,7 +77,6 @@ namespace HPSMVC.Controllers
             {
                 return HttpNotFound();
             }
-            ViewBag.FileID = new SelectList(db.Files, "ID", "fileName", index.FileID);
             return View(index);
         }
 
@@ -96,7 +93,6 @@ namespace HPSMVC.Controllers
                 db.SaveChanges();
                 return RedirectToAction("Index");
             }
-            ViewBag.FileID = new SelectList(db.Files, "ID", "fileName", index.FileID);
             return View(index);
         }
 

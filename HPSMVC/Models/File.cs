@@ -37,6 +37,5 @@ namespace HPSMVC.Models
         public string Viewer { get; set; }
 
         public virtual ICollection<Event> Event { get; set; }
-        public virtual ICollection<Index> Indexs { get; set; }
     }
 }

@@ -28,10 +28,18 @@ namespace HPSMVC.Models
     [StringLength(100)]
     public string ButtonLink { get; set; }
 
-    [Required(ErrorMessage = "You must select a file")]
-    [Display(Name = "File")]
-    public int FileID { get; set; }
+    [Display(Name = "File Name")]
+    [StringLength(250)]
+    [ScaffoldColumn(false)]
+    public string fileName { get; set; }
 
-    public virtual File File { get; set; }
+    [Display(Name = "File Type")]
+    [ScaffoldColumn(false)]
+    public string fileType { get; set; }
+
+    [Display(Name = "File Content")]
+    [ScaffoldColumn(false)]
+    public byte[] fileContent { get; set; }
+
   }
 }
