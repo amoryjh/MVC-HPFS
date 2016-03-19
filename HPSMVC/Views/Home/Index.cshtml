@@ -9,7 +9,7 @@
         <div class="carousel-inner" role="listbox">
         @foreach (var item in Model)
         {
-            <div id="" class="item active">
+            <div id="" class="item">
                 <div class="carousel-caption">
                     <h1 class="">@Html.DisplayFor(modelItem => item.Title)</h1>
                     <h4 class="">@Html.DisplayFor(modelItem => item.Content)</h4>
@@ -92,4 +92,10 @@
             <a href="" class="col-xs-12 col-md-4 btn btn-solid">Visit This Page</a>
         </div>
     </section>
-</body>
+    @section Scripts {
+            <script>
+                $(function(){
+                    $(".item:first-child").addClass("active");
+                })
+            </script>
+        }
