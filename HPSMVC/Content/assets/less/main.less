@@ -19,6 +19,10 @@
 ///////////////////////////////////////////////////////*/
 .home{
   .main-wrapper{margin-top: 100px;}
+  .key-message{
+    p,a.btn{margin:1em 0;}
+    p{text-align:left}
+  }
 }
 #home-banner-one{background-image: url('/Content/assets/img/hpfs_photos/Cottage_Studio_Open_House_11Apr2014 (43).jpg');}
 #home-banner-two{background-image: url('/Content/assets/img/hero-show.jpg');}
@@ -85,10 +89,13 @@ section.text-photo-half.treatment-care{
     background-image: url('/Content/assets/img/hpfs_photos/volleyball 2012 037.jpg');
     background-position:top center;
   }
-
-  .key-message{padding: 7% 1%}
-  
-  section.text-photo-half.collective-group{
+  section.text-photo-half:nth-child(odd) .photo-half, section.text-photo-half:nth-child(odd) .text-half{
+    background:@white; color:@black;
+  }
+  section.text-photo-half:nth-child(even) .photo-half, section.text-photo-half:nth-child(even) .text-half{
+    background:@yellow; color:@white
+  }
+  /*section.text-photo-half.collective-group{
     .photo-half>.photo-bg{
       background-image: url('/Content/assets/img/hpfs_photos/2012.jpg');
     }
@@ -137,7 +144,7 @@ section.text-photo-half.treatment-care{
     .photo-half>.photo-bg{
       background-image: url('/Content/assets/img/hpfs_photos/New 076.jpg');
     }
-  }
+  }*/
   .refer-intac{
     @media(min-width:620px){.col-md-6{padding:  0 2em;p,ul{max-width: 80%;margin-left: auto; margin-right: auto}}}
   }

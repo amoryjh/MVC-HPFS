@@ -5976,31 +5976,44 @@ button.close {
   color: #1562b0;
 }
 .bg-blue {
-  background: #1562b0;
+  background: #1562b0 !important;
 }
 .txt-orange {
   color: #ef7d3e;
 }
 .bg-orange {
-  background: #ef7d3e;
+  background: #ef7d3e !important;
 }
 .txt-purple {
   color: #ab75b3;
 }
 .bg-purple {
-  background: #ab75b3;
+  background: #ab75b3 !important;
 }
 .txt-yellow {
   color: #dbb806;
 }
 .bg-yellow {
-  background: #dbb806;
+  background: #dbb806 !important;
 }
 .txt-red {
   color: #c93438;
 }
 .bg-red {
-  background: #c93438;
+  background: #c93438 !important;
+}
+.bg-white {
+  background: #ffffff !important;
+}
+.bg-white h2,
+.bg-white h1,
+.bg-white h3,
+.bg-white h4,
+.bg-white p,
+.bg-white li,
+.bg-white a,
+.bg-white p > a {
+  color: #3e3d3d !important;
 }
 .bg-blue h2,
 .bg-orange h2,
@@ -6042,7 +6055,7 @@ button.close {
 .bg-purple p > a,
 .bg-yellow p > a,
 .bg-red p > a {
-  color: #ffffff;
+  color: #ffffff !important;
 }
 .carousel {
   height: 84vh;
@@ -6124,7 +6137,7 @@ img {
   max-width: 100%;
 }
 section {
-  padding: 8% 2%;
+  padding: 5em 1em;
 }
 a:active,
 a:visited {
@@ -6207,7 +6220,7 @@ section.text-photo-half {
 }
 section.text-photo-half:nth-child(odd) .photo-half,
 section.text-photo-half:nth-child(odd) .text-half {
-  float: right;
+  float: none;
   background: #ab75b3;
   color: #ffffff;
 }
@@ -6224,8 +6237,9 @@ section.text-photo-half .text-half {
     display: inline-block;
     float: left;
   }
-  section.text-photo-half .photo-half {
-    width: 30%;
+  section.text-photo-half:nth-child(odd) .photo-half,
+  section.text-photo-half:nth-child(odd) .text-half {
+    float: right;
   }
   section.text-photo-half .text-half {
     width: 70%;
@@ -6237,6 +6251,7 @@ section.text-photo-half .text-half {
   }
   section.text-photo-half .photo-half {
     height: 100%;
+    width: 30%;
     position: absolute;
   }
   section.text-photo-half .photo-half .photo-bg {
@@ -7263,11 +7278,14 @@ ul {
   font-size: 0.85em;
   padding-left: inherit;
 }
+ul li {
+  font-family: 'Lato', 'AvenirNext-Regular', 'Helvetica', 'Avenir Next', sans-serif;
+}
 p {
   margin-bottom: 1.3em;
+  font-weight: 400;
   font-size: 1em;
-  font-weight: 300;
-  font-family: 'AvenirNext-Regular', 'Helvetica', 'Avenir Next', sans-serif;
+  font-family: 'Lato', 'AvenirNext-Regular', 'Helvetica', 'Avenir Next', sans-serif;
 }
 @font-face {
   font-family: 'AvenirNext-Demi';
@@ -7327,6 +7345,13 @@ p {
 ///////////////////////////////////////////////////////*/
 .home .main-wrapper {
   margin-top: 100px;
+}
+.home .key-message p,
+.home .key-message a.btn {
+  margin: 1em 0;
+}
+.home .key-message p {
+  text-align: left;
 }
 #home-banner-one {
   background-image: url('/Content/assets/img/hpfs_photos/Cottage_Studio_Open_House_11Apr2014 (43).jpg');
@@ -7416,42 +7441,71 @@ section.text-photo-half.treatment-care .photo-half > .photo-bg {
 /*///////////////////////////////////////////////////////
 -------------------------Care Page-----------------------
 ///////////////////////////////////////////////////////*/
+.care {
+  /*section.text-photo-half.collective-group{
+    .photo-half>.photo-bg{
+      background-image: url('/Content/assets/img/hpfs_photos/2012.jpg');
+    }
+  }
+  section.text-photo-half.computer-group{
+    .photo-half>.photo-bg{
+      background-image: url('/Content/assets/img/hpfs_photos/EdVeerman.jpg');
+    }
+  }
+  section.text-photo-half.cottage-group{
+    .photo-half>.photo-bg{
+      background-image: url('/Content/assets/img/hpfs_photos/Cottage_Studio_Open_House_11Apr2014 (43).jpg');
+    }
+  }
+  section.text-photo-half.friday-group{
+    .photo-half>.photo-bg{
+      background-image: url('/Content/assets/img/hpfs_photos/IMG_0802.jpg');
+    }
+  }
+  section.text-photo-half.gaming-group{
+    .photo-half>.photo-bg{
+      background-image: url('/Content/assets/img/hpfs_photos/IMG_0083.jpg');
+    }
+  }
+  section.text-photo-half.movie-group{
+    .photo-half>.photo-bg{
+      background-image: url('/Content/assets/img/hpfs_photos/New 098.jpg');
+    }
+  }
+  section.text-photo-half.sweet-group{
+    .photo-half>.photo-bg{
+      background-image: url('/Content/assets/img/hpfs_photos/New 082.jpg');
+    }
+  }
+  section.text-photo-half.volleyball-group{
+    .photo-half>.photo-bg{
+      background-image: url('/Content/assets/img/hpfs_photos/volleyball 2012 037.jpg');
+    }
+  }
+  section.text-photo-half.walking-group{
+    .photo-half>.photo-bg{
+      background-image: url('/Content/assets/img/hpfs_photos/IMG_0076.jpg');
+    }
+  }
+  section.text-photo-half.wednesday-group{
+    .photo-half>.photo-bg{
+      background-image: url('/Content/assets/img/hpfs_photos/New 076.jpg');
+    }
+  }*/
+}
 .care .page-hero {
   background-image: url('/Content/assets/img/hpfs_photos/volleyball 2012 037.jpg');
   background-position: top center;
 }
-.care .key-message {
-  padding: 7% 1%;
+.care section.text-photo-half:nth-child(odd) .photo-half,
+.care section.text-photo-half:nth-child(odd) .text-half {
+  background: #ffffff;
+  color: #3e3d3d;
 }
-.care section.text-photo-half.collective-group .photo-half > .photo-bg {
-  background-image: url('/Content/assets/img/hpfs_photos/2012.jpg');
-}
-.care section.text-photo-half.computer-group .photo-half > .photo-bg {
-  background-image: url('/Content/assets/img/hpfs_photos/EdVeerman.jpg');
-}
-.care section.text-photo-half.cottage-group .photo-half > .photo-bg {
-  background-image: url('/Content/assets/img/hpfs_photos/Cottage_Studio_Open_House_11Apr2014 (43).jpg');
-}
-.care section.text-photo-half.friday-group .photo-half > .photo-bg {
-  background-image: url('/Content/assets/img/hpfs_photos/IMG_0802.jpg');
-}
-.care section.text-photo-half.gaming-group .photo-half > .photo-bg {
-  background-image: url('/Content/assets/img/hpfs_photos/IMG_0083.jpg');
-}
-.care section.text-photo-half.movie-group .photo-half > .photo-bg {
-  background-image: url('/Content/assets/img/hpfs_photos/New 098.jpg');
-}
-.care section.text-photo-half.sweet-group .photo-half > .photo-bg {
-  background-image: url('/Content/assets/img/hpfs_photos/New 082.jpg');
-}
-.care section.text-photo-half.volleyball-group .photo-half > .photo-bg {
-  background-image: url('/Content/assets/img/hpfs_photos/volleyball 2012 037.jpg');
-}
-.care section.text-photo-half.walking-group .photo-half > .photo-bg {
-  background-image: url('/Content/assets/img/hpfs_photos/IMG_0076.jpg');
-}
-.care section.text-photo-half.wednesday-group .photo-half > .photo-bg {
-  background-image: url('/Content/assets/img/hpfs_photos/New 076.jpg');
+.care section.text-photo-half:nth-child(even) .photo-half,
+.care section.text-photo-half:nth-child(even) .text-half {
+  background: #dbb806;
+  color: #ffffff;
 }
 @media (min-width: 620px) {
   .care .refer-intac .col-md-6 {

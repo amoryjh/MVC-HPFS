@@ -363,6 +363,12 @@
     <Content Include="Content\assets\less\main.min.css">
       <DependentUpon>main.css</DependentUpon>
     </Content>
+    <Content Include="Content\assets\less\modules\colors.css">
+      <DependentUpon>colors.less</DependentUpon>
+    </Content>
+    <Content Include="Content\assets\less\modules\colors.min.css">
+      <DependentUpon>colors.css</DependentUpon>
+    </Content>
     <Content Include="Content\bootstrap.css" />
     <Content Include="Content\bootstrap.min.css" />
     <Content Include="favicon.ico" />
@@ -503,6 +509,9 @@
     <Content Include="Content\assets\less\plugins\_flickity.less" />
     <Content Include="Content\assets\less\main.css.map">
       <DependentUpon>main.css</DependentUpon>
+    </Content>
+    <Content Include="Content\assets\less\modules\colors.css.map">
+      <DependentUpon>colors.css</DependentUpon>
     </Content>
     <None Include="Scripts\jquery-1.10.2.intellisense.js" />
     <Content Include="Scripts\jquery-1.10.2.js" />

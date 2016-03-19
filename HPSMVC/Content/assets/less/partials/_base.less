@@ -3,7 +3,7 @@
 ///////////////////////////////////////////////////////*/
 img{max-width: 100%;}
 section{
-  padding: 8% 2%;
+  padding: 5em 1em;
 }
 a:active, a:visited{color: inherit;}
 /*///////////////////////////////////////////////////////
@@ -53,20 +53,21 @@ span.highlight{font-weight: 700;text-shadow: none;}
 
 section.text-photo-half{
   &:nth-child(odd){
-    .photo-half,.text-half{float: right;background: lighten(@brand-pri,0%);color: @white;h3{color:@white;}}
+    .photo-half,.text-half{float: none;background: lighten(@brand-pri,0%);color: @white;h3{color:@white;}}
   }
 
   padding: 0; position: relative;
   .text-half{
     padding: 8% 5%;
-    //h2{border-bottom: 1px solid @brand-sec; padding-bottom: 0.75em; width: 100%;}
   }
   @media(min-width:620px){
     .photo-half,.text-half{
       display: inline-block; 
       float: left;
     }
-    .photo-half{width: 30%;}
+    &:nth-child(odd){
+        .photo-half,.text-half{float: right;}
+    }
     .text-half {
       width: 70%; 
       div.text-half-inner{
@@ -75,7 +76,7 @@ section.text-photo-half{
       }
     }
     .photo-half{
-      height: 100%; position: absolute;
+      height: 100%; width:30%; position: absolute;
       .photo-bg{height: 100%;background-position: center center; background-repeat: no-repeat; background-size: cover;}
     }
   }
