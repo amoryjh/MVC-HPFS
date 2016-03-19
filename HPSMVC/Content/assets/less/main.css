@@ -6106,6 +6106,17 @@ button.close {
   top: 0;
   z-index: 0;
 }
+/*
+HOMEPAGE BANNER IMAGE
+*/
+.hero__background-image {
+  background-size: cover;
+  background-position: center center;
+  background-repeat: no-repeat;
+  height: 100%;
+  width: 100%;
+  position: absolute;
+}
 /*///////////////////////////////////////////////////////
 -----------------------Base HTML-----------------------
 ///////////////////////////////////////////////////////*/

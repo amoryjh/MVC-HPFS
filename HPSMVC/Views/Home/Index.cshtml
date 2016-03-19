@@ -5,42 +5,29 @@
 }
 
     <div id="home-carousel" class="carousel slide" data-ride="carousel">
-        <ol class="carousel-indicators">
-            <li data-target="#home-carousel" data-slide-to="0" class="active"></li>
-            <li data-target="#home-carousel" data-slide-to="1"></li>
-            <li data-target="#home-carousel" data-slide-to="2"></li>
-        </ol>
         <!-- Wrapper for slides -->
         <div class="carousel-inner" role="listbox">
         @foreach (var item in Model)
         {
             <div id="" class="item active">
+                <div class="carousel-caption">
+                    <h1 class="">@Html.DisplayFor(modelItem => item.Title)</h1>
+                    <h4 class="">@Html.DisplayFor(modelItem => item.Content)</h4>
+                    <div class="carousel-btns ">
+                        <a class="btn btn-solid" href="@Html.DisplayFor(modelItem => item.ButtonLink)">@Html.DisplayFor(modelItem => item.ButtonText)</a>
+                    </div>
+                </div>
+            <div class="hero-middle-filter"></div>
             @if (item.fileContent != null && item.fileType.Contains("image"))
             {
                 string imageBase64 = Convert.ToBase64String(item.fileContent);
                 string imageSrc = string.Format("data:" + item.fileType + ";base64,{0}", imageBase64);
-              <div id="" class="" style="background-image:url('@imageSrc')"></div>
+                <div class="hero__background-image" style="background-image:url('@imageSrc')"></div>
             }
-            <div class="carousel-caption">
-                <h1 class="">@Html.DisplayFor(modelItem => item.Title)</h1>
-                <h4 class="">@Html.DisplayFor(modelItem => item.Content)</h4>
-                <div class="carousel-btns ">
-                    <a class="btn btn-solid" href="@Html.DisplayFor(modelItem => item.ButtonLink)">@Html.DisplayFor(modelItem => item.ButtonText)</a>
-                </div>
-            </div>
-            <div class="hero-middle-filter"></div>
         </div>
         }
         </div>
     <!-- Controls -->
-    <!--<a class="left carousel-control" href="#home-carousel" role="button" data-slide="prev">
-      <span class="glyphicon glyphicon-chevron-left" aria-hidden="true"></span>
-      <span class="sr-only">Previous</span>
-    </a>
-    <a class="right carousel-control" href="#home-carousel" role="button" data-slide="next">
-      <span class="glyphicon glyphicon-chevron-right" aria-hidden="true"></span>
-      <span class="sr-only">Next</span>
-    </a>-->
     </div><!-- / Carousel-->
     <!-- Call to action-->
     <section class="home-call clearfix key-message bg-yellow">

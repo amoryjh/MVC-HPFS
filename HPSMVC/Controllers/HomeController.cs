@@ -54,7 +54,7 @@ namespace HPSMVC.Controllers
         // more details see http://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public ActionResult Create([Bind(Include = "ID,Title,Content,ButtonText,ButtonLink,FileID")] Index index)
+        public ActionResult Create([Bind(Include = "ID,Title,Content,ButtonText,ButtonLink,fileName,fileType,fileContent")] Index index)
         {
             if (ModelState.IsValid)
             {
@@ -105,7 +105,7 @@ namespace HPSMVC.Controllers
         // more details see http://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public ActionResult Edit([Bind(Include = "ID,Title,Content,ButtonText,ButtonLink,FileID")] Index index)
+        public ActionResult Edit([Bind(Include = "ID,Title,Content,ButtonText,ButtonLink,fileName,fileType,fileContent")] Index index)
         {
             if (ModelState.IsValid)
             {

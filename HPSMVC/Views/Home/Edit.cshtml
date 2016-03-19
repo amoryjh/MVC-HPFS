@@ -8,7 +8,7 @@
         <h2>Edit Home Page Slide</h2>
 
 
-        @using (Html.BeginForm())
+        @using (Html.BeginForm("Edit", "Home", FormMethod.Post, new { enctype = "multipart/form-data" }))
         {
             @Html.AntiForgeryToken()
 
@@ -68,7 +68,12 @@
         </div>
 
         @section Scripts {
+            <script>
+                $('#careImage').change(function () {
+                    $('.btn-default').prop('disabled', !($('#careImage').val()));
+                });
+            </script>
             @Scripts.Render("~/bundles/jqueryval")
-        }
+            }
     </div>
 </section>
