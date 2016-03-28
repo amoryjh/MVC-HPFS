@@ -112,6 +112,7 @@ namespace HPSMVC.Controllers
               }
               catch
                 {
+                    TempData["ValidationMessage"] = file.fileName += "   Error: Not Successfully Added!";
                 }
             }
 
@@ -158,16 +159,28 @@ namespace HPSMVC.Controllers
                         Stream fileStream = Request.Files[fName].InputStream;
                         byte[] fileData = new Byte[fileLength];
                         fileStream.Read(fileData, 0, fileLength);
-                        
+
+                        var fileTypeSplit = mimeType.Substring(mimeType.LastIndexOf('/') + 1);
+
                         file.fileContent = fileData;
-                        file.fileType = mimeType;
+                        file.fileType = fileTypeSplit;
                         file.fileName = fileName;
                         
                     }
                 }
-                db.Entry(file).State = EntityState.Modified;
-                db.SaveChanges();
-                return RedirectToAction("Index");
+
+                try
+                {
+                    db.Entry(file).State = EntityState.Modified;
+                    db.SaveChanges();
+                    TempData["ValidationMessage"] = file.fileName += "   Successfully Edited!";
+                    return RedirectToAction("Index");
+                }
+                catch
+                {
+                    TempData["ValidationMessage"] = file.fileName += "   Error: Not Successfully Edited!";
+                }
+
             }
             return View(file);
         }
@@ -193,8 +206,17 @@ namespace HPSMVC.Controllers
         public ActionResult DeleteConfirmed(int id)
         {
           HPSMVC.Models.File file = db.Files.Find(id);
-            db.Files.Remove(file);
-            db.SaveChanges();
+            try
+            {
+                db.Files.Remove(file);
+                db.SaveChanges();
+                TempData["ValidationMessage"] = file.fileName += "   Successfully Deleted!";
+            }
+            catch
+            {
+                TempData["ValidationMessage"] = file.fileName += "   Error: Not Successfully Deleted!";
+            }
+
             return RedirectToAction("Index");
         }
 
