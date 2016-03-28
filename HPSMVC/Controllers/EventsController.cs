@@ -18,13 +18,13 @@ namespace HPSMVC.Controllers
         public ActionResult Index()
         {
 
-            return View(db.Events.ToList().OrderByDescending( s=> s.Date));
+            return View(db.Events.ToList().OrderBy( s=> s.Date));
             
         }
 
         public ActionResult BoardCal()
         {
-            return View(db.Events.ToList());
+            return View(db.Events.ToList().OrderBy(s => s.Date));
         }
 
         public ActionResult Admin(string sortOrder, string searchString)
