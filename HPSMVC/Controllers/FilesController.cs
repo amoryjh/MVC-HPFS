@@ -18,7 +18,8 @@ namespace HPSMVC.Controllers
 
         // GET: Files
         public ActionResult Index(string sortOrder, string searchString)
-        {
+        {           
+
             ViewBag.NameSortParm = String.IsNullOrEmpty(sortOrder) ? "name" : "";
             ViewBag.DateSortParm = sortOrder == "Date" ? "date" : "Date";
             ViewBag.CategorySortParm = sortOrder == "Category" ? "category" : "Category";
@@ -46,7 +47,7 @@ namespace HPSMVC.Controllers
                     Files = Files.OrderBy(s => s.fileName);
                     break;
             }
-            return View(Files.ToList());
+            return View(Files.ToList());            
         }
         
 
@@ -98,9 +99,16 @@ namespace HPSMVC.Controllers
                   
                 }
               }
-                db.Files.Add(file);
-                db.SaveChanges();
-                return RedirectToAction("Index");
+              try
+              {
+                  db.Files.Add(file);
+                  db.SaveChanges();
+                  TempData["ValidationMessage"] = file.fileName += "   Successfully Added!";
+                  return RedirectToAction("Index");
+              }
+              catch
+                {
+                }
             }
 
             return View(file);

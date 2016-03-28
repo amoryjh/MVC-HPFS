@@ -16,6 +16,10 @@
                 @Html.TextBox("SearchString")
                 <input type="submit" value="Search" />
             </p>
+            
+            <p style="color:red">
+                @TempData["ValidationMessage"]
+            </p>
         }
         <table class="table">
             <tr>
