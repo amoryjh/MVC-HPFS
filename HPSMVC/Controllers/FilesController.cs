@@ -92,10 +92,14 @@ namespace HPSMVC.Controllers
                   Stream fileStream = Request.Files[fName].InputStream;
                   byte[] fileData = new Byte[fileLength];
                   fileStream.Read(fileData, 0, fileLength);
-                  
+
+                  var fileTypeSplit = mimeType.Substring(mimeType.LastIndexOf('/') + 1);
+
                     file.fileContent = fileData;
-                    file.fileType = mimeType;
+                    file.fileType = fileTypeSplit;
                     file.fileName = fileName;
+
+                    
                   
                 }
               }
