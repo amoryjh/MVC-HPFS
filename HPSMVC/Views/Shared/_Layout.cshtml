@@ -1,4 +1,6 @@
-﻿<!DOCTYPE html>
+﻿@using Microsoft.AspNet.Identity
+
+<!DOCTYPE html>
 <html>
 <head>
     <meta charset="utf-8" />
@@ -17,9 +19,21 @@
             <li class="parent-li-nav" id="care-nav"><a href="/Care" class="nav-current">Care</a></li>
             <li class="parent-li-nav" id="about-nav"><a href="/About" class="nav-current">About HPS</a></li>
             <li class="parent-li-nav" id="contact-nav"><a href="/Contact" class="nav-current">Contact</a></li>
-            <li class="parent-li-nav login" id="login-nav"><a href="/Account/Login" class="nav-current">Login</a></li>
+            @if (!HttpContext.Current.User.Identity.IsAuthenticated)
+            {
+                <li class="parent-li-nav login" id="login-nav"><a href="/Account/Login" class="nav-current">Login</a></li>  
+            } 
+            @if (HttpContext.Current.User.Identity.IsAuthenticated)
+            {
+                using (Html.BeginForm("LogOff", "Account", FormMethod.Post, new { id = "logoutForm", @class = "navbar-right" }))
+                 {
+                     @Html.AntiForgeryToken()
+                     <li class="parent-li-nav login" id="login-nav"><a href="javascript:document.getElementById('logoutForm').submit()" class="nav-current">Logout</a></li>  
+                 } 
+            } 
             <li class="parent-li-nav resize-txt">A<span class="resize-txt-large-A">A</span></li>
         </ul>
+        
         <div id="hamburger" class="hamburglar">
             <div class="burger-icon">
                 <div class="burger-container">
@@ -141,6 +155,14 @@
                 });
             });
         </script>
+
+        <script>
+            function getValue() {
+                var x = document.getElementById('logoutForm').submit();
+            }
+        </script>
+
+
         @Scripts.Render("~/Content/assets/js/main.js")
         @RenderSection("scripts", required: false)
     </footer>
