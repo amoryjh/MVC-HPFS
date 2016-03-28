@@ -13,8 +13,11 @@
 </div>
 
 <section class="event-card-section clearfix">
+
     @foreach (var item in Model)
     {
+        if (item.Date >= DateTime.Now.Date)
+        {
         <div class="event-card">
             <div class="event-card-content">
                 <h2>
@@ -28,6 +31,7 @@
                 </ul>
             </div>
         </div>
+        }
     }
 </section>
 

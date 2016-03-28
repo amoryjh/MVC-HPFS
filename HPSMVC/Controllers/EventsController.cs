@@ -17,7 +17,9 @@ namespace HPSMVC.Controllers
 
         public ActionResult Index()
         {
+
             return View(db.Events.ToList().OrderBy( s=> s.Date));
+            
         }
 
         public ActionResult BoardCal()
