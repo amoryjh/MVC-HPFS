@@ -18,6 +18,10 @@
     {
         if (item.Date >= DateTime.Now.Date)
         {
+            if (User.IsInRole("Client"))
+            { 
+            if (item.Viewer == "Clients" || item.Viewer == "All")
+            { 
         <div class="event-card">
             <div class="event-card-content">
                 <h2>
@@ -31,6 +35,62 @@
                 </ul>
             </div>
         </div>
+            }
+            }
+             if (User.IsInRole("FamilyAssoc"))
+            { 
+            if (item.Viewer == "FamilyAssoc" || item.Viewer == "All")
+            { 
+        <div class="event-card">
+            <div class="event-card-content">
+                <h2>
+                    @Html.DisplayFor(modelItem => item.Title)
+                </h2>
+                <h4>@Html.DisplayFor(modelItem => item.Date)</h4>
+                <p>@Html.DisplayFor(modelItem => item.Content)</p>
+                <a href="@Html.DisplayFor(modelItem => item.Link)" class="btn event__btn">@Html.DisplayFor(modelItem => item.LinkText)</a>
+                <ul>
+                    <li>@Html.DisplayFor(modelItem => item.Files)</li>
+                </ul>
+            </div>
+        </div>
+            }
+            }
+             if (User.IsInRole("Admin"))
+             {
+                 if (item.Viewer == "Clients" || item.Viewer == "All")
+            { 
+        <div class="event-card">
+            <div class="event-card-content">
+                <h2>
+                    @Html.DisplayFor(modelItem => item.Title)
+                </h2>
+                <h4>@Html.DisplayFor(modelItem => item.Date)</h4>
+                <p>@Html.DisplayFor(modelItem => item.Content)</p>
+                <a href="@Html.DisplayFor(modelItem => item.Link)" class="btn event__btn">@Html.DisplayFor(modelItem => item.LinkText)</a>
+                <ul>
+                    <li>@Html.DisplayFor(modelItem => item.Files)</li>
+                </ul>
+            </div>
+        </div>
+            }
+            }
+            if (item.Viewer == "All")
+            { 
+        <div class="event-card">
+            <div class="event-card-content">
+                <h2>
+                    @Html.DisplayFor(modelItem => item.Title)
+                </h2>
+                <h4>@Html.DisplayFor(modelItem => item.Date)</h4>
+                <p>@Html.DisplayFor(modelItem => item.Content)</p>
+                <a href="@Html.DisplayFor(modelItem => item.Link)" class="btn event__btn">@Html.DisplayFor(modelItem => item.LinkText)</a>
+                <ul>
+                    <li>@Html.DisplayFor(modelItem => item.Files)</li>
+                </ul>
+            </div>
+        </div>
+            }
         }
     }
 </section>
