@@ -13,6 +13,7 @@
             <p>
                 @Html.TextBox("SearchString")
                 <input type="submit" value="Search" />
+                <input onclick="$(this).resetValidation()" type="reset" value=" Clear" />
             </p>
         }
 
