@@ -73,27 +73,21 @@
         @RenderBody()
     </div><!-- MAIN WRAPPER -->
     <footer class="clearfix">
-        <div class="container">
+        <div class="container"><div class="row">
         <div class="col-md-10 col-md-offset-1">
             <div class="footer-links col-sm-5 col-sm-offset-1">
                 <h1 class="footer-logo"><a href="">HPS</a></h1>
-                <ul class="inline-list">
-                    <li><a href="/Home">Home</a></li>
-                    <li><a href="/Events">Events</a></li>
-                    <li><a href="/Care">Care</a></li>
-                    <li><a href="/About">About HPS</a></li>
-                    <li><a href="/Contact">Contact</a></li>
-                </ul>
+                <p><a href="@Url.Content("~/Content/assets/MSAA/MSAA.pdf")"> Multi-Sector Service Accountability Agreement</a></p>
             </div>
             <div class="footer-address col-sm-5 col-sm-offset-1">
+                <p>Our Address:</p>
                 <p>21 King Street West, Suite 100</p>
                 <p>Hamilton, Ontario L8P 4W7</p>
                 <p>Telephone: <a href="tel:9055252832> 905.525.2832 </a></p>
                 <p>Fax: <a href="tel:">905.546.0055</a></p>
-                <p><a href="@Url.Content("~/Content/assets/MSAA/MSAA.pdf")">MSAA</a></p>
             </div>
         </div>
-        </div>
+        </div></div>
         <!-- SCRIPTS -->
         <script>
             $('.carousel').carousel();
