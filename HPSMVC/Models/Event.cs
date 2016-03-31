@@ -24,6 +24,10 @@ namespace HPSMVC.Models
     [StringLength(250, ErrorMessage = "The Content cannot be more than 250 characters")]
     public string Content { get; set; }
 
+    [Display(Name = "Time")]
+    [StringLength(7, ErrorMessage = "The Time cannot be more than 7 characters")]
+    public string Time { get; set; }
+
     [DataType(DataType.Date)]
     [DisplayFormat(DataFormatString = "{0:yyyy-MM-dd}", ApplyFormatInEditMode = true)]
     public DateTime? Date { get; set; }
