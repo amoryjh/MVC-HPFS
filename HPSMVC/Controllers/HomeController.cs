@@ -77,9 +77,17 @@ namespace HPSMVC.Controllers
                         }
                     }
                 }
-                db.Indices.Add(index);
-                db.SaveChanges();
-                return RedirectToAction("Index");
+                try
+                {
+                    db.Indices.Add(index);
+                    db.SaveChanges();
+                    TempData["ValidationMessage"] = index.Title += "   Home Slider Successfully Added!";
+                    return RedirectToAction("Index");
+                }
+                catch
+                {
+                    TempData["ValidationMessage"] = index.Title += "   Error: Home Slider Not Successfully Added!";
+                }
             }
 
             return View(index);
@@ -128,9 +136,19 @@ namespace HPSMVC.Controllers
                         }
                     }
                 }
-                db.Entry(index).State = EntityState.Modified;
-                db.SaveChanges();
-                return RedirectToAction("Index");
+
+                try
+                {
+                    db.Entry(index).State = EntityState.Modified;
+                    db.SaveChanges();
+                    TempData["ValidationMessage"] = index.Title += "   Home Slider Successfully Edited!";
+                    return RedirectToAction("Index");
+                }
+                catch
+                {
+                    TempData["ValidationMessage"] = index.Title += "   Error: Home Slider Not Successfully Edited!";
+                }
+
             }
             return View(index);
         }
@@ -156,8 +174,17 @@ namespace HPSMVC.Controllers
         public ActionResult DeleteConfirmed(int id)
         {
             Index index = db.Indices.Find(id);
-            db.Indices.Remove(index);
-            db.SaveChanges();
+            try
+            {
+                db.Indices.Remove(index);
+                db.SaveChanges();
+                TempData["ValidationMessage"] = index.Title += "  Home Slider Successfully Deleted!";
+            }
+            catch
+            {
+                TempData["ValidationMessage"] = index.Title += "   Error: Home Slider Not Successfully Deleted!";
+            }
+           
             return RedirectToAction("Index");
         }
 

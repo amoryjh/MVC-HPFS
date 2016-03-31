@@ -236,6 +236,10 @@
     <Compile Include="Migrations\201603181343120_IndexChanges.Designer.cs">
       <DependentUpon>201603181343120_IndexChanges.cs</DependentUpon>
     </Compile>
+    <Compile Include="Migrations\201603311518241_TimeEvent.cs" />
+    <Compile Include="Migrations\201603311518241_TimeEvent.Designer.cs">
+      <DependentUpon>201603311518241_TimeEvent.cs</DependentUpon>
+    </Compile>
     <Compile Include="Migrations\Configuration.cs" />
     <Compile Include="Models\AccountViewModels.cs" />
     <Compile Include="Models\Event.cs" />
@@ -640,6 +644,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Migrations\201603181343120_IndexChanges.resx">
       <DependentUpon>201603181343120_IndexChanges.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201603311518241_TimeEvent.resx">
+      <DependentUpon>201603311518241_TimeEvent.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="SecurityMigrations\201603140529192_SecurityInitial.resx">
       <DependentUpon>201603140529192_SecurityInitial.cs</DependentUpon>
