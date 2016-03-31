@@ -10,6 +10,10 @@
         <p>
             @Html.ActionLink("Create New", "Create")
         </p>
+
+        <p style="color:red">
+            @TempData["ValidationMessage"]
+        </p>
         <table class="table">
             <tr>        
                 <th>
