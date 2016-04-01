@@ -74,6 +74,7 @@ namespace HPSMVC.Controllers
                             index.fileContent = fileData;
                             index.fileType = mimeType;
                             index.fileName = fileName;
+
                         }
                     }
                 }
@@ -82,7 +83,7 @@ namespace HPSMVC.Controllers
                     db.Indices.Add(index);
                     db.SaveChanges();
                     TempData["ValidationMessage"] = index.Title += "   Home Slider Successfully Added!";
-                    return RedirectToAction("Index");
+                    return RedirectToAction("Admin");
                 }
                 catch
                 {
@@ -90,7 +91,7 @@ namespace HPSMVC.Controllers
                 }
             }
 
-            return View(index);
+            return View(Admin());
         }
 
         // GET: Home/Edit/5
@@ -185,7 +186,7 @@ namespace HPSMVC.Controllers
                 TempData["ValidationMessage"] = index.Title += "   Error: Home Slider Not Successfully Deleted!";
             }
            
-            return RedirectToAction("Index");
+            return RedirectToAction("Admin");
         }
 
         protected override void Dispose(bool disposing)

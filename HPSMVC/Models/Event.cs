@@ -27,11 +27,6 @@ namespace HPSMVC.Models
     [DisplayFormat(DataFormatString = "{0:yyyy-MM-dd}", ApplyFormatInEditMode = true)]
     public DateTime? Date { get; set; }
 
-    [Display(Name = "By")]
-    [Required(ErrorMessage = "You cannot leave the author text blank.")]
-    [StringLength(50, ErrorMessage = "The Content cannot be more than 50 characters")]
-    public string By { get; set; }
-
     [Display(Name = "Viewer")]
     [Required(ErrorMessage = "You cannot leave the Viewer blank.")]
     public string Viewer { get; set; }
