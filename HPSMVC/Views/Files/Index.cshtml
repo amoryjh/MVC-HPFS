@@ -13,7 +13,7 @@
         @using (Html.BeginForm())
         {
             <p>
-                @Html.TextBox("SearchString")
+                <input id="SearchString" name="SearchString" type="text" value="" placeholder="Search">
                 <input type="submit" value="Search" class="btn btn-solid"/>
                 <a class="btn btn-solid" href="/Files">Clear</a>
             </p>

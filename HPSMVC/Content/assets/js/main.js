@@ -57,11 +57,6 @@ $(function () {
             $(this).hide()
         }
     })
-    
-    //RESIZE TEXT AODA
-    $('.resize-txt').click(function (event) {
-        $('body').toggleClass('enlargen-text');
-    });
 
     //MOBILE NAV STUFF
     $('.mobile-nav-parent a').click(function (event) {
@@ -115,3 +110,8 @@ $('.icon').click(function () {
         icon.removeClass('fa-chevron-left')
     }
 })
+
+//RESIZE TEXT AODA
+$('.resize-txt').click(function (event) {
+    $('body').toggleClass('enlargen-text');
+});

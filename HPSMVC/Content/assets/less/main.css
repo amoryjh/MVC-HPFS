@@ -6296,8 +6296,6 @@ section.text-photo-half .text-half {
 .btn-inset-hover:hover,
 .btn-inset-hover:focus {
   box-shadow: 0px 0px 1px #9b5ba5 inset;
-  padding-top: 1.3em;
-  padding-bottom: 1.2em;
   background: #95579e;
   outline: 0;
 }
@@ -6380,6 +6378,9 @@ textarea.form-control:focus,
 select:focus,
 input#SearchString:focus {
   border-color: none;
+}
+textarea.form-control {
+  padding: 0.6em 16px !important;
 }
 input#SearchString {
   padding: 0.25em 12px;
@@ -7576,6 +7577,13 @@ section.text-photo-half.treatment-care .photo-half > .photo-bg {
 .care section.text-photo-half:nth-child(even) .text-half {
   background: #dbb806;
   color: #ffffff;
+}
+.care .refer__links a {
+  text-decoration: none;
+}
+.care .refer__links a:hover {
+  text-decoration: underline !important;
+  color: #f2f2f2 !important;
 }
 @media (min-width: 620px) {
   .care .refer-intac .col-md-6 {
