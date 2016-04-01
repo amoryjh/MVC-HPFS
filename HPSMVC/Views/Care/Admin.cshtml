@@ -6,10 +6,15 @@
 <section>
     <div class="container">
         <h2>Care Page Management</h2>
-        <h3>HPS Programs</h3>
         <p>
-            @Html.ActionLink("Create New", "Create")
+            @Html.ActionLink("Create New Program", "Create")
         </p>
+        @using (Html.BeginForm())
+        {
+            <p style="color:red">
+                @TempData["ValidationMessage"]
+            </p>
+        }
         <table class="table">
             <tr>
                 <th>

@@ -76,9 +76,18 @@ namespace HPSMVC.Controllers
                         }
                     }
                 }
-                db.Programs.Add(program);
-                db.SaveChanges();
-                return RedirectToAction("Index");
+                try
+                {
+                    db.Programs.Add(program);
+                    db.SaveChanges();
+                    TempData["ValidationMessage"] = program.Title += "   Program Successfully Added!";
+                    return RedirectToAction("Admin");
+                }
+                catch
+                {
+                    TempData["ValidationMessage"] = program.Title += "   Error: Program Not Successfully Added!";
+                }
+                
             }
 
             return View(program);
@@ -127,9 +136,18 @@ namespace HPSMVC.Controllers
                         }
                     }
                 }
-                db.Entry(program).State = EntityState.Modified;
-                db.SaveChanges();
-                return RedirectToAction("Index");
+                try
+                {
+                    db.Entry(program).State = EntityState.Modified;
+                    db.SaveChanges();
+                    TempData["ValidationMessage"] = program.Title += "   Program Successfully Edited!";
+                    return RedirectToAction("Admin");
+                }
+                catch
+                {
+                    TempData["ValidationMessage"] = program.Title += "   Error: Program Not Successfully Edited!";
+                }
+
             }
             return View(program);
         }
@@ -155,9 +173,18 @@ namespace HPSMVC.Controllers
         public ActionResult DeleteConfirmed(int id)
         {
             Program program = db.Programs.Find(id);
-            db.Programs.Remove(program);
-            db.SaveChanges();
-            return RedirectToAction("Index");
+            try
+            {
+                db.Programs.Remove(program);
+                db.SaveChanges();
+                TempData["ValidationMessage"] = program.Title += "   Program Successfully Deleted!";
+            }
+            catch
+            {
+                TempData["ValidationMessage"] = program.Title += "   Error: Program Not Successfully Deleted!";
+            }
+            
+            return RedirectToAction("Admin");
         }
 
         protected override void Dispose(bool disposing)

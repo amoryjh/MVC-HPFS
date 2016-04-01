@@ -91,7 +91,7 @@ namespace HPSMVC.Controllers
                 }
             }
 
-            return View(Admin());
+            return View(index);
         }
 
         // GET: Home/Edit/5
@@ -143,7 +143,7 @@ namespace HPSMVC.Controllers
                     db.Entry(index).State = EntityState.Modified;
                     db.SaveChanges();
                     TempData["ValidationMessage"] = index.Title += "   Home Slider Successfully Edited!";
-                    return RedirectToAction("Index");
+                    return RedirectToAction("Admin");
                 }
                 catch
                 {
