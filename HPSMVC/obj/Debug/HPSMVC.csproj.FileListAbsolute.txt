@@ -130,7 +130,6 @@ C:\Users\Amory\Desktop\MVC-HPFS\HPSMVC\obj\Debug\HPSMVC.Migrations.manytomany.re
 C:\Users\Amory\Desktop\MVC-HPFS\HPSMVC\obj\Debug\HPSMVC.Migrations.ProgramFiles.resources
 C:\Users\Amory\Desktop\MVC-HPFS\HPSMVC\obj\Debug\HPSMVC.Migrations.plzwork.resources
 C:\Users\Amory\Desktop\MVC-HPFS\HPSMVC\obj\Debug\HPSMVC.Migrations.plzwork1.resources
-C:\Users\Amory\Desktop\MVC-HPFS\HPSMVC\obj\Debug\HPSMVC.csprojResolveAssemblyReference.cache
 C:\Users\Amory\Desktop\MVC-HPFS\HPSMVC\obj\Debug\HPSMVC.Migrations.plzwork2.resources
 C:\Users\Josh\Documents\GitHub\MVC-HPFS\HPSMVC\bin\HPSMVC.dll.config
 C:\Users\Josh\Documents\GitHub\MVC-HPFS\HPSMVC\bin\HPSMVC.dll
