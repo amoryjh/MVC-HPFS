@@ -363,3 +363,4 @@ C:\Users\Brandon\Desktop\MVC-HPFS\HPSMVC\obj\Debug\HPSMVC.csprojResolveAssemblyR
 C:\Users\Amory\Desktop\MVC-HPFS\HPSMVC\obj\Debug\HPSMVC.Migrations.HomeContent.resources
 C:\Users\Amory\Desktop\MVC-HPFS\HPSMVC\obj\Debug\HPSMVC.Migrations.FileModelCollection.resources
 C:\Users\Amory\Desktop\MVC-HPFS\HPSMVC\obj\Debug\HPSMVC.Migrations.ByFieldRM.resources
+C:\Users\Amory\Desktop\MVC-HPFS\HPSMVC\obj\Debug\HPSMVC.csprojResolveAssemblyReference.cache
