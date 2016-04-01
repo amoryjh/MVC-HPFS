@@ -25,10 +25,10 @@
             } 
             @if (HttpContext.Current.User.Identity.IsAuthenticated)
             {
-                using (Html.BeginForm("LogOff", "Account", FormMethod.Post, new { id = "logoutForm", @class = "navbar-right" }))
+                using (Html.BeginForm("LogOff", "Account", FormMethod.Post, new { id = "logoutForm", @class = "parent-li-nav login" }))
                  {
                      @Html.AntiForgeryToken()
-                     <li class="parent-li-nav login" id="login-nav"><a href="javascript:document.getElementById('logoutForm').submit()" class="nav-current">Logout</a></li>  
+                     <li class="" id="login-nav"><a href="javascript:document.getElementById('logoutForm').submit()" class="nav-current">Logout</a></li>  
                  } 
             } 
             <li class="parent-li-nav resize-txt">A<span class="resize-txt-large-A">A</span></li>

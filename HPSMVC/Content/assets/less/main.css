@@ -6105,14 +6105,13 @@ button.close {
 .page-hero .hero-middle h4 {
   line-height: 1.3;
   font-size: 1.1em;
-  max-width: 41em;
+  max-width: 60em;
   margin: 0 auto;
   padding: 0 0.5em;
   font-weight: 300;
 }
 .hero-middle-filter {
-  background: transparent;
-  opacity: 0.1;
+  background: rgba(25, 25, 25, 0.3);
   height: 100%;
   width: 100%;
   position: absolute;
@@ -6196,6 +6195,10 @@ ul.no-style-list li {
 .key-message p {
   font-size: 1.275em;
   margin-bottom: 0;
+}
+.key-message p,
+.key-message a {
+  margin: 0.5em 0;
 }
 .key-message-purple.key-message {
   background: #ab75b3;
@@ -6345,34 +6348,50 @@ footer ul {
 footer h3 {
   margin-bottom: 0.3em;
 }
-.contact .form-group {
+.form-group {
   padding-bottom: 10px;
 }
-.contact .form-group label {
+.form-group label {
   font-size: 1.1em;
 }
-.contact input.form-control,
-.contact textarea.form-control {
+input.form-control,
+textarea.form-control {
   border: 4px solid #bf96c5;
   border-radius: 6px;
   background: #fefefe;
   padding: 1.4em 16px;
   font-size: 1.2em;
 }
-.contact input.form-control:focus,
-.contact textarea.form-control:focus {
+input.form-control:focus,
+textarea.form-control:focus {
   border-color: none;
 }
-.contact .radio label,
-.contact .checkbox label {
+.radio label,
+.checkbox label {
   padding-right: 16px;
 }
-.contact body.contact ul.block-list.no-style-list li {
+body.contact ul.block-list.no-style-list li {
   font-size: 1.3em;
 }
 textarea {
   resize: none;
   padding-top: 0 !important;
+}
+.radio input[type="radio"],
+.radio-inline input[type="radio"],
+.checkbox input[type="checkbox"],
+.checkbox-inline input[type="checkbox"] {
+  margin-left: -20px;
+}
+#loginForm .radio input[type="radio"],
+#loginForm .radio-inline input[type="radio"],
+#loginForm .checkbox input[type="checkbox"],
+#loginForm .checkbox-inline input[type="checkbox"] {
+  margin-left: 0;
+}
+.form-control:focus {
+  border-color: #ab75b3;
+  box-shadow: inset 0 1px 1px rgba(0, 0, 0, 0.075), 0 0 8px #ab75b3;
 }
 a {
   color: #ab75b3;
@@ -6408,6 +6427,14 @@ nav h1 {
 nav h1 a {
   color: #bf96c5 !important;
   text-shadow: rgba(0, 0, 0, 0.1902) -1px 1px 1px, rgba(0, 0, 0, 0.1902) -2px 2px 1px;
+}
+nav form.parent-li-nav.login {
+  display: inline-block;
+  margin: -1px -2px;
+  text-transform: uppercase;
+}
+nav form.parent-li-nav.login li {
+  margin: 0;
 }
 nav ul {
   display: none;
@@ -7278,7 +7305,7 @@ h5 {
 ul {
   margin-bottom: 0.9em;
   font-weight: 400;
-  font-size: 0.85em;
+  font-size: 0.9em;
   padding-left: inherit;
 }
 ul li {
@@ -7350,13 +7377,6 @@ p {
 .home .main-wrapper {
   margin-top: 100px;
 }
-.home .key-message p,
-.home .key-message a.btn {
-  margin: 1em 0;
-}
-.home .key-message p {
-  text-align: left;
-}
 #home-banner-one {
   background-image: url('/Content/assets/img/hpfs_photos/Cottage_Studio_Open_House_11Apr2014 (43).jpg');
 }
@@ -7424,15 +7444,29 @@ section.text-photo-half.treatment-care .photo-half > .photo-bg {
 .events .event-card-section .event-card .event-card-content h4 {
   font-size: 1em;
   margin-bottom: 1em;
-  font-weight: 400;
+  font-weight: 300;
 }
 .events .event-card-section .event-card .event-card-content p {
   font-size: 0.9em;
-  font-weight: 300;
+  font-weight: 400;
+  margin: 1.4em 0;
+}
+.events .event-card-section .event-card .event-card-content p a {
+  color: #fff;
 }
 .events .event-card-section .event-card .event-card-content .btn {
   border-color: #fff;
   margin-top: 10px;
+}
+.events .event-card-section .event-card .event-card-content .event__file {
+  margin: 2em 0;
+}
+.events .event-card-section .event-card .event-card-content .event__file p {
+  font-weight: 300;
+  text-decoration: underline;
+}
+.events .event-card-section .event-card .event-card-content .event__file i {
+  margin-right: 8px;
 }
 .events .event-card-section .old-event-card {
   background-color: #a6a6a6;

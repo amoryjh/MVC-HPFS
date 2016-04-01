@@ -1,4 +1,4 @@
-.contact{
+
   .form-group{
     padding-bottom: 10px;
     label{font-size: 1.1em;}
@@ -19,5 +19,16 @@
   body.contact{
     ul.block-list.no-style-list{ li{font-size: 1.3em}}
   }
-}
+
 textarea{resize:none;padding-top: 0 !important;}
+
+.radio input[type="radio"], .radio-inline input[type="radio"], .checkbox input[type="checkbox"], .checkbox-inline input[type="checkbox"]{
+    margin-left:-20px;
+}
+#loginForm{.radio input[type="radio"], .radio-inline input[type="radio"], .checkbox input[type="checkbox"], .checkbox-inline input[type="checkbox"]{
+    margin-left:0;
+}}
+.form-control:focus {
+    border-color: #ab75b3;
+    box-shadow: inset 0 1px 1px rgba(0,0,0,.075),0 0 8px #ab75b3;
+}

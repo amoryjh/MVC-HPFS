@@ -27,11 +27,10 @@
                 <h2>
                     @Html.DisplayFor(modelItem => item.Title)
                 </h2>
-                <h4>@Html.DisplayFor(modelItem => item.Time)</h4>
-                <h4>@Html.DisplayFor(modelItem => item.Date)</h4>
+                <h4>@Html.DisplayFor(modelItem => item.Date) | @Html.DisplayFor(modelItem => item.Time)</h4>
                 <p>@Html.DisplayFor(modelItem => item.Content)</p>
                 <a href="@Html.DisplayFor(modelItem => item.Link)" class="btn event__btn">@Html.DisplayFor(modelItem => item.LinkText)</a>
-                <a>@Html.ActionLink("Download File", "Download", new { id = item.ID })</a>
+                <p class="event__file"><i class="fa fa-download"></i> @Html.ActionLink("Download File", "Download", new { id = item.ID })</p>
             </div>
         </div>
             }
@@ -45,11 +44,10 @@
                 <h2>
                     @Html.DisplayFor(modelItem => item.Title)
                 </h2>
-                <h4>@Html.DisplayFor(modelItem => item.Time)</h4>
-                <h4>@Html.DisplayFor(modelItem => item.Date)</h4>
+                <h4>@Html.DisplayFor(modelItem => item.Date) | @Html.DisplayFor(modelItem => item.Time)</h4>
                 <p>@Html.DisplayFor(modelItem => item.Content)</p>
                 <a href="@Html.DisplayFor(modelItem => item.Link)" class="btn event__btn">@Html.DisplayFor(modelItem => item.LinkText)</a>
-                <a>@Html.ActionLink("Download File", "Download", new { id = item.ID })</a>
+                <p class="event__file"><i class="fa fa-download"></i> @Html.ActionLink("Download File", "Download", new { id = item.ID })</p>
             </div>
         </div>
             }
@@ -63,11 +61,10 @@
                 <h2>
                     @Html.DisplayFor(modelItem => item.Title)
                 </h2>
-                <h4>@Html.DisplayFor(modelItem => item.Time)</h4>
-                <h4>@Html.DisplayFor(modelItem => item.Date)</h4>
+                <h4>@Html.DisplayFor(modelItem => item.Date) | @Html.DisplayFor(modelItem => item.Time)</h4>
                 <p>@Html.DisplayFor(modelItem => item.Content)</p>
                 <a href="@Html.DisplayFor(modelItem => item.Link)" class="btn event__btn">@Html.DisplayFor(modelItem => item.LinkText)</a>
-                <a>@Html.ActionLink("Download File", "Download", new { id = item.ID })</a>
+                <p class="event__file"><i class="fa fa-download"></i> @Html.ActionLink("Download File", "Download", new { id = item.ID })</p>
             </div>
         </div>
             }
@@ -79,11 +76,10 @@
                 <h2>
                     @Html.DisplayFor(modelItem => item.Title)
                 </h2>
-                <h4>@Html.DisplayFor(modelItem => item.Time)</h4>
-                <h4>@Html.DisplayFor(modelItem => item.Date)</h4>
+                <h4>@Html.DisplayFor(modelItem => item.Date) | @Html.DisplayFor(modelItem => item.Time)</h4>
                 <p>@Html.DisplayFor(modelItem => item.Content)</p>
                 <a href="@Html.DisplayFor(modelItem => item.Link)" class="btn event__btn">@Html.DisplayFor(modelItem => item.LinkText)</a>
-                <a>@Html.ActionLink("Download File", "Download", new { id = item.ID })</a>
+                <p class="event__file"><i class="fa fa-download"></i> @Html.ActionLink("Download File", "Download", new { id = item.ID })</p>
             </div>
         </div>
             }
