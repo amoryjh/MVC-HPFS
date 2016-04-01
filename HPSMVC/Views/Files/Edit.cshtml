@@ -5,14 +5,13 @@
 }
 <section>
     <div class="container">
-        <h2>Edit File</h2>
-
-
+        <h1 class="text-center">Edit File</h1>
         @using (Html.BeginForm("Edit", "Files", FormMethod.Post, new { enctype = "multipart/form-data" }))
         {
             @Html.AntiForgeryToken()
 
-            <div class="form-horizontal">
+        <div class="form-horizontal">
+            <div class="col-md-10 col-md-offset-1">
                 <hr />
                 @Html.ValidationSummary(true, "", new { @class = "text-danger" })
                 @Html.HiddenFor(model => model.ID)
@@ -34,7 +33,7 @@
                 <div class="form-group">
                     @Html.LabelFor(model => model.Date, htmlAttributes: new { @class = "control-label col-md-2" })
                     <div class="col-md-10">
-                        @Html.EditorFor(model => model.Date, new { htmlAttributes = new { @class = "form-control" } })
+                        @Html.EditorFor(model => model.Date, new { htmlAttributes = new { @type = "text", @class = "form-control", @id = "datepicker" } })
                         @Html.ValidationMessageFor(model => model.Date, "", new { @class = "text-danger" })
                     </div>
                 </div>
@@ -76,16 +75,14 @@
 
         <div class="form-group">
             <div class="col-md-offset-2 col-md-10">
-                <input type="submit" value="Save" class="btn btn-default" />
+                <input type="submit" style="margin-left:0;" value="Save" class="btn btn-default" />
             </div>
         </div>
-    </div>
-        }
-
         <div>
             @Html.ActionLink("Back to List", "Index")
         </div>
-
+    </div></div>
+        }
         @section Scripts {
             <script>
                 /*$('#careImage').change(function () {
