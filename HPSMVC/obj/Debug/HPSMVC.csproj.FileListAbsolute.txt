@@ -360,10 +360,7 @@ C:\Users\Amory\Desktop\MVC-HPFS\HPSMVC\obj\Debug\HPSMVC.Migrations.FilesToEvents
 C:\Users\Brandon\Desktop\MVC-HPFS\HPSMVC\obj\Debug\HPSMVC.Migrations.HomeContent.resources
 C:\Users\Brandon\Desktop\MVC-HPFS\HPSMVC\obj\Debug\HPSMVC.Migrations.FileModelCollection.resources
 C:\Users\Brandon\Desktop\MVC-HPFS\HPSMVC\obj\Debug\HPSMVC.Migrations.ByFieldRM.resources
-<<<<<<< HEAD
 C:\Users\Brandon\Desktop\MVC-HPFS\HPSMVC\obj\Debug\HPSMVC.csprojResolveAssemblyReference.cache
 C:\Users\Amory\Desktop\MVC-HPFS\HPSMVC\obj\Debug\HPSMVC.Migrations.HomeContent.resources
 C:\Users\Amory\Desktop\MVC-HPFS\HPSMVC\obj\Debug\HPSMVC.Migrations.FileModelCollection.resources
 C:\Users\Amory\Desktop\MVC-HPFS\HPSMVC\obj\Debug\HPSMVC.Migrations.ByFieldRM.resources
-=======
->>>>>>> origin/master
