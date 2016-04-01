@@ -43,6 +43,15 @@
                 <th>
                     @Html.DisplayNameFor(model => model.Link)
                 </th>
+                <th>
+                    @Html.DisplayNameFor(model => model.fileName)
+                </th>
+                <th>
+                    @Html.DisplayNameFor(model => model.fileType)
+                </th>
+                <th>
+                    @Html.DisplayNameFor(model => model.fileContent)
+                </th>
                 <th></th>
             </tr>
 
@@ -74,7 +83,20 @@
                         @Html.DisplayFor(modelItem => item.Link)
                     </td>
                     <td>
-                        @Html.DisplayFor(modelItem => item.Files)
+                        @Html.DisplayFor(modelItem => item.fileName)
+                    </td>
+                    <td>
+                        @Html.DisplayFor(modelItem => item.fileType)
+                    </td>
+                    <td>
+                        @{
+                    if (item.fileContent != null && item.fileType.Contains("image"))
+                    {
+                    string imageBase64 = Convert.ToBase64String(item.fileContent);
+                    string imageSrc = string.Format("data:" + item.fileType + ";base64,{0}", imageBase64);
+                    <img src="@imageSrc" style="max-height:100px;max-width:120px;" class="img-responsive" />
+                    }
+                        }
                     </td>
                     <td>
                         @Html.ActionLink("Edit", "Edit", new { id = item.ID }) |

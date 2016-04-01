@@ -8,6 +8,7 @@ using System.Web;
 using System.Web.Mvc;
 using HPSMVC.DAL;
 using HPSMVC.Models;
+using System.IO;
 
 namespace HPSMVC.Controllers
 {
@@ -91,17 +92,37 @@ namespace HPSMVC.Controllers
         // more details see http://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public ActionResult Create([Bind(Include = "ID,Title,Content,Time,Date,By,Viewer,LinkText,Link")] Event @event)
+        public ActionResult Create([Bind(Include = "ID,Title,Content,Time,Date,By,Viewer,LinkText,Link,fileName,fileType,fileContent")] HPSMVC.Models.Event @event)
         {
             if (ModelState.IsValid)
             {
+                foreach (string fName in Request.Files)
+              {
+                HttpPostedFileBase f = Request.Files[fName];
+                string mimeType = f.ContentType;
+                int fileLength = f.ContentLength;
+                if (!(mimeType == "" || fileLength == 0))
+                {
+                  string fileName = Path.GetFileName(f.FileName);
+                  Stream fileStream = Request.Files[fName].InputStream;
+                  byte[] fileData = new Byte[fileLength];
+                  fileStream.Read(fileData, 0, fileLength);
+
+                  @event.fileContent = fileData;
+                  @event.fileType = mimeType;
+                  @event.fileName = fileName;
+
+                
+               }
+            }
                 db.Events.Add(@event);
                 db.SaveChanges();
-                return RedirectToAction("Index");
-            }
+                return RedirectToAction("Admin");
+        }
 
             return View(@event);
-        }
+                
+        }    
 
         // GET: Events/Edit/5
         public ActionResult Edit(int? id)
@@ -123,10 +144,29 @@ namespace HPSMVC.Controllers
         // more details see http://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public ActionResult Edit([Bind(Include = "ID,Title,Content,Time,Date,By,Viewer,LinkText,Link")] Event @event)
+        public ActionResult Edit([Bind(Include = "ID,Title,Content,Time,Date,By,Viewer,LinkText,Link")] HPSMVC.Models.Event @event)
         {
             if (ModelState.IsValid)
             {
+                foreach (string fName in Request.Files)
+                {
+                    HttpPostedFileBase f = Request.Files[fName];
+                    string mimeType = f.ContentType;
+                    int fileLength = f.ContentLength;
+                    if (!(mimeType == "" || fileLength == 0))
+                    {
+                        string fileName = Path.GetFileName(f.FileName);
+                        Stream fileStream = Request.Files[fName].InputStream;
+                        byte[] fileData = new Byte[fileLength];
+                        fileStream.Read(fileData, 0, fileLength);
+
+                        @event.fileContent = fileData;
+                        @event.fileType = mimeType;
+                        @event.fileName = fileName;
+
+                    }
+                }
+
                 db.Entry(@event).State = EntityState.Modified;
                 db.SaveChanges();
                 return RedirectToAction("Index");

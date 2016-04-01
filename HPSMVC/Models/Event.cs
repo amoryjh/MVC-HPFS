@@ -8,11 +8,6 @@ namespace HPSMVC.Models
 {
   public class Event
   {
-    public Event()
-    {
-        this.Files = new HashSet<File>();
-    }
-
     public int ID { get; set; }
 
     [Display(Name = "Title")]
@@ -49,7 +44,18 @@ namespace HPSMVC.Models
     [StringLength(100, ErrorMessage = "The Link cannot be more than 100 characters")]
     public string Link { get; set; }
 
-    public virtual ICollection<File> Files { get; set; }
+    [Display(Name = "File Name")]
+    [StringLength(250)]
+    [ScaffoldColumn(false)]
+    public string fileName { get; set; }
+
+    [Display(Name = "File Type")]
+    [ScaffoldColumn(false)]
+    public string fileType { get; set; }
+
+    [Display(Name = "File Content")]
+    [ScaffoldColumn(false)]
+    public byte[] fileContent { get; set; }
 
   }
 }
