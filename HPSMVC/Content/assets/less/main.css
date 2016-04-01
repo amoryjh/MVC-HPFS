@@ -7492,6 +7492,14 @@ section.text-photo-half.treatment-care .photo-half > .photo-bg {
 .events .event-card-section .event-card .event-card-content .event__file i {
   margin-right: 8px;
 }
+.events .event-card-section .event-card .event-card-content .event__date--space {
+  margin-left: 4px;
+}
+.events .event-card-section .event-card .event-card-content .event__date--space:before {
+  content: " | ";
+  padding: 0 4px;
+  vertical-align: top;
+}
 .events .event-card-section .old-event-card {
   background-color: #a6a6a6;
   color: #ffffff;

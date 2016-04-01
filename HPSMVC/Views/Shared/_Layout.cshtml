@@ -90,64 +90,7 @@
         </div></div>
         <!-- SCRIPTS -->
         <script>
-            $('.carousel').carousel();
-            $('.resize-txt').click(function (event) {
-                $('body').toggleClass('enlargen-text');
-            });
-
-            $('.mobile-nav-parent a').click(function (event) {
-                $('.mobile-nav-expand').hide('fast');
-                $(this).siblings('ul').show('slow');
-            });
-
-            $('document').ready(function () {
-                var trigger = $('#hamburger'),
-                    menu = $('.mobile-nav'),
-                    isClosed = true;
-                trigger.click(function () {
-                    burgerTime();
-                });
-                function burgerTime() {
-                    if (isClosed == true) {
-                        isClosed = false;
-                        trigger.removeClass('is-closed');
-                        trigger.addClass('is-open');
-                        $('body').css('overflow', 'hidden');
-                        menu.show();
-                    } else {
-                        isClosed = true;
-                        trigger.removeClass('is-open');
-                        trigger.addClass('is-closed');
-                        $('body').css('overflow', 'scroll');
-                        menu.hide();
-
-                    }
-                }
-            });
-            $('document').ready(function () {
-                $('.icon').click(function () {
-                    var icon = $('i.icon');
-                    if ($(this).hasClass('closed')) {
-                        $('.admin-aside-panel').animate({
-                            marginLeft: '0px'
-                        }, 500);
-                        $(this).removeClass('closed');
-                        $(this).addClass('open');
-                        icon.addClass('fa-chevron-left');
-                        icon.removeClass('fa-chevron-right');
-                    }
-                    else {
-                        $('.admin-aside-panel').animate({
-                            marginLeft: '-300px'
-                        }, 500);
-
-                        $(this).removeClass('open');
-                        $(this).addClass('closed');
-                        icon.addClass('fa-chevron-right');
-                        icon.removeClass('fa-chevron-left');
-                    }
-                });
-            });
+            
         </script>
 
         <script>
