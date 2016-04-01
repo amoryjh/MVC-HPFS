@@ -6348,6 +6348,17 @@ footer ul {
 footer h3 {
   margin-bottom: 0.3em;
 }
+form .btn,
+form .btn-solid {
+  box-shadow: none;
+  padding: 1em;
+  margin: 0 0.6em;
+}
+form .btn:hover,
+form .btn-solid:hover {
+  outline: none;
+  box-shadow: none;
+}
 .form-group {
   padding-bottom: 10px;
 }
@@ -6355,7 +6366,9 @@ footer h3 {
   font-size: 1.1em;
 }
 input.form-control,
-textarea.form-control {
+textarea.form-control,
+select,
+input#SearchString {
   border: 4px solid #bf96c5;
   border-radius: 6px;
   background: #fefefe;
@@ -6363,8 +6376,16 @@ textarea.form-control {
   font-size: 1.2em;
 }
 input.form-control:focus,
-textarea.form-control:focus {
+textarea.form-control:focus,
+select:focus,
+input#SearchString:focus {
   border-color: none;
+}
+input#SearchString {
+  padding: 0.25em 12px;
+}
+select {
+  padding: 0.5em 12px;
 }
 .radio label,
 .checkbox label {
@@ -6392,6 +6413,9 @@ textarea {
 .form-control:focus {
   border-color: #ab75b3;
   box-shadow: inset 0 1px 1px rgba(0, 0, 0, 0.075), 0 0 8px #ab75b3;
+}
+.table-overflow {
+  overflow-x: scroll;
 }
 a {
   color: #ab75b3;

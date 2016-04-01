@@ -1,9 +1,17 @@
-
+form{
+    .btn , .btn-solid{
+        box-shadow:none; padding:1em; margin:0 0.6em; 
+        &:hover{    
+            outline: none;
+            box-shadow: none;
+        }
+    }
+}
   .form-group{
     padding-bottom: 10px;
     label{font-size: 1.1em;}
   }
-  input.form-control, textarea.form-control{
+  input.form-control, textarea.form-control,select,input#SearchString{
     border: 4px solid @brand-sec;
     border-radius: 6px; 
     background: #fefefe;
@@ -13,6 +21,8 @@
       border-color: none;
     }
   }
+  input#SearchString{padding:0.25em 12px;}
+  select{padding:0.5em 12px;}
   .radio label, .checkbox label{
     padding-right: 16px;
   }
@@ -31,4 +41,9 @@ textarea{resize:none;padding-top: 0 !important;}
 .form-control:focus {
     border-color: #ab75b3;
     box-shadow: inset 0 1px 1px rgba(0,0,0,.075),0 0 8px #ab75b3;
+}
+
+//ADMIN PAGE TABLES
+.table-overflow{
+overflow-x:scroll;
 }
