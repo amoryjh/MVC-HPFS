@@ -111,9 +111,18 @@ namespace HPSMVC.Controllers
                 
                }
             }
+            try
+            {
                 db.Events.Add(@event);
                 db.SaveChanges();
+                TempData["ValidationMessage"] = @event.Title += "   Event Successfully Added!";
                 return RedirectToAction("Admin");
+            }
+            catch
+            {
+                TempData["ValidationMessage"] = @event.Title += "   Error: Event Not Successfully Added!";
+            }
+                
         }
 
             return View(@event);
@@ -168,10 +177,19 @@ namespace HPSMVC.Controllers
 
                     }
                 }
+                try
+                {
+                    db.Entry(@event).State = EntityState.Modified;
+                    db.SaveChanges();
+                    TempData["ValidationMessage"] = @event.Title += "   Event Successfully Edited!";
+                    return RedirectToAction("Admin");
+                }
+                catch
+                {
+                    TempData["ValidationMessage"] = @event.Title += "   Error: Event Not Successfully Edited!";
+                }
 
-                db.Entry(@event).State = EntityState.Modified;
-                db.SaveChanges();
-                return RedirectToAction("Index");
+                
             }
             return View(@event);
         }
@@ -197,9 +215,18 @@ namespace HPSMVC.Controllers
         public ActionResult DeleteConfirmed(int id)
         {
             Event @event = db.Events.Find(id);
-            db.Events.Remove(@event);
-            db.SaveChanges();
-            return RedirectToAction("Index");
+            try
+            {
+                db.Events.Remove(@event);
+                db.SaveChanges();
+                TempData["ValidationMessage"] = @event.Title += "   Event Successfully Deleted!";
+            }
+            catch
+            {
+                TempData["ValidationMessage"] = @event.Title += "   Error: Event Not Successfully Deleted!";
+            }
+            
+            return RedirectToAction("Admin");
         }
 
         protected override void Dispose(bool disposing)
