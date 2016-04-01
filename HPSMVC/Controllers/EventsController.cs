@@ -92,7 +92,7 @@ namespace HPSMVC.Controllers
         // more details see http://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public ActionResult Create([Bind(Include = "ID,Title,Content,Time,Date,By,Viewer,LinkText,Link,fileName,fileType,fileContent")] HPSMVC.Models.Event @event)
+        public ActionResult Create([Bind(Include = "ID,Title,Content,Time,Date,By,Viewer,LinkText,Link,fileName,fileType,fileContent")] Event @event)
         {
             if (ModelState.IsValid)
             {
@@ -122,7 +122,13 @@ namespace HPSMVC.Controllers
 
             return View(@event);
                 
-        }    
+        }
+
+        public FileContentResult Download(int id)
+        {
+            var theFile = db.Events.Where(f => f.ID == id).SingleOrDefault();
+            return File(theFile.fileContent, theFile.fileType, theFile.fileName);
+        }
 
         // GET: Events/Edit/5
         public ActionResult Edit(int? id)
@@ -144,7 +150,7 @@ namespace HPSMVC.Controllers
         // more details see http://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public ActionResult Edit([Bind(Include = "ID,Title,Content,Time,Date,By,Viewer,LinkText,Link")] HPSMVC.Models.Event @event)
+        public ActionResult Edit([Bind(Include = "ID,Title,Content,Time,Date,By,Viewer,LinkText,Link,fileName,fileType,fileContent")] Event @event)
         {
             if (ModelState.IsValid)
             {

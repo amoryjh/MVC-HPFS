@@ -31,9 +31,7 @@
                 <h4>@Html.DisplayFor(modelItem => item.Date)</h4>
                 <p>@Html.DisplayFor(modelItem => item.Content)</p>
                 <a href="@Html.DisplayFor(modelItem => item.Link)" class="btn event__btn">@Html.DisplayFor(modelItem => item.LinkText)</a>
-                <ul>
-                    <li>@Html.DisplayFor(modelItem => item.fileName)</li>
-                </ul>
+                <a>@Html.ActionLink("Download", "Download", new { id = item.ID })</a>
             </div>
         </div>
             }
@@ -51,9 +49,7 @@
                 <h4>@Html.DisplayFor(modelItem => item.Date)</h4>
                 <p>@Html.DisplayFor(modelItem => item.Content)</p>
                 <a href="@Html.DisplayFor(modelItem => item.Link)" class="btn event__btn">@Html.DisplayFor(modelItem => item.LinkText)</a>
-                <ul>
-                    <li>@Html.DisplayFor(modelItem => item.fileName)</li>
-                </ul>
+                <a>@Html.ActionLink("Download", "Download", new { id = item.ID })</a>
             </div>
         </div>
             }
@@ -71,9 +67,7 @@
                 <h4>@Html.DisplayFor(modelItem => item.Date)</h4>
                 <p>@Html.DisplayFor(modelItem => item.Content)</p>
                 <a href="@Html.DisplayFor(modelItem => item.Link)" class="btn event__btn">@Html.DisplayFor(modelItem => item.LinkText)</a>
-                <ul>
-                    <li>@Html.DisplayFor(modelItem => item.fileName)</li>
-                </ul>
+                <a>@Html.ActionLink("Download", "Download", new { id = item.ID })</a>
             </div>
         </div>
             }
@@ -89,9 +83,7 @@
                 <h4>@Html.DisplayFor(modelItem => item.Date)</h4>
                 <p>@Html.DisplayFor(modelItem => item.Content)</p>
                 <a href="@Html.DisplayFor(modelItem => item.Link)" class="btn event__btn">@Html.DisplayFor(modelItem => item.LinkText)</a>
-                <ul>
-                    <li>@Html.DisplayFor(modelItem => item.fileName)</li>
-                </ul>
+                <a>@Html.ActionLink("Download", "Download", new { id = item.ID })</a>
             </div>
         </div>
             }
