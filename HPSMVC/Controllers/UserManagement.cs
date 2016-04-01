@@ -11,8 +11,7 @@ namespace HPSMVC.Controllers
     {
         public ActionResult Index()
         {
-            var users = Membership.GetAllUsers();
-            return View(users);
+            return View();
         }
     }
 }
