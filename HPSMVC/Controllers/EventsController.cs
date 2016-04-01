@@ -40,8 +40,7 @@ namespace HPSMVC.Controllers
             if (!String.IsNullOrEmpty(searchString))
             {
                 events = events.Where(s => s.Title.Contains(searchString)
-                                       || s.Viewer.Contains(searchString)
-                                       || s.By.Contains(searchString));
+                                       || s.Viewer.Contains(searchString));
             }
             switch (sortOrder)
             {
@@ -50,9 +49,6 @@ namespace HPSMVC.Controllers
                     break;
                 case "date":
                     events = events.OrderByDescending(s => s.Date);
-                    break;
-                case "by":
-                    events = events.OrderBy(s => s.By);
                     break;
                 case "viewer":
                     events = events.OrderBy(s => s.Viewer);
@@ -92,7 +88,7 @@ namespace HPSMVC.Controllers
         // more details see http://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public ActionResult Create([Bind(Include = "ID,Title,Content,Time,Date,By,Viewer,LinkText,Link,fileName,fileType,fileContent")] Event @event)
+        public ActionResult Create([Bind(Include = "ID,Title,Content,Time,Date,Viewer,LinkText,Link,fileName,fileType,fileContent")] Event @event)
         {
             if (ModelState.IsValid)
             {
@@ -150,7 +146,7 @@ namespace HPSMVC.Controllers
         // more details see http://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public ActionResult Edit([Bind(Include = "ID,Title,Content,Time,Date,By,Viewer,LinkText,Link,fileName,fileType,fileContent")] Event @event)
+        public ActionResult Edit([Bind(Include = "ID,Title,Content,Time,Date,Viewer,LinkText,Link,fileName,fileType,fileContent")] Event @event)
         {
             if (ModelState.IsValid)
             {
