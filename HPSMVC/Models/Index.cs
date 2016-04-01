@@ -25,7 +25,7 @@ namespace HPSMVC.Models
     public string ButtonText { get; set; }
 
     [Display(Name = "Button Link")]
-    [StringLength(100)]
+    [StringLength(200)]
     public string ButtonLink { get; set; }
 
     [Display(Name = "File Name")]
