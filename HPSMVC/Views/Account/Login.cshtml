@@ -9,7 +9,7 @@
             @using (Html.BeginForm("Login", "Account", new { ReturnUrl = ViewBag.ReturnUrl }, FormMethod.Post, new { @class = "form-horizontal", role = "form" }))
             {
                 @Html.AntiForgeryToken()
-                <h2 class="text-center">HPS Login</h2>
+                <h1 class="text-center">HPS Login</h1>
                 <hr />
                 @Html.ValidationSummary(true, "", new { @class = "text-danger" })
                 <div class="col-md-10 col-md-offset-1">
