@@ -25,22 +25,22 @@
         <table class="table">
             <tr>
                 <th>
-                    @Html.ActionLink("FileName", "Index", new { sortOrder = ViewBag.NameSortParm })
+                    @Html.ActionLink("File Name", "Index", new { sortOrder = ViewBag.NameSortParm })
                 </th>
                 <th>
                     @Html.ActionLink("Date", "Index", new { sortOrder = ViewBag.DateSortParm })
                 </th>
                 <th>
                     @Html.ActionLink("Category", "Index", new { sortOrder = ViewBag.CategorySortParm })
+                </th>               
+                <th>
+                    @Html.DisplayNameFor(model => model.Viewer)
                 </th>
                 <th>
                     @Html.DisplayNameFor(model => model.fileType)
                 </th>
                 <th>
-                    @Html.DisplayNameFor(model => model.Viewer)
-                </th>
-                <th>
-                    @Html.DisplayNameFor(model => model.fileContent)
+                    File
                 </th>
             </tr>
 
@@ -57,20 +57,31 @@
                         @Html.DisplayFor(modelItem => item.Category)
                     </td>
                     <td>
-                        @Html.DisplayFor(modelItem => item.fileType)
-                    </td>
-                    <td>
                         @Html.DisplayFor(modelItem => item.Viewer)
                     </td>
                     <td>
+                        @Html.DisplayFor(modelItem => item.fileType)
+                    </td>
+                    <td>
                         @{
-                if (item.fileContent != null && item.fileType.Contains("image"))
-                {
-                    string imageBase64 = Convert.ToBase64String(item.fileContent);
-                    string imageSrc = string.Format("data:" + item.fileType + ";base64,{0}", imageBase64);
-                    <img src="@imageSrc" style="max-height:100px;max-width:120px;" class="img-responsive" />
-                }
-                        }
+                            try
+                            {
+                                if (item.fileContent != null && item.fileType.Contains("image"))
+                             {
+                                 string imageBase64 = Convert.ToBase64String(item.fileContent);
+                                 string imageSrc = string.Format("data:" + item.fileType + ";base64,{0}", imageBase64);
+                                 <img src="@imageSrc" style="max-height:100px;max-width:120px;" class="img-responsive" />
+                             }
+                             else
+                             {
+                                 <p>No Image</p>
+                             }
+                            }
+                            catch
+                            {
+                                 <p>Oops, something happened</p>   
+                            }
+                         }
                     </td>
                     <td>
                         @Html.ActionLink("Download", "Download", new { id = item.ID }) |

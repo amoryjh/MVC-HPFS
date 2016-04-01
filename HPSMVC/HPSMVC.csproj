@@ -244,6 +244,14 @@
     <Compile Include="Migrations\201603311605547_FilesToEvents.Designer.cs">
       <DependentUpon>201603311605547_FilesToEvents.cs</DependentUpon>
     </Compile>
+    <Compile Include="Migrations\201604010232389_HomeContent.cs" />
+    <Compile Include="Migrations\201604010232389_HomeContent.Designer.cs">
+      <DependentUpon>201604010232389_HomeContent.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\201604010257290_FileModelCollection.cs" />
+    <Compile Include="Migrations\201604010257290_FileModelCollection.Designer.cs">
+      <DependentUpon>201604010257290_FileModelCollection.cs</DependentUpon>
+    </Compile>
     <Compile Include="Migrations\Configuration.cs" />
     <Compile Include="Models\AccountViewModels.cs" />
     <Compile Include="Models\Event.cs" />
@@ -654,6 +662,12 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Migrations\201603311605547_FilesToEvents.resx">
       <DependentUpon>201603311605547_FilesToEvents.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201604010232389_HomeContent.resx">
+      <DependentUpon>201604010232389_HomeContent.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201604010257290_FileModelCollection.resx">
+      <DependentUpon>201604010257290_FileModelCollection.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="SecurityMigrations\201603140529192_SecurityInitial.resx">
       <DependentUpon>201603140529192_SecurityInitial.cs</DependentUpon>

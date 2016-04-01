@@ -77,7 +77,7 @@ namespace HPSMVC.Controllers
         // more details see http://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public ActionResult Create([Bind(Include = "ID,fileName,fileType,fileContent,Date,Category")] HPSMVC.Models.File file)
+        public ActionResult Create([Bind(Include = "ID,fileName,fileType,fileContent,Date,Category,Viewer")] HPSMVC.Models.File file)
         {
             if (ModelState.IsValid)
             {
@@ -93,10 +93,8 @@ namespace HPSMVC.Controllers
                   byte[] fileData = new Byte[fileLength];
                   fileStream.Read(fileData, 0, fileLength);
 
-                  var fileTypeSplit = mimeType.Substring(mimeType.LastIndexOf('/') + 1);
-
                     file.fileContent = fileData;
-                    file.fileType = fileTypeSplit;
+                    file.fileType = mimeType;
                     file.fileName = fileName;
 
                     
@@ -144,7 +142,7 @@ namespace HPSMVC.Controllers
         // more details see http://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public ActionResult Edit([Bind(Include = "ID,fileName,fileType,fileContent,Date,Category")] HPSMVC.Models.File file)
+        public ActionResult Edit([Bind(Include = "ID,fileName,fileType,fileContent,Date,Category,Viewer")] HPSMVC.Models.File file)
         {
             if (ModelState.IsValid)
             {
@@ -160,10 +158,8 @@ namespace HPSMVC.Controllers
                         byte[] fileData = new Byte[fileLength];
                         fileStream.Read(fileData, 0, fileLength);
 
-                        var fileTypeSplit = mimeType.Substring(mimeType.LastIndexOf('/') + 1);
-
                         file.fileContent = fileData;
-                        file.fileType = fileTypeSplit;
+                        file.fileType = mimeType;
                         file.fileName = fileName;
                         
                     }
