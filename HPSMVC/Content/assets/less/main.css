@@ -6410,7 +6410,7 @@ section.text-photo-half .text-half {
   outline: 0;
 }
 .btn:disabled {
-  background: red;
+  background: rgba(80, 60, 80, 0.4) !important;
 }
 /*///////////////////////////////////////////////////////
 --------------------------FOOTER------------------------
@@ -8843,5 +8843,33 @@ section.text-photo-half.treatment-care .photo-half > .photo-bg {
 }
 .ui-state-hover {
   background: #ab75b3 !important;
+}
+#google_translate_element {
+  margin: 0;
+}
+#google_translate_element div {
+  padding: 0 !important;
+  margin: 0 !important;
+}
+#google_translate_element .goog-te-gadget {
+  font-family: inherit;
+  font-size: inherit;
+  color: inherit;
+  white-space: normal;
+}
+#google_translate_element .goog-te-gadget .goog-te-gadget-simple {
+  background: none;
+  border: none;
+  line-height: 1;
+}
+#google_translate_element .goog-te-gadget .goog-te-gadget-simple .goog-te-gadget-icon {
+  display: none;
+}
+#google_translate_element .goog-te-gadget .goog-te-gadget-simple a {
+  height: 100%;
+  color: inherit;
+}
+#google_translate_element .goog-te-gadget .goog-te-gadget-simple a:hover {
+  background-color: transparent;
 }
 /*# sourceMappingURL=main.css.map */

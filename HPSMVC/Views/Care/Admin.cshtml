@@ -36,7 +36,7 @@
                         @Html.DisplayFor(modelItem => item.Title)
                     </td>
                     <td>
-                        @Html.DisplayFor(modelItem => item.Content)
+                        @item.Content.Substring(0, Math.Min(item.Content.Length, 50))...
                     </td>
                     <td>
                         @{

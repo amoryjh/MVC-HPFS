@@ -19,20 +19,22 @@
             <li class="parent-li-nav" id="care-nav"><a href="/Care" class="nav-current">Care</a></li>
             <li class="parent-li-nav" id="about-nav"><a href="/About" class="nav-current">About HPS</a></li>
             <li class="parent-li-nav" id="contact-nav"><a href="/Contact" class="nav-current">Contact</a></li>
+            <li class="parent-li-nav" id="translate-nav"><div id="google_translate_element"></div></li>
             @if (!HttpContext.Current.User.Identity.IsAuthenticated)
             {
-                <li class="parent-li-nav login" id="login-nav"><a href="/Account/Login" class="nav-current">Login</a></li>  
-            } 
+                <li class="parent-li-nav login" id="login-nav"><a href="/Account/Login" class="nav-current">Login</a></li>
+            }
             @if (HttpContext.Current.User.Identity.IsAuthenticated)
             {
                 using (Html.BeginForm("LogOff", "Account", FormMethod.Post, new { id = "logoutForm", @class = "parent-li-nav login" }))
-                 {
-                     @Html.AntiForgeryToken()
-                     <li class="" id="login-nav"><a href="javascript:document.getElementById('logoutForm').submit()" class="nav-current">Logout</a></li>  
-                 } 
-            } 
+                {
+                    @Html.AntiForgeryToken()
+                    <li class="" id="login-nav"><a href="javascript:document.getElementById('logoutForm').submit()" class="nav-current">Logout</a></li>
+                }
+            }
             <li class="parent-li-nav resize-txt">A<span class="resize-txt-large-A">A</span></li>
         </ul>
+
         
         <div id="hamburger" class="hamburglar">
             <div class="burger-icon">
@@ -86,7 +88,6 @@
                 <p>Hamilton, Ontario L8P 4W7</p>
                 <p>Telephone: <a href="tel:9055252832> 905.525.2832 </a></p>
                 <p>Fax: <a href="tel:">905.546.0055</a></p>
-                <div id="google_translate_element"></div>
                 <script type="text/javascript">
                     function googleTranslateElementInit() {
                         new google.translate.TranslateElement({ pageLanguage: 'en', includedLanguages: 'en,fr', layout: google.translate.TranslateElement.InlineLayout.SIMPLE }, 'google_translate_element');
