@@ -14,7 +14,7 @@
         <p style="color:red">
             @TempData["ValidationMessage"]
         </p>
-        <table class="table">
+        <div class="table-overflow"><table class="table">
             <tr>        
                 <th>
                     @Html.DisplayNameFor(model => model.Title)
@@ -79,6 +79,6 @@
                 </tr>
             }
 
-        </table>
+        </table></div>
     </div>
 </section>

@@ -22,7 +22,7 @@
                 @TempData["ValidationMessage"]
             </p>
         }
-        <table class="table">
+        <div class="table-overflow"><table class="table">
             <tr>
                 <th>
                     @Html.ActionLink("File Name", "Index", new { sortOrder = ViewBag.NameSortParm })
@@ -91,6 +91,6 @@
                 </tr>
             }
 
-        </table>
+        </table></div>
     </div>
 </section>
