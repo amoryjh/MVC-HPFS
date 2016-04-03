@@ -12,16 +12,40 @@ namespace HPSMVC.Controllers
     public class UserController : Controller
     {
         ApplicationDbContext context = new ApplicationDbContext();
-        //
-        // GET: /User/
 
-        public ActionResult Index()
+
+        public ActionResult Manage()
         {
             // prepopulat roles for the view dropdown
             var list = context.Roles.OrderBy(r => r.Name).ToList().Select(rr =>
             new SelectListItem { Value = rr.Name.ToString(), Text = rr.Name }).ToList();
             ViewBag.Roles = list;
+
             return View();
+        }
+
+        public ActionResult Index()
+        {
+            var userRoles = new List<RolesViewModel>();
+            var userStore = new UserStore<ApplicationUser>(context);
+            var userManager = new UserManager<ApplicationUser>(userStore);
+
+            //Get all the usernames
+            foreach (var user in userStore.Users)
+            {
+                var r = new RolesViewModel
+                {
+                    UserName = user.UserName
+                };
+                userRoles.Add(r);
+            }
+            //Get all the Roles for our users
+            foreach (var user in userRoles)
+            {
+                user.RoleNames = userManager.GetRoles(userStore.Users.First(s => s.UserName == user.UserName).Id);
+            }
+
+            return View(userRoles);
         }
 
         [HttpPost]
@@ -35,7 +59,7 @@ namespace HPSMVC.Controllers
             var list = context.Roles.OrderBy(r => r.Name).ToList().Select(rr => new SelectListItem { Value = rr.Name.ToString(), Text = rr.Name }).ToList();
             ViewBag.Roles = list;
 
-            return View("Index");
+            return View("Manage");
         }
 
         [HttpPost]
@@ -54,7 +78,7 @@ namespace HPSMVC.Controllers
                 ViewBag.Roles = list;
             }
 
-            return View("Index");
+            return View("Manage");
         }
 
         [HttpPost]
@@ -78,7 +102,7 @@ namespace HPSMVC.Controllers
             var list = context.Roles.OrderBy(r => r.Name).ToList().Select(rr => new SelectListItem { Value = rr.Name.ToString(), Text = rr.Name }).ToList();
             ViewBag.Roles = list;
 
-            return View("Index");
+            return View("Manage");
         }
 	}
 }
