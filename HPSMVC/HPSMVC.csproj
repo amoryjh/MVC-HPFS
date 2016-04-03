@@ -270,6 +270,14 @@
     <Compile Include="SecurityMigrations\201603140529192_SecurityInitial.Designer.cs">
       <DependentUpon>201603140529192_SecurityInitial.cs</DependentUpon>
     </Compile>
+    <Compile Include="SecurityMigrations\201604031551480_AddAllRoles.cs" />
+    <Compile Include="SecurityMigrations\201604031551480_AddAllRoles.Designer.cs">
+      <DependentUpon>201604031551480_AddAllRoles.cs</DependentUpon>
+    </Compile>
+    <Compile Include="SecurityMigrations\201604031600321_AddAllRolesx2.cs" />
+    <Compile Include="SecurityMigrations\201604031600321_AddAllRolesx2.Designer.cs">
+      <DependentUpon>201604031600321_AddAllRolesx2.cs</DependentUpon>
+    </Compile>
     <Compile Include="SecurityMigrations\Configuration.cs" />
     <Compile Include="Startup.cs" />
   </ItemGroup>
@@ -686,6 +694,12 @@
     </EmbeddedResource>
     <EmbeddedResource Include="SecurityMigrations\201603140529192_SecurityInitial.resx">
       <DependentUpon>201603140529192_SecurityInitial.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="SecurityMigrations\201604031551480_AddAllRoles.resx">
+      <DependentUpon>201604031551480_AddAllRoles.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="SecurityMigrations\201604031600321_AddAllRolesx2.resx">
+      <DependentUpon>201604031600321_AddAllRolesx2.cs</DependentUpon>
     </EmbeddedResource>
   </ItemGroup>
   <PropertyGroup>

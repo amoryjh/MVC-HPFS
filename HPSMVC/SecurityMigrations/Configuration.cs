@@ -22,9 +22,28 @@ namespace HPSMVC.SecurityMigrations
             var roleManager = new RoleManager<IdentityRole>(new RoleStore<IdentityRole>(context));
 
             //Create Role Admin if it does not exist
+            //Admin
             if (!context.Roles.Any(r => r.Name == "Admin"))
             {
                 var roleresult = roleManager.Create(new IdentityRole("Admin"));
+            }
+
+            //BoardDirector
+            if (!context.Roles.Any(r => r.Name == "BoardDirector"))
+            {
+                var roleresult = roleManager.Create(new IdentityRole("BoardDirector"));
+            }
+
+            //FamilyAssoc
+            if (!context.Roles.Any(r => r.Name == "FamilyAssoc"))
+            {
+                var roleresult = roleManager.Create(new IdentityRole("FamilyAssoc"));
+            }
+
+            //Client
+            if (!context.Roles.Any(r => r.Name == "Client"))
+            {
+                var roleresult = roleManager.Create(new IdentityRole("Client"));
             }
 
             //Create a User Manager
