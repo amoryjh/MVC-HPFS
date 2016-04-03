@@ -155,10 +155,22 @@ namespace HPSMVC.Controllers
         // more details see http://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public ActionResult Edit([Bind(Include = "ID,Title,Content,Time,Date,Viewer,LinkText,Link,fileName,fileType,fileContent")] Event @event)
+        //public ActionResult Edit([Bind(Include = "ID,Title,Content,Time,Date,Viewer,LinkText,Link,fileName,fileType,fileContent")] Event @event)
+        public ActionResult Edit(int? id, string[] chkRemoveFile,Event @event)//[Bind(Include = "ID,Name,Dated,imageContent,imageMimeType,imageFileName,MovementID,ArtistID")] Painting painting, string chkRemoveImage)
+        
         {
-            if (ModelState.IsValid)
+            var EventFileToUpdate = db.Files
+            .Where(f => f.ID == id)
+            .Single();
+            if (TryUpdateModel(EventFileToUpdate, "",
+                new string[] { "ID", "Filename", "fileType", "FileContent", "Date", "Event @event" }))
             {
+                if (chkRemoveFile != null)//Remove the File
+                {
+                    EventFileToUpdate.fileContent = null;
+                    EventFileToUpdate.fileType = null;
+                    EventFileToUpdate.fileName = null;
+                }
                 foreach (string fName in Request.Files)
                 {
                     HttpPostedFileBase f = Request.Files[fName];
@@ -171,15 +183,15 @@ namespace HPSMVC.Controllers
                         byte[] fileData = new Byte[fileLength];
                         fileStream.Read(fileData, 0, fileLength);
 
-                        @event.fileContent = fileData;
-                        @event.fileType = mimeType;
-                        @event.fileName = fileName;
+                        EventFileToUpdate.fileContent = fileData;
+                        EventFileToUpdate.fileType = mimeType;
+                        EventFileToUpdate.fileName = fileName;
 
                     }
                 }
                 try
                 {
-                    db.Entry(@event).State = EntityState.Modified;
+                    db.Entry(EventFileToUpdate).State = EntityState.Modified;
                     db.SaveChanges();
                     TempData["ValidationMessage"] = @event.Title += "   Event Successfully Edited!";
                     return RedirectToAction("Admin");

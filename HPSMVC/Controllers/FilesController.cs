@@ -78,6 +78,7 @@ namespace HPSMVC.Controllers
         [HttpPost]
         [ValidateAntiForgeryToken]
         public ActionResult Create([Bind(Include = "ID,fileName,fileType,fileContent,Date,Category,Viewer")] HPSMVC.Models.File file)
+        
         {
             if (ModelState.IsValid)
             {
@@ -142,43 +143,72 @@ namespace HPSMVC.Controllers
         // more details see http://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public ActionResult Edit([Bind(Include = "ID,fileName,fileType,fileContent,Date,Category,Viewer")] HPSMVC.Models.File file)
+        //public ActionResult Edit([Bind(Include = "ID,fileName,fileType,fileContent,Date,Category,Viewer")] HPSMVC.Models.File file)
+        public ActionResult Edit(int? id, string[] chkRemoveFile)//[Bind(Include = "ID,Name,Dated,imageContent,imageMimeType,imageFileName,MovementID,ArtistID")] Painting painting, string chkRemoveImage)
         {
-            if (ModelState.IsValid)
+            var FilesToUpdate = db.Files
+            .Where(f => f.ID == id)
+            .Single();
+            if (TryUpdateModel(FilesToUpdate, "",
+                new string[] { "ID", "Filename", "fileType", "FileContent", "Date" }))
             {
+                if (chkRemoveFile != null)//Remove the File
+                {
+                    FilesToUpdate.fileContent = null;
+                    FilesToUpdate.fileType = null;
+                    FilesToUpdate.fileName = null;
+                }
                 foreach (string fName in Request.Files)
                 {
                     HttpPostedFileBase f = Request.Files[fName];
                     string mimeType = f.ContentType;
                     int fileLength = f.ContentLength;
-                    if (!(mimeType == "" || fileLength == 0))
+                    if (!(mimeType == "" || fileLength == 0))//Looks like we have a file!!!
                     {
                         string fileName = Path.GetFileName(f.FileName);
                         Stream fileStream = Request.Files[fName].InputStream;
-                        byte[] fileData = new Byte[fileLength];
+                        byte[] fileData = new byte[fileLength];
                         fileStream.Read(fileData, 0, fileLength);
 
-                        file.fileContent = fileData;
-                        file.fileType = mimeType;
-                        file.fileName = fileName;
-                        
+                        FilesToUpdate.fileContent = fileData;
+                        FilesToUpdate.fileType = mimeType;
+                        FilesToUpdate.fileName = fileName;
+
                     }
                 }
+                //foreach (string fName in Request.Files)
+                //{
+                //    HttpPostedFileBase f = Request.Files[fName];
+                //    string mimeType = f.ContentType;
+                //    int fileLength = f.ContentLength;
+                //    if (!(mimeType == "" || fileLength == 0))
+                //    {
+                //        string fileName = Path.GetFileName(f.FileName);
+                //        Stream fileStream = Request.Files[fName].InputStream;
+                //        byte[] fileData = new Byte[fileLength];
+                //        fileStream.Read(fileData, 0, fileLength);
+
+                //        file.fileContent = fileData;
+                //        file.fileType = mimeType;
+                //        file.fileName = fileName;
+                        
+                //    }
+                //}
 
                 try
                 {
-                    db.Entry(file).State = EntityState.Modified;
+                    db.Entry(FilesToUpdate).State = EntityState.Modified;
                     db.SaveChanges();
-                    TempData["ValidationMessage"] = file.fileName += "   Successfully Edited!";
+                    TempData["ValidationMessage"] = FilesToUpdate.fileName += "   Successfully Edited!";
                     return RedirectToAction("Index");
                 }
                 catch
                 {
-                    TempData["ValidationMessage"] = file.fileName += "   Error: Not Successfully Edited!";
+                    TempData["ValidationMessage"] = FilesToUpdate.fileName += "   Error: Not Successfully Edited!";
                 }
 
             }
-            return View(file);
+            return View(FilesToUpdate);
         }
 
         // GET: Files/Delete/5

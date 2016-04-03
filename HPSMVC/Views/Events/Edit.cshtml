@@ -10,20 +10,34 @@
 
         @using (Html.BeginForm())
         {
-            @Html.AntiForgeryToken()
+           @Html.AntiForgeryToken()
 
-            <div class="form-horizontal">
-                <div class="col-md-10 col-md-offset-1">
-                    <hr />
-                    @Html.ValidationSummary(true, "", new { @class = "text-danger" })
-                    @Html.HiddenFor(model => model.ID)
+        <div class="form-horizontal">
+            <div class="col-md-10 col-md-offset-1">
+                <hr />
+                @Html.ValidationSummary(true, "", new { @class = "text-danger" })
+                @Html.HiddenFor(model => model.ID)
 
-                    <div class="form-group">
-                        <div class="col-md-offset-2 col-md-10">
-                            <input type="file" name="FileUpImage" id="careImage" /><br />
-                        </div>
+                <div>
+                                        @{
+            if (Model.fileContent != null)
+            {
+                string imageBase64 = Convert.ToBase64String(Model.fileContent);
+                string imageSrc = string.Format("data:" + Model.fileContent + ";base64,{0}", imageBase64);
+                if (Model.fileType.Contains("image"))
+                {
+                    <img src="@imageSrc" style="max-height:100px;max-width:120px;" class="img-responsive img-rounded" /><br />
+                }          
+                    <input type="checkbox" id="chkRemoveFile" name="chkRemoveFile" /> <strong>Check to remove File</strong>
+            }
+                    }
+                </div>
+                <div class="form-group">
+                    <label class="control-label col-md-2"> File:</label>
+                    <div class="col-md-10">
+                        Replace With:<input type="file" class="" name="FileUpImage" />
                     </div>
-
+                </div>
                     <div class="form-group">
                         @Html.LabelFor(model => model.fileName, htmlAttributes: new { @class = "control-label col-md-2" })
                         <div class="col-md-10">
