@@ -13,86 +13,88 @@
         @using (Html.BeginForm())
         {
             <p>
-                <input id="SearchString" name="SearchString" type="text" value="" placeholder="Search">
-                <input type="submit" value="Search" class="btn btn-solid"/>
+                @Html.TextBox("SearchString")
+                <input type="submit" value="Search" class="btn btn-solid" />
                 <a class="btn btn-solid" href="/Files">Clear</a>
             </p>
-            
+
             <p style="color:red">
                 @TempData["ValidationMessage"]
             </p>
         }
-        <div class="table-overflow"><table class="table">
-            <tr>
-                <th>
-                    @Html.ActionLink("File Name", "Index", new { sortOrder = ViewBag.NameSortParm })
-                </th>
-                <th>
-                    @Html.ActionLink("Date", "Index", new { sortOrder = ViewBag.DateSortParm })
-                </th>
-                <th>
-                    @Html.ActionLink("Category", "Index", new { sortOrder = ViewBag.CategorySortParm })
-                </th>               
-                <th>
-                    @Html.DisplayNameFor(model => model.Viewer)
-                </th>
-                <th>
-                    @Html.DisplayNameFor(model => model.fileType)
-                </th>
-                <th>
-                    File
-                </th>
-            </tr>
-
-            @foreach (var item in Model)
-            {
+        <div class="table-overflow">
+            <table class="table">
                 <tr>
-                    <td>
-                        @item.fileName.Substring(0, Math.Min(item.fileName.Length, 20))
-                    </td>
-                    <td>
-                        @Html.DisplayFor(modelItem => item.Date)
-                    </td>
-                    <td>
-                        @Html.DisplayFor(modelItem => item.Category)
-                    </td>
-                    <td>
-                        @Html.DisplayFor(modelItem => item.Viewer)
-                    </td>
-                    <td>
-                        @Html.DisplayFor(modelItem => item.fileType)
-                    </td>
-                    <td>
-                        @{
-                            try
-                            {
-                                if (item.fileContent != null && item.fileType.Contains("image"))
-                             {
-                                 string imageBase64 = Convert.ToBase64String(item.fileContent);
-                                 string imageSrc = string.Format("data:" + item.fileType + ";base64,{0}", imageBase64);
-                                 <img src="@imageSrc" style="max-height:100px;max-width:120px;" class="img-responsive" />
-                             }
-                             else
-                             {
-                                 <p>No Image</p>
-                             }
-                            }
-                            catch
-                            {
-                                 <p>Oops, something happened</p>   
-                            }
-                         }
-                    </td>
-                    <td>
-                      @Html.ActionLink("Download", "Download", new { id = item.ID }) 
-                      @if (User.IsInRole("Admin"))
-                      { <span> | </span> @Html.ActionLink("Edit", "Edit", new { id = item.ID }) <span> | </span> 
-                        @Html.ActionLink("Delete", "Delete", new { id = item.ID })
-                      }
-                    </td>
+                    <th>
+                        @Html.ActionLink("File Name", "Index", new { sortOrder = ViewBag.NameSortParm })
+                    </th>
+                    <th>
+                        @Html.ActionLink("Date", "Index", new { sortOrder = ViewBag.DateSortParm })
+                    </th>
+                    <th>
+                        @Html.ActionLink("Category", "Index", new { sortOrder = ViewBag.CategorySortParm })
+                    </th>
+                    <th>
+                        @Html.DisplayNameFor(model => model.Viewer)
+                    </th>
+                    <th>
+                        @Html.DisplayNameFor(model => model.fileType)
+                    </th>
+                    <th>
+                        File
+                    </th>
                 </tr>
-            }
 
-        </table></div>
+                @foreach (var item in Model)
+                {
+                    <tr>
+                        <td>
+                            @item.fileName.Substring(0, Math.Min(item.fileName.Length, 20))
+                        </td>
+                        <td>
+                            @Html.DisplayFor(modelItem => item.Date)
+                        </td>
+                        <td>
+                            @Html.DisplayFor(modelItem => item.Category)
+                        </td>
+                        <td>
+                            @Html.DisplayFor(modelItem => item.Viewer)
+                        </td>
+                        <td>
+                            @Html.DisplayFor(modelItem => item.fileType)
+                        </td>
+                        <td>
+                            @{
+                    try
+                    {
+                        if (item.fileContent != null && item.fileType.Contains("image"))
+                        {
+                            string imageBase64 = Convert.ToBase64String(item.fileContent);
+                            string imageSrc = string.Format("data:" + item.fileType + ";base64,{0}", imageBase64);
+                            <img src="@imageSrc" style="max-height:100px;max-width:120px;" class="img-responsive" />
+                        }
+                        else
+                        {
+                            <p>No Image</p>
+                        }
+                    }
+                    catch
+                    {
+                        <p>Oops, something happened</p>
+                    }
+                            }
+                        </td>
+                        <td>
+                            @Html.ActionLink("Download", "Download", new { id = item.ID })
+                            @if (User.IsInRole("Admin"))
+                            { <span> | </span> @Html.ActionLink("Edit", "Edit", new { id = item.ID }) <span> | </span>
+                                @Html.ActionLink("Delete", "Delete", new { id = item.ID })
+                            }
+                        </td>
+                    </tr>
+                }
+
+            </table>
+        </div>
     </div>
 </section>
