@@ -380,3 +380,12 @@ C:\Users\Brandon\Desktop\MVC-HPFS\HPSMVC\obj\Debug\HPSMVC.SecurityMigrations.New
 C:\Users\Brandon\Desktop\MVC-HPFS\HPSMVC\obj\Debug\HPSMVC.csprojResolveAssemblyReference.cache
 C:\Users\Amory\Desktop\MVC-HPFS\HPSMVC\obj\Debug\HPSMVC.SecurityMigrations.NewUser.resources
 C:\Users\Amory\Desktop\MVC-HPFS\HPSMVC\obj\Debug\HPSMVC.csprojResolveAssemblyReference.cache
+C:\Users\Zach\Desktop\MVC-HPFS\HPSMVC\obj\Debug\HPSMVC.Migrations.TimeEvent.resources
+C:\Users\Zach\Desktop\MVC-HPFS\HPSMVC\obj\Debug\HPSMVC.Migrations.FilesToEvents.resources
+C:\Users\Zach\Desktop\MVC-HPFS\HPSMVC\obj\Debug\HPSMVC.Migrations.HomeContent.resources
+C:\Users\Zach\Desktop\MVC-HPFS\HPSMVC\obj\Debug\HPSMVC.Migrations.FileModelCollection.resources
+C:\Users\Zach\Desktop\MVC-HPFS\HPSMVC\obj\Debug\HPSMVC.Migrations.ByFieldRM.resources
+C:\Users\Zach\Desktop\MVC-HPFS\HPSMVC\obj\Debug\HPSMVC.Migrations.AddUserRoles.resources
+C:\Users\Zach\Desktop\MVC-HPFS\HPSMVC\obj\Debug\HPSMVC.SecurityMigrations.AddAllRoles.resources
+C:\Users\Zach\Desktop\MVC-HPFS\HPSMVC\obj\Debug\HPSMVC.SecurityMigrations.AddAllRolesx2.resources
+C:\Users\Zach\Desktop\MVC-HPFS\HPSMVC\obj\Debug\HPSMVC.SecurityMigrations.NewUser.resources
