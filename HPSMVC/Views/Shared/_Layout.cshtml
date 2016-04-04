@@ -14,12 +14,10 @@
     <nav class="clearfix">
         <h1><a href="/">HPS</a></h1>
         <ul class="parent-nav">
-            <li class="parent-li-nav" id="home-nav"><a class="nav-current" href="/">Home</a></li>
             <li class="parent-li-nav" id="events-nav"><a class="nav-current" href="/Events">Events</a></li>
             <li class="parent-li-nav" id="care-nav"><a href="/Care" class="nav-current">Care</a></li>
             <li class="parent-li-nav" id="about-nav"><a href="/About" class="nav-current">About HPS</a></li>
             <li class="parent-li-nav" id="contact-nav"><a href="/Contact" class="nav-current">Contact</a></li>
-            <li class="parent-li-nav" id="translate-nav"><div id="google_translate_element"></div></li>
             @if (!HttpContext.Current.User.Identity.IsAuthenticated)
             {
                 <li class="parent-li-nav login" id="login-nav"><a href="/Account/Login" class="nav-current">Login</a></li>
@@ -32,6 +30,7 @@
                     <li class="" id="login-nav"><a href="javascript:document.getElementById('logoutForm').submit()" class="nav-current">Logout</a></li>
                 }
             }
+            <li class="parent-li-nav" id="translate-nav"><div id="google_translate_element"></div></li>
             <li class="parent-li-nav resize-txt">A<span class="resize-txt-large-A">A</span></li>
         </ul>
 
@@ -97,6 +96,9 @@
             </div>
         </div>
         </div></div>
+<style>
+body.goog-te-banner{background-color:#fff !important; background-image:none !important;}
+</style>
 <!-- SCRIPTS -->
 <script>
 function getValue() {
