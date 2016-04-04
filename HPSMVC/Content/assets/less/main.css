@@ -8861,6 +8861,7 @@ section.text-photo-half.treatment-care .photo-half > .photo-bg {
   background: none;
   border: none;
   line-height: 1;
+  font-size: inherit;
 }
 #google_translate_element .goog-te-gadget .goog-te-gadget-simple .goog-te-gadget-icon {
   display: none;
