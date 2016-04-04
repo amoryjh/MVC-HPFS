@@ -12,20 +12,24 @@
             <h2>What can we help you with?</h2>
             <hr />
             @using (Html.BeginForm())
-            {
-            <p style="color:red">
+            {  
+                
+                <p style="color:red">
                     @TempData["ValidationMessage"]
-            </p>
+                 </p>         
                 
             <p>
-                <a class="btn btn-solid" href="/User/Manage">Manage Users and Roles</a>
+                <a class="btn btn-solid" href="/User/Manage">Manage Users</a>
+                <a class="btn btn-solid" href="/User/Manage">Manage Roles</a>
                 <a class="btn btn-solid" href="/User/Index">Change Username</a>
                 <a class="btn btn-solid" href="/Manage/ChangePassword">Change Password</a>
             </p>
+            <hr />
             }
             @if(User.IsInRole("Admin"))
             {
             <div>
+                <h2>User and Role List</h2>
                 <table class="table">
                     <tr>
                         <th>

@@ -54,7 +54,15 @@ namespace HPSMVC.Controllers
         {
             ApplicationUser user = context.Users.Where(u => u.UserName.Equals(UserName, StringComparison.CurrentCultureIgnoreCase)).FirstOrDefault();
             var manager = new ApplicationUserManager(new UserStore<ApplicationUser>(context));
-            manager.AddToRole(user.Id, RoleName);
+            try
+            {
+                manager.AddToRole(user.Id, RoleName);
+                TempData["ValidationMessage"] = ("Success: " + " " + UserName + " " + "Was Added to the " + " " + RoleName + " " + "Role");
+            }
+            catch
+            {
+                TempData["ValidationMessage"] = ("Error: " + " " + UserName + " " +  "Was Not Successfully Added to the " + " " + RoleName + " " + "Role");
+            }
 
             var list = context.Roles.OrderBy(r => r.Name).ToList().Select(rr => new SelectListItem { Value = rr.Name.ToString(), Text = rr.Name }).ToList();
             ViewBag.Roles = list;
@@ -92,11 +100,11 @@ namespace HPSMVC.Controllers
             if (manager.IsInRole(user.Id, RoleName))
             {
                 manager.RemoveFromRole(user.Id, RoleName);
-                ViewBag.ResultMessage = "Role removed from this user successfully !";
+                TempData["ValidationMessage"] = ("Success: " + " " + UserName + " " + "Was Removed From the " + " " + RoleName + " " + "Role");
             }
             else
             {
-                ViewBag.ResultMessage = "This user doesn't belong to selected role.";
+                TempData["ValidationMessage"] = ("Error: " + " " + UserName + " " + "Was Not Successfully Removed From the " + " " + RoleName + " " + "Role");
             }
             // prepopulat roles for the view dropdown
             var list = context.Roles.OrderBy(r => r.Name).ToList().Select(rr => new SelectListItem { Value = rr.Name.ToString(), Text = rr.Name }).ToList();
