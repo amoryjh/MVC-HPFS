@@ -27,7 +27,7 @@ namespace HPSMVC.Controllers
         {
             return View(db.Events.ToList().OrderBy(s => s.Date));
         }
-
+        [Authorize(Roles = "Admin")]
         public ActionResult Admin(string sortOrder, string searchString)
         {
             ViewBag.DateSortParm = String.IsNullOrEmpty(sortOrder) ? "date" : "";

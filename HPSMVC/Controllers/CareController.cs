@@ -22,12 +22,14 @@ namespace HPSMVC.Controllers
         }
 
         // GET: Care
+        [Authorize(Roles = "Admin")]
         public ActionResult Admin()
         {
             return View(db.Programs.ToList());
         }
 
         // GET: Care/Details/5
+        [Authorize(Roles = "Admin")]
         public ActionResult Details(int? id)
         {
             if (id == null)
@@ -43,6 +45,7 @@ namespace HPSMVC.Controllers
         }
 
         // GET: Care/Create
+        [Authorize(Roles = "Admin")]
         public ActionResult Create()
         {
             return View();
@@ -94,6 +97,7 @@ namespace HPSMVC.Controllers
         }
 
         // GET: Care/Edit/5
+        [Authorize(Roles = "Admin")]
         public ActionResult Edit(int? id)
         {
             if (id == null)
@@ -113,6 +117,7 @@ namespace HPSMVC.Controllers
         // more details see http://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
+        [Authorize(Roles = "Admin")]
         public ActionResult Edit([Bind(Include = "ID,Title,Content,fileName,fileType,fileContent")] Program program)
         {
             if (ModelState.IsValid)
@@ -153,6 +158,7 @@ namespace HPSMVC.Controllers
         }
 
         // GET: Care/Delete/5
+        [Authorize(Roles = "Admin")]
         public ActionResult Delete(int? id)
         {
             if (id == null)
@@ -170,6 +176,7 @@ namespace HPSMVC.Controllers
         // POST: Care/Delete/5
         [HttpPost, ActionName("Delete")]
         [ValidateAntiForgeryToken]
+        [Authorize(Roles = "Admin")]
         public ActionResult DeleteConfirmed(int id)
         {
             Program program = db.Programs.Find(id);

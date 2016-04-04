@@ -17,6 +17,7 @@ namespace HPSMVC.Controllers
         private HPSMVCEntities db = new HPSMVCEntities();
 
         // GET: Home
+        [Authorize(Roles = "Admin")]
         public ActionResult Admin()
         {
             return View(db.Indices.ToList());
@@ -28,6 +29,7 @@ namespace HPSMVC.Controllers
         }
 
         // GET: Home/Details/5
+        [Authorize(Roles = "Admin")]
         public ActionResult Details(int? id)
         {
             if (id == null)
@@ -43,6 +45,7 @@ namespace HPSMVC.Controllers
         }
 
         // GET: Home/Create
+        [Authorize(Roles = "Admin")]
         public ActionResult Create()
         {
             ViewBag.FileID = new SelectList(db.Files, "ID", "fileName");
@@ -54,6 +57,7 @@ namespace HPSMVC.Controllers
         // more details see http://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
+        [Authorize(Roles = "Admin")]
         public ActionResult Create([Bind(Include = "ID,Title,Content,ButtonText,ButtonLink,fileName,fileType,fileContent")] Index index)
         {
             if (ModelState.IsValid)
@@ -95,6 +99,7 @@ namespace HPSMVC.Controllers
         }
 
         // GET: Home/Edit/5
+        [Authorize(Roles = "Admin")]
         public ActionResult Edit(int? id)
         {
             if (id == null)
@@ -114,6 +119,7 @@ namespace HPSMVC.Controllers
         // more details see http://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
+        [Authorize(Roles = "Admin")]
         public ActionResult Edit([Bind(Include = "ID,Title,Content,ButtonText,ButtonLink,fileName,fileType,fileContent")] Index index)
         {
             if (ModelState.IsValid)
@@ -155,6 +161,7 @@ namespace HPSMVC.Controllers
         }
 
         // GET: Home/Delete/5
+        [Authorize(Roles = "Admin")]
         public ActionResult Delete(int? id)
         {
             if (id == null)
@@ -170,6 +177,7 @@ namespace HPSMVC.Controllers
         }
 
         // POST: Home/Delete/5
+        [Authorize(Roles = "Admin")]
         [HttpPost, ActionName("Delete")]
         [ValidateAntiForgeryToken]
         public ActionResult DeleteConfirmed(int id)

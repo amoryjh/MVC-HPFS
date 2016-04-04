@@ -17,6 +17,7 @@ namespace HPSMVC.Controllers
         private HPSMVCEntities db = new HPSMVCEntities();
 
         // GET: Files
+        [Authorize(Roles = "Admin,BoardDirector,Client,FamilyAssoc")]
         public ActionResult Index(string sortOrder, string searchString)
         {           
 
@@ -67,6 +68,7 @@ namespace HPSMVC.Controllers
         }
 
         // GET: Files/Create
+        [Authorize(Roles = "Admin")]
         public ActionResult Create()
         {
             return View();
@@ -77,6 +79,7 @@ namespace HPSMVC.Controllers
         // more details see http://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
+        [Authorize(Roles = "Admin")]
         public ActionResult Create([Bind(Include = "ID,fileName,fileType,fileContent,Date,Category,Viewer")] HPSMVC.Models.File file)
         
         {
@@ -124,6 +127,7 @@ namespace HPSMVC.Controllers
         }
 
         // GET: Files/Edit/5
+         [Authorize(Roles = "Admin")]
         public ActionResult Edit(int? id)
         {
             if (id == null)
@@ -143,6 +147,7 @@ namespace HPSMVC.Controllers
         // more details see http://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
+        [Authorize(Roles = "Admin")]
         //public ActionResult Edit([Bind(Include = "ID,fileName,fileType,fileContent,Date,Category,Viewer")] HPSMVC.Models.File file)
         public ActionResult Edit(int? id, string[] chkRemoveFile)//[Bind(Include = "ID,Name,Dated,imageContent,imageMimeType,imageFileName,MovementID,ArtistID")] Painting painting, string chkRemoveImage)
         {
@@ -212,6 +217,7 @@ namespace HPSMVC.Controllers
         }
 
         // GET: Files/Delete/5
+         [Authorize(Roles = "Admin")]
         public ActionResult Delete(int? id)
         {
             if (id == null)
@@ -227,6 +233,7 @@ namespace HPSMVC.Controllers
         }
 
         // POST: Files/Delete/5
+         [Authorize(Roles = "Admin")]
         [HttpPost, ActionName("Delete")]
         [ValidateAntiForgeryToken]
         public ActionResult DeleteConfirmed(int id)
