@@ -621,16 +621,10 @@
     <Content Include="Views\Care\Index.cshtml" />
     <Content Include="Views\Events\BoardCal.cshtml" />
     <Content Include="Views\User\Index.cshtml" />
-<<<<<<< HEAD
     <Content Include="Views\User\Manage.cshtml" />
-<<<<<<< HEAD
     <Content Include="Views\Fitbit\Index.cshtml" />
-=======
     <Content Include="Views\User\ManageRole.cshtml" />
     <Content Include="Views\User\ManageUser.cshtml" />
->>>>>>> origin/master
-=======
->>>>>>> parent of 505c48d... Fitbit plz work omg
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />
