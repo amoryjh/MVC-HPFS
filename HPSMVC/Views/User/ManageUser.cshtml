@@ -1,0 +1,31 @@
+﻿    @{
+        ViewBag.Title = "ManageUsers";
+    }
+    <section>
+        <div class="container">
+            <h1 class="text-center">Manage Users</h1>
+
+            <div class="form-horizontal">
+                <div class="col-md-10 col-md-offset-1">
+                    <hr />
+
+                    <div class="form-group">
+                        <div class="col-md-offset-2 col-md-10">
+                            @using (Html.BeginForm())
+                            {
+                                <p style="color:red">
+                                    @TempData["ValidationMessage"]
+                                </p>
+                                
+                                <p>
+                                    <a class="btn btn-solid" href="/User/Manage">Add User</a>
+                                    <a class="btn btn-solid" href="/User/ManageRole">Edit Username</a>   
+                                    <a class="btn btn-solid" href="/User/Index">Delete User</a>
+                                </p>
+                            }
+                   </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>

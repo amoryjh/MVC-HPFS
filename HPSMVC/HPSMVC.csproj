@@ -621,7 +621,8 @@
     <Content Include="Views\Care\Index.cshtml" />
     <Content Include="Views\Events\BoardCal.cshtml" />
     <Content Include="Views\User\Index.cshtml" />
-    <Content Include="Views\User\Manage.cshtml" />
+    <Content Include="Views\User\ManageRole.cshtml" />
+    <Content Include="Views\User\ManageUser.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />
