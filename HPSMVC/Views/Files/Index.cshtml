@@ -84,9 +84,15 @@
                          }
                     </td>
                     <td>
+<<<<<<< HEAD
                       @Html.ActionLink("Download", "Download", new { id = item.ID }) 
                       @if (User.IsInRole("Admin"))
                       { <span> | </span> @Html.ActionLink("Edit", "Edit", new { id = item.ID }) <span> | </span> 
+=======
+                        @Html.ActionLink("Download", "Download", new { id = item.ID }) 
+                      @if(User.IsInRole("Admin"))
+                      { @Html.ActionLink("Edit ", "Edit", new { id = item.ID })  
+>>>>>>> origin/master
                         @Html.ActionLink("Delete", "Delete", new { id = item.ID })
                       }
                     </td>
