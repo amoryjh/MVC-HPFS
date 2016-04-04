@@ -5,15 +5,20 @@
     <section>
         <div class="container">
 
-            <h1>User Management</h1>
-           
+            <h1>Account Management</h1>
+
+            <h2>Hey, @(User.Identity.Name)!</h2>
+            
+            <h2>What would you like to do?</h2>
+            <hr />
             @using (Html.BeginForm())
             {
-                <p>
-                    <a class="btn btn-solid" href="/User/Index">User List</a>
-                    <a class="btn btn-solid" href="/User/Manage">Manage Users and Roles</a>
-                </p>
-
+            <p>
+                <a class="btn btn-solid" href="/User/Index">Change Username</a>
+                <a class="btn btn-solid" href="/User/Index">Change Password</a>
+                <a class="btn btn-solid" href="/User/Index">User List</a>
+                <a class="btn btn-solid" href="/User/Manage">Manage Users and Roles</a>
+            </p>
             }
 
             <div class="table-overflow">
