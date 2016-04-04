@@ -62,13 +62,17 @@
             thePercent = totalReached / goal * 100;
         var percent = parseInt(thePercent);
         deg = 360 * percent / 100;
-        if (totalReached > goal) {
+        if (totalReached >= goal || totalReached >= $updateGoal) {
             $ppc.removeClass('gt-50');
             $ppc.addClass('gt-100');
         }
-        if (totalReached > goal / 2 && totalReached < goal) {
+        if (totalReached > goal / 2 && totalReached < goal || totalReached > $updateGoal / 2) {
             $ppc.removeClass('gt-100');
             $ppc.addClass('gt-50');
+        }
+        if (totalReached < goal / 2 || totalReached == null) {
+            $ppc.removeClass('gt-50');
+            $ppc.removeClass('gt-100');
         }
         
         $('.ppc-progress-fill').css('transform', 'rotate(' + deg + 'deg)');
