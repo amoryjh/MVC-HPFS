@@ -58,20 +58,24 @@
         $reached = $('#reach');
     $($reached).on("input", function () {
         var totalReached = this.value,
-            goal = $goal.text(),
+            goal = parseInt($goal.text()),
             thePercent = totalReached / goal * 100;
         var percent = parseInt(thePercent);
         deg = 360 * percent / 100;
-        if (percent > 50) {
+        if (totalReached > goal) {
+            $ppc.removeClass('gt-50');
+            $ppc.addClass('gt-100');
+        }
+        if (totalReached > goal / 2 && totalReached < goal) {
+            $ppc.removeClass('gt-100');
             $ppc.addClass('gt-50');
         }
+        
         $('.ppc-progress-fill').css('transform', 'rotate(' + deg + 'deg)');
         $('.ppc-percents span').html(percent + '%');
     })
     $($updateGoal).on("input", function () {
         var newGoal = this.value;
             $goal.text(newGoal);
-
-        //goal = newGoal;
     })
 </script>

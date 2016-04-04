@@ -385,6 +385,16 @@ body{top:0 !important;}
 .progress-pie-chart.gt-50 {
   background-color: @brand-pri;
 }
+.progress-pie-chart.gt-100 {
+    background:@brand-pri;
+    .ppc-progress {
+        clip: rect(200px,200px,200px,200px);
+    }
+    .ppc-progress .ppc-progress-fill {
+      clip: rect(200px, 200px, 200px, 200px);
+      background: @brand-pri;
+    }
+}
 .ppc-progress {
     content: "";
     position: absolute;
