@@ -4,6 +4,8 @@ using Microsoft.AspNet.Identity.EntityFramework;
 using System;
 using System.Collections.Generic;
 using System.Linq;
+using System.Net;
+using System.Threading.Tasks;
 using System.Web;
 using System.Web.Mvc;
 
@@ -118,14 +120,51 @@ namespace HPSMVC.Controllers
             return View("ManageRole");
         }
 
-        [HttpPost]
+        [HttpPost, ActionName("DeleteUser")]
         [ValidateAntiForgeryToken]
-        public ActionResult DeleteUser(string UserName)
+        public async Task<ActionResult> DeleteUser(string Username)
         {
             var manager = new ApplicationUserManager(new UserStore<ApplicationUser>(context));
-            ApplicationUser user = context.Users.Where(u => u.UserName.Equals(UserName, StringComparison.CurrentCultureIgnoreCase)).FirstOrDefault();
+            ApplicationUser user = context.Users.Where(u => u.UserName.Equals(Username, StringComparison.CurrentCultureIgnoreCase)).FirstOrDefault();
 
+            string userID = user.Id;
+
+            if (ModelState.IsValid)
+            {
+            if (userID == null)
+            {
+              return new HttpStatusCodeResult(HttpStatusCode.BadRequest);
+            }
+
+            var userDel = await manager.FindByIdAsync(userID);
+            var logins = user.Logins;
+
+            foreach (var login in logins.ToList())
+            {
+              await manager.RemoveLoginAsync(login.UserId, new UserLoginInfo(login.LoginProvider, login.ProviderKey));
+            }
+
+            var rolesForUser = await manager.GetRolesAsync(userID);
+
+            if (rolesForUser.Count() > 0)
+            {
+              foreach (var item in rolesForUser.ToList())
+              {
+                // item should be the name of the role
+                var result = await manager.RemoveFromRoleAsync(user.Id, item);
+              }
+            }
+
+            await manager.DeleteAsync(user);
+
+            TempData["ValidationMessage"] = ("Success: " + " " + Username + " " + "Was Removed");
             return View("ManageUser");
+          }
+          else
+          {
+              TempData["ValidationMessage"] = ("Error: " + " " + Username + " " + "Was Not Removed");
+            return View("ManageUser");
+          }         
 
         }
 	}

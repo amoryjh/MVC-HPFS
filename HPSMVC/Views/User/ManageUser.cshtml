@@ -22,7 +22,17 @@
 
                     <div class="form-group">
                         <div class="col-md-offset-2 col-md-10">
-                            <a class="btn btn-solid" href="/Account/Register">Create User</a>
+                            @using (Html.BeginForm())
+                            {
+                                <div class="col-md-10">
+                                    <h2>Add User</h2>
+                                    <div class="form-group">
+                                        <div class="col-md-12">
+                                            <a class="btn btn-solid" href="/Account/Register">Create User</a>
+                                        </div>
+                                    </div>
+                                </div>
+                            }
                         </div>
                     </div>
 
