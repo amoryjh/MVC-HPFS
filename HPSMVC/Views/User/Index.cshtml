@@ -20,7 +20,7 @@
                 
             <p>
                 <a class="btn btn-solid" href="/User/Manage">Manage Users</a>
-                <a class="btn btn-solid" href="/User/Manage">Manage Roles</a>
+                <a class="btn btn-solid" href="/User/ManageRole">Manage Roles</a>
                 <a class="btn btn-solid" href="/User/Index">Change Username</a>
                 <a class="btn btn-solid" href="/Manage/ChangePassword">Change Password</a>
             </p>
@@ -42,7 +42,7 @@
 
                     @foreach (var user in Model.ToList())
                     {
-                        <tr>
+                        <tr id="@user.UserName">
                             <td>
                                 @user.UserName
                             </td>

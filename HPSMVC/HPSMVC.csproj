@@ -622,8 +622,13 @@
     <Content Include="Views\Care\Index.cshtml" />
     <Content Include="Views\Events\BoardCal.cshtml" />
     <Content Include="Views\User\Index.cshtml" />
+<<<<<<< HEAD
     <Content Include="Views\User\Manage.cshtml" />
     <Content Include="Views\Fitbit\Index.cshtml" />
+=======
+    <Content Include="Views\User\ManageRole.cshtml" />
+    <Content Include="Views\User\ManageUser.cshtml" />
+>>>>>>> origin/master
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />
