@@ -160,7 +160,6 @@
     <Compile Include="App_Start\IdentityConfig.cs" />
     <Compile Include="App_Start\RouteConfig.cs" />
     <Compile Include="App_Start\Startup.Auth.cs" />
-    <Compile Include="Controllers\FitbitController.cs" />
     <Compile Include="Controllers\AboutController.cs" />
     <Compile Include="Controllers\AccountController.cs" />
     <Compile Include="Controllers\CareController.cs" />
@@ -624,11 +623,14 @@
     <Content Include="Views\User\Index.cshtml" />
 <<<<<<< HEAD
     <Content Include="Views\User\Manage.cshtml" />
+<<<<<<< HEAD
     <Content Include="Views\Fitbit\Index.cshtml" />
 =======
     <Content Include="Views\User\ManageRole.cshtml" />
     <Content Include="Views\User\ManageUser.cshtml" />
 >>>>>>> origin/master
+=======
+>>>>>>> parent of 505c48d... Fitbit plz work omg
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />

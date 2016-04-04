@@ -375,6 +375,3 @@ C:\Users\Josh\Documents\GitHub\MVC-HPFS\HPSMVC\obj\Debug\HPSMVC.SecurityMigratio
 C:\Users\Brandon\Desktop\MVC-HPFS\HPSMVC\obj\Debug\HPSMVC.csprojResolveAssemblyReference.cache
 C:\Users\Brandon\Desktop\MVC-HPFS\HPSMVC\obj\Debug\HPSMVC.Migrations.AddUserRoles.resources
 C:\Users\Josh\Documents\GitHub\MVC-HPFS\HPSMVC\obj\Debug\HPSMVC.Migrations.AddUserRoles.resources
-C:\Users\Amory\Desktop\MVC-HPFS\HPSMVC\obj\Debug\HPSMVC.Migrations.AddUserRoles.resources
-C:\Users\Amory\Desktop\MVC-HPFS\HPSMVC\obj\Debug\HPSMVC.SecurityMigrations.AddAllRoles.resources
-C:\Users\Amory\Desktop\MVC-HPFS\HPSMVC\obj\Debug\HPSMVC.SecurityMigrations.AddAllRolesx2.resources
