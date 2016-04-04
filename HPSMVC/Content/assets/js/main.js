@@ -115,3 +115,10 @@ $('.icon').click(function () {
 $('.resize-txt').click(function (event) {
     $('body').toggleClass('enlargen-text');
 });
+
+$('#frenchmodal').click(function () {
+    $('.french__modal').fadeToggle(400);
+})
+$('.french__modal__exit').click(function () {
+    $('.french__modal').fadeToggle(400);
+})

@@ -30,7 +30,8 @@
                     <li class="" id="login-nav"><a href="javascript:document.getElementById('logoutForm').submit()" class="nav-current">Logout</a></li>
                 }
             }
-            <li class="parent-li-nav" id="translate-nav"><div id="google_translate_element"></div></li>
+            <!--<li class="parent-li-nav" id="translate-nav"><div id="google_translate_element"></div></li>-->
+            <li class="parent-li-nav" id="frenchmodal"><a href="#">French</a></li>
             <li class="parent-li-nav resize-txt">A<span class="resize-txt-large-A">A</span></li>
         </ul>
 
@@ -87,6 +88,16 @@
         </div>
         }
         @RenderBody()
+        <div class="french__modal">
+            <div class="french__modal__inner clearfix">
+                <div class="french__modal__exit">x</div>
+                <h1 class="text-center">Attention</h1>
+                <p>
+                    Nos programmes et services sont offerts en anglais. Toutefois, les services de gestion de cas, de soutien psychiatrique et de réadaptation peuvent être offerts en français avec l’assistance d’un interprète professionnel.
+                </p>
+                <p><div id="google_translate_element"></div></p>
+            </div>
+        </div>
     </div><!-- MAIN WRAPPER -->
     <footer class="clearfix">
         <div class="container"><div class="row">

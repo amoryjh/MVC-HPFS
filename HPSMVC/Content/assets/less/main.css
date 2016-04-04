@@ -7398,6 +7398,27 @@ nav ul li > ul li a:hover {
     opacity: 1;
   }
 }
+.french__modal {
+  display: none;
+  background: rgba(250, 250, 250, 0.9);
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  width: 500px;
+  padding: 4em;
+  margin: 0 auto;
+  z-index: 90;
+}
+french__modal__inner {
+  position: relative;
+}
+.french__modal__exit {
+  top: 1em;
+  right: 1em;
+  font-size: 2em;
+  position: absolute;
+}
 .gallery {
   background: transparent;
 }
