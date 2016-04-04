@@ -18,14 +18,13 @@
             </p>
                 
             <p>
-
-                <a class="btn btn-solid" href="/User/Index">User List</a>
                 <a class="btn btn-solid" href="/User/Manage">Manage Users and Roles</a>
                 <a class="btn btn-solid" href="/User/Index">Change Username</a>
                 <a class="btn btn-solid" href="/Manage/ChangePassword">Change Password</a>
             </p>
             }
-
+            @if(User.IsInRole("Admin"))
+            {
             <div>
                 <table class="table">
                     <tr>
@@ -54,4 +53,5 @@
                 </table>
 
             </div>
+            }
 </section>

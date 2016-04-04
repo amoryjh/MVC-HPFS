@@ -57,11 +57,11 @@
             </ul>
         </div>
 
-            @if (User.IsInRole("Admin") || User.IsInRole("BoardDirector") || User.IsInRole("clients") || User.IsInRole("FamilyAssoc")) 
+            @if (User.IsInRole("Admin") || User.IsInRole("BoardDirector") || User.IsInRole("Client") || User.IsInRole("FamilyAssoc")) 
          { 
         <div class="admin-aside-panel">
             <h4>Hey, @(User.Identity.Name)</h4>
-            <ul>
+            <ul>                
                 <li><a href="/Files">File Exchange</a></li>
                 @if (User.IsInRole("Admin") || User.IsInRole("BoardDirector") || User.IsInRole("FamilyAssoc"))
                 {
@@ -71,10 +71,9 @@
                 { 
                 <li><a href="/Home/Admin">HomePage Management</a></li>
                 <li><a href="/Care/Admin">CarePage Management</a></li>
-                <li><a href="/Events/Admin">Events Management</a></li>
-                <li><a href="/User">Account Management</a></li>
+                <li><a href="/Events/Admin">Events Management</a></li>              
                 }
-                
+                <li><a href="/User">Account Management</a></li>
                 <li><a href="/User">FitBit</a></li>
             </ul>
             <i class="icon fa fa-chevron-right closed"> </i>
