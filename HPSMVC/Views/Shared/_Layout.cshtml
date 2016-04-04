@@ -60,7 +60,7 @@
         @if (User.IsInRole("Admin") || User.IsInRole("BoardDirector") || User.IsInRole("FamilyAssoc") || User.IsInRole("Client") || User.IsInRole("Default")) 
         {
         <div class="admin-aside-panel">
-            <h4>Hey, @(User.Identity.Name)</h4>
+            <h4>@(User.Identity.Name)</h4>
             <ul>               
                 @if (User.IsInRole("Admin") || User.IsInRole("BoardDirector") || User.IsInRole("FamilyAssoc") || User.IsInRole("Client"))
                 {

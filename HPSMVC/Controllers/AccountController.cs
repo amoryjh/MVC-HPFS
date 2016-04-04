@@ -161,10 +161,20 @@ namespace HPSMVC.Controllers
 
                 if (result.Succeeded)
                 {
-                    await SignInManager.SignInAsync(user, isPersistent:false, rememberBrowser:false);                   
+                    if(User.IsInRole("Admin"))
+                    {
+                        TempData["ValidationMessage"] = ("Success: " + " " + user.UserName + " " + "Was Created");
+                        return RedirectToAction("Index", "User");
+                    }
+                    else
+                    {
+                        await SignInManager.SignInAsync(user, isPersistent: false, rememberBrowser: false);
+                        return RedirectToAction("Index", "Home");
+                    }
 
-                    return RedirectToAction("Index", "Home");
+                    
                 }
+
                 AddErrors(result);
             }
 
