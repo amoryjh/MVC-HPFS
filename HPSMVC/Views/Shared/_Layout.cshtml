@@ -57,12 +57,15 @@
             </ul>
         </div>
 
-            @if (User.IsInRole("Admin") || User.IsInRole("BoardDirector") || User.IsInRole("Client") || User.IsInRole("FamilyAssoc")) 
-         { 
+        @if (User.IsInRole("Admin") || User.IsInRole("BoardDirector") || User.IsInRole("FamilyAssoc") || User.IsInRole("Client") || User.IsInRole("Default")) 
+        {
         <div class="admin-aside-panel">
             <h4>Hey, @(User.Identity.Name)</h4>
-            <ul>                
+            <ul>               
+                @if (User.IsInRole("Admin") || User.IsInRole("BoardDirector") || User.IsInRole("FamilyAssoc") || User.IsInRole("Client"))
+                {
                 <li><a href="/Files">File Exchange</a></li>
+                }
                 @if (User.IsInRole("Admin") || User.IsInRole("BoardDirector") || User.IsInRole("FamilyAssoc"))
                 {
                 <li><a href="/Events/BoardCal">Board Calendar</a></li>
@@ -74,11 +77,14 @@
                 <li><a href="/Events/Admin">Events Management</a></li>              
                 }
                 <li><a href="/User">Account Management</a></li>
+                @if (User.IsInRole("Admin") || User.IsInRole("BoardDirector") || User.IsInRole("FamilyAssoc") || User.IsInRole("Client"))
+                {
                 <li><a href="/User">FitBit</a></li>
+                }
             </ul>
             <i class="icon fa fa-chevron-right closed"> </i>
         </div>
-         }
+        }
         @RenderBody()
     </div><!-- MAIN WRAPPER -->
     <footer class="clearfix">

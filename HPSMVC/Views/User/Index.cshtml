@@ -2,6 +2,22 @@
     @{
         ViewBag.Title = "Index";
     }
+
+
+    @if (User.IsInRole("Default"))
+    {
+        <section>
+            <div class="container">
+                <h1>Account Management</h1>
+
+                <h2>Hey, @(User.Identity.Name)!</h2>
+
+                <p>You don't seem to be a client yet, check back later!</p>
+            </div>
+        </section>
+    }
+    else
+    {
     <section>
         <div class="container">
 
@@ -11,6 +27,10 @@
             
             <h2>What can we help you with?</h2>
             <hr />
+
+
+           
+
             @using (Html.BeginForm())
             {  
                 
@@ -18,11 +38,13 @@
                     @TempData["ValidationMessage"]
                  </p>         
                 
-            <p>
-                <a class="btn btn-solid" href="/User/Manage">Manage Users</a>
-                <a class="btn btn-solid" href="/User/ManageRole">Manage Roles</a>
-                <a class="btn btn-solid" href="/User/Index">Change Username</a>
+            <p>     
                 <a class="btn btn-solid" href="/Manage/ChangePassword">Change Password</a>
+                @if(User.IsInRole("Admin"))
+                {
+                    <a class="btn btn-solid" href="/User/ManageUser">Manage Users</a>
+                    <a class="btn btn-solid" href="/User/ManageRole">Manage Roles</a>
+                }
             </p>
             <hr />
             }
@@ -58,4 +80,6 @@
 
             </div>
             }
-</section>
+           </div>
+    </section>
+    }

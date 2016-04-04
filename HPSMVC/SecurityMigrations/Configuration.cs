@@ -21,6 +21,12 @@ namespace HPSMVC.SecurityMigrations
             //Create a Role Manager
             var roleManager = new RoleManager<IdentityRole>(new RoleStore<IdentityRole>(context));
 
+            //Default
+            if (!context.Roles.Any(r => r.Name == "Default"))
+            {
+                var roleresult = roleManager.Create(new IdentityRole("Default"));
+            }
+
             //Create Role Admin if it does not exist
             //Admin
             if (!context.Roles.Any(r => r.Name == "Admin"))

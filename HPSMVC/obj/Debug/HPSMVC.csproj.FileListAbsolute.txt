@@ -372,9 +372,10 @@ C:\Users\Josh\Documents\GitHub\MVC-HPFS\HPSMVC\obj\Debug\HPSMVC.Migrations.FileM
 C:\Users\Josh\Documents\GitHub\MVC-HPFS\HPSMVC\obj\Debug\HPSMVC.Migrations.ByFieldRM.resources
 C:\Users\Josh\Documents\GitHub\MVC-HPFS\HPSMVC\obj\Debug\HPSMVC.SecurityMigrations.AddAllRoles.resources
 C:\Users\Josh\Documents\GitHub\MVC-HPFS\HPSMVC\obj\Debug\HPSMVC.SecurityMigrations.AddAllRolesx2.resources
-C:\Users\Brandon\Desktop\MVC-HPFS\HPSMVC\obj\Debug\HPSMVC.csprojResolveAssemblyReference.cache
 C:\Users\Brandon\Desktop\MVC-HPFS\HPSMVC\obj\Debug\HPSMVC.Migrations.AddUserRoles.resources
 C:\Users\Josh\Documents\GitHub\MVC-HPFS\HPSMVC\obj\Debug\HPSMVC.Migrations.AddUserRoles.resources
 C:\Users\Amory\Desktop\MVC-HPFS\HPSMVC\obj\Debug\HPSMVC.Migrations.AddUserRoles.resources
 C:\Users\Amory\Desktop\MVC-HPFS\HPSMVC\obj\Debug\HPSMVC.SecurityMigrations.AddAllRoles.resources
 C:\Users\Amory\Desktop\MVC-HPFS\HPSMVC\obj\Debug\HPSMVC.SecurityMigrations.AddAllRolesx2.resources
+C:\Users\Brandon\Desktop\MVC-HPFS\HPSMVC\obj\Debug\HPSMVC.SecurityMigrations.NewUser.resources
+C:\Users\Brandon\Desktop\MVC-HPFS\HPSMVC\obj\Debug\HPSMVC.csprojResolveAssemblyReference.cache
