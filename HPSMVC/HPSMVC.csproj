@@ -160,6 +160,7 @@
     <Compile Include="App_Start\IdentityConfig.cs" />
     <Compile Include="App_Start\RouteConfig.cs" />
     <Compile Include="App_Start\Startup.Auth.cs" />
+    <Compile Include="Controllers\FitbitController.cs" />
     <Compile Include="Controllers\AboutController.cs" />
     <Compile Include="Controllers\AccountController.cs" />
     <Compile Include="Controllers\CareController.cs" />
@@ -622,6 +623,7 @@
     <Content Include="Views\Events\BoardCal.cshtml" />
     <Content Include="Views\User\Index.cshtml" />
     <Content Include="Views\User\Manage.cshtml" />
+    <Content Include="Views\Fitbit\Index.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />
