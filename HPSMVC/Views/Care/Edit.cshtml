@@ -16,7 +16,20 @@
     <hr />
     @Html.ValidationSummary(true, "", new { @class = "text-danger" })
     @Html.HiddenFor(model => model.ID)
-
+    <div class="form-group"><div class="col-md-10 col-md-offset-2">
+        @{
+            if (Model.fileContent != null)
+            {
+                string imageBase64 = Convert.ToBase64String(Model.fileContent);
+                string imageSrc = string.Format("data:" + Model.fileContent + ";base64,{0}", imageBase64);
+                if (Model.fileType.Contains("image"))
+                {
+                    <img src="@imageSrc" style="max-height:400px;max-width:100%;" class="img-responsive img-rounded" /><br />
+                }          
+            }
+        }
+    </div>
+    </div>
     <div class="form-group">
         <div class="col-md-offset-2 col-md-10">
             <input type="file" name="FileUpImage" id="careImage" /><br />

@@ -6167,6 +6167,10 @@ p {
   font-weight: normal;
   font-style: normal;
 }
+.resize-txt-large-A {
+  font-size: 21px;
+  text-decoration: none;
+}
 .carousel {
   height: 84vh;
 }
@@ -6277,10 +6281,6 @@ ul.no-style-list {
 ul.no-style-list li {
   list-style-type: none;
 }
-.resize-txt-large-A {
-  font-size: 21px;
-  text-decoration: none;
-}
 .resize-txt {
   font-weight: 700;
   text-decoration: none;
@@ -6292,11 +6292,11 @@ ul.no-style-list li {
   background: #fcfcfc;
 }
 .enlargen-text {
-  font-size: 17.5px;
+  font-size: 19.6px;
   transition: all .5s;
 }
 .enlargen-text p {
-  font-size: 18.2px;
+  font-size: 21px;
 }
 .key-message {
   padding: 5% 2%;

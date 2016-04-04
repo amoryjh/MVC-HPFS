@@ -155,55 +155,53 @@ namespace HPSMVC.Controllers
         // more details see http://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
-        //public ActionResult Edit([Bind(Include = "ID,Title,Content,Time,Date,Viewer,LinkText,Link,fileName,fileType,fileContent")] Event @event)
-        public ActionResult Edit(int? id, string[] chkRemoveFile,Event @event)//[Bind(Include = "ID,Name,Dated,imageContent,imageMimeType,imageFileName,MovementID,ArtistID")] Painting painting, string chkRemoveImage)
-        
+        [Authorize(Roles = "Admin")]
+        public ActionResult Edit(int? id, string[] chkRemoveFile)//[Bind(Include = "ID,Name,Dated,imageContent,imageMimeType,imageFileName,MovementID,ArtistID")] Painting painting, string chkRemoveImage)
         {
-            var EventFileToUpdate = db.Files
+            var FilesToUpdate = db.Events
             .Where(f => f.ID == id)
             .Single();
-            if (TryUpdateModel(EventFileToUpdate, "",
-                new string[] { "ID", "Filename", "fileType", "FileContent", "Date", "Event @event" }))
+            if (TryUpdateModel(FilesToUpdate, "",
+                new string[] { "ID", "filename", "fileType", "fileContent" }))
             {
                 if (chkRemoveFile != null)//Remove the File
                 {
-                    EventFileToUpdate.fileContent = null;
-                    EventFileToUpdate.fileType = null;
-                    EventFileToUpdate.fileName = null;
+                    FilesToUpdate.fileContent = null;
+                    FilesToUpdate.fileType = null;
+                    FilesToUpdate.fileName = null;
                 }
                 foreach (string fName in Request.Files)
                 {
                     HttpPostedFileBase f = Request.Files[fName];
                     string mimeType = f.ContentType;
                     int fileLength = f.ContentLength;
-                    if (!(mimeType == "" || fileLength == 0))
+                    if (!(mimeType == "" || fileLength == 0))//Looks like we have a file!!!
                     {
                         string fileName = Path.GetFileName(f.FileName);
                         Stream fileStream = Request.Files[fName].InputStream;
-                        byte[] fileData = new Byte[fileLength];
+                        byte[] fileData = new byte[fileLength];
                         fileStream.Read(fileData, 0, fileLength);
 
-                        EventFileToUpdate.fileContent = fileData;
-                        EventFileToUpdate.fileType = mimeType;
-                        EventFileToUpdate.fileName = fileName;
+                        FilesToUpdate.fileContent = fileData;
+                        FilesToUpdate.fileType = mimeType;
+                        FilesToUpdate.fileName = fileName;
 
                     }
                 }
                 try
                 {
-                    db.Entry(EventFileToUpdate).State = EntityState.Modified;
+                    db.Entry(FilesToUpdate).State = EntityState.Modified;
                     db.SaveChanges();
-                    TempData["ValidationMessage"] = @event.Title += "   Event Successfully Edited!";
+                    TempData["ValidationMessage"] = FilesToUpdate.fileName += "   Successfully Edited!";
                     return RedirectToAction("Admin");
                 }
                 catch
                 {
-                    TempData["ValidationMessage"] = @event.Title += "   Error: Event Not Successfully Edited!";
+                    TempData["ValidationMessage"] = FilesToUpdate.fileName += "   Error: Not Successfully Edited!";
                 }
 
-                
             }
-            return View(@event);
+            return View(FilesToUpdate);
         }
 
         // GET: Events/Delete/5
