@@ -2,4 +2,74 @@
     ViewBag.Title = "Fitbit";
     ViewBag.BodyClass = "fitbit";
 }
-<h1>Fitbit stuff</h1>
+<section class="clearfix">
+    <div class="col-md-10 col-md-offset-1">
+        <div class="form-group">
+            <h1>fitbit Tracking</h1>
+            <span>
+                <a href="#"><h2>
+                    <span style="background:url('/Content/assets/img/109d9919a44b792ebe64e520c3b57dc2.svg') no-repeat 0 0; background-size: cover; height:30px;width:116px;display:inline-block;"></span>
+                    View your fitbit account for more in depth stats</h2>
+                </a>
+            </span>
+        </div>
+        <br />
+        <div class="col-sm-4">
+            <div class="submitsection">
+                <div class="form-group">
+                    <h2>Current Progress </h2>
+                    <input id="reach" type="text" value="" class="form-control" />
+                </div>
+                <div class="form-group">
+                    <h2>Update Goal</h2>
+                    <input id="updateGoal" type="text" value="" class="form-control" />
+                </div>
+            </div>
+        </div>
+        <div class="col-sm-4">
+            <h2 class="text-center">Percent Reached</h2>
+            <div class="progress-pie-chart" data-percent="">
+                <div class="ppc-progress">
+                    <div class="ppc-progress-fill"></div>
+                </div>
+                <div class="ppc-percents">
+                    <div class="pcc-percents-wrapper">
+                        <span>%</span>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="col-sm-4">
+            <div class="goalsection">
+                <h2>Current Goal</h2>
+                <span class="goal">180</span>
+                <br />
+                <a href="#" class="btn btn-solid">Update Goal</a>
+            </div>
+        </div>
+    </div>
+</section>
+<script>
+    var $ppc = $('.progress-pie-chart'),
+        $goal = $('.goal'),
+        $updateGoal = $('#updateGoal'),
+        $reached = $('#reach');
+    $($reached).on("input", function () {
+        var totalReached = this.value,
+            goal = $goal.text(),
+            thePercent = totalReached / goal * 100;
+        var percent = parseInt(thePercent);
+        deg = 360 * percent / 100;
+        if (percent > 50) {
+            $ppc.addClass('gt-50');
+        }
+        $('.ppc-progress-fill').css('transform', 'rotate(' + deg + 'deg)');
+        $('.ppc-percents span').html(percent + '%');
+    })
+    $($updateGoal).on("input", function () {
+        var newGoal = this.value;
+            $goal.text(newGoal);
+
+        //goal = newGoal;
+    })
+</script>

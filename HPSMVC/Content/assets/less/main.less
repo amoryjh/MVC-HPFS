@@ -371,3 +371,78 @@ padding:0;
 .goog-te-banner-frame{body.goog-te-banner{background-color:#fff !important; background-image:none !important;}}
 
 body{top:0 !important;}
+
+
+//FITBIT
+.progress-pie-chart {
+  width: 200px;
+  height: 200px;
+  border-radius: 50%;
+  background-color: #E5E5E5;
+  position: relative; 
+  margin:0 auto;
+}
+.progress-pie-chart.gt-50 {
+  background-color: @brand-pri;
+}
+.ppc-progress {
+    content: "";
+    position: absolute;
+    border-radius: 50%;
+    left: calc(0%);
+    top: calc(0%);
+    width: 200px;
+    height: 200px;
+    clip: rect(0,200px,200px,100px);
+}
+.ppc-progress .ppc-progress-fill {
+  content: "";
+  position: absolute;
+  border-radius: 50%;
+  left: calc(0%);
+  top: calc(0%);
+  width: 200px;
+  height: 200px;
+  clip: rect(0, 100px, 200px, 0);
+  background: @brand-pri;
+  transform: rotate(60deg);
+}
+.gt-50 .ppc-progress {
+  clip: rect(0, 100px, 200px, 0);
+}
+.gt-50 .ppc-progress .ppc-progress-fill {
+  clip: rect(0, 200px, 200px, 100px);
+  background: #E5E5E5;
+}
+
+.ppc-percents {
+    content: "";
+    position: absolute;
+    border-radius: 50%;
+    left: calc(6.04348%);
+    top: calc(6.04348%);
+    width: 175.91304px;
+    height: 173.91304px;
+    background: #fff;
+    text-align: center;
+    display: table;
+}
+.ppc-percents span, .goal {
+  display: block;
+  font-size: 2.6em;
+  font-weight: bold;
+  color: @brand-pri;
+}
+
+.pcc-percents-wrapper {
+  display: table-cell;
+  vertical-align: middle;
+}
+
+.goalsection {
+  width: 100%;
+  text-align: center;
+}
+
+.submitsection {
+}

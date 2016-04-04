@@ -166,6 +166,7 @@
     <Compile Include="Controllers\ContactController.cs" />
     <Compile Include="Controllers\EventsController.cs" />
     <Compile Include="Controllers\FilesController.cs" />
+    <Compile Include="Controllers\FitbitController.cs" />
     <Compile Include="Controllers\HomeController.cs" />
     <Compile Include="Controllers\ManageController.cs" />
     <Compile Include="Controllers\UserController.cs" />
@@ -300,6 +301,7 @@
     <Content Include="Content\assets\fonts\glyphicons-halflings-regular.svg" />
     <Content Include="Content\assets\fonts\leaguespartan\leaguespartan-bold.svg" />
     <Content Include="Content\assets\fonts\leaguespartan\stylesheet.css" />
+    <Content Include="Content\assets\img\109d9919a44b792ebe64e520c3b57dc2.svg" />
     <Content Include="Content\assets\img\case-management.jpg" />
     <Content Include="Content\assets\img\hero-bus.jpg" />
     <Content Include="Content\assets\img\hero-home.jpg" />

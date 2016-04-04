@@ -8,6 +8,7 @@ namespace HPSMVC.Controllers
 {
     public class FitbitController : Controller
     {
+        // GET: Fitbit
         public ActionResult Index()
         {
             return View();
