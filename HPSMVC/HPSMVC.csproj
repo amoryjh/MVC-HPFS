@@ -283,6 +283,10 @@
     <Compile Include="SecurityMigrations\201604031600321_AddAllRolesx2.Designer.cs">
       <DependentUpon>201604031600321_AddAllRolesx2.cs</DependentUpon>
     </Compile>
+    <Compile Include="SecurityMigrations\201604040535512_NewUser.cs" />
+    <Compile Include="SecurityMigrations\201604040535512_NewUser.Designer.cs">
+      <DependentUpon>201604040535512_NewUser.cs</DependentUpon>
+    </Compile>
     <Compile Include="SecurityMigrations\Configuration.cs" />
     <Compile Include="Startup.cs" />
   </ItemGroup>
@@ -621,7 +625,6 @@
     <Content Include="Views\Care\Index.cshtml" />
     <Content Include="Views\Events\BoardCal.cshtml" />
     <Content Include="Views\User\Index.cshtml" />
-    <Content Include="Views\User\Manage.cshtml" />
     <Content Include="Views\Fitbit\Index.cshtml" />
     <Content Include="Views\User\ManageRole.cshtml" />
     <Content Include="Views\User\ManageUser.cshtml" />
@@ -712,6 +715,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="SecurityMigrations\201604031600321_AddAllRolesx2.resx">
       <DependentUpon>201604031600321_AddAllRolesx2.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="SecurityMigrations\201604040535512_NewUser.resx">
+      <DependentUpon>201604040535512_NewUser.cs</DependentUpon>
     </EmbeddedResource>
   </ItemGroup>
   <PropertyGroup>

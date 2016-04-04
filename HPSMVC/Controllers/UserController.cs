@@ -117,5 +117,16 @@ namespace HPSMVC.Controllers
 
             return View("ManageRole");
         }
+
+        [HttpPost]
+        [ValidateAntiForgeryToken]
+        public ActionResult DeleteUser(string UserName)
+        {
+            var manager = new ApplicationUserManager(new UserStore<ApplicationUser>(context));
+            ApplicationUser user = context.Users.Where(u => u.UserName.Equals(UserName, StringComparison.CurrentCultureIgnoreCase)).FirstOrDefault();
+
+            return View("ManageUser");
+
+        }
 	}
 }
