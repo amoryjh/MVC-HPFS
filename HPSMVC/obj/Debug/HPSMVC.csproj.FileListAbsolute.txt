@@ -389,3 +389,4 @@ C:\Users\Zach\Desktop\MVC-HPFS\HPSMVC\obj\Debug\HPSMVC.Migrations.AddUserRoles.r
 C:\Users\Zach\Desktop\MVC-HPFS\HPSMVC\obj\Debug\HPSMVC.SecurityMigrations.AddAllRoles.resources
 C:\Users\Zach\Desktop\MVC-HPFS\HPSMVC\obj\Debug\HPSMVC.SecurityMigrations.AddAllRolesx2.resources
 C:\Users\Zach\Desktop\MVC-HPFS\HPSMVC\obj\Debug\HPSMVC.SecurityMigrations.NewUser.resources
+C:\Users\Josh\Documents\GitHub\MVC-HPFS\HPSMVC\obj\Debug\HPSMVC.SecurityMigrations.NewUser.resources

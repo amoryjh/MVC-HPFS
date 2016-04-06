@@ -118,10 +118,21 @@ namespace HPSMVC.Controllers
         [HttpPost]
         [ValidateAntiForgeryToken]
         [Authorize(Roles = "Admin")]
-        public ActionResult Edit([Bind(Include = "ID,Title,Content,fileName,fileType,fileContent")] Program program)
+        //public ActionResult Edit([Bind(Include = "ID,Title,Content,fileName,fileType,fileContent")] Program program)
+        public ActionResult Edit(int? id, string[] chkRemoveFile)//[Bind(Include = "ID,Name,Dated,imageContent,imageMimeType,imageFileName,MovementID,ArtistID")] Painting painting, string chkRemoveImage)
         {
-            if (ModelState.IsValid)
+            var program = db.Programs
+            .Where(f => f.ID == id)
+            .Single();
+            if (TryUpdateModel(program, "",
+                new string[] { "ID","Title","Content","fileName","fileType","fileContent" }))
             {
+                if (chkRemoveFile != null)//Remove the File
+                {
+                    program.fileContent = null;
+                    program.fileType = null;
+                    program.fileName = null;
+                }
                 foreach (string fName in Request.Files)
                 {
                     HttpPostedFileBase f = Request.Files[fName];
