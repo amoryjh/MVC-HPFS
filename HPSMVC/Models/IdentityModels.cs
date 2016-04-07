@@ -16,6 +16,10 @@ namespace HPSMVC.Models
             // Add custom user claims here
             return userIdentity;
         }
+
+        public int FitBitProgress { get; set; }
+
+        public int FitBitGoal { get; set; }
     }
 
     public class ApplicationDbContext : IdentityDbContext<ApplicationUser>

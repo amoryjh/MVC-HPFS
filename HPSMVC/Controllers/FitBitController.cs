@@ -12,6 +12,8 @@ namespace HPSMVC.Controllers
         public ActionResult Index()
         {
             return View();
+
+            
         }
     }
 }

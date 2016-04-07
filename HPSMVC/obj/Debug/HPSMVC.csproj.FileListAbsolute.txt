@@ -114,7 +114,6 @@ C:\Users\Josh\Documents\GitHub\MVC-HPFS\HPSMVC\bin\Microsoft.Owin.Security.OAuth
 C:\Users\Josh\Documents\GitHub\MVC-HPFS\HPSMVC\bin\Microsoft.Owin.Security.Google.xml
 C:\Users\Josh\Documents\GitHub\MVC-HPFS\HPSMVC\bin\Microsoft.Owin.Security.Twitter.xml
 C:\Users\Josh\Documents\GitHub\MVC-HPFS\HPSMVC\bin\Microsoft.Owin.Security.MicrosoftAccount.xml
-C:\Users\Josh\Documents\GitHub\MVC-HPFS\HPSMVC\obj\Debug\HPSMVC.csprojResolveAssemblyReference.cache
 C:\Users\Josh\Documents\GitHub\MVC-HPFS\HPSMVC\obj\Debug\HPSMVC.Migrations.initialcreate.resources
 C:\Users\Josh\Documents\GitHub\MVC-HPFS\HPSMVC\obj\Debug\HPSMVC.Migrations.initialcreates.resources
 C:\Users\Josh\Documents\GitHub\MVC-HPFS\HPSMVC\obj\Debug\HPSMVC.Migrations.ini.resources
@@ -390,3 +389,4 @@ C:\Users\Zach\Desktop\MVC-HPFS\HPSMVC\obj\Debug\HPSMVC.SecurityMigrations.AddAll
 C:\Users\Zach\Desktop\MVC-HPFS\HPSMVC\obj\Debug\HPSMVC.SecurityMigrations.AddAllRolesx2.resources
 C:\Users\Zach\Desktop\MVC-HPFS\HPSMVC\obj\Debug\HPSMVC.SecurityMigrations.NewUser.resources
 C:\Users\Josh\Documents\GitHub\MVC-HPFS\HPSMVC\obj\Debug\HPSMVC.SecurityMigrations.NewUser.resources
+C:\Users\Josh\Documents\GitHub\MVC-HPFS\HPSMVC\obj\Debug\HPSMVC.SecurityMigrations.NEWUSERS.resources

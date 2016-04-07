@@ -288,6 +288,10 @@
     <Compile Include="SecurityMigrations\201604040535512_NewUser.Designer.cs">
       <DependentUpon>201604040535512_NewUser.cs</DependentUpon>
     </Compile>
+    <Compile Include="SecurityMigrations\201604071524426_NEWUSERS.cs" />
+    <Compile Include="SecurityMigrations\201604071524426_NEWUSERS.Designer.cs">
+      <DependentUpon>201604071524426_NEWUSERS.cs</DependentUpon>
+    </Compile>
     <Compile Include="SecurityMigrations\Configuration.cs" />
     <Compile Include="Startup.cs" />
   </ItemGroup>
@@ -720,6 +724,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="SecurityMigrations\201604040535512_NewUser.resx">
       <DependentUpon>201604040535512_NewUser.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="SecurityMigrations\201604071524426_NEWUSERS.resx">
+      <DependentUpon>201604071524426_NEWUSERS.cs</DependentUpon>
     </EmbeddedResource>
   </ItemGroup>
   <PropertyGroup>
