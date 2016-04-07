@@ -125,7 +125,7 @@ namespace HPSMVC.Controllers
             .Where(f => f.ID == id)
             .Single();
             if (TryUpdateModel(program, "",
-                new string[] { "ID","Title","Content","fileName","fileType","fileContent" }))
+                new string[] { "ID", "Title", "Content", "fileName", "fileType", "fileContent" }))
             {
                 if (chkRemoveFile != null)//Remove the File
                 {
