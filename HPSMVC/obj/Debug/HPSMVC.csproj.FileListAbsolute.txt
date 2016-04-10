@@ -376,7 +376,6 @@ C:\Users\Amory\Desktop\MVC-HPFS\HPSMVC\obj\Debug\HPSMVC.Migrations.AddUserRoles.
 C:\Users\Amory\Desktop\MVC-HPFS\HPSMVC\obj\Debug\HPSMVC.SecurityMigrations.AddAllRoles.resources
 C:\Users\Amory\Desktop\MVC-HPFS\HPSMVC\obj\Debug\HPSMVC.SecurityMigrations.AddAllRolesx2.resources
 C:\Users\Brandon\Desktop\MVC-HPFS\HPSMVC\obj\Debug\HPSMVC.SecurityMigrations.NewUser.resources
-C:\Users\Brandon\Desktop\MVC-HPFS\HPSMVC\obj\Debug\HPSMVC.csprojResolveAssemblyReference.cache
 C:\Users\Amory\Desktop\MVC-HPFS\HPSMVC\obj\Debug\HPSMVC.SecurityMigrations.NewUser.resources
 C:\Users\Amory\Desktop\MVC-HPFS\HPSMVC\obj\Debug\HPSMVC.csprojResolveAssemblyReference.cache
 C:\Users\Zach\Desktop\MVC-HPFS\HPSMVC\obj\Debug\HPSMVC.Migrations.TimeEvent.resources
@@ -390,3 +389,6 @@ C:\Users\Zach\Desktop\MVC-HPFS\HPSMVC\obj\Debug\HPSMVC.SecurityMigrations.AddAll
 C:\Users\Zach\Desktop\MVC-HPFS\HPSMVC\obj\Debug\HPSMVC.SecurityMigrations.NewUser.resources
 C:\Users\Josh\Documents\GitHub\MVC-HPFS\HPSMVC\obj\Debug\HPSMVC.SecurityMigrations.NewUser.resources
 C:\Users\Josh\Documents\GitHub\MVC-HPFS\HPSMVC\obj\Debug\HPSMVC.SecurityMigrations.NEWUSERS.resources
+C:\Users\Brandon\Desktop\MVC-HPFS\HPSMVC\obj\Debug\HPSMVC.SecurityMigrations.NEWUSERS.resources
+C:\Users\Brandon\Desktop\MVC-HPFS\HPSMVC\obj\Debug\HPSMVC.Migrations.FitBitModel.resources
+C:\Users\Brandon\Desktop\MVC-HPFS\HPSMVC\obj\Debug\HPSMVC.SecurityMigrations.fitbitdates.resources

@@ -262,11 +262,16 @@
     <Compile Include="Migrations\201604032253457_AddUserRoles.Designer.cs">
       <DependentUpon>201604032253457_AddUserRoles.cs</DependentUpon>
     </Compile>
+    <Compile Include="Migrations\201604101816130_FitBitModel.cs" />
+    <Compile Include="Migrations\201604101816130_FitBitModel.Designer.cs">
+      <DependentUpon>201604101816130_FitBitModel.cs</DependentUpon>
+    </Compile>
     <Compile Include="Migrations\Configuration.cs" />
     <Compile Include="Models\AccountViewModels.cs" />
     <Compile Include="Models\Event.cs" />
     <Compile Include="Models\File.cs" />
     <Compile Include="Models\IdentityModels.cs" />
+    <Compile Include="Models\FitBit.cs" />
     <Compile Include="Models\RolesViewModel.cs" />
     <Compile Include="Models\Index.cs" />
     <Compile Include="Models\ManageViewModels.cs" />
@@ -291,6 +296,10 @@
     <Compile Include="SecurityMigrations\201604071524426_NEWUSERS.cs" />
     <Compile Include="SecurityMigrations\201604071524426_NEWUSERS.Designer.cs">
       <DependentUpon>201604071524426_NEWUSERS.cs</DependentUpon>
+    </Compile>
+    <Compile Include="SecurityMigrations\201604101918453_fitbitdates.cs" />
+    <Compile Include="SecurityMigrations\201604101918453_fitbitdates.Designer.cs">
+      <DependentUpon>201604101918453_fitbitdates.cs</DependentUpon>
     </Compile>
     <Compile Include="SecurityMigrations\Configuration.cs" />
     <Compile Include="Startup.cs" />
@@ -713,6 +722,9 @@
     <EmbeddedResource Include="Migrations\201604032253457_AddUserRoles.resx">
       <DependentUpon>201604032253457_AddUserRoles.cs</DependentUpon>
     </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201604101816130_FitBitModel.resx">
+      <DependentUpon>201604101816130_FitBitModel.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="SecurityMigrations\201603140529192_SecurityInitial.resx">
       <DependentUpon>201603140529192_SecurityInitial.cs</DependentUpon>
     </EmbeddedResource>
@@ -727,6 +739,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="SecurityMigrations\201604071524426_NEWUSERS.resx">
       <DependentUpon>201604071524426_NEWUSERS.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="SecurityMigrations\201604101918453_fitbitdates.resx">
+      <DependentUpon>201604101918453_fitbitdates.cs</DependentUpon>
     </EmbeddedResource>
   </ItemGroup>
   <PropertyGroup>
