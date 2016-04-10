@@ -10,6 +10,7 @@ using HPSMVC.DAL;
 using HPSMVC.Models;
 using Microsoft.AspNet.Identity;
 using Microsoft.AspNet.Identity.EntityFramework;
+using System.Threading.Tasks;
 
 namespace HPSMVC.Controllers
 {
@@ -27,11 +28,61 @@ namespace HPSMVC.Controllers
             var currentUser = userManager.FindById(User.Identity.GetUserId());
 
             var fitBitProgress = currentUser.FitBitProgress.ToString();
+            var fitBitGoal = currentUser.FitBitGoal.ToString();
 
-            TempData["fitBitProgress"] = fitBitProgress;
+            ViewData["fitBitProgress"] = fitBitProgress;
+            ViewData["fitBitGoal"] = fitBitGoal;
 
             return View();
+        }
+
+        [HttpPost]
+        [ValidateAntiForgeryToken]
+        public async Task<ActionResult> addProgressFitBit(string addProgress)
+        {
+            var userStore = new UserStore<ApplicationUser>(context);
+            var userManager = new UserManager<ApplicationUser>(userStore);
+
+            var currentUser = userManager.FindById(User.Identity.GetUserId());
+
+            var fitBitProgressOriginal = currentUser.FitBitProgress;
+            var fitBitAdd = Convert.ToInt32(addProgress);
+
+            var fitBitProgressNew = (fitBitProgressOriginal += fitBitAdd);
+
+            currentUser.FitBitProgress = fitBitProgressNew;
+
+            await userManager.UpdateAsync(currentUser);
+
+            var saveUser = userStore.Context;
+
+            await saveUser.SaveChangesAsync();
+
+            return RedirectToAction("Index");
+        }
+
+        [HttpPost]
+        [ValidateAntiForgeryToken]
+        public async Task<ActionResult> updateGoalFitBit(string updateGoal)
+        {
+            var userStore = new UserStore<ApplicationUser>(context);
+            var userManager = new UserManager<ApplicationUser>(userStore);
+
+            var currentUser = userManager.FindById(User.Identity.GetUserId());
+
+            var fitBitUpdateGoal = Convert.ToInt32(updateGoal);
+
+            currentUser.FitBitGoal = fitBitUpdateGoal;
+
+            await userManager.UpdateAsync(currentUser);
+
+            var saveUser = userStore.Context;
+
+            await saveUser.SaveChangesAsync();
+
+            return RedirectToAction("Index");
 
         }
+
     }
 }
