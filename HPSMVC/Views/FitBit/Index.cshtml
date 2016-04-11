@@ -16,54 +16,50 @@
             </span>
         </div>
         <br />
-        <div class="col-sm-4">
-            <div class="submitsection">
-                <div class="form-group">
-                    <h2>Current Progress:</h2>
-                    <h2 id="reach">@ViewData["fitBitProgress"]</h2>
 
-                    @using (Html.BeginForm("addProgressFitBit", "Fitbit"))
-                    {
-                        @Html.AntiForgeryToken()
-                        <div class="form-group">
-                            <div class="col-md-12">
-                                <label>Update Progress: </label> @Html.TextBox("addProgress", null, new { @class = "form-control" })
+        <div class="form-group">
+            @using (Html.BeginForm())
+            {
 
+                <p style="color:red">
+                    @TempData["ValidationMessage"]
+                </p>
+            }
+        </div>
+
+            <div class="form-group">
+                <h2>Date Start: @ViewData["fitBitDateStart"]</h2>
+                <h2>Date End: @ViewData["fitBitDateEnd"]</h2>
+            </div>
+
+            <div class="col-sm-6">
+                <div class="submitsection">
+                    <div class="form-group">
+                        <h2>Current Progress:</h2>
+                        <h2 id="reach">@ViewData["fitBitProgress"]</h2>
+
+                        @using (Html.BeginForm("addProgressFitBit", "Fitbit"))
+                        {
+                            @Html.AntiForgeryToken()
+                            <div class="form-group">
+                                <div class="col-md-12">
+                                    <label>Update Progress: </label> @Html.TextBox("addProgress", null, new { @class = "form-control" })
+
+                                </div>
                             </div>
-                        </div>
 
-                        <div class="form-group">
-                            <div class="col-md-12">
-                                <input type="submit" value="Add" class="btn btn-solid" />
+                            <div class="form-group">
+                                <div class="col-md-12">
+                                    <input type="submit" value="Add" class="btn btn-solid" />
+                                </div>
                             </div>
-                        </div>
-                    }
-                </div>
-
-                <div class="form-group">
-                    <h2>Update Goal</h2>
-
-                    @using (Html.BeginForm("updateGoalFitBit", "Fitbit"))
-                    {
-                        @Html.AntiForgeryToken()
-                        <div class="form-group">
-                            <div class="col-md-12">
-                                <label>Update Goal: </label> @Html.TextBox("updateGoal", null, new { @class = "form-control" })
-
-                            </div>
-                        </div>
-
-                        <div class="form-group">
-                            <div class="col-md-12">
-                                <input type="submit" value="Add" class="btn btn-solid" />
-                            </div>
-                        </div>
-                    }
+                        }
+                    </div>
 
                 </div>
             </div>
         </div>
-        <div class="col-sm-4">
+        <div class="col-sm-6">
             <h2 class="text-center">Percent Reached</h2>
             <div class="progress-pie-chart" data-percent="">
                 <div class="ppc-progress">
@@ -82,7 +78,7 @@
                 <span class="goal"><i class="fa fa-bar-chart"></i> </span>
                 <span class="goal">@ViewData["fitBitGoal"]</span>
                 <br />
-                <a href="#" class="btn btn-solid">Update Fitbit Info</a>
+                <a href="/Fitbit/Manage" class="btn btn-solid">Update Fitbit Info</a>
             </div>
         </div>
     </div>

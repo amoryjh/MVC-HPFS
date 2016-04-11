@@ -643,6 +643,7 @@
     <Content Include="Views\Fitbit\Index.cshtml" />
     <Content Include="Views\User\ManageRole.cshtml" />
     <Content Include="Views\User\ManageUser.cshtml" />
+    <Content Include="Views\Fitbit\Manage.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />

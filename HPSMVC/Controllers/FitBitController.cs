@@ -29,10 +29,19 @@ namespace HPSMVC.Controllers
 
             var fitBitProgress = currentUser.FitBitProgress.ToString();
             var fitBitGoal = currentUser.FitBitGoal.ToString();
+            var fitBitDateStart = currentUser.dateStartFitBit.ToString();
+            var fitBitDateEnd = currentUser.dateEndFitBit.ToString();
 
             ViewData["fitBitProgress"] = fitBitProgress;
             ViewData["fitBitGoal"] = fitBitGoal;
+            ViewData["fitBitDateStart"] = fitBitDateStart;
+            ViewData["fitBitDateEnd"] = fitBitDateEnd;
 
+            return View();
+        }
+
+        public ActionResult Manage()
+        {
             return View();
         }
 
@@ -52,11 +61,19 @@ namespace HPSMVC.Controllers
 
             currentUser.FitBitProgress = fitBitProgressNew;
 
-            await userManager.UpdateAsync(currentUser);
+            try
+            {
+                await userManager.UpdateAsync(currentUser);
+                var saveUser = userStore.Context;
+                await saveUser.SaveChangesAsync();
 
-            var saveUser = userStore.Context;
+                TempData["ValidationMessage"] = "Progress Added!";
+            }
 
-            await saveUser.SaveChangesAsync();
+            catch
+            {
+                TempData["ValidationMessage"] = "Error: Progress Not Added!";
+            } 
 
             return RedirectToAction("Index");
         }
@@ -74,14 +91,58 @@ namespace HPSMVC.Controllers
 
             currentUser.FitBitGoal = fitBitUpdateGoal;
 
-            await userManager.UpdateAsync(currentUser);
+            try
+            {
+                await userManager.UpdateAsync(currentUser);
+                var saveUser = userStore.Context;
+                await saveUser.SaveChangesAsync();
 
-            var saveUser = userStore.Context;
+                TempData["ValidationMessage"] = "Goal Updated To: " + " " + fitBitUpdateGoal;
+            }
 
-            await saveUser.SaveChangesAsync();
+            catch
+            {
+                TempData["ValidationMessage"] = "Error: Goal Not Updated!";
+            }
+            
 
             return RedirectToAction("Index");
 
+        }
+
+        [HttpPost]
+        [ValidateAntiForgeryToken]
+        public async Task<ActionResult> updateDateFitBit(DateTime dateStart)
+        {
+            var userStore = new UserStore<ApplicationUser>(context);
+            var userManager = new UserManager<ApplicationUser>(userStore);
+
+            var currentUser = userManager.FindById(User.Identity.GetUserId());
+
+            var dateStartUpdate = dateStart.Date;
+            
+            //dateEnd is automatically 7 days after date start
+            var dateEndUpdate = dateStartUpdate.Date.AddDays(7);
+
+            currentUser.dateStartFitBit = dateStartUpdate.ToShortDateString();
+            currentUser.dateEndFitBit = dateEndUpdate.ToShortDateString();
+
+            try
+            {
+                await userManager.UpdateAsync(currentUser);
+                var saveUser = userStore.Context;
+                await saveUser.SaveChangesAsync();
+
+                TempData["ValidationMessage"] = "Date Start Set To: " + " " + dateStartUpdate.ToShortDateString();
+            }
+
+            catch
+            {
+                TempData["ValidationMessage"] = "Error: Date Start Not Set!";
+            }
+            
+
+            return RedirectToAction("Index");         
         }
 
     }
