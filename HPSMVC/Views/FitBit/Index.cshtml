@@ -15,19 +15,19 @@
                 </a>
             </span>
         </div>
-        <br />
-        <div class="form-group">
+        <div class="col-md-10 col-md-offset-1 text-center"><div class="form-group">
             @using (Html.BeginForm())
             {
                 <p style="color:red">
                     @TempData["ValidationMessage"]
                 </p>
             }
-        </div>
+        </div></div>
         <div class="col-md-10 col-md-offset-1 text-center"><div class="form-group">
             <div class="col-md-6"><h2>Date Start: @ViewData["fitBitDateStart"]</h2></div>
             <div class="col-md-6"><h2>Date End: @ViewData["fitBitDateEnd"]</h2></div>
         </div></div>
+        <br>
         <div class="col-sm-4">  
           <div class="col-sm-12">
               <div class="submitsection">
