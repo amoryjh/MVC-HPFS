@@ -653,8 +653,6 @@
     <Content Include="Views\User\ManageRole.cshtml" />
     <Content Include="Views\User\ManageUser.cshtml" />
     <Content Include="Views\Fitbit\Manage.cshtml" />
-    <Content Include="Views\ContactManagement\Create.cshtml" />
-    <Content Include="Views\ContactManagement\Delete.cshtml" />
     <Content Include="Views\ContactManagement\Edit.cshtml" />
     <Content Include="Views\ContactManagement\Admin.cshtml" />
   </ItemGroup>

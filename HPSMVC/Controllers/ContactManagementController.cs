@@ -23,7 +23,7 @@ namespace HPSMVC.Controllers
 
         public ActionResult Index()
         {
-            return View();
+            return View(db.Contacts.ToList());
         }
 
         // GET: /ContactManagement/Details/5
