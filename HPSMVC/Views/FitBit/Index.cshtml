@@ -24,7 +24,7 @@
                 </p>
             }
         </div>
-        <div class="col-sm-12"><div class="form-group">
+        <div class="col-md-10 col-md-offset-1 text-center"><div class="form-group">
             <div class="col-md-6"><h2>Date Start: @ViewData["fitBitDateStart"]</h2></div>
             <div class="col-md-6"><h2>Date End: @ViewData["fitBitDateEnd"]</h2></div>
         </div></div>
@@ -32,8 +32,9 @@
           <div class="col-sm-12">
               <div class="submitsection">
                   <div class="form-group">
-                      <h2>Current Progress:</h2>
-                      <h2 id="reach">@ViewData["fitBitProgress"]</h2>
+                      <h2>Current Progress</h2>
+                      <span class="goal"><i class="fa fa-bar-chart"></i> </span>
+                      <span class="goal" id="reach">@ViewData["fitBitProgress"]</span>
 
                       @using (Html.BeginForm("addProgressFitBit", "Fitbit"))
                       {
