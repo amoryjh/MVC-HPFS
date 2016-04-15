@@ -6,70 +6,77 @@
 
     <section>
         <div class="container">
-            <h1>Contact</h1>
-
-            <table class="table">
-                <tr>
-                    <th>
-                        @Html.DisplayNameFor(model => model.Address)
-                    </th>
-                    <th>
-                        @Html.DisplayNameFor(model => model.City)
-                    </th>
-                    <th>
-                        @Html.DisplayNameFor(model => model.Province)
-                    </th>
-                    <th>
-                        @Html.DisplayNameFor(model => model.PostalCode)
-                    </th>
-                    <th>
-                        @Html.DisplayNameFor(model => model.Telephone)
-                    </th>
-                    <th>
-                        @Html.DisplayNameFor(model => model.Fax)
-                    </th>
-                    <th>
-                        @Html.DisplayNameFor(model => model.Hours)
-                    </th>
-                    <th>
-                        @Html.DisplayNameFor(model => model.Message)
-                    </th>
-                    <th></th>
-                </tr>
-
-                @foreach (var item in Model)
-                {
+            <h1>Contact Management</h1>
+            <p>
+                @Html.ActionLink("Edit", "Edit", new { id = 1 })
+            </p>
+            @using (Html.BeginForm())
+            {
+                <p style="color:red">
+                    @TempData["ValidationMessage"]
+                </p>
+            }
+            <div class="table-overflow">
+                <table class="table">
                     <tr>
-                        <td>
-                            @Html.DisplayFor(modelItem => item.Address)
-                        </td>
-                        <td>
-                            @Html.DisplayFor(modelItem => item.City)
-                        </td>
-                        <td>
-                            @Html.DisplayFor(modelItem => item.Province)
-                        </td>
-                        <td>
-                            @Html.DisplayFor(modelItem => item.PostalCode)
-                        </td>
-                        <td>
-                            @Html.DisplayFor(modelItem => item.Telephone)
-                        </td>
-                        <td>
-                            @Html.DisplayFor(modelItem => item.Fax)
-                        </td>
-                        <td>
-                            @Html.DisplayFor(modelItem => item.Hours)
-                        </td>
-                        <td>
-                            @Html.DisplayFor(modelItem => item.Message)
-                        </td>
-                        <td>
-                            @Html.ActionLink("Edit", "Edit", new { id = item.ID })
-                        </td>
+                        <th>
+                            @Html.DisplayNameFor(model => model.Address)
+                        </th>
+                        <th>
+                            @Html.DisplayNameFor(model => model.City)
+                        </th>
+                        <th>
+                            @Html.DisplayNameFor(model => model.Province)
+                        </th>
+                        <th>
+                            @Html.DisplayNameFor(model => model.PostalCode)
+                        </th>
+                        <th>
+                            @Html.DisplayNameFor(model => model.Telephone)
+                        </th>
+                        <th>
+                            @Html.DisplayNameFor(model => model.Fax)
+                        </th>
+                        <th>
+                            @Html.DisplayNameFor(model => model.Hours)
+                        </th>
+                        <th>
+                            @Html.DisplayNameFor(model => model.Message)
+                        </th>
+                        <th></th>
                     </tr>
-                }
 
-            </table>
+                    @foreach (var item in Model)
+                    {
+                        <tr>
+                            <td>
+                                @Html.DisplayFor(modelItem => item.Address)
+                            </td>
+                            <td>
+                                @Html.DisplayFor(modelItem => item.City)
+                            </td>
+                            <td>
+                                @Html.DisplayFor(modelItem => item.Province)
+                            </td>
+                            <td>
+                                @Html.DisplayFor(modelItem => item.PostalCode)
+                            </td>
+                            <td>
+                                @Html.DisplayFor(modelItem => item.Telephone)
+                            </td>
+                            <td>
+                                @Html.DisplayFor(modelItem => item.Fax)
+                            </td>
+                            <td>
+                                @Html.DisplayFor(modelItem => item.Hours)
+                            </td>
+                            <td>
+                                @Html.DisplayFor(modelItem => item.Message)
+                            </td>
+                        </tr>
+                    }
+
+                </table>
+                </div>
             </div>
         </section>

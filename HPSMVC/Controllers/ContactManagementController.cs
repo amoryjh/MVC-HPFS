@@ -88,9 +88,18 @@ namespace HPSMVC.Controllers
         {
             if (ModelState.IsValid)
             {
-                db.Entry(contact).State = EntityState.Modified;
-                db.SaveChanges();
-                return RedirectToAction("Index");
+                try
+                {
+                    db.Entry(contact).State = EntityState.Modified;
+                    db.SaveChanges();
+                    TempData["ValidationMessage"] = "Contact Information Successfully Edited!";
+                    return RedirectToAction("Index");
+                }
+                catch
+                {
+                    TempData["ValidationMessage"] = "Error: Contact Information Not Successfully Edited!";
+                    return RedirectToAction("Admin");
+                }
             }
             return View(contact);
         }
