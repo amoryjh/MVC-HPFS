@@ -17,7 +17,7 @@
             <li class="parent-li-nav" id="events-nav"><a class="nav-current" href="/Events">Events</a></li>
             <li class="parent-li-nav" id="care-nav"><a href="/Care" class="nav-current">Care</a></li>
             <li class="parent-li-nav" id="about-nav"><a href="/About" class="nav-current">About HPS</a></li>
-            <li class="parent-li-nav" id="contact-nav"><a href="/Contact" class="nav-current">Contact</a></li>
+            <li class="parent-li-nav" id="contact-nav"><a href="/ContactManagement" class="nav-current">Contact</a></li>
             @if (!HttpContext.Current.User.Identity.IsAuthenticated)
             {
                 <li class="parent-li-nav login" id="login-nav"><a href="/Account/Login" class="nav-current">Login</a></li>
@@ -54,7 +54,7 @@
                 <li class="" id=""><a href="/Events">Events</a></li>
                 <li class="" id=""><a href="/Care">Care</a></li>
                 <li class="" id=""><a href="/About">About HPS</a></li>
-                <li class="" id=""><a href="/Contact">Contact</a></li>
+                <li class="" id=""><a href="/ContactManagement">Contact</a></li>
             </ul>
         </div>
 
@@ -75,7 +75,8 @@
                 { 
                 <li><a href="/Home/Admin">HomePage Management</a></li>
                 <li><a href="/Care/Admin">CarePage Management</a></li>
-                <li><a href="/Events/Admin">Events Management</a></li>   
+                <li><a href="/Events/Admin">Events Management</a></li>  
+                <li><a href="/ContactManagement/Admin">Contact Management</a></li>  
                 <li><a href="https://analytics.google.com/analytics/web/?et=&authuser=1#report/defaultid/a75867642w114368568p119495692/">Analytics</a></li>           
                 }
                 <li><a href="/User">Account Management</a></li>

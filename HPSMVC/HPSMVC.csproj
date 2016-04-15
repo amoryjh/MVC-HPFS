@@ -163,7 +163,7 @@
     <Compile Include="Controllers\AboutController.cs" />
     <Compile Include="Controllers\AccountController.cs" />
     <Compile Include="Controllers\CareController.cs" />
-    <Compile Include="Controllers\ContactController.cs" />
+    <Compile Include="Controllers\ContactManagementController.cs" />
     <Compile Include="Controllers\EventsController.cs" />
     <Compile Include="Controllers\FilesController.cs" />
     <Compile Include="Controllers\FitbitController.cs" />
@@ -266,9 +266,18 @@
     <Compile Include="Migrations\201604101816130_FitBitModel.Designer.cs">
       <DependentUpon>201604101816130_FitBitModel.cs</DependentUpon>
     </Compile>
+    <Compile Include="Migrations\201604150257164_contact.cs" />
+    <Compile Include="Migrations\201604150257164_contact.Designer.cs">
+      <DependentUpon>201604150257164_contact.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\201604150306568_contactx2.cs" />
+    <Compile Include="Migrations\201604150306568_contactx2.Designer.cs">
+      <DependentUpon>201604150306568_contactx2.cs</DependentUpon>
+    </Compile>
     <Compile Include="Migrations\Configuration.cs" />
     <Compile Include="Models\AccountViewModels.cs" />
     <Compile Include="Models\Event.cs" />
+    <Compile Include="Models\Contact.cs" />
     <Compile Include="Models\File.cs" />
     <Compile Include="Models\IdentityModels.cs" />
     <Compile Include="Models\FitBit.cs" />
@@ -618,7 +627,7 @@
     <Content Include="Views\Shared\Lockout.cshtml" />
     <Content Include="Views\Shared\_LoginPartial.cshtml" />
     <Content Include="Views\About\Index.cshtml" />
-    <Content Include="Views\Contact\Index.cshtml" />
+    <Content Include="Views\ContactManagement\Index.cshtml" />
     <Content Include="Views\Events\Create.cshtml" />
     <Content Include="Views\Events\Delete.cshtml" />
     <Content Include="Views\Events\Edit.cshtml" />
@@ -644,6 +653,10 @@
     <Content Include="Views\User\ManageRole.cshtml" />
     <Content Include="Views\User\ManageUser.cshtml" />
     <Content Include="Views\Fitbit\Manage.cshtml" />
+    <Content Include="Views\ContactManagement\Create.cshtml" />
+    <Content Include="Views\ContactManagement\Delete.cshtml" />
+    <Content Include="Views\ContactManagement\Edit.cshtml" />
+    <Content Include="Views\ContactManagement\Admin.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />
@@ -725,6 +738,12 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Migrations\201604101816130_FitBitModel.resx">
       <DependentUpon>201604101816130_FitBitModel.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201604150257164_contact.resx">
+      <DependentUpon>201604150257164_contact.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201604150306568_contactx2.resx">
+      <DependentUpon>201604150306568_contactx2.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="SecurityMigrations\201603140529192_SecurityInitial.resx">
       <DependentUpon>201603140529192_SecurityInitial.cs</DependentUpon>

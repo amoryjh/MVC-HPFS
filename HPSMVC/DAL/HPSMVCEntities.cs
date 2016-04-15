@@ -20,5 +20,7 @@ namespace HPSMVC.DAL
       modelBuilder.Conventions.Remove<PluralizingTableNameConvention>();
       modelBuilder.Conventions.Remove<OneToManyCascadeDeleteConvention>();
     }
+
+    public System.Data.Entity.DbSet<HPSMVC.Models.Contact> Contacts { get; set; }
   }
 }
