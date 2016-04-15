@@ -24,12 +24,11 @@
                 </p>
             }
         </div>
+        <div class="col-sm-12"><div class="form-group">
+            <div class="col-md-6"><h2>Date Start: @ViewData["fitBitDateStart"]</h2></div>
+            <div class="col-md-6"><h2>Date End: @ViewData["fitBitDateEnd"]</h2></div>
+        </div></div>
         <div class="col-sm-4">  
-          <div class="col-sm-12"><div class="form-group">
-              <h2>Date Start: @ViewData["fitBitDateStart"]</h2>
-              <h2>Date End: @ViewData["fitBitDateEnd"]</h2>
-          </div></div>
-
           <div class="col-sm-12">
               <div class="submitsection">
                   <div class="form-group">
@@ -40,15 +39,11 @@
                       {
                           @Html.AntiForgeryToken()
                           <div class="form-group">
-                              <div class="col-md-12">
-                                  <label>Update Progress: </label> @Html.TextBox("addProgress", null, new { @class = "form-control" })
-                              </div>
+                              <label>Update Progress: </label> @Html.TextBox("addProgress", null, new { @class = "form-control" })
                           </div>
                           <br>
                           <div class="form-group">
-                              <div class="col-md-12">
-                                  <input type="submit" value="Add" class="btn btn-solid" />
-                              </div>
+                              <input type="submit" value="Add" class="btn btn-solid" />
                           </div>
                       }
                   </div>
