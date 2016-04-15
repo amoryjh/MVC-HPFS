@@ -34,7 +34,7 @@
                 <div class="form-group text-center">
                     <h2>Current Progress</h2>
                     <span class="goal"><i class="fa fa-bar-chart"></i></span>
-                    <h2 id="reach">@ViewData["fitBitProgress"]</h2>
+                    <h2 class="goal" id="reach">@ViewData["fitBitProgress"]</h2>
                 </div>
                     @using (Html.BeginForm("addProgressFitBit", "Fitbit"))
                     {
@@ -67,7 +67,7 @@
             <div class="goalsection">
                 <h2>Current Goal</h2>
                 <span class="goal"><i class="fa fa-bar-chart"></i> </span>
-                <span class="goal">@ViewData["fitBitGoal"]</span>
+                <span class="goal" id="goal">@ViewData["fitBitGoal"]</span>
                 <br />
                 <a href="/Fitbit/Manage" class="btn btn-solid">Update Fitbit Info</a>
             </div>
@@ -76,7 +76,7 @@
 </section>
 <script>
     var $ppc = $('.progress-pie-chart'),
-        $goal = $('.goal'),
+        $goal = $('#goal'),
         $updateGoal = $('#updateGoal'),
         $reached = $('#reach');
     $($reached).ready(function () {
