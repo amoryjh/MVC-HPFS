@@ -9,11 +9,14 @@ using System.Web.Mvc;
 using HPSMVC.DAL;
 using HPSMVC.Models;
 using System.IO;
+using Microsoft.AspNet.Identity;
+using Microsoft.AspNet.Identity.EntityFramework;
 
 namespace HPSMVC.Controllers
 {
     public class HomeController : Controller
     {
+        ApplicationDbContext context = new ApplicationDbContext();
         private HPSMVCEntities db = new HPSMVCEntities();
 
         // GET: Home
@@ -25,6 +28,30 @@ namespace HPSMVC.Controllers
 
         public ActionResult Index()
         {
+            var userRoles = new List<RolesViewModel>();
+            var userStore = new UserStore<ApplicationUser>(context);
+            var userManager = new UserManager<ApplicationUser>(userStore);
+
+            //Get all the usernames
+            foreach (var user in userStore.Users)
+            {
+                var r = new RolesViewModel
+                {
+                    UserName = user.UserName
+                };
+                userRoles.Add(r);
+            }
+            //Get all the Roles for our users
+            foreach (var user in userRoles)
+            {
+                user.RoleNames = userManager.GetRoles(userStore.Users.First(s => s.UserName == user.UserName).Id);
+
+                if (user.RoleNames.Contains("Default"))
+                {
+                    TempData["ValidationMessageIcon"] = "1";
+                }
+            }
+
             return View(db.Indices.ToList());
         }
 

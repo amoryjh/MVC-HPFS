@@ -57,9 +57,19 @@ namespace HPSMVC.Controllers
                 userRoles.Add(r);
             }
             //Get all the Roles for our users
+
+            var numberOfDefault = 0;
+
             foreach (var user in userRoles)
             {
                 user.RoleNames = userManager.GetRoles(userStore.Users.First(s => s.UserName == user.UserName).Id);
+
+                if(user.RoleNames.Contains("Default"))
+                {
+                    numberOfDefault++;
+                    TempData["ValidationMessageDefaultUser"] = numberOfDefault + " " + "New User(s) Have Registered";
+                    TempData["ValidationMessageIcon"] = "1";
+                }
             }
 
             return View(userRoles);
@@ -206,5 +216,6 @@ namespace HPSMVC.Controllers
 
             return View("ManageUser");
         }
+
 	}
 }

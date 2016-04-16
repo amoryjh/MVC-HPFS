@@ -79,7 +79,20 @@
                 <li><a href="/ContactManagement/Admin">Contact Management</a></li>  
                 <li><a href="https://analytics.google.com/analytics/web/?et=&authuser=1#report/defaultid/a75867642w114368568p119495692/">Analytics</a></li>           
                 }
-                <li><a href="/User">Account Management</a></li>
+                <li>
+                @if((string)TempData["ValidationMessageIcon"] == "1")
+                {
+                    <a href="/User">Account Management</a>
+                    if (User.IsInRole("Admin") | User.IsInRole("Default"))
+                    {
+                       <i class="fa fa-exclamation" aria-hidden="true" style="color:red;"></i> 
+                    }                  
+                }
+                else
+                {
+                    <a href="/User">Account Management</a>
+                }
+                </li>
                 @if (User.IsInRole("Admin") || User.IsInRole("BoardDirector") || User.IsInRole("FamilyAssoc") || User.IsInRole("Client"))
                 {
                 <li><a href="/Fitbit">FitBit</a></li>
