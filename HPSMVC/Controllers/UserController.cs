@@ -26,6 +26,11 @@ namespace HPSMVC.Controllers
             return View();
         }
 
+        public ActionResult ManageUserDelete()
+        {
+            return View();
+        }
+
         public ActionResult ManageRole()
         {
             // prepopulat roles for the view dropdown

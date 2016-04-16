@@ -660,6 +660,7 @@
     <Content Include="Views\ContactManagement\Edit.cshtml" />
     <Content Include="Views\ContactManagement\Admin.cshtml" />
     <Content Include="Views\User\ManageUserPassword.cshtml" />
+    <Content Include="Views\User\ManageUserDelete.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />

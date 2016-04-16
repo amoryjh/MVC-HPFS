@@ -54,22 +54,16 @@
 
                             <div class="form-group">
                                 <div class="col-md-offset-2 col-md-10">
-                                    @using (Html.BeginForm("DeleteUser", "User"))
+                                    @using (Html.BeginForm())
                                     {
-                                        <div class="col-md-10">
-                                            <h2>Delete User</h2>
-                                            @Html.AntiForgeryToken()
-                                            <div class="form-group">
-                                                <div class="col-md-8">
-                                                    <label>Username: </label> @Html.TextBox("UserName", null, new { @class = "form-control", @placeholder = "Username" })
-                                                </div>
-                                            </div>
+                                     <div class="col-md-10">
+                                        <h2>Delete User</h2>
                                             <div class="form-group">
                                                 <div class="col-md-12">
-                                                    <input type="submit" value="Delete" class="btn btn-solid" />
-                                                </div>
+                                                <a class="btn btn-solid" href="/User/ManageUserDelete">Delete User</a>
                                             </div>
-                                        </div>
+                                            </div>
+                                    </div>
 
                                     }
                                 </div>

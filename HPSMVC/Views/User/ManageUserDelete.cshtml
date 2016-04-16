@@ -1,0 +1,42 @@
+﻿    @{
+        ViewBag.Title = "ManageUserDelete";
+    }
+    <section>
+        <div class="container">
+            <h1 class="text-center">Delete User</h1>
+
+            <div class="form-horizontal">
+                <div class="col-md-10 col-md-offset-1">
+                    <hr />
+
+                            <div class="form-group">
+                                <div class="col-md-offset-2 col-md-10">
+                                    @using (Html.BeginForm("DeleteUser", "User"))
+                                    {
+                                        <div class="col-md-10">
+                                            <h2>Delete User</h2>
+                                            @Html.AntiForgeryToken()
+                                            <div class="form-group">
+                                                <div class="col-md-8">
+                                                    <label>Username: </label> @Html.TextBox("UserName", null, new { @class = "form-control", @placeholder = "Username" })
+                                                </div>
+                                            </div>
+                                            <div class="form-group">
+                                                <div class="col-md-12">
+                                                    <input type="submit" value="Delete" class="btn btn-solid" />
+                                                </div>
+                                            </div>
+                                        </div>
+
+                                    }
+                                </div>
+                            </div>
+                            <div class="form-group back_to_list">
+                                <div class="col-md-offset-2 col-md-10">
+                                    <h4><i class="fa fa-chevron-left"></i> @Html.ActionLink("Back to List", "ManageUser")</h4>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+</section>
