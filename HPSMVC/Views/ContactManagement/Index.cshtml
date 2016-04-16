@@ -19,16 +19,16 @@
     <section class="clearfix">
         <div class="col-md-10 col-md-offset-1">
             <div class="col-md-6">
-                <iframe width="100%" height="450" frameborder="0" style="border:0" src="https://www.google.com/maps/embed/v1/place?key=AIzaSyAaMCFQON9VTr4Bd59hIGu99Jhie8cHqFY
-        &q=Hamilton+ON+20+hughson+st+south" allowfullscreen></iframe>
-                <br><br>
                 @foreach (var item in Model)
                 {
+                <iframe width="100%" height="450" frameborder="0" style="border:0" src="https://www.google.com/maps/embed/v1/place?key=AIzaSyAaMCFQON9VTr4Bd59hIGu99Jhie8cHqFY
+        &q=@item.City+@item.Province+@item.PostalCode+@item.Address" allowfullscreen></iframe>
+                <br><br>
                     <ul class="block-list no-style-list">
-                        <li>@Html.DisplayFor(modelItem => item.Address), @Html.DisplayFor(modelItem => item.City)</li>
-                        <li>@Html.DisplayFor(modelItem => item.PostalCode) @Html.DisplayFor(modelItem => item.Province)</li>
-                        <li>Telephone:<a href="">@Html.DisplayFor(modelItem => item.Telephone)</a></li>
-                        <li>@Html.DisplayNameFor(model => model.Fax)<a href="">@Html.DisplayFor(modelItem => item.Fax)</a></li>
+                        <li>@Html.DisplayFor(modelItem => item.Address)</li>
+                        <li>@Html.DisplayFor(modelItem => item.PostalCode), @Html.DisplayFor(modelItem => item.City) @Html.DisplayFor(modelItem => item.Province)</li>
+                        <li>Telephone: <a href="tel:@item.Telephone">@Html.DisplayFor(modelItem => item.Telephone)</a></li>
+                        <li>@Html.DisplayNameFor(model => model.Fax): @Html.DisplayFor(modelItem => item.Fax)</li>
                         <li>@Html.DisplayFor(modelItem => item.Hours)</li>
                         <li>@Html.DisplayFor(modelItem => item.Message)</li>
                     </ul>
