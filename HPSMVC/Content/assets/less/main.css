@@ -6573,7 +6573,7 @@ nav {
   left: 0;
   right: 0;
   z-index: 99;
-  box-shadow: 0px 2px 15px #3e3d3d;
+  box-shadow: 0 1px 1px #565656;
 }
 nav h1 {
   margin: 0;
@@ -7446,14 +7446,15 @@ french__modal__inner {
 .home .main-wrapper {
   margin-top: 100px;
 }
-#home-banner-one {
-  background-image: url('/Content/assets/img/hpfs_photos/Cottage_Studio_Open_House_11Apr2014 (43).jpg');
+.home-alert {
+  background: #414240;
 }
-#home-banner-two {
-  background-image: url('/Content/assets/img/hero-show.jpg');
-}
-#home-banner-three {
-  background-image: url('/Content/assets/img/hero-photography.jpg');
+.home-alert h3 {
+  color: #ffffff;
+  margin: 0;
+  padding: 14px;
+  padding-bottom: 0;
+  font-size: 18px;
 }
 section.text-photo-half.case-management .photo-half > .photo-bg {
   background-image: url('/Content/assets/img/hpfs_photos/2012.jpg');
