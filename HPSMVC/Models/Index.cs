@@ -41,5 +41,9 @@ namespace HPSMVC.Models
     [ScaffoldColumn(false)]
     public byte[] fileContent { get; set; }
 
+    [Display(Name = "Alert Message")]
+    [StringLength(200, ErrorMessage = "The Alert Message cannot be more than 200 characters")]
+    public string AlertMessage { get; set; }
+
   }
 }

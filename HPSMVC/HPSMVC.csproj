@@ -274,6 +274,10 @@
     <Compile Include="Migrations\201604150306568_contactx2.Designer.cs">
       <DependentUpon>201604150306568_contactx2.cs</DependentUpon>
     </Compile>
+    <Compile Include="Migrations\201604160056526_alertMessage.cs" />
+    <Compile Include="Migrations\201604160056526_alertMessage.Designer.cs">
+      <DependentUpon>201604160056526_alertMessage.cs</DependentUpon>
+    </Compile>
     <Compile Include="Migrations\Configuration.cs" />
     <Compile Include="Models\AccountViewModels.cs" />
     <Compile Include="Models\Event.cs" />
@@ -742,6 +746,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Migrations\201604150306568_contactx2.resx">
       <DependentUpon>201604150306568_contactx2.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201604160056526_alertMessage.resx">
+      <DependentUpon>201604160056526_alertMessage.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="SecurityMigrations\201603140529192_SecurityInitial.resx">
       <DependentUpon>201603140529192_SecurityInitial.cs</DependentUpon>

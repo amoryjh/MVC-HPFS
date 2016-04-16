@@ -3,13 +3,15 @@
     ViewBag.Title = "HomePage";
     ViewBag.BodyClass = "home";
 }
-
+     
     <div id="home-carousel" class="carousel slide" data-ride="carousel">
         <!-- Wrapper for slides -->
         <div class="carousel-inner" role="listbox">
         @foreach (var item in Model)
         {
+            
             <div id="" class="item">
+                <div class="text-center" style="color:red;">@Html.DisplayFor(modelItem => item.AlertMessage)</div>
                 <div class="carousel-caption">
                     <h1 class="">@Html.DisplayFor(modelItem => item.Title)</h1>
                     <h4 class="">@Html.DisplayFor(modelItem => item.Content)</h4>
