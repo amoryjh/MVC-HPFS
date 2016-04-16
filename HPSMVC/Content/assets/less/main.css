@@ -6005,6 +6005,9 @@ button.close {
 .txt-brand {
   color: #ab75b3;
 }
+.txt-white {
+  color: #ffffff;
+}
 .bg-white {
   background: #ffffff !important;
 }
