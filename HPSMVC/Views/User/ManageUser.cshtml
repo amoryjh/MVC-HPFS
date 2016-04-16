@@ -36,6 +36,22 @@
                         </div>
                     </div>
 
+                    <div class="form-group">
+                        <div class="col-md-offset-2 col-md-10">
+                            @using (Html.BeginForm())
+                            {
+                                <div class="col-md-10">
+                                    <h2>Change User Password</h2>
+                                    <div class="form-group">
+                                        <div class="col-md-12">
+                                            <a class="btn btn-solid" href="/User/ManageUserPassword">Change User Password</a>
+                                        </div>
+                                    </div>
+                                </div>
+                            }
+                        </div>
+                    </div>
+
                             <div class="form-group">
                                 <div class="col-md-offset-2 col-md-10">
                                     @using (Html.BeginForm("DeleteUser", "User"))

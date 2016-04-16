@@ -659,6 +659,7 @@
     <Content Include="Views\Fitbit\Manage.cshtml" />
     <Content Include="Views\ContactManagement\Edit.cshtml" />
     <Content Include="Views\ContactManagement\Admin.cshtml" />
+    <Content Include="Views\User\ManageUserPassword.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />

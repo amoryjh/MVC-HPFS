@@ -21,6 +21,11 @@ namespace HPSMVC.Controllers
             return View();
         }
 
+        public ActionResult ManageUserPassword()
+        {
+            return View();
+        }
+
         public ActionResult ManageRole()
         {
             // prepopulat roles for the view dropdown
@@ -166,6 +171,35 @@ namespace HPSMVC.Controllers
             return View("ManageUser");
           }         
 
+        }
+
+        [HttpPost]
+        [ValidateAntiForgeryToken]
+        public ActionResult ChangeUserPassword(string UserNameChangePassword, string NewPassword)
+        {
+            var passwordLength = NewPassword;
+ 
+            if(passwordLength.Length < 6)
+            {
+                TempData["ValidationMessage"] = ("Error: Password Must Be At Least 6 Characters");
+                return View("ManageUserPassword");
+            }
+
+
+            ApplicationUser user = context.Users.Where(u => u.UserName.Equals(UserNameChangePassword, StringComparison.CurrentCultureIgnoreCase)).FirstOrDefault();
+            var manager = new ApplicationUserManager(new UserStore<ApplicationUser>(context));
+            try
+            {
+                manager.RemovePassword(user.Id);
+                manager.AddPassword(user.Id, NewPassword);
+                TempData["ValidationMessage"] = ("Success: " + " " + UserNameChangePassword + " " + "Password Has Been Changed");
+            }
+            catch
+            {
+                TempData["ValidationMessage"] = ("Error: " + " " + UserNameChangePassword + " " + "Password Has Not Been Changed");
+            }
+
+            return View("ManageUser");
         }
 	}
 }
