@@ -1,79 +1,39 @@
-﻿    @{
-        ViewBag.Title = "ManageUsers";
-    }
-    <section>
-        <div class="container">
-            <h1 class="text-center">Manage Users</h1>
+﻿@{
+ViewBag.Title = "ManageUsers";
+}
+<section>
+<div class="container">
+<div class="row">
+<h1 class="text-center">Manage Users</h1>
 
-            <div class="form-horizontal">
-                <div class="col-md-10 col-md-offset-1">
-                    <hr />
+<div class="col-md-12 text-center">
+<hr />
 
-                    <div class="form-group">
-                        <div class="col-md-offset-2 col-md-10">
-                            @using (Html.BeginForm())
-                            {
-                                <p style="color:red">
-                                    @TempData["ValidationMessage"]
-                                </p>
-                            }
-                        </div>
-                    </div>
+<div class="col-md-10 col-md-offset-1">
+@using (Html.BeginForm()){<p style="color:red">@TempData["ValidationMessage"]</p>}
+</div>
 
-                    <div class="form-group">
-                        <div class="col-md-offset-2 col-md-10">
-                            @using (Html.BeginForm())
-                            {
-                                <div class="col-md-10">
-                                    <h2>Add User</h2>
-                                    <div class="form-group">
-                                        <div class="col-md-12">
-                                            <a class="btn btn-solid" href="/Account/Register">Create User</a>
-                                        </div>
-                                    </div>
-                                </div>
-                            }
-                        </div>
-                    </div>
+<div class="col-md-4"><div class="form-group">
+<h2>Add User</h2>
+<a class="btn btn-solid" href="/Account/Register">Create User</a>
+</div></div>
 
-                    <div class="form-group">
-                        <div class="col-md-offset-2 col-md-10">
-                            @using (Html.BeginForm())
-                            {
-                                <div class="col-md-10">
-                                    <h2>Change User Password</h2>
-                                    <div class="form-group">
-                                        <div class="col-md-12">
-                                            <a class="btn btn-solid" href="/User/ManageUserPassword">Change User Password</a>
-                                        </div>
-                                    </div>
-                                </div>
-                            }
-                        </div>
-                    </div>
+<div class="col-md-4"><div class="form-group">
+<h2>Change Password</h2>
+<a class="btn btn-solid" href="/User/ManageUserPassword">Change User Password</a>
+</div></div>
 
-                            <div class="form-group">
-                                <div class="col-md-offset-2 col-md-10">
-                                    @using (Html.BeginForm())
-                                    {
-                                     <div class="col-md-10">
-                                        <h2>Delete User</h2>
-                                            <div class="form-group">
-                                                <div class="col-md-12">
-                                                <a class="btn btn-solid" href="/User/ManageUserDelete">Delete User</a>
-                                            </div>
-                                            </div>
-                                    </div>
+<div class="col-md-4">
+<div class="form-group">
+<h2>Delete User</h2>
+<a class="btn btn-solid" href="/User/ManageUserDelete">Delete User</a>
+</div></div>
 
-                                    }
-                                </div>
-                            </div>
-                            <div class="form-group back_to_list">
-                                <div class="col-md-offset-2 col-md-10">
-                                    <h4><i class="fa fa-chevron-left"></i> @Html.ActionLink("Back to List", "Index")</h4>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                </div>
+<div class="col-md-10 col-md-offset-1 text-left">
+<div class="form-group back_to_list">
+<h4><i class="fa fa-chevron-left"></i> @Html.ActionLink("Back to List", "Index")</h4>
+</div></div>
+
+
+</div></div></div>
 </section>

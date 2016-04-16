@@ -1,92 +1,80 @@
 ﻿@model IEnumerable<HPSMVC.Models.RolesViewModel>
-    @{
-        ViewBag.Title = "Index";
-    }
+@{
+ViewBag.Title = "Index";
+}
 
+@if (User.IsInRole("Default"))
+{
+<section>
+<div class="container"> 
+<h1>Account Management</h1>
+<h2>Logged In As: @(User.Identity.Name)</h2>
+<p>You don't seem to be a client yet, check back later!</p>
+</div>
+</section>
+}
+else
+{
+<section><div class="container"><div class="row">
+<div class="col-md-10 col-md-offset-1">
+<h1>Account Management</h1>
+<h2>Logged In As: @(User.Identity.Name)</h2>
+<h2>What can we help you with?</h2>
+<hr />
 
-    @if (User.IsInRole("Default"))
-    {
-        <section>
-            <div class="container">
-                <h1>Account Management</h1>
-
-                <h2>Logged In As: @(User.Identity.Name)</h2>
-
-                <p>You don't seem to be a client yet, check back later!</p>
-            </div>
-        </section>
-    }
-    else
-    {
-    <section>
-        <div class="container">
-
-            <h1>Account Management</h1>
-
-            <h2>Logged In As: @(User.Identity.Name)!</h2>
-            
-            <h2>What can we help you with?</h2>
-            <hr />
-
-
-           
-
-            @using (Html.BeginForm())
-            {  
+@using (Html.BeginForm())
+{  
+<p style="color:red">
+@TempData["ValidationMessage"]
+</p>         
                 
-                <p style="color:red">
-                    @TempData["ValidationMessage"]
-                 </p>         
-                
-            <p>     
-                <a class="btn btn-solid" href="/Manage/ChangePassword">Change Password</a>
-                @if(User.IsInRole("Admin"))
-                {
-                    <a class="btn btn-solid" href="/User/ManageUser">Manage Users</a>
-                    <a class="btn btn-solid" href="/User/ManageRole">Manage Roles</a>
-                }
-            </p>
-            <hr />
-            }
-            @if(User.IsInRole("Admin"))
-            {
-            <div>
-            @using (Html.BeginForm())
-                {
+<p>     
+<a class="btn btn-solid" href="/Manage/ChangePassword">Change Password</a>
+@if(User.IsInRole("Admin"))
+{
+<a class="btn btn-solid" href="/User/ManageUser">Manage Users</a>
+<a class="btn btn-solid" href="/User/ManageRole">Manage Roles</a>
+}
+</p>
+<hr />
+}
 
-                    <p style="color:red">
-                    @TempData["ValidationMessageDefaultUser"]
-                    </p>
-                }
-                <h2>User and Role List</h2>
-                <table class="table">
-                    <tr>
-                        <th>
-                            User Name
-                        </th>
-                        <th>
-                            Roles
-                        </th>
-                    </tr>
+@if(User.IsInRole("Admin")){
+    <p style="color:red">@TempData["ValidationMessageDefaultUser"]</p>
 
-                    @foreach (var user in Model.ToList())
-                    {
-                        <tr id="@user.UserName">
-                            <td>
-                                @user.UserName
-                            </td>
-                            <td>
-                                @foreach (var role in user.RoleNames)
-                                {
-                                        <li>@role</li>
-                                }
-                            </td>
-                        </tr>                    
-                    }
-                </table>
+<h2>User and Role List</h2>
+<table class="table">
 
-            </div>
-            }
-           </div>
-    </section>
-    }
+<tr>
+<th>
+User Name
+</th>
+
+<th>
+Roles
+</th>
+</tr>
+
+@foreach (var user in Model.ToList())
+{<tr id="@user.UserName">
+
+<td>
+@user.UserName
+</td>
+
+<td>
+@foreach (var role in user.RoleNames)
+{
+@role.Insert(role.Length, "  ");
+}
+</td>
+
+</tr>}
+
+
+</table>
+}
+
+</div></div></div>
+</section>
+}
