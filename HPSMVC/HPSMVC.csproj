@@ -286,6 +286,10 @@
     <Compile Include="Migrations\201604170429218_fitbitdatechange.Designer.cs">
       <DependentUpon>201604170429218_fitbitdatechange.cs</DependentUpon>
     </Compile>
+    <Compile Include="Migrations\201604170739251_fileViewer.cs" />
+    <Compile Include="Migrations\201604170739251_fileViewer.Designer.cs">
+      <DependentUpon>201604170739251_fileViewer.cs</DependentUpon>
+    </Compile>
     <Compile Include="Migrations\Configuration.cs" />
     <Compile Include="Models\AccountViewModels.cs" />
     <Compile Include="Models\Event.cs" />
@@ -767,6 +771,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Migrations\201604170429218_fitbitdatechange.resx">
       <DependentUpon>201604170429218_fitbitdatechange.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201604170739251_fileViewer.resx">
+      <DependentUpon>201604170739251_fileViewer.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="SecurityMigrations\201603140529192_SecurityInitial.resx">
       <DependentUpon>201603140529192_SecurityInitial.cs</DependentUpon>

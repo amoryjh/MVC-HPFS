@@ -398,3 +398,4 @@ C:\Users\Brandon\Desktop\MVC-HPFS\HPSMVC\obj\Debug\HPSMVC.Migrations.alertMessag
 C:\Users\Brandon\Desktop\MVC-HPFS\HPSMVC\obj\Debug\HPSMVC.csprojResolveAssemblyReference.cache
 C:\Users\Brandon\Desktop\MVC-HPFS\HPSMVC\obj\Debug\HPSMVC.Migrations.fitbits.resources
 C:\Users\Brandon\Desktop\MVC-HPFS\HPSMVC\obj\Debug\HPSMVC.Migrations.fitbitdatechange.resources
+C:\Users\Brandon\Desktop\MVC-HPFS\HPSMVC\obj\Debug\HPSMVC.Migrations.fileViewer.resources
