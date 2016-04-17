@@ -55,20 +55,21 @@
                         </div>
                     </div>
 
+                    <div id="inputs" class="form-group">
+                        <div class="col-md-10">
+                            <input type="checkbox" value="All">All
+                            <input type="checkbox" value="Default">Default
+                            <input type="checkbox" value="Client">Client
+                            <input type="checkbox" value="BoardDirectors">Board Directors
+                            <input type="checkbox" value="FamilyAssoc">FamilyAssoc
+                            <input type="checkbox" value="Administrator">Administrator
+                        </div>
+                    </div>
+
                     <div class="form-group">
                         @Html.LabelFor(model => model.Viewer, htmlAttributes: new { @class = "control-label col-md-2" })
                         <div class="col-md-10">
-                            @Html.DropDownListFor(model => model.Viewer, new SelectList(
-                      new List<Object>{
-                       new { value = "All" , text = "All"  },
-                       new { value = "Clients" , text = "Clients" },
-                       new { value = "BoardDirectors" , text = "BoardDirectors" },
-                       new { value = "FamilyAssoc" , text = "FamilyAssoc"},
-                       new { value = "Administrator" , text = "Administrator"}
-                    },
-                  "value",
-                  "text",
-                   2))
+                            @Html.EditorFor(model => model.Viewer, new { htmlAttributes = new { @class = "form-control", @id = "target", @placeholder = "Select Viewers From Checkboxes" } })
                             @Html.ValidationMessageFor(model => model.Viewer, "", new { @class = "text-danger" })
                         </div>
                     </div>
@@ -104,5 +105,17 @@
         }
 </section>
         @section Scripts {
+            <script>
+                var arr = [];
+                $('#inputs input').change(function () {
+                    if (this.checked) {
+                        arr.push(this.value);
+                    }
+                    else {
+                        arr.splice(arr.indexOf(this.value), 1);
+                    }
+                    $('#target').val(arr + '');
+                });
+            </script>
             @Scripts.Render("~/bundles/jqueryval")
         }
