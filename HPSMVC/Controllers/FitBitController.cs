@@ -46,6 +46,11 @@ namespace HPSMVC.Controllers
             return View();
         }
 
+        public ActionResult AdminStats()
+        {
+            return View(db.FitBits.ToList());
+        }
+
         [HttpPost]
         [ValidateAntiForgeryToken]
         public async Task<ActionResult> addProgressFitBit(string addProgress)
@@ -157,7 +162,7 @@ namespace HPSMVC.Controllers
             var progress = Convert.ToDouble(currentUser.FitBitProgress);
             var goal = Convert.ToDouble(currentUser.FitBitGoal);
             var dateStart = Convert.ToDateTime(currentUser.dateStartFitBit.ToString());
-            var dateEnd = Convert.ToDateTime(currentUser.dateStartFitBit.ToString());
+            var dateEnd = Convert.ToDateTime(currentUser.dateEndFitBit.ToString());
             var percentEarned = (progress / goal) * 100;
 
             int percentEarnedShort = Convert.ToInt32(percentEarned);

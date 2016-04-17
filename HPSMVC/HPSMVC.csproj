@@ -669,6 +669,7 @@
     <Content Include="Views\ContactManagement\Admin.cshtml" />
     <Content Include="Views\User\ManageUserPassword.cshtml" />
     <Content Include="Views\User\ManageUserDelete.cshtml" />
+    <Content Include="Views\Fitbit\AdminStats.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />

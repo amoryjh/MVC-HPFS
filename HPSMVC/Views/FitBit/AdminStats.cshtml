@@ -1,0 +1,73 @@
+﻿@model IEnumerable<HPSMVC.Models.FitBit>
+
+    @{
+        ViewBag.Title = "Fitbit View Stats";
+        ViewBag.BodyClass = "fitbit";
+    }
+    <section class="clearfix">
+        <div class="container">
+
+            <h2>fitbit Record List</h2>
+            <table class="table">
+
+                <tr>
+                    <th>
+                        Username
+                    </th>
+
+                    <th>
+                        Progress
+                    </th>
+
+                    <th>
+                        Goal
+                    </th>
+
+                    <th>
+                        Percentage Earned 
+                    </th>
+
+                    <th>
+                        Start Date
+                    </th>
+
+                    <th>
+                        End Date
+                    </th>
+                </tr>
+
+                @foreach (var user in Model)
+                {
+                    <tr>
+                        <td>
+                            @user.User
+                        </td>
+                        <td>
+                            @user.Progress
+                        </td>
+                        <td>
+                            @user.Goal
+                        </td>
+                        <td>
+                            @user.percentageEarned
+                        </td>
+                        <td>
+                            @user.dateStart.Value.ToString("MMM dd yyyy")
+                        </td>
+                        <td>
+                            @user.dateEnd.Value.ToString("MMM dd yyyy")
+                        </td> 
+                    </tr>
+
+                }
+            </table>
+
+
+            <div class="col-md-12">
+                <div class="form-group back_to_list">
+                    <h4><i class="fa fa-chevron-left"></i> @Html.ActionLink("Back to fitbit", "Index")</h4>
+                </div>
+            </div>
+
+        </div>
+    </section>
