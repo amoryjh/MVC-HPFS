@@ -27,6 +27,7 @@ namespace HPSMVC.Controllers
         {
             return View(db.Events.ToList().OrderBy(s => s.Date));
         }
+
         [Authorize(Roles = "Admin")]
         public ActionResult Admin(string sortOrder, string searchString)
         {
@@ -61,31 +62,17 @@ namespace HPSMVC.Controllers
             return View(events.ToList());
         }
 
-
-        // GET: Events/Details/5
-        public ActionResult Details(int? id)
-        {
-            if (id == null)
-            {
-                return new HttpStatusCodeResult(HttpStatusCode.BadRequest);
-            }
-            Event @event = db.Events.Find(id);
-            if (@event == null)
-            {
-                return HttpNotFound();
-            }
-            return View(@event);
-        }
-
+        
         // GET: Events/Create
+        [Authorize(Roles = "Admin")]
         public ActionResult Create()
         {
             return View();
         }
 
+        
         // POST: Events/Create
-        // To protect from overposting attacks, please enable the specific properties you want to bind to, for 
-        // more details see http://go.microsoft.com/fwlink/?LinkId=317598.
+        [Authorize(Roles = "Admin")]
         [HttpPost]
         [ValidateAntiForgeryToken]
         public ActionResult Create([Bind(Include = "ID,Title,Content,Time,Date,Viewer,LinkText,Link,fileName,fileType,fileContent")] Event @event)
@@ -136,6 +123,7 @@ namespace HPSMVC.Controllers
         }
 
         // GET: Events/Edit/5
+        [Authorize(Roles = "Admin")]
         public ActionResult Edit(int? id)
         {
             if (id == null)
@@ -151,8 +139,7 @@ namespace HPSMVC.Controllers
         }
 
         // POST: Events/Edit/5
-        // To protect from overposting attacks, please enable the specific properties you want to bind to, for 
-        // more details see http://go.microsoft.com/fwlink/?LinkId=317598.
+        [Authorize(Roles = "Admin")]
         [HttpPost]
         [ValidateAntiForgeryToken]
         [Authorize(Roles = "Admin")]
@@ -205,6 +192,7 @@ namespace HPSMVC.Controllers
         }
 
         // GET: Events/Delete/5
+        [Authorize(Roles = "Admin")]
         public ActionResult Delete(int? id)
         {
             if (id == null)
@@ -220,6 +208,7 @@ namespace HPSMVC.Controllers
         }
 
         // POST: Events/Delete/5
+        [Authorize(Roles = "Admin")]
         [HttpPost, ActionName("Delete")]
         [ValidateAntiForgeryToken]
         public ActionResult DeleteConfirmed(int id)
