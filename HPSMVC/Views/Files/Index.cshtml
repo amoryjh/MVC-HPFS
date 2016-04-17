@@ -8,7 +8,10 @@
         <h1>File Exchange</h1>
 
         <p>
-            @Html.ActionLink("Upload File", "Create")
+            @if (User.IsInRole("FamilyAssoc") || User.IsInRole("BoardDirector") || User.IsInRole("Admin"))
+            {
+                @Html.ActionLink("Upload File", "Create")
+            }       
         </p>
         @using (Html.BeginForm())
         {
@@ -47,51 +50,204 @@
 
                 @foreach (var item in Model)
                 {
-                    <tr>
-                        <td>
-                            @item.fileName.Substring(0, Math.Min(item.fileName.Length, 20))
-                        </td>
-                        <td>
-                            @Html.DisplayFor(modelItem => item.Date)
-                        </td>
-                        <td>
-                            @Html.DisplayFor(modelItem => item.Category)
-                        </td>
-                        <td>
-                            @Html.DisplayFor(modelItem => item.Viewer)
-                        </td>
-                        <td>
-                            @Html.DisplayFor(modelItem => item.fileType)
-                        </td>
-                        <td>
-                            @{
-                    try
+                    
+                    if (User.IsInRole("Client"))
                     {
-                        if (item.fileContent != null && item.fileType.Contains("image"))
+                        if (item.Viewer.Contains("Client") || item.Viewer.Contains("All"))
                         {
-                            string imageBase64 = Convert.ToBase64String(item.fileContent);
-                            string imageSrc = string.Format("data:" + item.fileType + ";base64,{0}", imageBase64);
-                            <img src="@imageSrc" style="max-height:100px;max-width:120px;" class="img-responsive" />
-                        }
-                        else
-                        {
-                            <p>No Image</p>
+                            <tr>
+                                <td>
+                                    @item.fileName.Substring(0, Math.Min(item.fileName.Length, 20))
+                                </td>
+                                <td>
+                                    @Html.DisplayFor(modelItem => item.Date)
+                                </td>
+                                <td>
+                                    @Html.DisplayFor(modelItem => item.Category)
+                                </td>
+                                <td>
+                                    @Html.DisplayFor(modelItem => item.Viewer)
+                                </td>
+                                <td>
+                                    @Html.DisplayFor(modelItem => item.fileType)
+                                </td>
+                                <td>
+                                    @{
+                                        try
+                                        {
+                                            if (item.fileContent != null && item.fileType.Contains("image"))
+                                            {
+                                                string imageBase64 = Convert.ToBase64String(item.fileContent);
+                                                string imageSrc = string.Format("data:" + item.fileType + ";base64,{0}", imageBase64);
+                                                <img src="@imageSrc" style="max-height:100px;max-width:120px;" class="img-responsive" />
+                                            }
+                                            else
+                                            {
+                                                <p>No Image</p>
+                                            }
+                                        }
+                                        catch
+                                        {
+                                            <p>Oops, something happened</p>
+                                        }
+                                     }
+                                </td>
+                                    <td>
+                                        @Html.ActionLink("Download", "Download", new { id = item.ID })                                 
+                                    </td>
+                            </tr>
                         }
                     }
-                    catch
+                    
+                    if (User.IsInRole("FamilyAssoc"))
                     {
-                        <p>Oops, something happened</p>
+                        if (item.Viewer.Contains("FamilyAssoc") || item.Viewer.Contains("All"))
+                        {
+                            <tr>
+                                <td>
+                                    @item.fileName.Substring(0, Math.Min(item.fileName.Length, 20))
+                                </td>
+                                <td>
+                                    @Html.DisplayFor(modelItem => item.Date)
+                                </td>
+                                <td>
+                                    @Html.DisplayFor(modelItem => item.Category)
+                                </td>
+                                <td>
+                                    @Html.DisplayFor(modelItem => item.Viewer)
+                                </td>
+                                <td>
+                                    @Html.DisplayFor(modelItem => item.fileType)
+                                </td>
+                                <td>
+                                    @{
+                                        try
+                                        {
+                                            if (item.fileContent != null && item.fileType.Contains("image"))
+                                            {
+                                                string imageBase64 = Convert.ToBase64String(item.fileContent);
+                                                string imageSrc = string.Format("data:" + item.fileType + ";base64,{0}", imageBase64);
+                                                <img src="@imageSrc" style="max-height:100px;max-width:120px;" class="img-responsive" />
+                                            }
+                                            else
+                                            {
+                                                <p>No Image</p>
+                                            }
+                                        }
+                                        catch
+                                        {
+                                            <p>Oops, something happened</p>
+                                        }
+                                     }
+                                </td>
+                                    <td>
+                                        @Html.ActionLink("Download", "Download", new { id = item.ID })
+                                        @if(item.Viewer.Contains("FamilyAssoc")){<span> | </span> @Html.ActionLink("Edit", "Edit", new { id = item.ID })} 
+                                        @if(item.Viewer.Contains("FamilyAssoc")){<span> | </span> @Html.ActionLink("Delete", "Delete", new { id = item.ID })}
+                                    </td>
+                            </tr>
+                        }
                     }
-                            }
-                        </td>
-                        <td>
-                            @Html.ActionLink("Download", "Download", new { id = item.ID })
-                            @if (User.IsInRole("Admin"))
-                            { <span> | </span> @Html.ActionLink("Edit", "Edit", new { id = item.ID }) <span> | </span>
-                                @Html.ActionLink("Delete", "Delete", new { id = item.ID })
-                            }
-                        </td>
-                    </tr>
+
+                    if (User.IsInRole("BoardDirector"))
+                    {
+                        if (item.Viewer.Contains("BoardDirector") || item.Viewer.Contains("All"))
+                        {
+                            <tr>
+                                <td>
+                                    @item.fileName.Substring(0, Math.Min(item.fileName.Length, 20))
+                                </td>
+                                <td>
+                                    @Html.DisplayFor(modelItem => item.Date)
+                                </td>
+                                <td>
+                                    @Html.DisplayFor(modelItem => item.Category)
+                                </td>
+                                <td>
+                                    @Html.DisplayFor(modelItem => item.Viewer)
+                                </td>
+                                <td>
+                                    @Html.DisplayFor(modelItem => item.fileType)
+                                </td>
+                                <td>
+                                    @{
+                                        try
+                                        {
+                                            if (item.fileContent != null && item.fileType.Contains("image"))
+                                            {
+                                                string imageBase64 = Convert.ToBase64String(item.fileContent);
+                                                string imageSrc = string.Format("data:" + item.fileType + ";base64,{0}", imageBase64);
+                                                <img src="@imageSrc" style="max-height:100px;max-width:120px;" class="img-responsive" />
+                                            }
+                                            else
+                                            {
+                                                <p>No Image</p>
+                                            }
+                                        }
+                                        catch
+                                        {
+                                            <p>Oops, something happened</p>
+                                        }
+                                     }
+                                </td>
+                                    <td>
+                                        @Html.ActionLink("Download", "Download", new { id = item.ID })
+                                        @if(item.Viewer.Contains("BoardDirector")){<span> | </span>@Html.ActionLink("Edit", "Edit", new { id = item.ID })}
+                                        @if(item.Viewer.Contains("BoardDirector")){<span> | </span>@Html.ActionLink("Delete", "Delete", new { id = item.ID })}
+                                    </td>
+                            </tr>
+                        }
+                    }
+
+                    if (User.IsInRole("Admin"))
+                    {
+                        if (item.Viewer.Contains("Administrator") || item.Viewer.Contains("FamilyAssoc") || item.Viewer.Contains("BoardDirector") || item.Viewer.Contains("Client") || item.Viewer.Contains("All"))
+                        {
+                            <tr>
+                                <td>
+                                    @item.fileName.Substring(0, Math.Min(item.fileName.Length, 20))
+                                </td>
+                                <td>
+                                    @Html.DisplayFor(modelItem => item.Date)
+                                </td>
+                                <td>
+                                    @Html.DisplayFor(modelItem => item.Category)
+                                </td>
+                                <td>
+                                    @Html.DisplayFor(modelItem => item.Viewer)
+                                </td>
+                                <td>
+                                    @Html.DisplayFor(modelItem => item.fileType)
+                                </td>
+                                <td>
+                                    @{
+                                        try
+                                        {
+                                            if (item.fileContent != null && item.fileType.Contains("image"))
+                                            {
+                                                string imageBase64 = Convert.ToBase64String(item.fileContent);
+                                                string imageSrc = string.Format("data:" + item.fileType + ";base64,{0}", imageBase64);
+                                                <img src="@imageSrc" style="max-height:100px;max-width:120px;" class="img-responsive" />
+                                            }
+                                            else
+                                            {
+                                                <p>No Image</p>
+                                            }
+                                        }
+                                        catch
+                                        {
+                                            <p>Oops, something happened</p>
+                                        }
+                                     }
+                                </td>
+                                    <td>
+                                        @Html.ActionLink("Download", "Download", new { id = item.ID })
+                                        <span> | </span> @Html.ActionLink("Edit", "Edit", new { id = item.ID }) <span> | </span>
+                                            @Html.ActionLink("Delete", "Delete", new { id = item.ID }) 
+                                    </td>
+                            </tr>
+                        }
+                    }
                 }
 
             </table>

@@ -50,25 +50,9 @@ namespace HPSMVC.Controllers
             }
             return View(Files.ToList());            
         }
-        
-
-        // GET: Files/Details/5
-        public ActionResult Details(int? id)
-        {
-            if (id == null)
-            {
-                return new HttpStatusCodeResult(HttpStatusCode.BadRequest);
-            }
-            HPSMVC.Models.File file = db.Files.Find(id);
-            if (file == null)
-            {
-                return HttpNotFound();
-            }
-            return View(file);
-        }
 
         // GET: Files/Create
-        [Authorize(Roles = "Admin")]
+        [Authorize(Roles = "Admin,BoardDirector,FamilyAssoc")]
         public ActionResult Create()
         {
             return View();
@@ -79,7 +63,7 @@ namespace HPSMVC.Controllers
         // more details see http://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
-        [Authorize(Roles = "Admin")]
+        [Authorize(Roles = "Admin,BoardDirector,FamilyAssoc")]
         public ActionResult Create([Bind(Include = "ID,fileName,fileType,fileContent,Date,Category,Viewer")] HPSMVC.Models.File file)
         
         {
@@ -127,7 +111,7 @@ namespace HPSMVC.Controllers
         }
 
         // GET: Files/Edit/5
-         [Authorize(Roles = "Admin")]
+         [Authorize(Roles = "Admin,BoardDirector,FamilyAssoc")]
         public ActionResult Edit(int? id)
         {
             if (id == null)
@@ -147,7 +131,7 @@ namespace HPSMVC.Controllers
         // more details see http://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
-        [Authorize(Roles = "Admin")]
+        [Authorize(Roles = "Admin,BoardDirector,FamilyAssoc")]
         //public ActionResult Edit([Bind(Include = "ID,fileName,fileType,fileContent,Date,Category,Viewer")] HPSMVC.Models.File file)
         public ActionResult Edit(int? id, string[] chkRemoveFile)//[Bind(Include = "ID,Name,Dated,imageContent,imageMimeType,imageFileName,MovementID,ArtistID")] Painting painting, string chkRemoveImage)
         {
@@ -217,7 +201,7 @@ namespace HPSMVC.Controllers
         }
 
         // GET: Files/Delete/5
-         [Authorize(Roles = "Admin")]
+         [Authorize(Roles = "Admin,BoardDirector,FamilyAssoc")]
         public ActionResult Delete(int? id)
         {
             if (id == null)
@@ -233,7 +217,7 @@ namespace HPSMVC.Controllers
         }
 
         // POST: Files/Delete/5
-         [Authorize(Roles = "Admin")]
+         [Authorize(Roles = "Admin,BoardDirector,FamilyAssoc")]
         [HttpPost, ActionName("Delete")]
         [ValidateAntiForgeryToken]
         public ActionResult DeleteConfirmed(int id)

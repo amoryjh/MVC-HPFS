@@ -40,18 +40,31 @@
 
                 <div id="inputs" class="form-group">
                     <div class="col-md-10">
-                        <input type="checkbox" value="All">All
-                        <input type="checkbox" value="Client">Client
-                        <input type="checkbox" value="BoardDirector">Board Director
-                        <input type="checkbox" value="FamilyAssoc">FamilyAssoc
-                        <input type="checkbox" value="Administrator">Administrator
+                        @if (User.IsInRole("FamilyAssoc"))
+                        {
+                            <div><input type="checkbox" value="FamilyAssoc">FamilyAssoc</div>
+                        }
+                        @if(User.IsInRole("BoardDirector"))
+                        {
+                            <div><input type="checkbox" value="BoardDirector">Board Director</div>
+                        }
+                        @if (User.IsInRole("Admin"))
+                        {
+                            <div>
+                                <input type="checkbox" value="All">All
+                                <input type="checkbox" value="Client">Client
+                                <input type="checkbox" value="FamilyAssoc">FamilyAssoc
+                                <input type="checkbox" value="BoardDirector">Board Director
+                                <input type="checkbox" value="Administrator">Administrator
+                            </div>
+                        }
                     </div>
                 </div>
 
         <div class="form-group">
             @Html.LabelFor(model => model.Viewer, htmlAttributes: new { @class = "control-label col-md-2" })
             <div class="col-md-10">
-                @Html.EditorFor(model => model.Viewer, new { htmlAttributes = new { @class = "form-control", @id = "target", @placeholder = "Select Viewers From Checkboxes"} })
+                @Html.EditorFor(model => model.Viewer, new { htmlAttributes = new { @class = "form-control", @id = "target", @readonly=true, @placeholder = "Select Viewers From Checkboxes"} })
                 @Html.ValidationMessageFor(model => model.Viewer, "", new { @class = "text-danger" })
             </div>
         </div>

@@ -33,6 +33,7 @@ namespace HPSMVC.Models
         public string Category { get; set; }
 
         [Display(Name = "Viewer")]
+        [Required(ErrorMessage = "You cannot leave the Viewer blank.")]
         [StringLength(100, ErrorMessage = "The file name cannot be more than 100 characters")]
         public string Viewer { get; set; }
     }

@@ -290,6 +290,10 @@
     <Compile Include="Migrations\201604170739251_fileViewer.Designer.cs">
       <DependentUpon>201604170739251_fileViewer.cs</DependentUpon>
     </Compile>
+    <Compile Include="Migrations\201604172047477_viewerReqOnFile.cs" />
+    <Compile Include="Migrations\201604172047477_viewerReqOnFile.Designer.cs">
+      <DependentUpon>201604172047477_viewerReqOnFile.cs</DependentUpon>
+    </Compile>
     <Compile Include="Migrations\Configuration.cs" />
     <Compile Include="Models\AccountViewModels.cs" />
     <Compile Include="Models\Event.cs" />
@@ -774,6 +778,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Migrations\201604170739251_fileViewer.resx">
       <DependentUpon>201604170739251_fileViewer.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201604172047477_viewerReqOnFile.resx">
+      <DependentUpon>201604172047477_viewerReqOnFile.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="SecurityMigrations\201603140529192_SecurityInitial.resx">
       <DependentUpon>201603140529192_SecurityInitial.cs</DependentUpon>
