@@ -166,24 +166,22 @@ namespace HPSMVC.Controllers
         public ActionResult Create()
         {
             FitBit fitbit = new FitBit();
-
             var userStore = new UserStore<ApplicationUser>(context);
             var userManager = new UserManager<ApplicationUser>(userStore);
 
-            var currentUser = userManager.FindById(User.Identity.GetUserId());           
-            var progress = Convert.ToDouble(currentUser.FitBitProgress);
-            var goal = Convert.ToDouble(currentUser.FitBitGoal);
-            var dateStart = Convert.ToDateTime(currentUser.dateStartFitBit.ToString());
-            var dateEnd = Convert.ToDateTime(currentUser.dateEndFitBit.ToString());
-            var percentEarned = (progress / goal) * 100;
+            try
+            {
+                var currentUser = userManager.FindById(User.Identity.GetUserId());
+                var progress = Convert.ToDouble(currentUser.FitBitProgress);
+                var goal = Convert.ToDouble(currentUser.FitBitGoal);
+                var dateStart = Convert.ToDateTime(currentUser.dateStartFitBit.ToString());
+                var dateEnd = Convert.ToDateTime(currentUser.dateEndFitBit.ToString());
+                var percentEarned = (progress / goal) * 100;
 
-            int percentEarnedShort = Convert.ToInt32(percentEarned);
-            
-            dateStart.ToShortDateString();
-            dateEnd.ToShortDateString();           
+                int percentEarnedShort = Convert.ToInt32(percentEarned);
 
-            
-
+                dateStart.ToShortDateString();
+                dateEnd.ToShortDateString();
 
                 fitbit.User = currentUser.UserName;
                 fitbit.Progress = progress.ToString();
@@ -195,11 +193,15 @@ namespace HPSMVC.Controllers
                 db.FitBits.Add(fitbit);
                 db.SaveChanges();
 
+                TempData["ValidationMessage"] = "Stats Submitted for " + " " + dateStart + " - " + dateEnd;
+
                 return RedirectToAction("Index", "Fitbit");
-
-            
-
-            return View();
+            }
+            catch
+            {
+                TempData["ValidationMessage"] = "Error: Stats Not Submitted!";
+                return RedirectToAction("Index", "Fitbit");
+            }
         }
 
     }
