@@ -192,12 +192,12 @@ namespace HPSMVC.Controllers
                 {
                     db.Entry(FilesToUpdate).State = EntityState.Modified;
                     db.SaveChanges();
-                    TempData["ValidationMessage"] = FilesToUpdate.fileName += "   Successfully Edited!";
+                    TempData["ValidationMessage"] = "Successfully Edited!";
                     return RedirectToAction("Admin");
                 }
                 catch
                 {
-                    TempData["ValidationMessage"] = FilesToUpdate.fileName += "   Error: Not Successfully Edited!";
+                    TempData["ValidationMessage"] = "Error: Not Successfully Edited!";
                 }
 
             }

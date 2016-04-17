@@ -10,58 +10,61 @@
     {
         if (item.Date >= DateTime.Now.Date)
         {
-            
-            if (User.IsInRole("BoardDirector"))
-            {
-            if (item.Viewer == "BoardDirectors")
-            {
-                <div class="event-card">
-                    <div class="event-card-content">
-                        <h2>
-                            @Html.DisplayFor(modelItem => item.Title)
-                        </h2>
-                        <h4>@Html.DisplayFor(modelItem => item.Date) | @Html.DisplayFor(modelItem => item.Time)</h4>
-                        <p>@Html.DisplayFor(modelItem => item.Content)</p>
-                        <a href="@Html.DisplayFor(modelItem => item.Link)" class="btn event__btn">@Html.DisplayFor(modelItem => item.LinkText)</a>
-                        <p class="event__file"><i class="fa fa-download"></i> @Html.ActionLink("Download File", "Download", new { id = item.ID })</p>
-                    </div>
-                </div>
-            }
-            }
             if (User.IsInRole("FamilyAssoc"))
             {
-            if (item.Viewer == "FamilyAssoc")
-                        {
-                            <div class="event-card">
-                                <div class="event-card-content">
-                        <h2>
-                            @Html.DisplayFor(modelItem => item.Title)
-                        </h2>
-                        <h4>@Html.DisplayFor(modelItem => item.Date) | @Html.DisplayFor(modelItem => item.Time)</h4>
-                        <p>@Html.DisplayFor(modelItem => item.Content)</p>
-                        <a href="@Html.DisplayFor(modelItem => item.Link)" class="btn event__btn">@Html.DisplayFor(modelItem => item.LinkText)</a>
-                        <p class="event__file"><i class="fa fa-download"></i> @Html.ActionLink("Download File", "Download", new { id = item.ID })</p>
+                if (item.Viewer.Contains("FamilyAssoc"))
+                {
+                  <div class="event-card">
+                        <div class="event-card-content">
+                            <h2>
+                                @Html.DisplayFor(modelItem => item.Title)
+                            </h2>
+                            <h4>@Html.DisplayFor(modelItem => item.Date) | @Html.DisplayFor(modelItem => item.Time)</h4>
+                            <p>@Html.DisplayFor(modelItem => item.Content)</p>
+                            <a href="@Html.DisplayFor(modelItem => item.Link)" class="btn event__btn">@Html.DisplayFor(modelItem => item.LinkText)</a>
+                            @if (item.fileContent != null)
+                            {<p class="event__file"><i class="fa fa-download"></i> @Html.ActionLink("Download File", "Download", new { id = item.ID })</p>}
+                        </div>
                     </div>
-                </div>
+                }
             }
-            }
-               if (User.IsInRole("Admin"))
-               {
-                   if (item.Viewer == "Administrator" || item.Viewer == "FamilyAssoc" || item.Viewer == "BoardDirectors")
-                        {
-                            <div class="event-card">
-                                <div class="event-card-content">
-                        <h2>
-                            @Html.DisplayFor(modelItem => item.Title)
-                        </h2>
-                        <h4>@Html.DisplayFor(modelItem => item.Date) | @Html.DisplayFor(modelItem => item.Time)</h4>
-                        <p>@Html.DisplayFor(modelItem => item.Content)</p>
-                        <a href="@Html.DisplayFor(modelItem => item.Link)" class="btn event__btn">@Html.DisplayFor(modelItem => item.LinkText)</a>
-                        <p class="event__file"><i class="fa fa-download"></i> @Html.ActionLink("Download File", "Download", new { id = item.ID })</p>
+              
+            if (User.IsInRole("BoardDirector"))
+            {
+                if (item.Viewer.Contains("BoardDirector"))
+                {
+                    <div class="event-card">
+                        <div class="event-card-content">
+                            <h2>
+                                @Html.DisplayFor(modelItem => item.Title)
+                            </h2>
+                            <h4>@Html.DisplayFor(modelItem => item.Date) | @Html.DisplayFor(modelItem => item.Time)</h4>
+                            <p>@Html.DisplayFor(modelItem => item.Content)</p>
+                            <a href="@Html.DisplayFor(modelItem => item.Link)" class="btn event__btn">@Html.DisplayFor(modelItem => item.LinkText)</a>
+                            @if (item.fileContent != null)
+                            {<p class="event__file"><i class="fa fa-download"></i> @Html.ActionLink("Download File", "Download", new { id = item.ID })</p>}
+                        </div>
                     </div>
-                </div>
+                }
             }
-            }
+             if (User.IsInRole("Admin"))
+             {
+                if (item.Viewer.Contains("Administrator") || item.Viewer.Contains("FamilyAssoc") || item.Viewer.Contains("BoardDirector"))
+                {
+                    <div class="event-card">
+                        <div class="event-card-content">
+                            <h2>
+                                @Html.DisplayFor(modelItem => item.Title)
+                            </h2>
+                            <h4>@Html.DisplayFor(modelItem => item.Date) | @Html.DisplayFor(modelItem => item.Time)</h4>
+                            <p>@Html.DisplayFor(modelItem => item.Content)</p>
+                            <a href="@Html.DisplayFor(modelItem => item.Link)" class="btn event__btn">@Html.DisplayFor(modelItem => item.LinkText)</a>
+                            @if (item.fileContent != null)
+                            {<p class="event__file"><i class="fa fa-download"></i> @Html.ActionLink("Download File", "Download", new { id = item.ID })</p>}
+                        </div>
+                    </div>
+                }
+             }
           }
           }
     </section>
