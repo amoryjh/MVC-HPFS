@@ -26,12 +26,12 @@ namespace HPSMVC.Models
 
     [Display(Name = "Date Start")]
     [DataType(DataType.Date)]
-    [DisplayFormat(DataFormatString = "{0:yyyy-MM-dd}", ApplyFormatInEditMode = true)]
+    [DisplayFormat(DataFormatString = "{yyyy-MM-dd}", ApplyFormatInEditMode = true)]
     public DateTime? dateStart { get; set; }
 
     [Display(Name = "Date End")]
     [DataType(DataType.Date)]
-    [DisplayFormat(DataFormatString = "{0:yyyy-MM-dd}", ApplyFormatInEditMode = true)]
+    [DisplayFormat(DataFormatString = "{yyyy-MM-dd}", ApplyFormatInEditMode = true)]
     public DateTime? dateEnd { get; set; }
 
     [Display(Name = "Percentage Earned")]

@@ -14,6 +14,7 @@ namespace HPSMVC.DAL
     public DbSet<File> Files { get; set; }
     public DbSet<Program> Programs { get; set; }
     public DbSet<Index> Indices { get; set; }
+    public DbSet<FitBit> FitBits { get; set; }
 
     protected override void OnModelCreating(DbModelBuilder modelBuilder)
     {

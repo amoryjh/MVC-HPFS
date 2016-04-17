@@ -17,6 +17,7 @@ namespace HPSMVC.Controllers
     public class FitbitController : Controller
     {
         ApplicationDbContext context = new ApplicationDbContext();
+        private HPSMVCEntities db = new HPSMVCEntities();
 
         // GET: Fitbit
         public ActionResult Index()
@@ -143,6 +144,45 @@ namespace HPSMVC.Controllers
             
 
             return RedirectToAction("Index");         
+        }
+
+        public ActionResult Create()
+        {
+            FitBit fitbit = new FitBit();
+
+            var userStore = new UserStore<ApplicationUser>(context);
+            var userManager = new UserManager<ApplicationUser>(userStore);
+
+            var currentUser = userManager.FindById(User.Identity.GetUserId());           
+            var progress = Convert.ToDouble(currentUser.FitBitProgress);
+            var goal = Convert.ToDouble(currentUser.FitBitGoal);
+            var dateStart = Convert.ToDateTime(currentUser.dateStartFitBit.ToString());
+            var dateEnd = Convert.ToDateTime(currentUser.dateStartFitBit.ToString());
+            var percentEarned = (progress / goal) * 100;
+
+            int percentEarnedShort = Convert.ToInt32(percentEarned);
+            
+            dateStart.ToShortDateString();
+            dateEnd.ToShortDateString();           
+
+            
+
+
+                fitbit.User = currentUser.UserName;
+                fitbit.Progress = progress.ToString();
+                fitbit.Goal = goal.ToString();
+                fitbit.dateStart = dateStart;
+                fitbit.dateEnd = dateEnd;
+                fitbit.percentageEarned = percentEarnedShort.ToString();
+
+                db.FitBits.Add(fitbit);
+                db.SaveChanges();
+
+                return RedirectToAction("Index", "Fitbit");
+
+            
+
+            return View();
         }
 
     }
