@@ -52,8 +52,7 @@ namespace HPSMVC.Controllers
         }
 
         // POST: Care/Create
-        // To protect from overposting attacks, please enable the specific properties you want to bind to, for 
-        // more details see http://go.microsoft.com/fwlink/?LinkId=317598.
+        [Authorize(Roles = "Admin")]
         [HttpPost]
         [ValidateAntiForgeryToken]
         public ActionResult Create([Bind(Include = "ID,Title,Content,fileName,fileType,fileContent")] Program program)
@@ -113,8 +112,6 @@ namespace HPSMVC.Controllers
         }
 
         // POST: Care/Edit/5
-        // To protect from overposting attacks, please enable the specific properties you want to bind to, for 
-        // more details see http://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
         [Authorize(Roles = "Admin")]

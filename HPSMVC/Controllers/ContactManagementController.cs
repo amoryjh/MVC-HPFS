@@ -16,6 +16,7 @@ namespace HPSMVC.Controllers
         private HPSMVCEntities db = new HPSMVCEntities();
 
         // GET: /ContactManagement/
+        [Authorize(Roles = "Admin")]
         public ActionResult Admin()
         {
             return View(db.Contacts.ToList());
@@ -26,30 +27,15 @@ namespace HPSMVC.Controllers
             return View(db.Contacts.ToList());
         }
 
-        // GET: /ContactManagement/Details/5
-        public ActionResult Details(int? id)
-        {
-            if (id == null)
-            {
-                return new HttpStatusCodeResult(HttpStatusCode.BadRequest);
-            }
-            Contact contact = db.Contacts.Find(id);
-            if (contact == null)
-            {
-                return HttpNotFound();
-            }
-            return View(contact);
-        }
-
         // GET: /ContactManagement/Create
+        [Authorize(Roles = "Admin")]
         public ActionResult Create()
         {
             return View();
         }
 
         // POST: /ContactManagement/Create
-        // To protect from overposting attacks, please enable the specific properties you want to bind to, for 
-        // more details see http://go.microsoft.com/fwlink/?LinkId=317598.
+        [Authorize(Roles = "Admin")]
         [HttpPost]
         [ValidateAntiForgeryToken]
         public ActionResult Create([Bind(Include="ID,Address,City,Province,PostalCode,Telephone,Fax,Hours,Message")] Contact contact)
@@ -65,6 +51,7 @@ namespace HPSMVC.Controllers
         }
 
         // GET: /ContactManagement/Edit/5
+        [Authorize(Roles = "Admin")]
         public ActionResult Edit(int? id)
         {
             if (id == null)
@@ -80,8 +67,7 @@ namespace HPSMVC.Controllers
         }
 
         // POST: /ContactManagement/Edit/5
-        // To protect from overposting attacks, please enable the specific properties you want to bind to, for 
-        // more details see http://go.microsoft.com/fwlink/?LinkId=317598.
+        [Authorize(Roles = "Admin")]
         [HttpPost]
         [ValidateAntiForgeryToken]
         public ActionResult Edit([Bind(Include="ID,Address,City,Province,PostalCode,Telephone,Fax,Hours,Message")] Contact contact)
@@ -105,6 +91,7 @@ namespace HPSMVC.Controllers
         }
 
         // GET: /ContactManagement/Delete/5
+        [Authorize(Roles = "Admin")]
         public ActionResult Delete(int? id)
         {
             if (id == null)
@@ -120,6 +107,7 @@ namespace HPSMVC.Controllers
         }
 
         // POST: /ContactManagement/Delete/5
+        [Authorize(Roles = "Admin")]
         [HttpPost, ActionName("Delete")]
         [ValidateAntiForgeryToken]
         public ActionResult DeleteConfirmed(int id)

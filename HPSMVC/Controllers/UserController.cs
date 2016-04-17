@@ -15,22 +15,25 @@ namespace HPSMVC.Controllers
     {
         ApplicationDbContext context = new ApplicationDbContext();
 
-
+        [Authorize(Roles = "Admin")]
         public ActionResult ManageUser()
         {
             return View();
         }
 
+        [Authorize(Roles = "Admin")]
         public ActionResult ManageUserPassword()
         {
             return View();
         }
 
+        [Authorize(Roles = "Admin")]
         public ActionResult ManageUserDelete()
         {
             return View();
         }
 
+        [Authorize(Roles = "Admin")]
         public ActionResult ManageRole()
         {
             // prepopulat roles for the view dropdown
@@ -75,6 +78,7 @@ namespace HPSMVC.Controllers
             return View(userRoles);
         }
 
+        [Authorize(Roles = "Admin")]
         [HttpPost]
         [ValidateAntiForgeryToken]
         public ActionResult RoleAddToUser(string UserName, string RoleName)
@@ -97,6 +101,7 @@ namespace HPSMVC.Controllers
             return View("ManageRole");
         }
 
+        [Authorize(Roles = "Admin")]
         [HttpPost]
         [ValidateAntiForgeryToken]
         public ActionResult GetRoles(string UserName)
@@ -116,6 +121,7 @@ namespace HPSMVC.Controllers
             return View("ManageRole");
         }
 
+        [Authorize(Roles = "Admin")]
         [HttpPost]
         [ValidateAntiForgeryToken]
         public ActionResult DeleteRoleForUser(string UserName, string RoleName)
@@ -140,6 +146,7 @@ namespace HPSMVC.Controllers
             return View("ManageRole");
         }
 
+        [Authorize(Roles = "Admin")]
         [HttpPost, ActionName("DeleteUser")]
         [ValidateAntiForgeryToken]
         public async Task<ActionResult> DeleteUser(string Username)
@@ -188,6 +195,7 @@ namespace HPSMVC.Controllers
 
         }
 
+        [Authorize(Roles = "Admin")]
         [HttpPost]
         [ValidateAntiForgeryToken]
         public ActionResult ChangeUserPassword(string UserNameChangePassword, string NewPassword)
