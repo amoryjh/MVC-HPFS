@@ -28,6 +28,13 @@ namespace HPSMVC.Controllers
 
             var currentUser = userManager.FindById(User.Identity.GetUserId());
 
+            if (currentUser.dateStartFitBit == null || currentUser.dateEndFitBit == null)
+            {
+                currentUser.dateStartFitBit = "";
+                currentUser.dateEndFitBit = "";
+            }
+
+
             var fitBitProgress = currentUser.FitBitProgress.ToString();
             var fitBitGoal = currentUser.FitBitGoal.ToString();
             var fitBitDateStart = currentUser.dateStartFitBit.ToString();
@@ -47,6 +54,11 @@ namespace HPSMVC.Controllers
         }
 
         public ActionResult AdminStats()
+        {
+            return View(db.FitBits.ToList());
+        }
+
+        public ActionResult UserStats()
         {
             return View(db.FitBits.ToList());
         }
