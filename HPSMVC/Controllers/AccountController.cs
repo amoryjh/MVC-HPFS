@@ -156,11 +156,11 @@ namespace HPSMVC.Controllers
                 var manager = new ApplicationUserManager(new UserStore<ApplicationUser>(context));
 
                 var user = new ApplicationUser { UserName = model.Email, Email = model.Email};
-                var result = await UserManager.CreateAsync(user, model.Password);
-                manager.AddToRole(user.Id, "Default");
+                var result = await UserManager.CreateAsync(user, model.Password);             
 
                 if (result.Succeeded)
                 {
+                    manager.AddToRole(user.Id, "Default");
                     if(User.IsInRole("Admin"))
                     {
                         TempData["ValidationMessage"] = ("Success: " + " " + user.UserName + " " + "Was Created");
