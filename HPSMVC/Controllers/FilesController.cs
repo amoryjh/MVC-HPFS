@@ -23,6 +23,7 @@ namespace HPSMVC.Controllers
 
             ViewBag.NameSortParm = String.IsNullOrEmpty(sortOrder) ? "name" : "";
             ViewBag.DateSortParm = sortOrder == "Date" ? "date" : "Date";
+            ViewBag.ViewerSortParm = sortOrder == "Viewer" ? "viewer" : "Viewer";
             ViewBag.CategorySortParm = sortOrder == "Category" ? "category" : "Category";
             var Files = from s in db.Files
                            select s;
@@ -30,6 +31,7 @@ namespace HPSMVC.Controllers
             if (!String.IsNullOrEmpty(searchString))
             {
                 Files = Files.Where(s => s.fileName.Contains(searchString)
+                                      || s.Viewer.Contains(searchString)
                                       || s.Category.Contains(searchString));
             }
 
@@ -42,7 +44,10 @@ namespace HPSMVC.Controllers
                     Files = Files.OrderBy(s => s.Date);
                     break;
                 case "category":
-                    Files = Files.OrderBy(s => s.Date);
+                    Files = Files.OrderBy(s => s.Category);
+                    break;
+                case "viewer":
+                    Files = Files.OrderBy(s => s.Viewer);
                     break;
                 default:
                     Files = Files.OrderBy(s => s.fileName);
