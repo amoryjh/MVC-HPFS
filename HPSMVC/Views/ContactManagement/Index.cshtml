@@ -26,9 +26,11 @@
                 <br><br>
                     <ul class="block-list no-style-list">
                         <li>@Html.DisplayFor(modelItem => item.Address)</li>
-                        <li>@Html.DisplayFor(modelItem => item.PostalCode), @Html.DisplayFor(modelItem => item.City)  @Html.DisplayFor(modelItem => item.Province)</li>
+                        <li>@Html.DisplayFor(modelItem => item.City), @Html.DisplayFor(modelItem => item.Province) @Html.DisplayFor(modelItem => item.PostalCode)</li>
+                        <br />
                         <li>Telephone: <a href="tel:@item.Telephone">@Html.DisplayFor(modelItem => item.Telephone)</a></li>
-                        <li>@Html.DisplayNameFor(model => model.Fax): @Html.DisplayFor(modelItem => item.Fax)</li>
+                        <li>Fax: <a href="fax:@item.Fax">@Html.DisplayFor(modelItem => item.Fax)</a></li>
+                        <br />
                         <li>@Html.DisplayFor(modelItem => item.Hours)</li>
                         <li>@Html.DisplayFor(modelItem => item.Message)</li>
                     </ul>
