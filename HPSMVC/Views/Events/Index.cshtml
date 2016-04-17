@@ -18,9 +18,9 @@
     {
         if (item.Date >= DateTime.Now.Date)
         {
-            if (User.IsInRole("Client"))
+            if (User.IsInRole("Client") || User.IsInRole("Admin"))
             {
-                if (item.Viewer == "Clients" || item.Viewer == "All")
+                if (item.Viewer.Contains("Client") || item.Viewer.Contains("All"))
                 {
                     <div class="event-card">
                         <div class="event-card-content">
@@ -36,47 +36,9 @@
                     </div>
                 }
             }
-            if (User.IsInRole("FamilyAssoc"))
-            {
-                if (item.Viewer == "FamilyAssoc" || item.Viewer == "All")
-                {
-                    <div class="event-card">
-                        <div class="event-card-content">
-                            <h2>
-                                @Html.DisplayFor(modelItem => item.Title)
-                            </h2>
-                            <h4>@Html.DisplayFor(modelItem => item.Date)  @Html.DisplayFor(modelItem => item.Time)</h4>
-                            <p>@Html.DisplayFor(modelItem => item.Content)</p>
-                            <a href="@Html.DisplayFor(modelItem => item.Link)" class="btn event__btn">@Html.DisplayFor(modelItem => item.LinkText)</a>
-                            @if (item.fileContent != null)
-                            {<p class="event__file"><i class="fa fa-download"></i> @Html.ActionLink("Download File", "Download", new { id = item.ID })</p>}
-                        </div>
-                    </div>
-                }
-            }
-            if (User.IsInRole("Admin"))
-            {
-                if (item.Viewer == "Clients" || item.Viewer == "All")
-                {
-                    <div class="event-card">
-                        <div class="event-card-content">
-                            <h2>
-                                @Html.DisplayFor(modelItem => item.Title)
-                            </h2>
-                            <h4>@Html.DisplayFor(modelItem => item.Date)  <span class="event__date--space"> @Html.DisplayFor(modelItem => item.Time)</span></h4>
-                            <p>@Html.DisplayFor(modelItem => item.Content)</p>
-                            <a href="@Html.DisplayFor(modelItem => item.Link)" class="btn event__btn">@Html.DisplayFor(modelItem => item.LinkText)</a>
-                            @if (item.fileContent != null)
-                            {
-                                <p class="event__file"><i class="fa fa-download"></i> @Html.ActionLink("Download File", "Download", new { id = item.ID })</p>
-                            }
-                        </div>
-                    </div>
-                }
-            }
             else
             {
-                if (item.Viewer == "All")
+                if (item.Viewer.Contains("All"))
                 {
                     <div class="event-card">
                         <div class="event-card-content">
