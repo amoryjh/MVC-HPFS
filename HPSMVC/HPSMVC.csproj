@@ -602,6 +602,7 @@
       <DependentUpon>colors.css</DependentUpon>
     </Content>
     <Content Include="Content\assets\MSAA\MSAA.pdf" />
+    <Content Include="Content\assets\UserManual\manual.pdf" />
     <None Include="Scripts\jquery-1.10.2.intellisense.js" />
     <Content Include="Scripts\jquery-1.10.2.js" />
     <Content Include="Scripts\jquery-1.10.2.min.js" />
