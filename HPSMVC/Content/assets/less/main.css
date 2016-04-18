@@ -6671,6 +6671,7 @@ nav ul li > ul li a:hover {
 }
 .admin-aside-panel {
   display: none;
+  max-width: 550px;
   position: fixed;
   top: inherit;
   box-shadow: rgba(0, 0, 0, 0.14902) 0px 1px 1px 0px, rgba(0, 0, 0, 0.09804) 0px 1px 2px 0px;
@@ -6689,6 +6690,7 @@ nav ul li > ul li a:hover {
   color: #ffffff;
   font-weight: 300;
   padding: 40px 0;
+  word-wrap: break-word;
 }
 .admin-aside-panel ul {
   list-style-type: none;
