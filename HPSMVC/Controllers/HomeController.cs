@@ -155,12 +155,10 @@ namespace HPSMVC.Controllers
                         Stream fileStream = Request.Files[fName].InputStream;
                         byte[] fileData = new Byte[fileLength];
                         fileStream.Read(fileData, 0, fileLength);
-                        if (mimeType.Contains("image") && fName == "FileUpImage")
-                        {
+
                             index.fileContent = fileData;
                             index.fileType = mimeType;
                             index.fileName = fileName;
-                        }
                     }
                 }
 

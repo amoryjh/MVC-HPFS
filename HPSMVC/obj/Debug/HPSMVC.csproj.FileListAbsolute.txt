@@ -401,3 +401,4 @@ C:\Users\Brandon\Desktop\MVC-HPFS\HPSMVC\obj\Debug\HPSMVC.Migrations.fitbitdatec
 C:\Users\Brandon\Desktop\MVC-HPFS\HPSMVC\obj\Debug\HPSMVC.Migrations.fileViewer.resources
 C:\Users\Brandon\Desktop\MVC-HPFS\HPSMVC\obj\Debug\HPSMVC.Migrations.viewerReqOnFile.resources
 C:\Users\Brandon\Desktop\MVC-HPFS\HPSMVC\obj\Debug\HPSMVC.Migrations.timefieldchange.resources
+C:\Users\Brandon\Desktop\MVC-HPFS\HPSMVC\obj\Debug\HPSMVC.Migrations.time.resources

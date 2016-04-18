@@ -20,7 +20,7 @@ namespace HPSMVC.Models
     public string Content { get; set; }
 
     [Display(Name = "Time")]
-    [StringLength(10, ErrorMessage = "The Time cannot be more than 10 characters")]
+    [StringLength(20, ErrorMessage = "The Time cannot be more than 20 characters")]
     public string Time { get; set; }
 
     [DataType(DataType.Date)]
