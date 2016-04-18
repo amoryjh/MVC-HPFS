@@ -8,7 +8,7 @@ using System.Web;
 using System.Web.Mvc;
 using HPSMVC.Models;
 using HPSMVC.DAL;
-
+//[Everyone] The contact management controller is for the management of the contacts page 
 namespace HPSMVC.Controllers
 {
     public class ContactManagementController : Controller
@@ -22,6 +22,7 @@ namespace HPSMVC.Controllers
             return View(db.Contacts.ToList());
         }
         
+        //Get Index 
         public ActionResult Index()
         {
             return View(db.Contacts.ToList());

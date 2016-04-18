@@ -11,7 +11,7 @@ using HPSMVC.Models;
 using System.IO;
 using Microsoft.AspNet.Identity;
 using Microsoft.AspNet.Identity.EntityFramework;
-
+//[Everyone] the home controller is used to manage the homepage 
 namespace HPSMVC.Controllers
 {
     public class HomeController : Controller
@@ -19,13 +19,13 @@ namespace HPSMVC.Controllers
         ApplicationDbContext context = new ApplicationDbContext();
         private HPSMVCEntities db = new HPSMVCEntities();
 
-        // GET: Home
+        // GET: Admin Home
         [Authorize(Roles = "Admin")]
         public ActionResult Admin()
         {
             return View(db.Indices.ToList());
         }
-
+        //Get Index page
         public ActionResult Index()
         {
             var userRoles = new List<RolesViewModel>();

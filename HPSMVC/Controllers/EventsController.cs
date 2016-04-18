@@ -9,13 +9,14 @@ using System.Web.Mvc;
 using HPSMVC.DAL;
 using HPSMVC.Models;
 using System.IO;
-
+//[Everyone] The evenets controller is used to manage the events on the HPS site 
 namespace HPSMVC.Controllers
 {
     public class EventsController : Controller
     {
         private HPSMVCEntities db = new HPSMVCEntities();
 
+        //Get Index 
         public ActionResult Index()
         {
 
@@ -23,12 +24,14 @@ namespace HPSMVC.Controllers
             
         }
 
+        //Get BoardCal
         [Authorize(Roles = "Admin,BoardDirector,FamilyAssoc")]
         public ActionResult BoardCal()
         {
             return View(db.Events.ToList().OrderBy(s => s.Date));
         }
 
+        //Get Admin Index 
         [Authorize(Roles = "Admin")]
         public ActionResult Admin(string sortOrder, string searchString)
         {

@@ -8,31 +8,35 @@ using System.Net;
 using System.Threading.Tasks;
 using System.Web;
 using System.Web.Mvc;
-
+//[Everyone] The user controller is used to manage all users on the website 
 namespace HPSMVC.Controllers
 {
     public class UserController : Controller
     {
         ApplicationDbContext context = new ApplicationDbContext();
 
+        //Get the Manage user page 
         [Authorize(Roles = "Admin")]
         public ActionResult ManageUser()
         {
             return View();
         }
 
+        //Get the manage user password page 
         [Authorize(Roles = "Admin")]
         public ActionResult ManageUserPassword()
         {
             return View();
         }
 
+        //Get the manage user delete page 
         [Authorize(Roles = "Admin")]
         public ActionResult ManageUserDelete()
         {
             return View();
         }
 
+        //Get the manage role page 
         [Authorize(Roles = "Admin")]
         public ActionResult ManageRole()
         {
@@ -44,6 +48,7 @@ namespace HPSMVC.Controllers
             return View();
         }
 
+        //Get the index of the manage user page 
         [Authorize]
         public ActionResult Index()
         {
@@ -79,6 +84,7 @@ namespace HPSMVC.Controllers
             return View(userRoles);
         }
 
+        //Add roles to users 
         [Authorize(Roles = "Admin")]
         [HttpPost]
         [ValidateAntiForgeryToken]
@@ -101,7 +107,8 @@ namespace HPSMVC.Controllers
 
             return View("ManageRole");
         }
-
+        
+        //Get roles for user 
         [Authorize(Roles = "Admin")]
         [HttpPost]
         [ValidateAntiForgeryToken]
@@ -130,6 +137,7 @@ namespace HPSMVC.Controllers
             return View("ManageRole");
         }
 
+        //Delete roles for users 
         [Authorize(Roles = "Admin")]
         [HttpPost]
         [ValidateAntiForgeryToken]
@@ -162,6 +170,7 @@ namespace HPSMVC.Controllers
             return View("ManageRole");
         }
 
+        //delete user 
         [Authorize(Roles = "Admin")]
         [HttpPost, ActionName("DeleteUser")]
         [ValidateAntiForgeryToken]
@@ -219,6 +228,7 @@ namespace HPSMVC.Controllers
 
         }
 
+        //Change users password 
         [Authorize(Roles = "Admin")]
         [HttpPost]
         [ValidateAntiForgeryToken]

@@ -9,13 +9,14 @@ using System.Web.Mvc;
 using HPSMVC.DAL;
 using HPSMVC.Models;
 using System.IO;
-
+//[Everyone] Care controller manages care page information 
 namespace HPSMVC.Controllers
 {
     public class CareController : Controller
     {
         private HPSMVCEntities db = new HPSMVCEntities();
 
+        //Get Index 
         public ActionResult Index()
         {
             return View(db.Programs.ToList());
@@ -99,8 +100,7 @@ namespace HPSMVC.Controllers
         [HttpPost]
         [ValidateAntiForgeryToken]
         [Authorize(Roles = "Admin")]
-        //public ActionResult Edit([Bind(Include = "ID,Title,Content,fileName,fileType,fileContent")] Program program)
-        public ActionResult Edit(int? id, string[] chkRemoveFile)//[Bind(Include = "ID,Name,Dated,imageContent,imageMimeType,imageFileName,MovementID,ArtistID")] Painting painting, string chkRemoveImage)
+        public ActionResult Edit(int? id, string[] chkRemoveFile)
         {
             var program = db.Programs
             .Where(f => f.ID == id)

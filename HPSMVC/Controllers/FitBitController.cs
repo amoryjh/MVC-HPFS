@@ -11,7 +11,7 @@ using HPSMVC.Models;
 using Microsoft.AspNet.Identity;
 using Microsoft.AspNet.Identity.EntityFramework;
 using System.Threading.Tasks;
-
+//[Everyone] The fitbit controller is used to manage all fitbit data 
 namespace HPSMVC.Controllers
 {
     public class FitbitController : Controller
@@ -53,12 +53,15 @@ namespace HPSMVC.Controllers
 
             return View();
         }
+
+        //Get Manage page 
         [Authorize]
         public ActionResult Manage()
         {
             return View();
         }
 
+        //Get Admin View stats page
         [Authorize(Roles = "Admin")]
         public ActionResult AdminStats(string sortOrder, string searchString)
         {
@@ -98,12 +101,14 @@ namespace HPSMVC.Controllers
             return View(FitBits.ToList());
         }
 
+        //Get user stats page 
         [Authorize]
         public ActionResult UserStats()
         {
             return View(db.FitBits.ToList());
         }
 
+        //Add progress to the fitbit user 
         [Authorize]
         [HttpPost]
         [ValidateAntiForgeryToken]
@@ -138,6 +143,7 @@ namespace HPSMVC.Controllers
             return RedirectToAction("Index");
         }
 
+        //Update the goal of the fitbit user 
         [Authorize]
         [HttpPost]
         [ValidateAntiForgeryToken]
@@ -171,6 +177,7 @@ namespace HPSMVC.Controllers
 
         }
 
+        //Change the date start for the fitbit user 
         [Authorize]
         [HttpPost]
         [ValidateAntiForgeryToken]
@@ -207,6 +214,7 @@ namespace HPSMVC.Controllers
             return RedirectToAction("Index");         
         }
 
+        //Get fitbit Create 
         [Authorize]
         public async Task<ActionResult> Create()
         {

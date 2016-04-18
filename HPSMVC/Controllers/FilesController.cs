@@ -9,7 +9,7 @@ using System.Web.Mvc;
 using HPSMVC.DAL;
 using HPSMVC.Models;
 using System.IO;
-
+//[Everyone] The Files controller is used to manage all files on the HPS website 
 namespace HPSMVC.Controllers
 {
     public class FilesController : Controller
