@@ -8,27 +8,36 @@
         <div class="container">
 
             <h2>fitbit Record List</h2>
+
+            @using (Html.BeginForm())
+            {
+                <p>
+                    @Html.TextBox("SearchString")
+                    <input type="submit" value="Search" class="btn btn-solid" />
+                    <a class="btn btn-solid" href="/Fitbit/AdminStats">Clear</a>
+                </p>
+            }
             <table class="table">
 
                 <tr>
                     <th>
-                        Username
+                        @Html.ActionLink("User", "AdminStats", new { sortOrder = ViewBag.NameSortParm })
                     </th>
 
                     <th>
-                        Progress
+                        @Html.ActionLink("Progress", "AdminStats", new { sortOrder = ViewBag.ProgressSortParm })
                     </th>
 
                     <th>
-                        Goal
+                        @Html.ActionLink("Goal", "AdminStats", new { sortOrder = ViewBag.GoalSortParm })
                     </th>
 
                     <th>
-                        Percentage Earned 
+                        Percentage Earned
                     </th>
 
                     <th>
-                        Start Date
+                        @Html.ActionLink("Start Date", "AdminStats", new { sortOrder = ViewBag.DateStartSortParm })
                     </th>
 
                     <th>

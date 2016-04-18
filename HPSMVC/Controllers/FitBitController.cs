@@ -58,9 +58,42 @@ namespace HPSMVC.Controllers
             return View();
         }
 
-        public ActionResult AdminStats()
+        public ActionResult AdminStats(string sortOrder, string searchString)
         {
-            return View(db.FitBits.ToList());
+            ViewBag.NameSortParm = String.IsNullOrEmpty(sortOrder) ? "name" : "";
+            ViewBag.DateStartSortParm = sortOrder == "Start Date" ? "date" : "Start Date";
+            ViewBag.GoalSortParm = sortOrder == "Goal" ? "goal" : "Goal";
+            ViewBag.ProgressSortParm = sortOrder == "Progress" ? "progress" : "Progress";
+
+            var FitBits = from s in db.FitBits
+                        select s;
+
+            if (!String.IsNullOrEmpty(searchString))
+            {
+                FitBits = FitBits.Where(s => s.User.Contains(searchString));
+            }
+
+            switch (sortOrder)
+            {
+                case "name":
+                    FitBits = FitBits.OrderByDescending(s => s.User);
+                    break;
+                case "date":
+                    FitBits = FitBits.OrderByDescending(s => s.dateStart);
+                    break;
+                case "goal":
+                    FitBits = FitBits.OrderBy(s => s.Goal);
+                    break;
+                case "progress":
+                    FitBits = FitBits.OrderBy(s => s.Progress);
+                    break;
+                default:
+                    FitBits = FitBits.OrderBy(s => s.User);
+                    break;
+            }
+
+
+            return View(FitBits.ToList());
         }
 
         public ActionResult UserStats()
