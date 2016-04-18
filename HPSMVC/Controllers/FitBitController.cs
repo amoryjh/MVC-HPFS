@@ -201,7 +201,7 @@ namespace HPSMVC.Controllers
             return RedirectToAction("Index");         
         }
 
-        public ActionResult Create()
+        public async Task<ActionResult> Create()
         {
             FitBit fitbit = new FitBit();
             var userStore = new UserStore<ApplicationUser>(context);
@@ -233,7 +233,23 @@ namespace HPSMVC.Controllers
 
                 TempData["ValidationMessage"] = "Stats Submitted for " + " " + dateStart + " - " + dateEnd;
 
-                return RedirectToAction("Index", "Fitbit");
+                var fitBitProgressNew = 0;
+                currentUser.FitBitProgress = fitBitProgressNew;
+
+                try
+                {
+                    await userManager.UpdateAsync(currentUser);
+                    var saveUser = userStore.Context;
+                    await saveUser.SaveChangesAsync();
+                }
+
+                catch
+                {
+                    TempData["ValidationMessage"] = "Error: Stats Not Submitted!";
+                    return RedirectToAction("Index", "Fitbit");
+                } 
+
+                return RedirectToAction("Manage", "Fitbit");
             }
             catch
             {
