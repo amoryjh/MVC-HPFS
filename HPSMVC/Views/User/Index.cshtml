@@ -42,9 +42,18 @@ else
 @if(User.IsInRole("Admin")){
     <p style="color:red">@TempData["ValidationMessageDefaultUser"]</p>
 
+<h2>Search for user</h2>
+<p>
+@Html.TextBox("SearchString")
+<input type="submit" value="Search" class="btn btn-solid" id="userSearch"/>
+<a class="btn btn-solid" href="/User">Clear</a>
+</p>
+<p style="color:red">
+@TempData["ValidationMessage"]
+</p>
+<hr />
 <h2>User and Role List</h2>
 <table class="table">
-
 <tr>
 <th>
 User Name
@@ -56,7 +65,7 @@ Roles
 </tr>
 
 @foreach (var user in Model.ToList())
-{<tr id="@user.UserName">
+{<tr id="@user.UserName" class="usrSrc">
 
 <td>
 @user.UserName
@@ -78,3 +87,19 @@ Roles
 </div></div></div>
 </section>
 }
+<script>
+    $('#userSearch').click(function () {
+        var userSearch= $('#SearchString').val().toLowerCase();
+        $('.usrSrc').hide();
+        if (!userSearch == null || !userSearch == '') {
+            $('.usrSrc').each(function () {
+                var userName = $(this).attr('id').toLowerCase();
+                var truefalse = userName.indexOf(userSearch) > -1;
+                if (truefalse) {
+                    $(this).show();
+                }
+            })
+            //matchingItem = matchRow.indexOf(userName) > -1;
+        }
+    })
+</script>

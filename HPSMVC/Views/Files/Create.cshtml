@@ -39,24 +39,24 @@
                 </div>
 
                 <div id="inputs" class="form-group">
-                    <div class="col-md-10">
+                    <div class="col-md-10 col-md-offset-2">
                         @if (User.IsInRole("FamilyAssoc"))
                         {
-                            <div><input type="checkbox" value="FamilyAssoc">FamilyAssoc</div>
+                            <label><input type="checkbox" value="FamilyAssoc">FamilyAssoc</label>
                         }
                         @if(User.IsInRole("BoardDirector"))
                         {
-                            <div><input type="checkbox" value="BoardDirector">Board Director</div>
+                            <label><input type="checkbox" value="BoardDirector">Board Director</label>
                         }
                         @if (User.IsInRole("Admin"))
                         {
-                            <div>
+                            <label>
                                 <input type="checkbox" value="All">All
                                 <input type="checkbox" value="Client">Client
                                 <input type="checkbox" value="FamilyAssoc">FamilyAssoc
                                 <input type="checkbox" value="BoardDirector">Board Director
                                 <input type="checkbox" value="Administrator">Administrator
-                            </div>
+                            </label>
                         }
                     </div>
                 </div>

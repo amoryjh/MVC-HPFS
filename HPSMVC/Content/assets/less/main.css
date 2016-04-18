@@ -6554,6 +6554,13 @@ textarea {
   max-width: 480px;
   overflow-wrap: break-word;
 }
+#inputs.form-group input[type="checkbox"] {
+  margin-left: 20px;
+  margin-right: 4px;
+}
+#inputs.form-group input[type="checkbox"]:first-child {
+  margin-left: 0;
+}
 a {
   color: #ab75b3;
   transition: all 0.2s;
