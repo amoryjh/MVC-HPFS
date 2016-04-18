@@ -28,22 +28,6 @@ namespace HPSMVC.Controllers
             return View(db.Programs.ToList());
         }
 
-        // GET: Care/Details/5
-        [Authorize(Roles = "Admin")]
-        public ActionResult Details(int? id)
-        {
-            if (id == null)
-            {
-                return new HttpStatusCodeResult(HttpStatusCode.BadRequest);
-            }
-            Program program = db.Programs.Find(id);
-            if (program == null)
-            {
-                return HttpNotFound();
-            }
-            return View(program);
-        }
-
         // GET: Care/Create
         [Authorize(Roles = "Admin")]
         public ActionResult Create()

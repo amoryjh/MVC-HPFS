@@ -23,6 +23,7 @@ namespace HPSMVC.Controllers
             
         }
 
+        [Authorize(Roles = "Admin,BoardDirector,FamilyAssoc")]
         public ActionResult BoardCal()
         {
             return View(db.Events.ToList().OrderBy(s => s.Date));
@@ -139,7 +140,6 @@ namespace HPSMVC.Controllers
         }
 
         // POST: Events/Edit/5
-        [Authorize(Roles = "Admin")]
         [HttpPost]
         [ValidateAntiForgeryToken]
         [Authorize(Roles = "Admin")]

@@ -15,7 +15,10 @@ View your fitbit account for more in depth stats
 <hr />
    <p>
        <a class="btn btn-solid" href="/Fitbit/UserStats">View Stats</a>
-       <a class="btn btn-solid" href="/Fitbit/AdminStats">View All Stats</a>
+        @if(User.IsInRole("Admin"))
+        {
+        <a class="btn btn-solid" href="/Fitbit/AdminStats">View All Stats</a>
+        }
    </p>
 <hr />
 <div class="col-md-10 col-md-offset-1 text-center"><div class="form-group">

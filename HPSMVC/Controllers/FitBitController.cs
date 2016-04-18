@@ -20,6 +20,7 @@ namespace HPSMVC.Controllers
         private HPSMVCEntities db = new HPSMVCEntities();
 
         // GET: Fitbit
+        [Authorize]
         public ActionResult Index()
         {
             var userStore = new UserStore<ApplicationUser>(context);
@@ -52,12 +53,13 @@ namespace HPSMVC.Controllers
 
             return View();
         }
-
+        [Authorize]
         public ActionResult Manage()
         {
             return View();
         }
 
+        [Authorize(Roles = "Admin")]
         public ActionResult AdminStats(string sortOrder, string searchString)
         {
             ViewBag.NameSortParm = String.IsNullOrEmpty(sortOrder) ? "name" : "";
@@ -96,11 +98,13 @@ namespace HPSMVC.Controllers
             return View(FitBits.ToList());
         }
 
+        [Authorize]
         public ActionResult UserStats()
         {
             return View(db.FitBits.ToList());
         }
 
+        [Authorize]
         [HttpPost]
         [ValidateAntiForgeryToken]
         public async Task<ActionResult> addProgressFitBit(string addProgress)
@@ -134,6 +138,7 @@ namespace HPSMVC.Controllers
             return RedirectToAction("Index");
         }
 
+        [Authorize]
         [HttpPost]
         [ValidateAntiForgeryToken]
         public async Task<ActionResult> updateGoalFitBit(string updateGoal)
@@ -166,6 +171,7 @@ namespace HPSMVC.Controllers
 
         }
 
+        [Authorize]
         [HttpPost]
         [ValidateAntiForgeryToken]
         public async Task<ActionResult> updateDateFitBit(DateTime dateStart)
@@ -201,6 +207,7 @@ namespace HPSMVC.Controllers
             return RedirectToAction("Index");         
         }
 
+        [Authorize]
         public async Task<ActionResult> Create()
         {
             FitBit fitbit = new FitBit();

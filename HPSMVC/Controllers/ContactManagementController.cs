@@ -21,7 +21,7 @@ namespace HPSMVC.Controllers
         {
             return View(db.Contacts.ToList());
         }
-
+        
         public ActionResult Index()
         {
             return View(db.Contacts.ToList());

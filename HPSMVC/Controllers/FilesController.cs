@@ -170,24 +170,6 @@ namespace HPSMVC.Controllers
 
                     }
                 }
-                //foreach (string fName in Request.Files)
-                //{
-                //    HttpPostedFileBase f = Request.Files[fName];
-                //    string mimeType = f.ContentType;
-                //    int fileLength = f.ContentLength;
-                //    if (!(mimeType == "" || fileLength == 0))
-                //    {
-                //        string fileName = Path.GetFileName(f.FileName);
-                //        Stream fileStream = Request.Files[fName].InputStream;
-                //        byte[] fileData = new Byte[fileLength];
-                //        fileStream.Read(fileData, 0, fileLength);
-
-                //        file.fileContent = fileData;
-                //        file.fileType = mimeType;
-                //        file.fileName = fileName;
-                        
-                //    }
-                //}
 
                 try
                 {

@@ -44,6 +44,7 @@ namespace HPSMVC.Controllers
             return View();
         }
 
+        [Authorize]
         public ActionResult Index()
         {
             var userRoles = new List<RolesViewModel>();

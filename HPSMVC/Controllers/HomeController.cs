@@ -55,22 +55,6 @@ namespace HPSMVC.Controllers
             return View(db.Indices.ToList());
         }
 
-        // GET: Home/Details/5
-        [Authorize(Roles = "Admin")]
-        public ActionResult Details(int? id)
-        {
-            if (id == null)
-            {
-                return new HttpStatusCodeResult(HttpStatusCode.BadRequest);
-            }
-            Index index = db.Indices.Find(id);
-            if (index == null)
-            {
-                return HttpNotFound();
-            }
-            return View(index);
-        }
-
         // GET: Home/Create
         [Authorize(Roles = "Admin")]
         public ActionResult Create()
