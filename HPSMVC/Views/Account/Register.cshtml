@@ -16,11 +16,11 @@ ViewBag.Title = "Register";
 <div class="col-md-offset-1 col-md-10">
 @Html.ValidationSummary("", new { @class = "text-danger" })
 </div>
-    
 <div class="col-md-10 col-md-offset-1">
+<p>If you don't have an email, don't worry - just write a username with @@hps.com at the end</p>
 <div class="form-group">
 @Html.LabelFor(m => m.Email, new { @class = "control-label" })
-@Html.TextBoxFor(m => m.Email, new { @class = "form-control" })
+@Html.TextBoxFor(m => m.Email, new { @class = "form-control", placeholder="myName@hps.com" })
 </div></div>
 
 <div class="col-md-5 col-md-offset-1">
