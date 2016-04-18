@@ -106,17 +106,25 @@ namespace HPSMVC.Controllers
         [ValidateAntiForgeryToken]
         public ActionResult GetRoles(string UserName)
         {
+ 
             if (!string.IsNullOrWhiteSpace(UserName))
             {
                 ApplicationUser user = context.Users.Where(u => u.UserName.Equals(UserName, StringComparison.CurrentCultureIgnoreCase)).FirstOrDefault();
                 var manager = new ApplicationUserManager(new UserStore<ApplicationUser>(context));
 
-                ViewBag.RolesForThisUser = manager.GetRoles(user.Id);
-
-                // prepopulat roles for the view dropdown
-                var list = context.Roles.OrderBy(r => r.Name).ToList().Select(rr => new SelectListItem { Value = rr.Name.ToString(), Text = rr.Name }).ToList();
-                ViewBag.Roles = list;
+                try
+                {
+                    ViewBag.RolesForThisUser = manager.GetRoles(user.Id);
+                }
+                catch
+                {
+                    TempData["ValidationMessage"] = ("Error: " + " " + UserName + " " + "is not a user");
+                }   
             }
+
+            // prepopulat roles for the view dropdown
+            var list = context.Roles.OrderBy(r => r.Name).ToList().Select(rr => new SelectListItem { Value = rr.Name.ToString(), Text = rr.Name }).ToList();
+            ViewBag.Roles = list;
 
             return View("ManageRole");
         }
@@ -126,18 +134,25 @@ namespace HPSMVC.Controllers
         [ValidateAntiForgeryToken]
         public ActionResult DeleteRoleForUser(string UserName, string RoleName)
         {
-            var manager = new ApplicationUserManager(new UserStore<ApplicationUser>(context));
-
-            ApplicationUser user = context.Users.Where(u => u.UserName.Equals(UserName, StringComparison.CurrentCultureIgnoreCase)).FirstOrDefault();
-
-            if (manager.IsInRole(user.Id, RoleName))
+            try
             {
-                manager.RemoveFromRole(user.Id, RoleName);
-                TempData["ValidationMessage"] = ("Success: " + " " + UserName + " " + "Was Removed From the " + " " + RoleName + " " + "Role");
+                var manager = new ApplicationUserManager(new UserStore<ApplicationUser>(context));
+
+                ApplicationUser user = context.Users.Where(u => u.UserName.Equals(UserName, StringComparison.CurrentCultureIgnoreCase)).FirstOrDefault();
+
+                if (manager.IsInRole(user.Id, RoleName))
+                {
+                    manager.RemoveFromRole(user.Id, RoleName);
+                    TempData["ValidationMessage"] = ("Success: " + " " + UserName + " " + "Was Removed From the " + " " + RoleName + " " + "Role");
+                }
+                else
+                {
+                    TempData["ValidationMessage"] = ("Error: " + " " + UserName + " " + "Was Not Successfully Removed From the " + " " + RoleName + " " + "Role");
+                }
             }
-            else
+            catch
             {
-                TempData["ValidationMessage"] = ("Error: " + " " + UserName + " " + "Was Not Successfully Removed From the " + " " + RoleName + " " + "Role");
+                TempData["ValidationMessage"] = ("Error: Something Went Wrong");
             }
             // prepopulat roles for the view dropdown
             var list = context.Roles.OrderBy(r => r.Name).ToList().Select(rr => new SelectListItem { Value = rr.Name.ToString(), Text = rr.Name }).ToList();
@@ -151,47 +166,55 @@ namespace HPSMVC.Controllers
         [ValidateAntiForgeryToken]
         public async Task<ActionResult> DeleteUser(string Username)
         {
-            var manager = new ApplicationUserManager(new UserStore<ApplicationUser>(context));
-            ApplicationUser user = context.Users.Where(u => u.UserName.Equals(Username, StringComparison.CurrentCultureIgnoreCase)).FirstOrDefault();
-
-            string userID = user.Id;
-
-            if (ModelState.IsValid)
+            try
             {
-            if (userID == null)
-            {
-              return new HttpStatusCodeResult(HttpStatusCode.BadRequest);
+                var manager = new ApplicationUserManager(new UserStore<ApplicationUser>(context));
+                ApplicationUser user = context.Users.Where(u => u.UserName.Equals(Username, StringComparison.CurrentCultureIgnoreCase)).FirstOrDefault();
+
+                string userID = user.Id;
+
+                if (ModelState.IsValid)
+                {
+                    if (userID == null)
+                    {
+                        return new HttpStatusCodeResult(HttpStatusCode.BadRequest);
+                    }
+
+                    var userDel = await manager.FindByIdAsync(userID);
+                    var logins = user.Logins;
+
+                    foreach (var login in logins.ToList())
+                    {
+                        await manager.RemoveLoginAsync(login.UserId, new UserLoginInfo(login.LoginProvider, login.ProviderKey));
+                    }
+
+                    var rolesForUser = await manager.GetRolesAsync(userID);
+
+                    if (rolesForUser.Count() > 0)
+                    {
+                        foreach (var item in rolesForUser.ToList())
+                        {
+                            // item should be the name of the role
+                            var result = await manager.RemoveFromRoleAsync(user.Id, item);
+                        }
+                    }
+
+                    await manager.DeleteAsync(user);
+
+                    TempData["ValidationMessage"] = ("Success: " + " " + Username + " " + "Was Removed");
+                    return View("ManageUser");
+                }
+                else
+                {
+                    TempData["ValidationMessage"] = ("Error: " + " " + Username + " " + "Was Not Removed");
+                    return View("ManageUser");
+                }
             }
-
-            var userDel = await manager.FindByIdAsync(userID);
-            var logins = user.Logins;
-
-            foreach (var login in logins.ToList())
+            catch
             {
-              await manager.RemoveLoginAsync(login.UserId, new UserLoginInfo(login.LoginProvider, login.ProviderKey));
+                TempData["ValidationMessage"] = ("Error: Something Went Wrong");
+                return View("ManageUser");
             }
-
-            var rolesForUser = await manager.GetRolesAsync(userID);
-
-            if (rolesForUser.Count() > 0)
-            {
-              foreach (var item in rolesForUser.ToList())
-              {
-                // item should be the name of the role
-                var result = await manager.RemoveFromRoleAsync(user.Id, item);
-              }
-            }
-
-            await manager.DeleteAsync(user);
-
-            TempData["ValidationMessage"] = ("Success: " + " " + Username + " " + "Was Removed");
-            return View("ManageUser");
-          }
-          else
-          {
-              TempData["ValidationMessage"] = ("Error: " + " " + Username + " " + "Was Not Removed");
-            return View("ManageUser");
-          }         
 
         }
 
