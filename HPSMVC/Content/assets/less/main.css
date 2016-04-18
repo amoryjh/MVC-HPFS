@@ -7404,7 +7404,8 @@ nav ul li > ul li a:hover {
     opacity: 1;
   }
 }
-.french__modal {
+.french__modal,
+.fitbit__modal {
   display: none;
   background: rgba(250, 250, 250, 0.9);
   position: absolute;
@@ -7415,11 +7416,10 @@ nav ul li > ul li a:hover {
   padding: 4em;
   margin: 0 auto;
   z-index: 90;
+  box-shadow: 0 1px 1px #888;
 }
-french__modal__inner {
-  position: relative;
-}
-.french__modal__exit {
+.french__modal__exit,
+.fitbit__modal__exit {
   top: 1em;
   right: 1em;
   font-size: 2em;

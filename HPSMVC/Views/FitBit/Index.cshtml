@@ -100,13 +100,22 @@ View your fitbit account for more in depth stats
         $('.ppc-percents span').html(percent + '%');
 
         var convertDate = $('.fb-dateend').text();
-        var todayDate = new Date().toJSON().slice(0, 10);
-        var re =  /-/gi;
-        var replacedd = todayDate.replace(re, '/')
-        alert(convertDate);
-        alert(replacedd)
-        if(convertDate > replacedd)
-            alert("woahhhh")
-
+        var todayDate = new Date();
+        var endDate = new Date(convertDate);
+        if (endDate <= todayDate) {
+            $('.fitbit__modal').fadeToggle(400);
+        }
+        $('.fitbit__modal__exit').click(function () {
+            $('.fitbit__modal').fadeToggle(400);
+        })
     })
 </script>
+<div class="fitbit__modal">
+    <div class="fitbit__modal__inner clearfix">
+        <h1 class="text-center">Attention</h1>
+        <p>
+            Looks like the week is over, please submit your stats for this week.
+        </p>
+        <p><a href="Fitbit/Manage" class="btn btn-solid">Submit Stats</a></p>
+    </div>
+</div>
