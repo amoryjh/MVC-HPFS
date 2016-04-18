@@ -94,10 +94,17 @@
                     <a href="/User">Account Management</a>
                 }
                 </li>
-                @if (User.IsInRole("Admin") || User.IsInRole("BoardDirector") || User.IsInRole("FamilyAssoc") || User.IsInRole("Client"))
-                {
-                <li><a href="/Fitbit">FitBit</a></li>
-                }
+                <li>
+                    @if (User.IsInRole("Admin") || User.IsInRole("BoardDirector") || User.IsInRole("FamilyAssoc") || User.IsInRole("Client"))
+                    {
+                        <a href="/Fitbit">FitBit</a>
+
+                        if ((string)TempData["SubmitFitBit"] == "1")
+                        {
+                            <i class="fa fa-exclamation" aria-hidden="true" style="color:red;"></i>
+                        }
+                    }
+                </li>
             </ul>
             <i class="icon fa fa-chevron-right closed"> </i>
         </div>

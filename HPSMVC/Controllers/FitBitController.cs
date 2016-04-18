@@ -22,7 +22,6 @@ namespace HPSMVC.Controllers
         // GET: Fitbit
         public ActionResult Index()
         {
-            
             var userStore = new UserStore<ApplicationUser>(context);
             var userManager = new UserManager<ApplicationUser>(userStore);
 
@@ -34,6 +33,12 @@ namespace HPSMVC.Controllers
                 currentUser.dateEndFitBit = "";
             }
 
+            var currentDate = DateTime.Now.Date.ToShortDateString();
+
+            if(currentUser.dateEndFitBit.Contains(currentDate))
+            {
+                TempData["SubmitFitBit"] = "1";
+            }
 
             var fitBitProgress = currentUser.FitBitProgress.ToString();
             var fitBitGoal = currentUser.FitBitGoal.ToString();
